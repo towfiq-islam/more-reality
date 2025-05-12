@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme {
+  --color-primary-green: #63be60;
+  --color-primary-text-blue: #161c24;
+  --color-primary-blue: #003e6a;
+  --color-border-color: rgba(73, 73, 73, 0.5);
+  --color-primary-gray: #f9f9f9;
+  --container-max-width: 1440px;
+  --container-padding-x: 1rem;
+  --container-padding-y: 2rem;
+  --shadow-nav-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.08);
+
+  --font-family-lato: "Lato", sans-serif;
+  --font-family-jakarta: "Lato", sans-serif;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  overflow-x: hidden;
+}
+
+.nav-link {
+  @apply text-lg text-primary-text-blue font-normal leading-[155%];
+}
+
+.nav-link-active {
+  @apply text-lg text-primary-green font-normal leading-[155%];
+}
+
+.primary-btn {
+  @apply w-auto h-auto px-5 py-3 bg-primary-blue text-white rounded-[8px] hover:bg-transparent hover:text-primary-blue border-[1px] border-transparent hover:border-primary-blue hover:border-solid ease-in-out duration-500 cursor-pointer;
+}
+
+.primary-hero-heading {
+  @apply text-[64px] text-white font-[700] leading-[137.5%] text-center max-w-[1303px];
+}
+
+.primary-hero-sub-heading {
+  @apply text-2xl text-primary-gray font-normal leading-[124.5%] text-center max-w-[903px] font-family-lato;
+}
+
+.footer-para {
+  @apply text-base text-white font-normal   font-family-jakarta;
+}
+
+.footer-link-title{
+  @apply text-[22px] text-white font-medium leading-[153%]   font-family-jakarta;
+}
+
+.footer-link{
+  @apply text-base text-white font-medium leading-[153%] cursor-pointer  font-family-jakarta uppercase opacity-80  max-w-[278px] hover:underline ease-in-out duration-300 ;
+}
+
+.section-heading-one{
+  @apply text-[48px] font-[700] leading-[125%]  text-primary-text-blue ;
+}
+
+.section-sub-heading-one{
+  @apply text-[20px]  leading-[125%]  text-primary-text-blue;
+}
