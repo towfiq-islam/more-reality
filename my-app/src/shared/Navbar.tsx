@@ -6,6 +6,7 @@ import Link from "next/link";
 import { DropdownSvg } from "@/components/SvgContainer/SvgContainer";
 import { usePathname } from "next/navigation";
 import Button from "@/components/Tags/Button/Button";
+import { useRouter } from "next/navigation";
 
 interface navLink {
   name: string;
@@ -16,15 +17,15 @@ interface navLink {
 const navLinks: navLink[] = [
   {
     name: "Home",
-    path: "/home",
+    path: "/",
   },
   {
     name: "Join More Realty",
-    path: "/",
+    path: "/join",
   },
   {
     name: "About Us",
-    path: "/",
+    path: "/about",
     subCategory: [
       "Meeting the Team",
       "Our Offices",
@@ -35,15 +36,15 @@ const navLinks: navLink[] = [
   },
   {
     name: "Buying a Home",
-    path: "/",
+    path: "/buy",
   },
   {
     name: "Selling a Home",
-    path: "/",
+    path: "/sell",
   },
   {
     name: "Commercial",
-    path: "/",
+    path: "/commercial",
   },
 ];
 
@@ -51,6 +52,7 @@ const Navbar = () => {
   const pathName = usePathname();
   const [isDropDown, setisDropDown] = useState(Boolean || undefined);
   const dropdownRef = useRef<HTMLUListElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -69,11 +71,14 @@ const Navbar = () => {
     <nav className=" h-auto py-[34px] shadow-nav-shadow bg-white w-full">
       <div className=" container flex flex-row justify-between items-center  ">
         <Image
+          onClick={() => {
+            router.push("/");
+          }}
           src={logo?.src}
           width={108}
           height={52}
           alt="not found"
-          className="w-[108px] h-[52px] object-cover "
+          className="w-[108px] h-[52px] object-cover cursor-pointer "
         />
         <ul className="flex flex-row justify-between gap-x-[42px] ">
           {navLinks.map((item, idx) => {
@@ -104,9 +109,7 @@ const Navbar = () => {
                     >
                       {item?.subCategory?.map((data, idx) => (
                         <li key={idx}>
-                          <div className="nav-link block py-2">
-                            {data}
-                          </div>
+                          <div className="nav-link block py-2">{data}</div>
                           {idx !== item.subCategory!.length - 1 && (
                             <hr className="border-gray-400" />
                           )}
@@ -129,12 +132,10 @@ const Navbar = () => {
           })}
         </ul>
 
-        <Button Txt={"Contact Us"} className="primary-btn"  />
+        <Button Txt={"Contact Us"} className="primary-btn" />
       </div>
     </nav>
   );
 };
 
 export default Navbar;
-
-

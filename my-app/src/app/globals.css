@@ -11,6 +11,7 @@
   --color-primary-text-blue: #161c24;
   --color-primary-blue: #003e6a;
   --color-border-color: rgba(73, 73, 73, 0.5);
+  --color-off-white:#F3F9FE;
   --color-primary-gray: #f9f9f9;
   --container-max-width: 1440px;
   --container-padding-x: 1rem;
@@ -46,6 +47,10 @@ body {
   @apply w-auto h-auto px-5 py-3 bg-primary-blue text-white rounded-[8px] hover:bg-transparent hover:text-primary-blue border-[1px] border-transparent hover:border-primary-blue hover:border-solid ease-in-out duration-500 cursor-pointer;
 }
 
+.secondary-btn {
+  @apply w-auto h-auto px-5 py-3 bg-primary-blue text-white rounded-[43px] hover:bg-transparent hover:text-primary-blue border-[1px] border-transparent hover:border-primary-blue hover:border-solid ease-in-out duration-500 cursor-pointer;
+}
+
 .primary-hero-heading {
   @apply text-[64px] text-white font-[700] leading-[137.5%] text-center max-w-[1303px];
 }
@@ -72,4 +77,8 @@ body {
 
 .section-sub-heading-one{
   @apply text-[20px]  leading-[125%]  text-primary-text-blue;
+}
+
+.testimonial-heading{
+  @apply text-[48px]  leading-[125%] font-[700]  text-primary-text-blue;
 }

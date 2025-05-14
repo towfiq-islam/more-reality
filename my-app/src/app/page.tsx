@@ -1,9 +1,16 @@
-import React from 'react'
+import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
+import Testimonial from "@/components/pages/Home/Testimonial";
+import WhyChooseUs from "@/components/pages/Home/WhyChooseUs";
+import React from "react";
 
 const page = () => {
   return (
-    <div>hello world</div>
-  )
-}
+    <>
+      <CommonHeroBanner />
+      <WhyChooseUs />
+      <Testimonial />
+    </>
+  );
+};
 
-export default page
+export default page;
