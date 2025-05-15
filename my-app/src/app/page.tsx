@@ -11,7 +11,7 @@ const page = () => {
       <CommonHeroBanner />
       <WhyChooseUs />
       <Testimonial />
-      <BlogSection/>
+      <BlogSection />
     </>
   );
 };
