@@ -100,7 +100,7 @@ const Testimonial = () => {
         <div className="w-full">
           <Swiper
             modules={[Navigation]}
-            onSwiper={swiper => (swiperRef.current = swiper)}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
             spaceBetween={30}
             slidesPerView={3}
             className="overflow-hidden"
