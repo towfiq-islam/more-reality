@@ -109,7 +109,7 @@ const Testimonial = () => {
               <SwiperSlide
                 key={idx}
               >
-                <TestimonialCard key={idx} imgUrl={item.imgUrl} name={item.name} review={item.review} rating={item.rating} />
+                <TestimonialCard key={idx} imgUrl={item.imgUrl} name={item.name} review={item.review} isDownPart={true} rating={item.rating} />
               </SwiperSlide>
             ))}
           </Swiper>
