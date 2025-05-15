@@ -18,26 +18,26 @@ interface TestimonialProps {
   rating: number;
 }
 
-const testimonials: TestimonialProps[] = [
+const agentSuccessStories: TestimonialProps[] = [
   {
     imgUrl: beard,
-    name: "John Doe",
+    name: " Sarah M",
     review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
+      "“Joining MORE Realty was the best career move I ever made. The mentorship, tools, and support helped me triple my business in just two years.”",
     rating: 3,
   },
   {
     imgUrl: beard,
-    name: "Jane Smith",
+    name: "Mark T.",
     review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
+      "“As a busy dad, flexibility was key. MORE Realty gave me the freedom to manage my schedule, and the backend support allowed me to focus on what I do best — serving clients.”",
     rating: 4,
   },
   {
     imgUrl: beard,
-    name: "Alex Johnson",
+    name: "Emily K.",
     review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
+      "“The marketing support at MORE Realty is incredible! I have professional-looking materials and social media content that make me stand out — without spending hours designing it myself.”",
     rating: 5,
   },
   {
@@ -56,7 +56,7 @@ const testimonials: TestimonialProps[] = [
   },
 ];
 
-const Testimonial = () => {
+const ContactUsTestimonial = () => {
   const swiperRef = useRef<SwiperType | null>(null);
 
   const handlePrev = () => {
@@ -74,7 +74,7 @@ const Testimonial = () => {
           <div className="flex-1 flex justify-center">
             <Heading
               Variant="h4"
-              Txt={"What our customer are saying"}
+              Txt={"Agent Success Stories"}
               className="testimonial-heading"
             />
           </div>
@@ -105,14 +105,14 @@ const Testimonial = () => {
             slidesPerView={3}
             className="overflow-hidden"
           >
-            {testimonials.map((item, idx) => (
+            {agentSuccessStories.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <TestimonialCard
                   key={idx}
                   imgUrl={item.imgUrl}
                   name={item.name}
                   review={item.review}
-                  isDownPart={true}
+                  isDownPart={false}
                   rating={item.rating}
                 />
               </SwiperSlide>
@@ -124,4 +124,4 @@ const Testimonial = () => {
   );
 };
 
-export default Testimonial;
+export default ContactUsTestimonial;
