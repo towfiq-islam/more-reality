@@ -106,10 +106,15 @@ const Testimonial = () => {
             className="overflow-hidden"
           >
             {testimonials.map((item, idx) => (
-              <SwiperSlide
-                key={idx}
-              >
-                <TestimonialCard key={idx} imgUrl={item.imgUrl} name={item.name} review={item.review} isDownPart={true} rating={item.rating} />
+              <SwiperSlide key={idx}>
+                <TestimonialCard
+                  key={idx}
+                  imgUrl={item.imgUrl}
+                  name={item.name}
+                  review={item.review}
+                  isDownPart={true}
+                  rating={item.rating}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
