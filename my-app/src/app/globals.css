@@ -13,6 +13,8 @@
   --color-border-color: rgba(73, 73, 73, 0.5);
   --color-off-white: #f3f9fe;
   --color-primary-gray: #f9f9f9;
+  --color-secondary-gray: #f8f8f8;
+  --color-secondary-text: #494949;
   --container-max-width: 1440px;
   --container-padding-x: 1rem;
   --container-padding-y: 2rem;
@@ -50,7 +52,7 @@ body {
   @apply w-auto h-auto px-5 py-3 text-lg 
          bg-transparent text-primary-blue border-[1px] border-primary-blue border-solid
          hover:bg-primary-blue hover:text-white hover:border-transparent
-         rounded-[8px] ease-in-out duration-500 cursor-pointer ;
+         rounded-[8px] ease-in-out duration-500 cursor-pointer;
 }
 
 .secondary-btn {
@@ -89,18 +91,18 @@ body {
   @apply text-[48px]  leading-[125%] font-[700]  text-primary-text-blue;
 }
 
-.blog-card-title{
+.blog-card-title {
   @apply text-[28px]  leading-[125%] font-[700]  text-white;
 }
 
-.blog-card-details{
+.blog-card-details {
   @apply text-[22px]  leading-[136%] font-[300]  text-white;
 }
 
-.blog-card-name{
+.blog-card-name {
   @apply text-lg  leading-[150%] font-medium  text-white;
 }
 
-.blog-card-date{
+.blog-card-date {
   @apply text-lg  leading-[150%] font-medium  text-white;
 }

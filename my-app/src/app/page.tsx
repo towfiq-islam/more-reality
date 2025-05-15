@@ -1,5 +1,6 @@
 import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
 import BlogSection from "@/components/pages/Home/BlogSection";
+import FaqSection from "@/components/pages/Home/FaqSection";
 import Testimonial from "@/components/pages/Home/Testimonial";
 import WhyChooseUs from "@/components/pages/Home/WhyChooseUs";
 
@@ -11,7 +12,8 @@ const page = () => {
       <CommonHeroBanner />
       <WhyChooseUs />
       <Testimonial />
-      <BlogSection/>
+      <BlogSection />
+      <FaqSection />
     </>
   );
 };
