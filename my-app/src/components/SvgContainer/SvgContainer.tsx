@@ -703,7 +703,7 @@ export const Competitive = () => {
           y2="14.009"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#3E4154" />
+          <stop stopColor="#3E4154" />
           <stop offset="1" stopColor="#1B2129" />
         </linearGradient>
         <linearGradient
@@ -714,8 +714,8 @@ export const Competitive = () => {
           y2="48.2747"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#4793EB" />
-          <stop offset="1" stop-color="#2367EC" />
+          <stop stopColor="#4793EB" />
+          <stop offset="1" stopColor="#2367EC" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_23925_370"
@@ -725,8 +725,8 @@ export const Competitive = () => {
           y2="47.709"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#2B50D2" />
-          <stop offset="1" stop-color="#182EA5" />
+          <stop stopColor="#2B50D2" />
+          <stop offset="1" stopColor="#182EA5" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_23925_370"
@@ -736,8 +736,8 @@ export const Competitive = () => {
           y2="39.943"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="#DADFE0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="#DADFE0" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_23925_370"
@@ -747,8 +747,8 @@ export const Competitive = () => {
           y2="34.66"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#6FC6FC" />
-          <stop offset="1" stop-color="#50A7F6" />
+          <stop stopColor="#6FC6FC" />
+          <stop offset="1" stopColor="#50A7F6" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_23925_370"
@@ -758,8 +758,8 @@ export const Competitive = () => {
           y2="30.936"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F1D2BD" />
-          <stop offset="1" stop-color="#FEB592" />
+          <stop stopColor="#F1D2BD" />
+          <stop offset="1" stopColor="#FEB592" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_23925_370"
@@ -769,8 +769,8 @@ export const Competitive = () => {
           y2="23.77"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#C6CBCC" />
-          <stop offset="1" stop-color="#9FA5A6" />
+          <stop stopColor="#C6CBCC" />
+          <stop offset="1" stopColor="#9FA5A6" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_23925_370"
@@ -780,8 +780,8 @@ export const Competitive = () => {
           y2="20.068"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#4793EB" />
-          <stop offset="1" stop-color="#2367EC" />
+          <stop stopColor="#4793EB" />
+          <stop offset="1" stopColor="#2367EC" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_23925_370"
@@ -791,8 +791,8 @@ export const Competitive = () => {
           y2="20.068"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#4793EB" />
-          <stop offset="1" stop-color="#2367EC" />
+          <stop stopColor="#4793EB" />
+          <stop offset="1" stopColor="#2367EC" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_23925_370"
@@ -802,11 +802,11 @@ export const Competitive = () => {
           y2="29.098"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F1D2BD" />
-          <stop offset="0.314" stop-color="#F2CFB9" />
-          <stop offset="0.608" stop-color="#F5C7AD" />
-          <stop offset="0.894" stop-color="#FBBB9B" />
-          <stop offset="1" stop-color="#FEB592" />
+          <stop stopColor="#F1D2BD" />
+          <stop offset="0.314" stopColor="#F2CFB9" />
+          <stop offset="0.608" stopColor="#F5C7AD" />
+          <stop offset="0.894" stopColor="#FBBB9B" />
+          <stop offset="1" stopColor="#FEB592" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_23925_370"
@@ -816,8 +816,8 @@ export const Competitive = () => {
           y2="23.77"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#C6CBCC" />
-          <stop offset="1" stop-color="#9FA5A6" />
+          <stop stopColor="#C6CBCC" />
+          <stop offset="1" stopColor="#9FA5A6" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_23925_370"
@@ -827,8 +827,8 @@ export const Competitive = () => {
           y2="24.569"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#4793EB" />
-          <stop offset="1" stop-color="#2367EC" />
+          <stop stopColor="#4793EB" />
+          <stop offset="1" stopColor="#2367EC" />
         </linearGradient>
         <clipPath id="clip0_23925_370">
           <rect width="48" height="48" fill="white" />
