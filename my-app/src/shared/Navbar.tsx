@@ -21,7 +21,7 @@ const navLinks: navLink[] = [
   },
   {
     name: "Join More Realty",
-    path: "/join",
+    path: "/join-more-realty",
   },
   {
     name: "About Us",

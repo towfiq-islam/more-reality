@@ -1,36 +1,39 @@
-import ContactUsCard, {
-  ContactCardType,
-} from "@/components/cards/ContactUsCard";
-import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
+import CommonHeroBanner, { InfoBox } from "@/components/CommonHeroBanner/CommonHeroBanner";
 import ContactFormSection from "@/components/pages/ContactUs/ContactFormSection";
-import React from "react";
+import hero from "@/assests/hero.jpg"
+import { AddressSvg, EmailSvg, PhoneSvg } from "@/components/SvgContainer/SvgContainer";
 
-const data: ContactCardType[] = [
+const data: InfoBox[] = [
   {
-    icon: "map",
+    icon: AddressSvg,
     title: "Address",
-    description: "16037 SW Upper Boones Ferry RD Suite 150, Tigard, OR, 97224",
+    subTitle: "16037 SW Upper Boones Ferry RD Suite 150, Tigard, OR, 97224",
   },
   {
-    icon: "mail",
+    icon: EmailSvg,
     title: "Email Address",
-    description: "Send us your request or questions to info@morerealty.com",
+    subTitle: "Send us your request or questions to info@morerealty.com",
+    mailAddress: "info@morerealty.com", 
   },
   {
-    icon: "phone",
+    icon: PhoneSvg,
     title: "Call Us",
-    description: "Got questions? Let’s talk it out. +1(877) 344-6673",
+    subTitle: "Got questions? Let’s talk it out. +1(877) 344-6673",
+    phoneNumber: "+18773446673",
   },
-] as const;
+];
 
 const page = () => {
   return (
     <>
-      <CommonHeroBanner />
-      <div className="max-w-7xl mx-auto px-4 py-12 mb-8  lg:-mt-[135px]">
-        <ContactUsCard data={data} />
-      </div>
-      <div className="mb-[80px]">
+       <CommonHeroBanner
+          BgImgurl={hero}
+          title="Empowering Real Estate Dreams with Local Expertise and Trusted Relationships"
+          subTitle="At MORE Realty, we’re committed to guiding you with knowledge, integrity, and a personal touch—whether you’re buying, selling, or investing."
+          isInfoBox={true}
+          infoArr={data}
+        />
+      <div className="mt-48 mb-20">
         <ContactFormSection />
       </div>
     </>
