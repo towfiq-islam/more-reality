@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -7,19 +7,31 @@
 }
 
 @theme {
+  /* Colors */
   --color-primary-green: #63be60;
   --color-primary-text-blue: #161c24;
   --color-primary-blue: #003e6a;
   --color-border-color: rgba(73, 73, 73, 0.5);
   --color-off-white: #f3f9fe;
   --color-primary-gray: #f9f9f9;
+  --color-off-gray: #f8f8f8;
+  --color-secondary-text: #494949;
+  --color-propertyBg: #F3F9FE;
+
+  /* Container */
   --container-max-width: 1440px;
   --container-padding-x: 1rem;
   --container-padding-y: 2rem;
   --shadow-nav-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.08);
 
+  /* Font family */
   --font-family-lato: "Lato", sans-serif;
   --font-family-jakarta: "Lato", sans-serif;
+  --font-lato: var(--font-lato);
+}
+
+body {
+  @apply font-lato
 }
 
 .container {
@@ -30,10 +42,6 @@
   margin-right: auto;
 }
 
-body {
-  font-family: "Lato", sans-serif;
-  overflow-x: hidden;
-}
 
 .nav-link {
   @apply text-lg text-primary-text-blue font-normal leading-[155%];
@@ -46,11 +54,9 @@ body {
 .primary-btn {
   @apply w-auto h-auto px-5 py-3 bg-primary-blue text-white rounded-[8px] hover:bg-transparent hover:text-primary-blue border-[1px] border-transparent hover:border-primary-blue hover:border-solid ease-in-out duration-500 cursor-pointer;
 }
+
 .primary-btn-reverse {
-  @apply w-auto h-auto px-5 py-3 text-lg 
-         bg-transparent text-primary-blue border-[1px] border-primary-blue border-solid
-         hover:bg-primary-blue hover:text-white hover:border-transparent
-         rounded-[8px] ease-in-out duration-500 cursor-pointer ;
+  @apply w-auto h-auto px-5 py-3 text-lg bg-transparent text-primary-blue border-[1px] border-primary-blue border-solid hover:bg-primary-blue hover:text-white hover:border-transparent rounded-[8px] ease-in-out duration-500 cursor-pointer;
 }
 
 .secondary-btn {
@@ -66,41 +72,41 @@ body {
 }
 
 .footer-para {
-  @apply text-base text-white font-normal   font-family-jakarta;
+  @apply text-base text-white font-normal font-family-jakarta;
 }
 
 .footer-link-title {
-  @apply text-[22px] text-white font-medium leading-[153%]   font-family-jakarta;
+  @apply text-[22px] text-white font-medium leading-[153%] font-family-jakarta;
 }
 
 .footer-link {
-  @apply text-base text-white font-medium leading-[153%] cursor-pointer  font-family-jakarta uppercase opacity-80  max-w-[278px] hover:underline ease-in-out duration-300;
+  @apply text-base text-white font-medium leading-[153%] cursor-pointer font-family-jakarta uppercase opacity-80 max-w-[278px] hover:underline ease-in-out duration-300;
 }
 
 .section-heading-one {
-  @apply text-[48px] font-[700] leading-[125%]  text-primary-text-blue;
+  @apply text-[48px] font-[700] leading-[125%] text-primary-text-blue;
 }
 
 .section-sub-heading-one {
-  @apply text-[20px]  leading-[125%]  text-primary-text-blue;
+  @apply text-[20px] leading-[125%] text-primary-text-blue;
 }
 
 .testimonial-heading {
-  @apply text-[48px]  leading-[125%] font-[700]  text-primary-text-blue;
+  @apply text-[48px] leading-[125%] font-[700] text-primary-text-blue;
 }
 
-.blog-card-title{
-  @apply text-[28px]  leading-[125%] font-[700]  text-white;
+.blog-card-title {
+  @apply text-[28px] leading-[125%] font-[700] text-white;
 }
 
-.blog-card-details{
-  @apply text-[22px]  leading-[136%] font-[300]  text-white;
+.blog-card-details {
+  @apply text-[22px] leading-[136%] font-[300] text-white;
 }
 
-.blog-card-name{
-  @apply text-lg  leading-[150%] font-medium  text-white;
+.blog-card-name {
+  @apply text-lg leading-[150%] font-medium text-white;
 }
 
-.blog-card-date{
-  @apply text-lg  leading-[150%] font-medium  text-white;
+.blog-card-date {
+  @apply text-lg leading-[150%] font-medium text-white;
 }

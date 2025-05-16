@@ -100,16 +100,21 @@ const Testimonial = () => {
         <div className="w-full">
           <Swiper
             modules={[Navigation]}
-            onSwiper={swiper => (swiperRef.current = swiper)}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
             spaceBetween={30}
             slidesPerView={3}
             className="overflow-hidden"
           >
             {testimonials.map((item, idx) => (
-              <SwiperSlide
-                key={idx}
-              >
-                <TestimonialCard key={idx} imgUrl={item.imgUrl} name={item.name} review={item.review} rating={item.rating} />
+              <SwiperSlide key={idx}>
+                <TestimonialCard
+                  key={idx}
+                  imgUrl={item.imgUrl}
+                  name={item.name}
+                  review={item.review}
+                  isDownPart={true}
+                  rating={item.rating}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
