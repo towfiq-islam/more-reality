@@ -3,10 +3,10 @@ import ContactUsTestimonial from "@/components/pages/ContactUs/ContactUsTestimon
 import OverviewSection from "@/components/pages/JoinMoreRealty/OverviewSection";
 import realityBanner from "../../assests/contact-us/more-reality-banner.png";
 import whyChooseImage from "../../assests/contact-us/whychooseusmorereallity.png";
-import Testimonial from "@/components/pages/Home/Testimonial";
 import hero from "@/assests/hero.jpg"
 import WhyChooseMoreSection from "@/components/pages/JoinMoreRealty/WhyChooseMoreSection";
 import JoinMoreRealtySection from "@/components/pages/JoinMoreRealty/JoinMoreRealtySection";
+import MoreReality from "@/components/pages/JoinMoreRealty/MoreReality";
 const whyChooseMoreData = {
   title: "WHY CHOOSE MORE",
   pricing: "$129.99/MONTH  |  $495 TRANSACTION FEE  |  $4950 CAP",
@@ -37,8 +37,9 @@ const page = () => {
         sectionImage={realityBanner}
       />
       <WhyChooseMoreSection {...whyChooseMoreData} />
-      <JoinMoreRealtySection />
+      <MoreReality/>
       <ContactUsTestimonial />
+      <JoinMoreRealtySection />
     </>
   );
 };
