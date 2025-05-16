@@ -1,9 +1,8 @@
-import React, { JSX, SVGProps } from "react";
-import hero from "../../assests/hero.jpg";
+import { SVGProps } from "react";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";
 
-type InfoBox = {
+export type InfoBox = {
   icon: React.FC<SVGProps<SVGSVGElement>>;
   title: string;
   subTitle: string;
@@ -28,7 +27,7 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
 }) => {
   return (
     <div
-      className="h-[780px] w-screen relative  "
+      className="h-[780px] w-full relative"
       style={{
         backgroundImage: `linear-gradient(#00000099, #00000099), url(${BgImgurl?.src})`,
         backgroundSize: "cover",
@@ -41,20 +40,20 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
         <Paragraph Txt={subTitle} className="primary-hero-sub-heading" />
       </div>
       {isInfoBox && (
-        <div className="w-screen absolute bottom-0 mb-[94px]  h-auto  flex flex-row gap-x-[30px]  ">
-          <div className="container flex flex-row gap-x-[30px]   ">
+        <div className="absolute -bottom-20 flex left-1/2 -translate-x-1/2 gap-[30px]">
+          <div className="container flex flex-row gap-x-[30px]">
             {infoArr?.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div className="w-[417px] h-auto py-8 bg-primary-blue rounded-[10px] flex flex-col gap-y-[15px] ">
+                <div key={idx} className="w-[417px] h-auto px-[32px] py-8 bg-primary-blue rounded-[10px] flex flex-col gap-y-[15px] ">
                   <div className="flex flex-row gap-x-[15.35px] items-center ">
                     <Icon />
-                    <Paragraph Txt={item.title} className="" />
+                    <Paragraph Txt={item.title} className="font-semibold text-white" />
                   </div>
                   <div className="flex flex-col gap-y-1.5 ">
                     <Paragraph
                       Txt={item.subTitle}
-                      className=" max-w-[294px] "
+                      className=" max-w-[294px] text-white "
                     />
                   </div>
                 </div>

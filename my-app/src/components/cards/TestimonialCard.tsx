@@ -1,4 +1,3 @@
-import React from "react";
 import { Star } from "../SvgContainer/SvgContainer";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";
@@ -20,7 +19,7 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
   isDownPart,
 }) => {
   return (
-    <div className="h-auto max-w-[457px] rounded-[30px] bg-white border-[1px] border-solid border-[#E2E2E2] py-[31px] px-[30px] flex flex-col gap-y-[60px]  ">
+    <div className="min-h-[280px] max-w-[457px] rounded-[30px] bg-white border-[1px] border-solid border-[#E2E2E2] py-[31px] px-[30px] flex flex-col gap-y-[60px]  ">
       <div className="flex flex-col gap-y-[18px] ">
         <div className="flex flex-row gap-x-[25px] items-center ">
           <Image

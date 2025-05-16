@@ -3,7 +3,8 @@ import ContactUsTestimonial from "@/components/pages/ContactUs/ContactUsTestimon
 import OverviewSection from "@/components/pages/JoinMoreRealty/OverviewSection";
 import realityBanner from "../../assests/contact-us/more-reality-banner.png";
 import whyChooseImage from "../../assests/contact-us/whychooseusmorereallity.png";
-import React from "react";
+import Testimonial from "@/components/pages/Home/Testimonial";
+import hero from "@/assests/hero.jpg"
 import WhyChooseMoreSection from "@/components/pages/JoinMoreRealty/WhyChooseMoreSection";
 import JoinMoreRealtySection from "@/components/pages/JoinMoreRealty/JoinMoreRealtySection";
 const whyChooseMoreData = {
@@ -23,7 +24,12 @@ const whyChooseMoreData = {
 const page = () => {
   return (
     <>
-      <CommonHeroBanner />
+      <CommonHeroBanner   
+        BgImgurl={hero}
+        title="Unlock Your Potential with MORE Realty"
+        subTitle="Join a brokerage that puts your growth first—with the tools, support, and culture to build a thriving real estate career on your terms."
+        isInfoBox={false}
+       />
       <OverviewSection
         sectionTitle="Overview"
         sectionSubtitle="A Brokerage That Invests in YOU"
