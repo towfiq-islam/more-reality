@@ -69,23 +69,24 @@ const OurSuccess = () => {
   return (
     <section className="py-20 mb-20 bg-propertyBg">
       <div className="container">
-        <div className="grid grid-cols-3 mb-5">
-            {/* Empty */}
-            <div></div>
-            {/* Heading */}
+        {/* Upper Part */}
+        <div className="flex items-center justify-between w-full mb-5">
+          {/* Heading */}
+          <div className="flex-1 flex justify-center">
             <Heading Txt='Success Stories' className='text-primary-text-blue font-semibold text-4xl text-center mb-4' Variant='h3' />
+          </div>
 
           {/* Navigation buttons */}
-          <div className="flex gap-5 justify-self-end">
+          <div className="flex flex-row gap-x-5">
             <div
               onClick={handlePrev}
-              className="flex items-center justify-center w-10 h-10 border border-primary-blue rounded-full cursor-pointer"
+              className="flex items-center justify-center w-12 h-12 border border-primary-blue rounded-full cursor-pointer"
             >
               <ArrowSvg />
             </div>
             <div
               onClick={handleNext}
-              className="flex items-center justify-center w-10 h-10 border border-primary-blue rounded-full cursor-pointer rotate-180"
+              className="flex items-center justify-center w-12 h-12 border border-primary-blue rounded-full cursor-pointer rotate-180"
             >
               <ArrowSvg />
             </div>

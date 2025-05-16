@@ -1,4 +1,4 @@
-import React, { JSX, SVGProps } from "react";
+import { SVGProps } from "react";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";
 
@@ -27,7 +27,7 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
 }) => {
   return (
     <div
-      className="h-[780px] w-screen relative  "
+      className="h-[780px] w-full relative"
       style={{
         backgroundImage: `linear-gradient(#00000099, #00000099), url(${BgImgurl?.src})`,
         backgroundSize: "cover",

@@ -183,20 +183,21 @@ export const WaveSvg = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="1920"
-      height="174"
       viewBox="0 0 1920 174"
+      className="w-full h-auto"
+      preserveAspectRatio="none"
       fill="none"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M1920 174H0V0C320 53.0286 640 79.5429 960 79.5429C1280 79.5429 1600 53.0286 1920 0V174Z"
         fill="#003E6A"
       />
     </svg>
   );
 };
+
 
 export const LocationSVg = () => {
   return (

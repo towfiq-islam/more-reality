@@ -6,7 +6,7 @@ import Button from "../Tags/Button/Button";
 const SubscribeNewsLetter = () => {
   return (
     <section
-      className="flex flex-col  pb-[120px] h-auto w-full
+      className="flex flex-col overflow-x-hidden pb-[120px] h-auto w-full
     "
     >
       <WaveSvg />
