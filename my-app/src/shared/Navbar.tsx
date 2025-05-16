@@ -21,7 +21,7 @@ const navLinks: navLink[] = [
   },
   {
     name: "Join More Realty",
-    path: "/join",
+    path: "/join-more-realty",
   },
   {
     name: "About Us",
@@ -68,7 +68,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className=" h-auto py-[34px] shadow-nav-shadow bg-white w-full">
+    <nav className=" h-auto py-7 shadow-nav-shadow bg-white w-full sticky top-0 z-10">
       <div className=" container flex flex-row justify-between items-center  ">
         <Image
           onClick={() => {
