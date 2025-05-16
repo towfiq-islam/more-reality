@@ -1,5 +1,6 @@
 "use client";
 
+import Heading from "@/components/Tags/Heading/Heading";
 import Image from "next/image";
 import React from "react";
 
@@ -21,10 +22,11 @@ const OverviewSection: React.FC<OverviewProps> = ({
       <div className="w-full max-w-[1440px] mx-auto">
         {/* Heading */}
         <div className="text-center mb-10">
-          <h2 className="text-[#161C24] text-center font-lato font-bold text-[32px] leading-[44px] sm:text-[40px] sm:leading-[56px] md:text-[48px] md:leading-[70px]">
-            {sectionTitle}
-          </h2>
-
+          <Heading
+            Txt={sectionTitle}
+            Variant="h2"
+            className="text-[#161C24] text-center font-lato font-bold text-[32px] leading-[44px] sm:text-[40px] sm:leading-[56px] md:text-[48px] md:leading-[70px]"
+          />
           <p className="mt-4 text-gray-600 text-base sm:text-lg">
             {sectionSubtitle}
           </p>
