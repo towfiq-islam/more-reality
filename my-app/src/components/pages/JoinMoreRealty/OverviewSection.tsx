@@ -19,7 +19,7 @@ const OverviewSection: React.FC<OverviewProps> = ({
 }) => {
   return (
     <section className="bg-white py-10 px-4 sm:px-6 md:px-10">
-      <div className="w-full max-w-[1440px] mx-auto">
+      <div className="container">
         {/* Heading */}
         <div className="text-center mb-10">
           <Heading

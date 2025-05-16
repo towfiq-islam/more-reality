@@ -838,7 +838,6 @@ export const Competitive = () => {
     </svg>
   );
 };
-}
 
 export const OfferSvg = () => {
   return (
