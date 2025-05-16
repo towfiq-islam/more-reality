@@ -6,16 +6,15 @@ import { Navigation } from "swiper/modules";
 import { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-
+import { StaticImageData } from "next/image";
 import { ArrowSvg } from "@/components/SvgContainer/SvgContainer";
 import TestimonialCard from "@/components/cards/TestimonialCard";
-import beard from "../../../assests/home/beard.png";
+import beard from "@/assests/home/beard.png";
 
 interface TestimonialProps {
-  imgUrl: string | any;
+  imgUrl: StaticImageData;
   name: string;
   review: string;
-  rating: number;
 }
 
 const testimonials: TestimonialProps[] = [
@@ -24,39 +23,34 @@ const testimonials: TestimonialProps[] = [
     name: "John Doe",
     review:
       "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-    rating: 3,
   },
   {
     imgUrl: beard,
     name: "Jane Smith",
     review:
       "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-    rating: 4,
   },
   {
     imgUrl: beard,
     name: "Alex Johnson",
     review:
       "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-    rating: 5,
   },
   {
     imgUrl: beard,
     name: "Emily Clark",
     review:
       "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-    rating: 4,
   },
   {
     imgUrl: beard,
     name: "Michael Lee",
     review:
       "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-    rating: 5,
   },
 ];
 
-const Testimonial = () => {
+const BuyAHomeTestimonial = () => {
   const swiperRef = useRef<SwiperType | null>(null);
 
   const handlePrev = () => {
@@ -68,13 +62,13 @@ const Testimonial = () => {
   };
 
   return (
-    <section className="h-auto w-full bg-off-white">
+    <section className="h-auto w-full bg-off-white mb-[120px]">
       <div className="container py-20 flex flex-col gap-y-[36px] items-center">
         <div className="flex items-center justify-between w-full">
           <div className="flex-1 flex justify-center">
             <Heading
               Variant="h4"
-              Txt={"What our customer are saying"}
+              Txt={"Hear From Our Happy Buyers"}
               className="testimonial-heading"
             />
           </div>
@@ -112,8 +106,8 @@ const Testimonial = () => {
                   imgUrl={item.imgUrl}
                   name={item.name}
                   review={item.review}
-                  isDownPart={true}
-                  rating={item.rating}
+                  isDownPart={false}
+                  rating={0}
                 />
               </SwiperSlide>
             ))}
@@ -124,4 +118,4 @@ const Testimonial = () => {
   );
 };
 
-export default Testimonial;
+export default BuyAHomeTestimonial;
