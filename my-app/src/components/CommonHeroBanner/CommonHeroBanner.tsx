@@ -1,5 +1,4 @@
 import React, { JSX, SVGProps } from "react";
-import hero from "../../assests/hero.jpg";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";
 

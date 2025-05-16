@@ -1,4 +1,3 @@
-import React from "react";
 import { WaveSvg } from "../SvgContainer/SvgContainer";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";
