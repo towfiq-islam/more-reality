@@ -87,7 +87,7 @@ const JoinMoreRealtySection = () => {
       </div>
 
       {/* Feature Grid */}
-      <div className="max-w-[1440px] mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="max-w-[1440px] mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-[128px] gap-y-[60px]">
         {joinMoreData.features.map((item, index) => (
           <div key={index} className="flex items-start gap-6">
             <div className="min-w-[40px] h-[40px]">{item.icon}</div>
