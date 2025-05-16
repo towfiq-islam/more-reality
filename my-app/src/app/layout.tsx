@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-// import { Lato } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/shared/Navbar";
 import Footer from "@/shared/Footer";
 
-// const lato = Lato({
-//   variable: "--font-lato",
-//   subsets: ["latin"],
-//   weight: ['400'],
-//   display: "swap",
-// });
+const lato = Lato({
+  variable: "--font-lato",
+  subsets: ["latin"],
+  weight: ['400'],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "more realty",
@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${lato.variable} antialiased`}>
         <Navbar />
         {children}
         <Footer />

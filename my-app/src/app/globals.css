@@ -6,10 +6,6 @@
   --foreground: #171717;
 }
 
-body {
-  font-family: "Lato", sans-serif;
-}
-
 @theme {
   /* Colors */
   --color-primary-green: #63be60;
@@ -31,7 +27,11 @@ body {
   /* Font family */
   --font-family-lato: "Lato", sans-serif;
   --font-family-jakarta: "Lato", sans-serif;
-  --font-lato: "Lato", sans-serif;
+  --font-lato: var(--font-lato);
+}
+
+body {
+  @apply font-lato
 }
 
 .container {
