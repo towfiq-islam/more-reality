@@ -67,6 +67,9 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const handleNavigate = () => {
+    router.push("/contact-us");
+  };
   return (
     <nav className=" h-auto py-7 shadow-nav-shadow bg-white w-full sticky top-0 z-10">
       <div className=" container flex flex-row justify-between items-center  ">
@@ -132,7 +135,11 @@ const Navbar = () => {
           })}
         </ul>
 
-        <Button Txt={"Contact Us"} className="primary-btn" />
+        <Button
+          onClick={handleNavigate}
+          Txt={"Contact Us"}
+          className="primary-btn"
+        />
       </div>
     </nav>
   );

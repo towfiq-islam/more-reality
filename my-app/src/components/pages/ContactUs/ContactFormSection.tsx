@@ -34,7 +34,7 @@ const ContactFormSection = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-y-12 md:gap-12">
+      <div className="max-w-[1440px] mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-y-12 md:gap-12">
         {/* Left Side */}
         <div className="text-white w-full md:w-1/2">
           <h2 className="text-3xl sm:text-4xl md:text-[48px] font-normal leading-[130%] mb-6">
