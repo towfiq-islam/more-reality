@@ -704,7 +704,7 @@ export const Competitive = () => {
           gradientUnits="userSpaceOnUse"
         >
           <stop stop-color="#3E4154" />
-          <stop offset="1" stop-color="#1B2129" />
+          <stop offset="1" stopColor="#1B2129" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_23925_370"
