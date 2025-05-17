@@ -36,8 +36,8 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
       }}
     >
       <div className="container flex flex-col items-center pt-[200px] gap-y-5  ">
-        <Heading Variant="h1" Txt={title} className="primary-hero-heading" />
-        <Paragraph Txt={subTitle} className="primary-hero-sub-heading" />
+        <Heading Variant="h1" Txt={title} className="primary-hero-heading !max-w-[1280px]" />
+        <Paragraph Txt={subTitle} className="primary-hero-sub-heading !max-w-[903px]" />
       </div>
       {isInfoBox && (
         <div className="absolute -bottom-20 flex left-1/2 -translate-x-1/2 gap-[30px]">
