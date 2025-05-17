@@ -1,5 +1,3 @@
-// components/FeatureCard.tsx
-import React from "react";
 import Image, { StaticImageData } from "next/image";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";

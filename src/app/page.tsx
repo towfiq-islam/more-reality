@@ -5,11 +5,7 @@ import FaqSection from "@/components/pages/Home/FaqSection";
 import Testimonial from "@/components/pages/Home/Testimonial";
 import WhyChooseUs from "@/components/pages/Home/WhyChooseUs";
 import hero from "../assests/hero.jpg";
-import {
-  CallSVg,
-  EmailSvg,
-  LocationSVg,
-} from "@/components/SvgContainer/SvgContainer";
+import { CallSVg, EmailSvg, LocationSVg } from "@/components/SvgContainer/SvgContainer";
 
 const InforArr = [
   {

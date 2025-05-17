@@ -181,20 +181,19 @@ export const ArrowUpSvg = () => {
 
 export const WaveSvg = () => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1920 174"
-      className="w-full h-auto"
-      preserveAspectRatio="none"
-      fill="none"
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M1920 174H0V0C320 53.0286 640 79.5429 960 79.5429C1280 79.5429 1600 53.0286 1920 0V174Z"
-        fill="#003E6A"
-      />
-    </svg>
+    <div className="relative w-full overflow-hidden leading-none">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1920 174"
+        className="w-full h-[80px] md:h-[100px] lg:h-[174px]"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M1920 174H0V0C320 53 640 80 960 80C1280 80 1600 53 1920 0V174Z"
+          fill="#003E6A"
+        />
+      </svg>
+    </div>
   );
 };
 
