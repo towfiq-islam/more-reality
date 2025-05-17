@@ -38,7 +38,7 @@ const page = () => {
         BgImgurl={hero}
         title="Homes Made for Living, Investments Made for Life"
         subTitle="Browse thousands of properties for sale and rent, handpicked to match your lifestyle and budget."
-        isInfoBox={false}
+        isInfoBox={true}
         infoArr={InforArr}
       />
       <WhyChooseUs />

@@ -7,6 +7,7 @@ import hero from "@/assests/hero.jpg"
 import WhyChooseMoreSection from "@/components/pages/JoinMoreRealty/WhyChooseMoreSection";
 import JoinMoreRealtySection from "@/components/pages/JoinMoreRealty/JoinMoreRealtySection";
 import MoreReality from "@/components/pages/JoinMoreRealty/MoreReality";
+
 const whyChooseMoreData = {
   title: "WHY CHOOSE MORE",
   pricing: "$129.99/MONTH  |  $495 TRANSACTION FEE  |  $4950 CAP",

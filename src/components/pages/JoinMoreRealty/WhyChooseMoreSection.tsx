@@ -65,7 +65,7 @@ const WhyChooseMoreSection = ({
 
             <a
               href={button.href}
-              className="inline-block bg-[#004D79] text-white font-medium px-5 py-2 rounded hover:bg-[#003f66] transition"
+              className="primary-btn"
             >
               {button.text}
             </a>
