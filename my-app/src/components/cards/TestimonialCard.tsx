@@ -1,10 +1,10 @@
 import { Star } from "../SvgContainer/SvgContainer";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface TestimonialProps {
-  imgUrl: string | any;
+  imgUrl: StaticImageData;
   name: string;
   review: string;
   rating: number;

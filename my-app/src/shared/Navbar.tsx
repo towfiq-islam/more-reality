@@ -36,7 +36,7 @@ const navLinks: navLink[] = [
   },
   {
     name: "Buying a Home",
-    path: "/buy",
+    path: "/buy-a-home",
   },
   {
     name: "Selling a Home",
