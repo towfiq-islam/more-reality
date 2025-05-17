@@ -8,9 +8,7 @@ import {
   BluePhone,
 } from "../SvgContainer/SvgContainer";
 import Paragraph from "../Tags/Paragraph/Paragraph";
-
 import { RootState } from "../../redux/store";
-
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from "react";
 
@@ -29,6 +27,7 @@ interface OfficeCardProps {
   location: string;
   phone: string;
   email: string;
+  descreption: string;
 }
 
 const OfficeCard: React.FC<OfficeCardProps> = ({
@@ -37,14 +36,18 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
   phone,
   location,
   email,
+  descreption
 }) => {
   const [isOpen, setIsOpen] = useState<boolean | null>(false);
 
   return (
     <>
-      <div onClick={()=>{
-        setIsOpen(true)
-      }} className="flex flex-col max-w-[352px] relative h-auto  bg-white cursor-pointer shadow-office pb-5 rounded-[8px] ">
+      <div
+        onClick={() => {
+          setIsOpen(true);
+        }}
+        className="flex flex-col max-w-[352px] relative h-auto  bg-white cursor-pointer shadow-office pb-5 rounded-[8px] "
+      >
         <Image
           width={352}
           height={236}
@@ -101,6 +104,10 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
                     Variant="h4"
                     Txt={name}
                     className="text-[32px]  text-primary-text-blue  font-meidum "
+                  />
+                  <Paragraph
+                    Txt={descreption}
+                    className={"text-xl  text-primary-text-blue  font-normal  "}
                   />
                 </div>
               </div>

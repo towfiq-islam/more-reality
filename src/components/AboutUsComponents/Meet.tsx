@@ -40,6 +40,7 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
   const teamData = useSelector((state: RootState) => state.team.teamData);
   const [isOpen, setIsOpen] = useState<boolean | null>(false);
   const [activeMember, setactiveMember] = useState<teamDataSchema | null>(null);
+  console.log(activeMember?.descreption);
 
   return (
     <>
@@ -112,7 +113,7 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
                       className="text-[32px]  text-primary-text-blue  font-meidum "
                     />
                     <Paragraph
-                      Txt={ activeMember.descreption}
+                      Txt={activeMember.descreption}
                       className={
                         "text-xl  text-primary-text-blue  font-normal  "
                       }
