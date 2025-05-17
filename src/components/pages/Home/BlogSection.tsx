@@ -51,16 +51,21 @@ const BlogSection = () => {
   return (
     <div className="container h-auto py-24 cursor-pointer flex flex-col gap-y-[60px]">
       <div className="flex flex-col items-center gap-y-2 ">
+        {/* Title */}
         <Heading
           Variant="h4"
           Txt={"Latest Blog Post"}
           className="testimonial-heading"
         />
+
+        {/* Subtitle */}
         <Paragraph
           Txt={ "Stay informed with expert tips, market insights, and home buying guides — everything you need to make smart real estate decisions."}
           className=" section-sub-heading-one font-normal opacity-[80] max-w-[889px] text-center !text-[#494949] "
         />
       </div>
+
+      {/* Map */}
       <div className="flex flex-col gap-y-[60px] items-center">
         <div className="flex flex-row flex-wrap  gap-x-[20px] gap-y-10 ">
           {blogData?.map((blog, idx) => {
