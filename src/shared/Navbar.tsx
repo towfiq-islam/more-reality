@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "../assests/logo.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -77,7 +77,7 @@ const Navbar = () => {
   };
   
   return (
-    <nav className=" h-auto py-7 shadow-nav-shadow bg-white w-full sticky top-0 z-10">
+    <nav className=" h-auto py-6 shadow-nav-shadow bg-white w-full sticky top-0 z-50">
       <div className=" container flex flex-row justify-between items-center  ">
         <Image
           onClick={() => {
@@ -89,7 +89,7 @@ const Navbar = () => {
           alt="not found"
           className="w-[108px] h-[52px] object-cover cursor-pointer "
         />
-        <ul className="flex flex-row justify-between gap-x-[42px] ">
+        <ul className="flex flex-row justify-between gap-x-[42px]">
           {navLinks.map((item, idx) => {
             return (
               <li key={idx}>
@@ -118,7 +118,7 @@ const Navbar = () => {
                           isDropDown ? "opacity-100" : "opacity-0"
                         } `}
                     >
-                                    {item?.subCategory?.map((data, idx) => (
+               {item?.subCategory?.map((data, idx) => (
                 <li key={idx}>
                   <div
                     className={`block py-2 ${
@@ -132,9 +132,7 @@ const Navbar = () => {
                   )}
                 </li>
               ))}
-
-
-                    </ul>
+              </ul>
                   </Link>
                 ) : (
                   <Link

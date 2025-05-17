@@ -49,7 +49,7 @@ const blogData: BlogCardProps[] = [
 
 const BlogSection = () => {
   return (
-    <div className="container h-auto py-[120px] cursor-pointer flex flex-col gap-y-[60px]">
+    <div className="container h-auto py-24 cursor-pointer flex flex-col gap-y-[60px]">
       <div className="flex flex-col items-center gap-y-2 ">
         <Heading
           Variant="h4"
