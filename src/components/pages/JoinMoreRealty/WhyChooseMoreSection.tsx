@@ -41,8 +41,7 @@ const WhyChooseMoreSection = ({
           </div>
 
           {/* Right Side Content */}
-          <div
-           className="w-full md:w-1/2 text-left">
+          <div className="w-full md:w-1/2 text-left">
             <h2 className="text-2xl md:text-4xl mb-2 text-[#161C24] font-lato text-[36px] font-semibold leading-[56px] tracking-[-1.08px] capitalize">
               {title}
             </h2>
@@ -63,10 +62,7 @@ const WhyChooseMoreSection = ({
 
             <p className="text-gray-800 font-semibold mb-6">{bonus}</p>
 
-            <a
-              href={button.href}
-              className="inline-block bg-[#004D79] text-white font-medium px-5 py-2 rounded hover:bg-[#003f66] transition"
-            >
+            <a href={button.href} className="primary-btn">
               {button.text}
             </a>
           </div>

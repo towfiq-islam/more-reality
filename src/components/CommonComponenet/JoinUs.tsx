@@ -1,0 +1,161 @@
+"use client";
+import contactUs from "@/assests/contact-us/contact-img.png";
+import { useForm } from "react-hook-form";
+import Heading from "@/components/Tags/Heading/Heading";
+import Paragraph from "@/components/Tags/Paragraph/Paragraph";
+
+interface ContactUsProps {
+  title: string;
+  description: string;
+}
+
+type FormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  address: string;
+  message: string;
+};
+
+const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormData>();
+
+  const onSubmit = (data: FormData) => {
+    console.log("Form Submitted:", data);
+    reset();
+  };
+
+  return (
+    <section
+      className="w-full bg-cover bg-center bg-no-repeat py-24 mb-20"
+      style={{
+        backgroundImage: `linear-gradient(#00000099, #00000099), url(${contactUs.src})`,
+      }}
+    >
+      <div className="container flex items-center gap-12">
+        {/* Left Side */}
+        <div className="text-white flex-1">
+          <Heading
+            Txt={title}
+            Variant="h3"
+            className="text-white font-normal mb-8"
+          />
+          <Paragraph Txt={description} className="text-white opacity-80" />
+        </div>
+
+        {/* Right Side */}
+        <div className="bg-white p-8 rounded-xl shadow-2xl flex-1">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <div className="flex gap-5">
+              {/* First Name */}
+              <div className="flex-1">
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  {...register("firstName", {
+                    required: "First name is required",
+                  })}
+                  className="w-full px-4 py-3 border border-[#E6E6E6] rounded-[8px] outline-none"
+                />
+                {errors.firstName && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.firstName.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Last Name */}
+              <div className="flex-1">
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  {...register("lastName", {
+                    required: "Last name is required",
+                  })}
+                  className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none"
+                />
+                {errors.lastName && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.lastName.message}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            {/* Email */}
+            <div>
+              <input
+                type="email"
+                placeholder="Email Address"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^\S+@\S+$/i,
+                    message: "Invalid email format",
+                  },
+                })}
+                className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none"
+              />
+              {errors.email && (
+                <p className="text-sm text-red-600 mt-1">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
+
+            {/* Address */}
+            <div>
+              <input
+                type="text"
+                placeholder="Address"
+                {...register("address", { required: "Address is required" })}
+                className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none"
+              />
+              {errors.address && (
+                <p className="text-sm text-red-600 mt-1">
+                  {errors.address.message}
+                </p>
+              )}
+            </div>
+
+            {/* Message */}
+            <div>
+              <textarea
+                placeholder="Message"
+                rows={5}
+                {...register("message", {
+                  required: "Message is required",
+                  minLength: {
+                    value: 10,
+                    message: "Message should be at least 10 characters",
+                  },
+                })}
+                className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none resize-none"
+              ></textarea>
+              {errors.message && (
+                <p className="text-sm text-red-600 mt-1">
+                  {errors.message.message}
+                </p>
+              )}
+            </div>
+
+            {/* Submit btn */}
+            <button
+              type="submit"
+              className="w-full cursor bg-[#004172] text-white py-3 rounded-md hover:bg-[#00345a] transition"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default JoinUs;

@@ -1,12 +1,13 @@
 import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
 import ContactUsTestimonial from "@/components/pages/ContactUs/ContactUsTestimonial";
-import OverviewSection from "@/components/pages/JoinMoreRealty/OverviewSection";
-import realityBanner from "../../assests/contact-us/more-reality-banner.png";
+import realityBanner from "@/assests/contact-us/more-reality-banner.png";
 import whyChooseImage from "../../assests/contact-us/whychooseusmorereallity.png";
-import hero from "@/assests/hero.jpg"
+import hero from "@/assests/hero.jpg";
 import WhyChooseMoreSection from "@/components/pages/JoinMoreRealty/WhyChooseMoreSection";
 import JoinMoreRealtySection from "@/components/pages/JoinMoreRealty/JoinMoreRealtySection";
 import MoreReality from "@/components/pages/JoinMoreRealty/MoreReality";
+import SecondaryBanner from "@/components/CommonComponenet/SecondaryBanner";
+
 const whyChooseMoreData = {
   title: "WHY CHOOSE MORE",
   pricing: "$129.99/MONTH  |  $495 TRANSACTION FEE  |  $4950 CAP",
@@ -24,20 +25,20 @@ const whyChooseMoreData = {
 const page = () => {
   return (
     <>
-      <CommonHeroBanner   
+      <CommonHeroBanner
         BgImgurl={hero}
         title="Unlock Your Potential with MORE Realty"
         subTitle="Join a brokerage that puts your growth first—with the tools, support, and culture to build a thriving real estate career on your terms."
         isInfoBox={false}
-       />
-      <OverviewSection
-        sectionTitle="Overview"
-        sectionSubtitle="A Brokerage That Invests in YOU"
-        sectionContent="At MORE Realty, we believe real estate agents deserve more — more support, more opportunities, and more freedom to thrive. Whether you’re a seasoned agent or just starting your career, we provide the tools, technology, training, and culture to help you grow and succeed."
-        sectionImage={realityBanner}
+      />
+      <SecondaryBanner
+        title="Overview"
+        subtitle="A Brokerage That Invests in YOU"
+        description="At MORE Realty, we believe real estate agents deserve more — more support, more opportunities, and more freedom to thrive. Whether you’re a seasoned agent or just starting your career, we provide the tools, technology, training, and culture to help you grow and succeed."
+        image={realityBanner}
       />
       <WhyChooseMoreSection {...whyChooseMoreData} />
-      <MoreReality/>
+      <MoreReality />
       <ContactUsTestimonial />
       <JoinMoreRealtySection />
     </>

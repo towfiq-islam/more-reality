@@ -43,7 +43,11 @@ const Property = () => {
     return (
         <section className="py-20 bg-propertyBg">
             <div className="container">
-                <Heading Txt='Type of commercial properties we handle' className='text-primary-text-blue font-semibold text-4xl text-center mb-10' Variant='h3' />
+                <Heading 
+                    Txt='Type of commercial properties we handle'
+                    className='text-4xl text-center mb-10'
+                    Variant='h3' 
+                />
                 <div className="grid grid-cols-3 gap-20">
                     {
                         data?.map(item => <div key={item?.id}>

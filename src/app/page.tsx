@@ -13,21 +13,21 @@ import {
 
 const InforArr = [
   {
-    icon: LocationSVg ,
+    icon: LocationSVg,
     title: "Address",
     subTitle: "16037 SW Upper Boones Ferry RD Suite 150, Tigard, OR, 97224",
     mailAddress: "",
     phoneNumber: "",
   },
   {
-    icon: EmailSvg ,
+    icon: EmailSvg,
     title: "Email Address",
     subTitle: "Send us your request or questions to",
     mailAddress: "info@morerealty.com",
     phoneNumber: "",
   },
   {
-    icon: CallSVg ,
+    icon: CallSVg,
     title: "Call Us",
     subTitle: "Got questions? Let’s talk it out.",
     mailAddress: "",

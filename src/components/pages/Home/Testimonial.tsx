@@ -75,7 +75,6 @@ const Testimonial = () => {
             <Heading
               Variant="h4"
               Txt={"What our customer are saying"}
-              className="testimonial-heading"
             />
           </div>
 

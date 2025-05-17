@@ -1,15 +1,14 @@
-'use client'
+"use client";
 import Heading from "@/components/Tags/Heading/Heading";
 import notFound from "../assests/not-found.png";
 import Image from "next/image";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";
 import Button from "@/components/Tags/Button/Button";
 import { useRouter } from "next/navigation";
-
-
+import { clsx } from "clsx";
 
 const page = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <section className="flex flex-col container items-center justify-center gap-y-8 h-auto py-[63px] ">
@@ -34,9 +33,13 @@ const page = () => {
             className="text-base text-[#808080] text-center max-w-[612] font-[400] leading-[150%] "
           />
         </div>
-        <Button onClick={() => {
-          router.push("/")
-        }} Txt={"Back to Home"} className="secondary-btn" />
+        <Button
+          onClick={() => {
+            router.push("/");
+          }}
+          Txt={"Back to Home"}
+          className="secondary-btn"
+        />
       </div>
     </section>
   );

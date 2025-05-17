@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "../assests/logo.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,18 +7,18 @@ import { DropdownSvg } from "@/components/SvgContainer/SvgContainer";
 import { usePathname } from "next/navigation";
 import Button from "@/components/Tags/Button/Button";
 import { useRouter } from "next/navigation";
- 
+
 interface navLink {
   name: string;
   path: string;
   subCategory?: subCategory[];
 }
- 
+
 type subCategory = {
   label: string;
   path: string;
 };
- 
+
 const navLinks: navLink[] = [
   {
     name: "Home",
@@ -52,13 +52,13 @@ const navLinks: navLink[] = [
     path: "/commercial",
   },
 ];
- 
+
 const Navbar = () => {
   const pathName = usePathname();
   const [isDropDown, setisDropDown] = useState(Boolean || undefined);
   const dropdownRef = useRef<HTMLUListElement>(null);
   const router = useRouter();
- 
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -71,13 +71,13 @@ const Navbar = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
- 
+
   const handleNavigate = () => {
     router.push("/contact-us");
   };
-  
+
   return (
-    <nav className=" h-auto py-7 shadow-nav-shadow bg-white w-full sticky top-0 z-10">
+    <nav className=" h-auto py-6 shadow-nav-shadow bg-white w-full sticky top-0 z-50">
       <div className=" container flex flex-row justify-between items-center  ">
         <Image
           onClick={() => {
@@ -89,25 +89,29 @@ const Navbar = () => {
           alt="not found"
           className="w-[108px] h-[52px] object-cover cursor-pointer "
         />
-        <ul className="flex flex-row justify-between gap-x-[42px] ">
+        <ul className="flex flex-row justify-between gap-x-[42px]">
           {navLinks.map((item, idx) => {
             return (
               <li key={idx}>
                 {item.name == "About Us" ? (
-            <Link
-              className={`${
-                (pathName === item.path || item.subCategory?.some(sub => pathName === sub.path))
-                  ? "nav-link-active"
-                  : "nav-link"
-              } flex flex-row gap-x-[6px] items-center relative`}
-              href={item?.path}
-            >
+                  <Link
+                    className={`${
+                      pathName === item.path ||
+                      item.subCategory?.some(sub => pathName === sub.path)
+                        ? "nav-link-active"
+                        : "nav-link"
+                    } flex flex-row gap-x-[6px] items-center relative`}
+                    href={item?.path}
+                  >
                     {item.name}
- 
+
                     <div
-                      onClick={() => {
+                      onClick={e => {
+                        e.stopPropagation();
+                        e.preventDefault(); // prevents navigation if wrapped inside <Link>
                         setisDropDown(!isDropDown);
                       }}
+                      className="cursor-pointer"
                     >
                       <DropdownSvg />
                     </div>
@@ -118,21 +122,22 @@ const Navbar = () => {
                           isDropDown ? "opacity-100" : "opacity-0"
                         } `}
                     >
-                                    {item?.subCategory?.map((data, idx) => (
-                <li key={idx}>
-                  <div
-                    className={`block py-2 ${
-                      pathName === data.path ? "nav-link-active" : "nav-link"
-                    }`}
-                  >
-                    <Link href={data?.path}>{data.label}</Link>
-                  </div>
-                  {idx !== item.subCategory!.length - 1 && (
-                    <hr className="border-gray-400" />
-                  )}
-                </li>
-              ))}
-
+                      {item?.subCategory?.map((data, idx) => (
+                        <li key={idx}>
+                          <div
+                            className={`block py-2 ${
+                              pathName === data.path
+                                ? "nav-link-active"
+                                : "nav-link"
+                            }`}
+                          >
+                            <Link href={data?.path}>{data.label}</Link>
+                          </div>
+                          {idx !== item.subCategory!.length - 1 && (
+                            <hr className="border-gray-400" />
+                          )}
+                        </li>
+                      ))}
                     </ul>
                   </Link>
                 ) : (
@@ -149,7 +154,7 @@ const Navbar = () => {
             );
           })}
         </ul>
- 
+
         <Button
           onClick={handleNavigate}
           Txt={"Contact Us"}
@@ -159,5 +164,5 @@ const Navbar = () => {
     </nav>
   );
 };
- 
+
 export default Navbar;
