@@ -1,16 +1,14 @@
-type ButtonProps = {
+import { cn } from "@/lib/utils";
+import React from "react";
+
+type ParagraphProps = {
   Txt: string | React.ReactNode;
-  onClick?: () => void;
-  className: string;
+  className?: string;
 };
 
-const Paragraph: React.FC<ButtonProps> = ({
-  Txt,
-  onClick,
-  className,
-}) => {
+const Paragraph: React.FC<ParagraphProps> = ({ Txt, className }) => {
   return (
-    <p className={className} onClick={onClick}>
+    <p className={cn("text-xl leading-[125%] text-secondary-text", className)}>
       {Txt}
     </p>
   );

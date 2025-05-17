@@ -1,17 +1,19 @@
-type ButtonProps = {
+import { cn } from "@/lib/utils";
+import React from "react";
+
+type HeadingProps = {
   Txt: string | React.ReactNode;
-  // onClick?: () => void;
-  className: string;
-  Variant: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  className?: string;
+  Variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 };
 
-// onClick,
-const Heading: React.FC<ButtonProps> = ({ Txt, className, Variant = "h2" }) => {
+const Heading: React.FC<HeadingProps> = ({ Txt, className, Variant = "h2" }) => {
+  const Component = Variant;
+
   return (
-    // onClick={onClick}
-    <Variant className={className}>
+    <Component className={cn("text-5xl leading-[125%] font-bold text-primary-text-blue", className)}>
       {Txt}
-    </Variant>
+    </Component>
   );
 };
 

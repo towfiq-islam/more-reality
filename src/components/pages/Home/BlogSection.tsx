@@ -53,14 +53,13 @@ const BlogSection = () => {
       <div className="flex flex-col items-center gap-y-2 ">
         {/* Title */}
         <Heading
-          Variant="h4"
-          Txt={"Latest Blog Post"}
-          className="testimonial-heading"
+          Variant="h3"
+          Txt="Latest Blog Post"
         />
 
         {/* Subtitle */}
         <Paragraph
-          Txt={ "Stay informed with expert tips, market insights, and home buying guides — everything you need to make smart real estate decisions."}
+          Txt={"Stay informed with expert tips, market insights, and home buying guides — everything you need to make smart real estate decisions."}
           className=" section-sub-heading-one font-normal opacity-[80] max-w-[889px] text-center !text-[#494949] "
         />
       </div>
