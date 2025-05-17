@@ -94,14 +94,14 @@ const Navbar = () => {
             return (
               <li key={idx}>
                 {item.name == "About Us" ? (
-<Link
-  className={`${
-    (pathName === item.path || item.subCategory?.some(sub => pathName === sub.path))
-      ? "nav-link-active"
-      : "nav-link"
-  } flex flex-row gap-x-[6px] items-center relative`}
-  href={item?.path}
->
+            <Link
+              className={`${
+                (pathName === item.path || item.subCategory?.some(sub => pathName === sub.path))
+                  ? "nav-link-active"
+                  : "nav-link"
+              } flex flex-row gap-x-[6px] items-center relative`}
+              href={item?.path}
+            >
                     {item.name}
  
                     <div
@@ -118,20 +118,20 @@ const Navbar = () => {
                           isDropDown ? "opacity-100" : "opacity-0"
                         } `}
                     >
-                      {item?.subCategory?.map((data, idx) => (
-  <li key={idx}>
-    <div
-      className={`block py-2 ${
-        pathName === data.path ? "nav-link-active" : "nav-link"
-      }`}
-    >
-      <Link href={data?.path}>{data.label}</Link>
-    </div>
-    {idx !== item.subCategory!.length - 1 && (
-      <hr className="border-gray-400" />
-    )}
-  </li>
-))}
+                                    {item?.subCategory?.map((data, idx) => (
+                <li key={idx}>
+                  <div
+                    className={`block py-2 ${
+                      pathName === data.path ? "nav-link-active" : "nav-link"
+                    }`}
+                  >
+                    <Link href={data?.path}>{data.label}</Link>
+                  </div>
+                  {idx !== item.subCategory!.length - 1 && (
+                    <hr className="border-gray-400" />
+                  )}
+                </li>
+              ))}
 
                     </ul>
                   </Link>
