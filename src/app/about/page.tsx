@@ -5,15 +5,15 @@ import Office from "@/components/AboutUsComponents/Office";
 import Partner from "@/components/AboutUsComponents/Partner";
 
 const page = () => {
-    return (
-        <>
-            <Meet/>
-            <Office/>
-            <Blog/>
-            <Community/>
-            <Partner/>
-        </>
-    );
+  return (
+    <>
+      <Meet isAllmember={false} />
+      <Office />
+      <Blog />
+      <Community />
+      <Partner />
+    </>
+  );
 };
 
 export default page;

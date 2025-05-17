@@ -22,6 +22,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
   date,
   ProfileImgUrl,
 }) => {
+  
   return (
     <div
       className={`relative overflow-hidden rounded-[16px] group ${
