@@ -151,8 +151,8 @@ const blogDataList: BlogCardProps[] = [
 interface BlogSectionProps {
   title?: string;
   subTitle?: string;
-  isFullArr: boolean;
-  isBtn: boolean;
+  isFullArr?: boolean;
+  isBtn?: boolean;
 }
 
 const BlogSection: React.FC<BlogSectionProps> = ({
@@ -216,4 +216,4 @@ const BlogSection: React.FC<BlogSectionProps> = ({
 };
 
 export default BlogSection;
-// ok
+
