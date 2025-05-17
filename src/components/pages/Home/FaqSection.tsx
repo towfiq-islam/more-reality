@@ -51,13 +51,9 @@ const FaqSection = () => {
         <Heading
           Variant="h4"
           Txt={"Frequently Asked Questions"}
-          className="testimonial-heading"
         />
         <Paragraph
-          Txt={
-            "FAQs and answers on a particular topic you product on Residence"
-          }
-          className=" section-sub-heading-one font-normal opacity-[80] max-w-[889px] text-center !text-secondary-text "
+          Txt={ "FAQs and answers on a particular topic you product on Residence"}
         />
       </div>
       <div className="mt-5 flex flex-col gap-8 h-auto">

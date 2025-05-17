@@ -6,7 +6,7 @@ import WhyChoose from "@/components/CommercialPageComponents/WhyChoose";
 import OurService from "@/components/CommercialPageComponents/OurService";
 import OurSuccess from "@/components/CommercialPageComponents/OurSuccess";
 
-const Commercial = () => {
+const page = () => {
     return (
         <>
             <CommonHeroBanner
@@ -24,4 +24,4 @@ const Commercial = () => {
     );
 };
 
-export default Commercial;
+export default page;

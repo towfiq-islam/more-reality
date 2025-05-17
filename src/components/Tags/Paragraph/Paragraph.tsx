@@ -8,7 +8,7 @@ type ParagraphProps = {
 
 const Paragraph: React.FC<ParagraphProps> = ({ Txt, className }) => {
   return (
-    <p className={cn("text-xl leading-[125%] text-secondary-text", className)}>
+    <p className={cn("text-xl text-secondary-text", className)}>
       {Txt}
     </p>
   );

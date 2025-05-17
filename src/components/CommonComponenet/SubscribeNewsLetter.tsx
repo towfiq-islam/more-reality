@@ -12,13 +12,11 @@ const SubscribeNewsLetter = () => {
           <Heading
             Variant="h3"
             Txt={"Subscribe to our newsletter"}
-            className="text-white text-center text-[48px]  font-bold leading-[60px]"
+            className="text-white text-center"
           />
           <Paragraph
-            className="text-white max-w-[815px] text-center font-lato text-[20px] not-italic font-normal leading-[32px]"
-            Txt={
-              "    Stay updated with the latest blog, special offers, and exclusive content. Join our log today and never miss an update from us!"
-            }
+            Txt={ "Stay updated with the latest blog, special offers, and exclusive content. Join our log today and never miss an update from us!"}
+            className="text-white max-w-[815px] text-center"
           />
         </div>
         <div className="w-[851px] h-[66px] bg-white shadow-sm relative rounded-[8px] pr-2.5 py-[5px] ">

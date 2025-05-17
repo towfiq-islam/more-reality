@@ -70,10 +70,10 @@ const OurSuccess = () => {
     <section className="py-20 mb-20 bg-propertyBg">
       <div className="container">
         {/* Upper Part */}
-        <div className="flex items-center justify-between w-full mb-5">
+        <div className="flex items-center justify-between w-full mb-10">
           {/* Heading */}
           <div className="flex-1 flex justify-center">
-            <Heading Txt='Success Stories' className='text-primary-text-blue font-semibold text-4xl text-center mb-4' Variant='h3' />
+            <Heading Txt='Success Stories' className='text-4xl' Variant='h3' />
           </div>
 
           {/* Navigation buttons */}
