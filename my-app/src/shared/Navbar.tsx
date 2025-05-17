@@ -7,13 +7,18 @@ import { DropdownSvg } from "@/components/SvgContainer/SvgContainer";
 import { usePathname } from "next/navigation";
 import Button from "@/components/Tags/Button/Button";
 import { useRouter } from "next/navigation";
-
+ 
 interface navLink {
   name: string;
   path: string;
-  subCategory?: string[];
+  subCategory?: subCategory[];
 }
-
+ 
+type subCategory = {
+  label: string;
+  path: string;
+};
+ 
 const navLinks: navLink[] = [
   {
     name: "Home",
@@ -27,11 +32,11 @@ const navLinks: navLink[] = [
     name: "About Us",
     path: "/about",
     subCategory: [
-      "Meeting the Team",
-      "Our Offices",
-      "News & Blog",
-      "MORE Gives",
-      "United Real Estate",
+      { label: "Meet the Team", path: "/about/meet-the-team" },
+      { label: "Our Offices", path: "/about/our-offices" },
+      { label: "News & Blog", path: "/about/news-and-blogs" },
+      { label: "MORE Gives", path: "/about/more-gives" },
+      { label: "United Real Estate", path: "/about/united-real-state" },
     ],
   },
   {
@@ -47,13 +52,13 @@ const navLinks: navLink[] = [
     path: "/commercial",
   },
 ];
-
+ 
 const Navbar = () => {
   const pathName = usePathname();
   const [isDropDown, setisDropDown] = useState(Boolean || undefined);
   const dropdownRef = useRef<HTMLUListElement>(null);
   const router = useRouter();
-
+ 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -66,10 +71,11 @@ const Navbar = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
+ 
   const handleNavigate = () => {
     router.push("/contact-us");
   };
+  
   return (
     <nav className=" h-auto py-7 shadow-nav-shadow bg-white w-full sticky top-0 z-10">
       <div className=" container flex flex-row justify-between items-center  ">
@@ -88,14 +94,16 @@ const Navbar = () => {
             return (
               <li key={idx}>
                 {item.name == "About Us" ? (
-                  <Link
-                    className={`${
-                      pathName == item?.path ? "nav-link-active" : "nav-link  "
-                    } flex flex-row gap-x-[6px] items-center relative  `}
-                    href={""}
-                  >
+<Link
+  className={`${
+    (pathName === item.path || item.subCategory?.some(sub => pathName === sub.path))
+      ? "nav-link-active"
+      : "nav-link"
+  } flex flex-row gap-x-[6px] items-center relative`}
+  href={item?.path}
+>
                     {item.name}
-
+ 
                     <div
                       onClick={() => {
                         setisDropDown(!isDropDown);
@@ -106,18 +114,25 @@ const Navbar = () => {
                     <ul
                       ref={dropdownRef}
                       className={`
-                        w-[244px] h-auto py-5 bg-white border-[0.5px] absolute top-0 left-0 mt-10 rounded-[8px] ml-[-50px] border-border-color shadow-md flex flex-col px-5 ease-in-out duration-150 ${
+                        w-[244px] h-auto py-5 bg-white border-[0.5px] absolute top-0 left-0 mt-10 rounded-[8px] ml-[-50px] border-border-color shadow-lg flex flex-col px-5 ease-in-out duration-150 ${
                           isDropDown ? "opacity-100" : "opacity-0"
                         } `}
                     >
                       {item?.subCategory?.map((data, idx) => (
-                        <li key={idx}>
-                          <div className="nav-link block py-2">{data}</div>
-                          {idx !== item.subCategory!.length - 1 && (
-                            <hr className="border-gray-400" />
-                          )}
-                        </li>
-                      ))}
+  <li key={idx}>
+    <div
+      className={`block py-2 ${
+        pathName === data.path ? "nav-link-active" : "nav-link"
+      }`}
+    >
+      <Link href={data?.path}>{data.label}</Link>
+    </div>
+    {idx !== item.subCategory!.length - 1 && (
+      <hr className="border-gray-400" />
+    )}
+  </li>
+))}
+
                     </ul>
                   </Link>
                 ) : (
@@ -134,7 +149,7 @@ const Navbar = () => {
             );
           })}
         </ul>
-
+ 
         <Button
           onClick={handleNavigate}
           Txt={"Contact Us"}
@@ -144,5 +159,5 @@ const Navbar = () => {
     </nav>
   );
 };
-
+ 
 export default Navbar;
