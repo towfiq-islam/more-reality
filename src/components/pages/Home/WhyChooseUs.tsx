@@ -1,4 +1,3 @@
-import React from "react";
 import white_building from "../../../assests/home/white-building.jpg";
 import gray_building from "../../../assests/home/gray-building.jpg";
 import vila from "../../../assests/home/vila.jpg";
@@ -54,19 +53,17 @@ const WhyChooseUs = () => {
         <Heading
           Txt={"Why Choose Us"}
           Variant="h2"
-          className="section-heading-one"
         />
         <div className="flex flex-col gap-y-5 max-w-[685px] ">
           <Paragraph
             Txt={`We’re not just another real estate agency — we’re your trusted partner in finding the perfect place to call home. Here's why clients choose us again and again:`}
-            className=" section-sub-heading-one "
           />
           {highlights?.map((item, idx) => {
             return (
               <div key={idx} className="flex flex-col gap-y-1 ">
                 <Paragraph
                   Txt={item.title}
-                  className=" section-sub-heading-one  font-[700] "
+                  className=" section-sub-heading-one font-[700] "
                 />
                 <Paragraph
                   Txt={item.description}

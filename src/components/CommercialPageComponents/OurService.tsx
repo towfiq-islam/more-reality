@@ -37,11 +37,14 @@ const data = [
 const OurService = () => {
     return (
         <section className="container pb-20">
-            <Heading Txt='Our Services' className='text-primary-text-blue font-semibold text-4xl text-center mb-4' Variant='h3' />
-            <Paragraph Txt={'We provide a full spectrum of services tailored to the commercial real estate market.'} className="max-w-[1440px] text-primary-text-blue text-xl text-center mb-14" />
+            <Heading Txt='Our Services' className='mb-4 text-center' Variant='h3' />
+            <Paragraph 
+                Txt={'We provide a full spectrum of services tailored to the commercial real estate market.'} 
+                className="max-w-[1440px] text-center mb-14" 
+            />
             <div className="flex justify-center gap-7 flex-wrap">
                 {
-                    data?.map(item => <div key={item?.id} className="w-[445px] px-10 pt-7 pb-10 shadow rounded-xl border border-gray-200 bg-white">
+                    data?.map(item => <div key={item?.id} className="w-[445px] px-10 pt-7 pb-10 shadow rounded-xl border border-gray-200 bg-white hover:bg-gray-200 transition-all duration-300">
                         <span>{item?.icon}</span>
                         <h3 className="text-primary-text-blue font-bold text-[22px] leading-[34px] mt-5 mb-4">{item?.title}</h3>
                         <p className="text-secondary-text text-lg">{item?.desc}</p>

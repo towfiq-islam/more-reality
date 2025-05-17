@@ -38,6 +38,7 @@ const WhyChoose = () => {
                     src={whyChooseImg}
                     alt='choose_image'
                     placeholder="blur"
+                    className="max-h-[814px]"
                 />
             </div>
 
