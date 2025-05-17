@@ -1,6 +1,7 @@
 import OfficeCard from "../cards/OfficeCard";
 import Heading from "../Tags/Heading/Heading";
-import house from "../../assests/house.jpg"
+import house from "../../assests/house.jpg";
+import Button from "../Tags/Button/Button";
 
 type ImageObject = {
   src: string;
@@ -17,6 +18,7 @@ interface OfficeCardProps {
   location: string;
   phone: string;
   email: string;
+  descreption: string;
 }
 
 const officeData: OfficeCardProps[] = [
@@ -26,6 +28,8 @@ const officeData: OfficeCardProps[] = [
     location: "123 Main Street, Dhaka, Bangladesh",
     phone: "+880123456789",
     email: "headoffice@example.com",
+    descreption:
+      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
   },
   {
     bgImgurl: house,
@@ -33,6 +37,8 @@ const officeData: OfficeCardProps[] = [
     location: "456 Elm Street, Chittagong, Bangladesh",
     phone: "+880987654321",
     email: "branchoffice@example.com",
+    descreption:
+      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
   },
   {
     bgImgurl: house,
@@ -40,6 +46,8 @@ const officeData: OfficeCardProps[] = [
     location: "789 Oak Street, Sylhet, Bangladesh",
     phone: "+880192837465",
     email: "regionaloffice@example.com",
+    descreption:
+      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
   },
   {
     bgImgurl: house,
@@ -47,12 +55,14 @@ const officeData: OfficeCardProps[] = [
     location: "789 Oak Street, Sylhet, Bangladesh",
     phone: "+880192837465",
     email: "regionaloffice@example.com",
+    descreption:
+      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
   },
 ];
 
 const Office = () => {
   return (
-    <section className="container flex flex-col gap-y-10 ">
+    <section className="container flex flex-col gap-y-10 items-center ">
       <Heading
         Txt="Our Offices"
         className="text-primary-text-blue font-semibold text-5xl mb-4 text-center"
@@ -68,10 +78,12 @@ const Office = () => {
               location={item.location}
               phone={item.phone}
               email={item.email}
+              descreption={item.descreption}
             />
           );
         })}
       </div>
+      <Button Txt={'See More Office'} className={'primary-btn max-w-[209px] '}  />
     </section>
   );
 };
