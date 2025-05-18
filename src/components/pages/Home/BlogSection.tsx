@@ -1,3 +1,4 @@
+'use client'
 import Button from "@/components/Tags/Button/Button";
 import Heading from "@/components/Tags/Heading/Heading";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";
@@ -7,6 +8,9 @@ import asthtetic from "../../../assests/blog/asthetic.jpg";
 import white_shirt_man from "../../../assests/blog/white-shirt-man.jpg";
 import BlogCard from "@/components/cards/BlogCard";
 
+
+
+
 interface BlogCardProps {
   BgImgUrl: string | any;
   title: string;
@@ -15,6 +19,7 @@ interface BlogCardProps {
   ProfileImgUrl: string | any;
   date: string;
   Variant: "small" | "full";
+  id: number;
 }
 
 const blogData: BlogCardProps[] = [
@@ -26,6 +31,7 @@ const blogData: BlogCardProps[] = [
     ProfileImgUrl: white_shirt_man,
     date: "May 10, 2025",
     Variant: "small",
+    id: 1,
   },
   {
     BgImgUrl: cute_house,
@@ -35,6 +41,7 @@ const blogData: BlogCardProps[] = [
     ProfileImgUrl: asthtetic,
     date: "May 12, 2025",
     Variant: "small",
+    id: 2,
   },
   {
     BgImgUrl: asthtetic,
@@ -44,11 +51,13 @@ const blogData: BlogCardProps[] = [
     ProfileImgUrl: white_shirt_man,
     date: "May 14, 2025",
     Variant: "small",
+    id: 3,
   },
 ];
 
 const blogDataList: BlogCardProps[] = [
   {
+    id: 1,
     BgImgUrl: sky,
     title: "Title: Exploring the Skies",
     details:
@@ -59,6 +68,7 @@ const blogDataList: BlogCardProps[] = [
     Variant: "full",
   },
   {
+    id: 2,
     BgImgUrl: cute_house,
     title: "Title: Living in Aesthetic Homes",
     details:
@@ -69,6 +79,7 @@ const blogDataList: BlogCardProps[] = [
     Variant: "small",
   },
   {
+    id: 3,
     BgImgUrl: asthtetic,
     title: "Title: Urban Aesthetic Lifestyle",
     details:
@@ -79,6 +90,7 @@ const blogDataList: BlogCardProps[] = [
     Variant: "small",
   },
   {
+    id: 4,
     BgImgUrl: sky,
     title: "Title: Cloud Watching as a Hobby",
     details:
@@ -89,6 +101,7 @@ const blogDataList: BlogCardProps[] = [
     Variant: "small",
   },
   {
+    id: 5,
     BgImgUrl: cute_house,
     title: "Title: Architecture of Calm",
     details:
@@ -99,6 +112,7 @@ const blogDataList: BlogCardProps[] = [
     Variant: "small",
   },
   {
+    id: 6,
     BgImgUrl: asthtetic,
     title: "Title: Pastel Power",
     details:
@@ -109,6 +123,7 @@ const blogDataList: BlogCardProps[] = [
     Variant: "small",
   },
   {
+    id: 7,
     BgImgUrl: sky,
     title: "Title: Sky Photography Tips",
     details: "Capture breathtaking skies with just your phone – here’s how.",
@@ -118,6 +133,7 @@ const blogDataList: BlogCardProps[] = [
     Variant: "small",
   },
   {
+    id: 8,
     BgImgUrl: cute_house,
     title: "Title: Cottagecore Living",
     details:
@@ -128,6 +144,7 @@ const blogDataList: BlogCardProps[] = [
     Variant: "small",
   },
   {
+    id: 9,
     BgImgUrl: asthtetic,
     title: "Title: Styling with Neutrals",
     details:
@@ -138,6 +155,7 @@ const blogDataList: BlogCardProps[] = [
     Variant: "small",
   },
   {
+    id: 10,
     BgImgUrl: sky,
     title: "Title: Sunset Diaries",
     details: "Sunsets and reflections — visual poetry in everyday life.",
@@ -161,6 +179,8 @@ const BlogSection: React.FC<BlogSectionProps> = ({
   isFullArr = false,
   isBtn = true,
 }) => {
+
+
   return (
     <div className="container h-auto py-24 cursor-pointer flex flex-col gap-y-[60px]">
       <div className="flex flex-col items-center gap-y-2 ">
@@ -189,6 +209,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({
                     name={blog.name}
                     ProfileImgUrl={blog.ProfileImgUrl}
                     Variant={blog.Variant}
+                    id={blog.id}
                   />
                 );
               })
@@ -203,6 +224,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({
                     name={blog.name}
                     ProfileImgUrl={blog.ProfileImgUrl}
                     Variant={blog.Variant}
+                    id={blog.id}
                   />
                 );
               })}
@@ -216,4 +238,3 @@ const BlogSection: React.FC<BlogSectionProps> = ({
 };
 
 export default BlogSection;
-

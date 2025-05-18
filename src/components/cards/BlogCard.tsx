@@ -1,7 +1,9 @@
+'use client'
 import React from "react";
 import Heading from "../Tags/Heading/Heading";
 import Image from "next/image";
 import Paragraph from "../Tags/Paragraph/Paragraph";
+import { useRouter } from "next/navigation";
 
 interface BlogCardProps {
   BgImgUrl: string | any;
@@ -11,6 +13,7 @@ interface BlogCardProps {
   ProfileImgUrl: string | any;
   date: string;
   Variant: "small" | "full";
+  id:number
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({
@@ -21,10 +24,17 @@ const BlogCard: React.FC<BlogCardProps> = ({
   name,
   date,
   ProfileImgUrl,
+  id
 }) => {
-  
+  const router = useRouter();
+
+  const handleRedirect = () => {
+    router.push(`/about/news-and-blogs/${id}`);
+  };
+
   return (
     <div
+      onClick={handleRedirect}
       className={`relative overflow-hidden rounded-[16px] group ${
         Variant === "small" ? "h-[551px] w-[455px]" : "h-[427px] w-full"
       }`}

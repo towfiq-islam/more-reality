@@ -4,7 +4,8 @@ import "./globals.css";
 import Navbar from "@/shared/Navbar";
 import Footer from "@/shared/Footer";
 import { Providers } from "./Provider/Provider";
-Providers
+import AosProvider from "@/Provider/AosProvider/AosProvider";
+
 
 const lato = Lato({
   variable: "--font-lato",
@@ -27,7 +28,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${lato.variable} antialiased`}>
         <Navbar />
-        <Providers>{children}</Providers>
+        <Providers>
+          <AosProvider>
+          {children}
+          </AosProvider>
+          </Providers>
         <Footer />
       </body>
     </html>

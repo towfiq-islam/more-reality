@@ -4,12 +4,18 @@ type ButtonProps = {
   type?: "reset" | "submit";
   Txt: string | React.ReactNode;
   onClick?: () => void;
-  className:string
+  className: string;
 };
 
-const Button: React.FC<ButtonProps> = ({ type, Txt, onClick , className }) => {
+const Button: React.FC<ButtonProps> = ({ type, Txt, onClick, className }) => {
   return (
-    <button className={className} onClick={onClick} type={type}>
+    <button
+      data-aos="fade-up"
+      data-aos-delay="100"
+      className={className}
+      onClick={onClick}
+      type={type}
+    >
       {Txt}
     </button>
   );
