@@ -80,6 +80,8 @@ const Navbar = () => {
     <nav className=" h-auto py-6 shadow-nav-shadow bg-white w-full sticky top-0 z-50">
       <div className=" container flex flex-row justify-between items-center  ">
         <Image
+          data-aos="fade-up"
+          data-aos-delay="100"
           onClick={() => {
             router.push("/");
           }}
@@ -92,7 +94,7 @@ const Navbar = () => {
         <ul className="flex flex-row justify-between gap-x-[42px]">
           {navLinks.map((item, idx) => {
             return (
-              <li key={idx}>
+              <li data-aos="fade-up" data-aos-delay="100" key={idx}>
                 {item.name == "About Us" ? (
                   <Link
                     className={`${
@@ -125,6 +127,8 @@ const Navbar = () => {
                       {item?.subCategory?.map((data, idx) => (
                         <li key={idx}>
                           <div
+                            data-aos="fade-up"
+                            data-aos-delay="100"
                             className={`block py-2 ${
                               pathName === data.path
                                 ? "nav-link-active"
@@ -142,6 +146,8 @@ const Navbar = () => {
                   </Link>
                 ) : (
                   <Link
+                    data-aos="fade-up"
+                    data-aos-delay="100"
                     className={`${
                       pathName == item?.path ? "nav-link-active" : "nav-link"
                     }`}
