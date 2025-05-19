@@ -1926,24 +1926,77 @@ export const BlueMail = () => {
   );
 };
 
-export const BlueLocation =()=>{
-  return(
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <g clip-path="url(#clip0_23831_3137)">
-    <mask id="mask0_23831_3137"  maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-      <path d="M23.3574 23.3574V0.642578H0.642578V23.3574H23.3574Z" fill="white" stroke="white" stroke-width="1.28571"/>
-    </mask>
-    <g mask="url(#mask0_23831_3137)">
-      <path d="M15.2309 7.56191C15.2309 9.34644 13.7843 10.7931 11.9997 10.7931C10.2152 10.7931 8.76855 9.34644 8.76855 7.56191C8.76855 5.77739 10.2152 4.33074 11.9997 4.33074C13.7843 4.33074 15.2309 5.77739 15.2309 7.56191Z" stroke="#003E6A" stroke-width="1.28571" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M17.4287 3.36731C16.1373 1.69857 14.1095 0.701539 11.9992 0.701539C9.88887 0.701539 7.86106 1.69857 6.56966 3.36731C5.11326 5.24981 4.85263 7.51808 5.6181 9.73479C6.35404 11.8657 7.91684 13.6428 9.19465 15.4742C10.1087 16.7843 11.0228 18.0945 11.9368 19.4051L11.9992 19.4941L12.0615 19.4051C12.9756 18.0945 13.8896 16.7843 14.8037 15.4742C16.0815 13.6428 17.6443 11.8657 18.3802 9.73479C19.1457 7.51808 18.8851 5.24981 17.4287 3.36731Z" stroke="#003E6A" stroke-width="1.28571" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M7.69843 18.056L5.69922 19.3188L11.9992 23.2985L18.2992 19.3188L16.3 18.056" stroke="#003E6A" stroke-width="1.28571" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-  </g>
-  <defs>
-    <clipPath id="clip0_23831_3137">
-      <rect width="24" height="24" fill="white"/>
-    </clipPath>
-  </defs>
-</svg>
-  )
-}
+export const BlueLocation = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <g clip-path="url(#clip0_23831_3137)">
+        <mask
+          id="mask0_23831_3137"
+          maskUnits="userSpaceOnUse"
+          x="0"
+          y="0"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M23.3574 23.3574V0.642578H0.642578V23.3574H23.3574Z"
+            fill="white"
+            stroke="white"
+            stroke-width="1.28571"
+          />
+        </mask>
+        <g mask="url(#mask0_23831_3137)">
+          <path
+            d="M15.2309 7.56191C15.2309 9.34644 13.7843 10.7931 11.9997 10.7931C10.2152 10.7931 8.76855 9.34644 8.76855 7.56191C8.76855 5.77739 10.2152 4.33074 11.9997 4.33074C13.7843 4.33074 15.2309 5.77739 15.2309 7.56191Z"
+            stroke="#003E6A"
+            stroke-width="1.28571"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M17.4287 3.36731C16.1373 1.69857 14.1095 0.701539 11.9992 0.701539C9.88887 0.701539 7.86106 1.69857 6.56966 3.36731C5.11326 5.24981 4.85263 7.51808 5.6181 9.73479C6.35404 11.8657 7.91684 13.6428 9.19465 15.4742C10.1087 16.7843 11.0228 18.0945 11.9368 19.4051L11.9992 19.4941L12.0615 19.4051C12.9756 18.0945 13.8896 16.7843 14.8037 15.4742C16.0815 13.6428 17.6443 11.8657 18.3802 9.73479C19.1457 7.51808 18.8851 5.24981 17.4287 3.36731Z"
+            stroke="#003E6A"
+            stroke-width="1.28571"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M7.69843 18.056L5.69922 19.3188L11.9992 23.2985L18.2992 19.3188L16.3 18.056"
+            stroke="#003E6A"
+            stroke-width="1.28571"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </g>
+      </g>
+      <defs>
+        <clipPath id="clip0_23831_3137">
+          <rect width="24" height="24" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export const DownArrow = () => {
+  return (
+    <svg
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  );
+};

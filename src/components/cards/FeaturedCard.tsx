@@ -19,9 +19,10 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     <div
       className={`flex flex-col md:flex-row ${
         imagePosition === "right" ? "md:flex-row-reverse" : ""
-      } items-center gap-6 py-6 `}
+      } items-center gap-6 py-6`}
     >
-      <div className="relative  w-1/2 h-[392px]">
+      {/* Left Side */}
+      <div className="relative w-1/2 h-[392px]">
         <Image
           src={image}
           alt={heading}
@@ -30,6 +31,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           placeholder="blur"
         />
       </div>
+
+      {/* Right Side */}
       <div className="w-full md:w-1/2">
         <Heading
           Txt={heading}

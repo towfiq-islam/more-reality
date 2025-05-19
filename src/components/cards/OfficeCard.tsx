@@ -36,7 +36,7 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
   phone,
   location,
   email,
-  descreption
+  descreption,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean | null>(false);
 
@@ -88,8 +88,8 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
       </div>
       <Dialog.Root open={isOpen !== null && isOpen} onOpenChange={setIsOpen}>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40" />
-          <Dialog.Content className="fixed outline-none z-50 top-1/2 left-1/2 w-full  -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg max-w-[903px] ">
+          <Dialog.Overlay className="fixed backdrop-blur-[2px] inset-0 bg-black/50 z-[999]" />
+          <Dialog.Content className="fixed outline-none z-[999] top-1/2 left-1/2 w-full  -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg max-w-[903px] ">
             <div className="flex justify-between items-start py-10 pl-10  flex-col gap-y-10  pr-[60px] ">
               <div className="flex flex-row gap-x-10">
                 <Image
