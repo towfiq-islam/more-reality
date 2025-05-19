@@ -16,7 +16,13 @@ interface CommonHeroBannerProps {
   infoArr?: InfoBox[];
 }
 
-const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({ BgImgurl, title, subTitle, isInfoBox, infoArr }) => {
+const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
+  BgImgurl,
+  title,
+  subTitle,
+  isInfoBox,
+  infoArr,
+}) => {
   return (
     <div
       className="h-[780px] w-full relative"
@@ -28,8 +34,12 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({ BgImgurl, title, su
       }}
     >
       <div className="container flex flex-col items-center pt-[200px] gap-y-5  ">
-        <h1 className="text-[64px] text-white font-[700] leading-[137.5%] text-center !max-w-[1280px]">{title}</h1>
-        <p className="text-2xl text-primary-gray font-normal leading-[124.5%] text-center !max-w-[903px]">{subTitle}</p>
+        <h1 className="text-[64px] text-white font-[700] leading-[137.5%] text-center !max-w-[1280px]">
+          {title}
+        </h1>
+        <p className="text-2xl text-primary-gray font-normal leading-[124.5%] text-center !max-w-[903px]">
+          {subTitle}
+        </p>
       </div>
 
       {isInfoBox && (
@@ -38,7 +48,10 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({ BgImgurl, title, su
             {infoArr?.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div key={idx} className="w-[417px] h-auto px-[32px] py-8 bg-primary-blue rounded-[10px] flex flex-col gap-y-[15px] ">
+                <div
+                  key={idx}
+                  className="w-[417px] h-auto px-[32px] py-8 bg-primary-blue rounded-[10px] flex flex-col gap-y-[15px] "
+                >
                   <div className="flex flex-row gap-x-[15.35px] items-center ">
                     <Icon />
                     <p className="font-semibold text-white">{item?.title}</p>

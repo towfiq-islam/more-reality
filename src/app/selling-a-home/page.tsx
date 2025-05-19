@@ -1,23 +1,44 @@
-import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
-import hero from "@/assests/hero.jpg";
-
 import BuyAHomeTestimonial from "@/components/BuyaHomeComponents/BuyAHomeTestimonial";
-import SubscribeNewsLetter from "@/components/CommonComponenet/SubscribeNewsLetter";
 import SecondaryBanner from "@/components/CommonComponenet/SecondaryBanner";
+import SubscribeNewsLetter from "@/components/CommonComponenet/SubscribeNewsLetter";
+import CommonHeroBanner, {
+  InfoBox,
+} from "@/components/CommonHeroBanner/CommonHeroBanner";
+import hero from "@/assests/hero.jpg";
 import buyHomeMoreRealty from "@/assests/buy-a-home/buyhomemorerealty.jpg";
+import {
+  AddressSvg,
+  EmailSvg,
+  PhoneSvg,
+} from "@/components/SvgContainer/SvgContainer";
+
 import featureone from "@/assests/buy-a-home/featured1.jpg";
 import featuretwo from "@/assests/buy-a-home/featured2.jpg";
 import featurethree from "@/assests/buy-a-home/featured3.jpg";
 import featurefour from "@/assests/buy-a-home/featured4.jpg";
-import { StaticImageData } from "next/image";
+import { Feature } from "../buy-a-home/page";
 import FeatureCard from "@/components/cards/FeaturedCard";
+import SellingForm from "@/components/SellingAHomeComponents/SellingForm";
 
-export type Feature = {
-  heading: string;
-  description: string;
-  image: StaticImageData;
-  imagePosition: "left" | "right";
-};
+const data: InfoBox[] = [
+  {
+    icon: AddressSvg,
+    title: "Address",
+    subTitle: "16037 SW Upper Boones Ferry RD Suite 150, Tigard, OR, 97224",
+  },
+  {
+    icon: EmailSvg,
+    title: "Email Address",
+    subTitle: "Send us your request or questions to info@morerealty.com",
+    mailAddress: "info@morerealty.com",
+  },
+  {
+    icon: PhoneSvg,
+    title: "Call Us",
+    subTitle: "Got questions? Let’s talk it out. +1(877) 344-6673",
+    phoneNumber: "+18773446673",
+  },
+];
 
 const features: Feature[] = [
   {
@@ -55,16 +76,19 @@ const page = () => {
     <>
       <CommonHeroBanner
         BgImgurl={hero}
-        title="Discover the Smartest Way to Buy a Home with MORE Realty by Your Side"
-        subTitle="From finding the perfect neighborhood to closing the deal, our experienced agents are here to guide you through every step of the home buying process."
-        isInfoBox={false}
+        title="Partner with MORE Realty to Sell Your Home Quickly, Smoothly, and at the Right Price"
+        subTitle="Our experienced agents provide strategic pricing, expert marketing, and full-service support to ensure your home stands out and sells with success."
+        isInfoBox={true}
+        infoArr={data}
       />
-      <SecondaryBanner
-        title="Buying A Home with MORE Realty"
-        subtitle="Sell Smarter, Faster, and for Top Dollar — With MORE Realty by Your Side"
-        description="At MORE Realty, we understand that buying a home isn’t just a transaction — it’s a life-changing journey. Whether you’re a first-time homebuyer or an experienced investor, we’re here to guide you every step of the way, making sure your experience is smooth, informed, and rewarding."
-        image={buyHomeMoreRealty}
-      />
+      <div className="mt-20">
+        <SecondaryBanner
+          title="Buying A Home with MORE Realty"
+          subtitle="Sell Smarter, Faster, and for Top Dollar — With MORE Realty by Your Side"
+          description="At MORE Realty, we understand that buying a home isn’t just a transaction — it’s a life-changing journey. Whether you’re a first-time homebuyer or an experienced investor, we’re here to guide you every step of the way, making sure your experience is smooth, informed, and rewarding."
+          image={buyHomeMoreRealty}
+        />
+      </div>
       <div className="container py-10">
         {features.map((feature, index) => (
           <FeatureCard
@@ -78,6 +102,7 @@ const page = () => {
       </div>
       <BuyAHomeTestimonial />
       <SubscribeNewsLetter />
+      <SellingForm />
     </>
   );
 };

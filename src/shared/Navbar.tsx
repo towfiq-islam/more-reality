@@ -45,7 +45,7 @@ const navLinks: navLink[] = [
   },
   {
     name: "Selling a Home",
-    path: "/sell",
+    path: "/selling-a-home",
   },
   {
     name: "Commercial",
@@ -99,7 +99,7 @@ const Navbar = () => {
                   <Link
                     className={`${
                       pathName === item.path ||
-                      item.subCategory?.some(sub => pathName === sub.path)
+                      item.subCategory?.some((sub) => pathName === sub.path)
                         ? "nav-link-active"
                         : "nav-link"
                     } flex flex-row gap-x-[6px] items-center relative`}
@@ -108,7 +108,7 @@ const Navbar = () => {
                     {item.name}
 
                     <div
-                      onClick={e => {
+                      onClick={(e) => {
                         e.stopPropagation();
                         e.preventDefault(); // prevents navigation if wrapped inside <Link>
                         setisDropDown(!isDropDown);
