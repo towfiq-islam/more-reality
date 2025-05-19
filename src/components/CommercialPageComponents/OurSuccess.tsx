@@ -73,7 +73,7 @@ const OurSuccess = () => {
         <div className="flex items-center justify-between w-full mb-10">
           {/* Heading */}
           <div className="flex-1 flex justify-center">
-            <Heading Txt='Success Stories' className='text-4xl' Variant='h3' />
+            <Heading Txt="Success Stories" className="text-4xl" Variant="h3" />
           </div>
 
           {/* Navigation buttons */}
@@ -97,7 +97,7 @@ const OurSuccess = () => {
         <div className="w-full">
           <Swiper
             modules={[Navigation]}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSwiper={swiper => (swiperRef.current = swiper)}
             spaceBetween={30}
             slidesPerView={3}
             className="overflow-hidden"
