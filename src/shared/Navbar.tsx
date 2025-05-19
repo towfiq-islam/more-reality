@@ -94,29 +94,56 @@ const Navbar = () => {
         <ul className="flex flex-row justify-between gap-x-[42px]">
           {navLinks.map((item, idx) => {
             return (
-              <li
-                data-aos="fade-up"
-                data-aos-delay="100"
-                key={idx}
-                className="relative"
-              >
-                {item.name === "About Us" ? (
-                  <div
+              <li data-aos="fade-up" data-aos-delay="100" key={idx}>
+                {item.name == "About Us" ? (
+                  <Link
                     className={`${
                       pathName === item.path ||
                       item.subCategory?.some(sub => pathName === sub.path)
                         ? "nav-link-active"
                         : "nav-link"
-                    } flex flex-row gap-x-[6px] items-center cursor-pointer`}
-                    onClick={e => {
-                      e.stopPropagation();
-                      e.preventDefault();
-                      setisDropDown(!isDropDown);
-                    }}
+                    } flex flex-row gap-x-[6px] items-center relative`}
+                    href={item?.path}
                   >
-                    <span>{item.name}</span>
-                    <DropdownSvg />
-                  </div>
+                    {item.name}
+
+                    <div
+                      onClick={e => {
+                        e.stopPropagation();
+                        e.preventDefault(); // prevents navigation if wrapped inside <Link>
+                        setisDropDown(!isDropDown);
+                      }}
+                      className="cursor-pointer"
+                    >
+                      <DropdownSvg />
+                    </div>
+                    <ul
+                      ref={dropdownRef}
+                      className={`
+                        w-[244px] h-auto py-5 bg-white border-[0.5px] absolute top-0 left-0 mt-10 rounded-[8px] ml-[-50px] border-border-color shadow-lg flex flex-col px-5 ease-in-out duration-150 ${
+                          isDropDown ? "opacity-100" : "opacity-0"
+                        } `}
+                    >
+                      {item?.subCategory?.map((data, idx) => (
+                        <li key={idx}>
+                          <div
+                            data-aos="fade-up"
+                            data-aos-delay="100"
+                            className={`block py-2 ${
+                              pathName === data.path
+                                ? "nav-link-active"
+                                : "nav-link"
+                            }`}
+                          >
+                            <Link href={data?.path}>{data.label}</Link>
+                          </div>
+                          {idx !== item.subCategory!.length - 1 && (
+                            <hr className="border-gray-400" />
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </Link>
                 ) : (
                   <Link
                     data-aos="fade-up"
@@ -128,35 +155,6 @@ const Navbar = () => {
                   >
                     {item?.name}
                   </Link>
-                )}
-
-                {/* Dropdown menu only for "About Us" */}
-                {item.name === "About Us" && (
-                  <ul
-                    ref={dropdownRef}
-                    className={`w-[244px] h-auto py-5 bg-white border-[0.5px] absolute top-full left-0 mt-2 rounded-[8px] border-border-color shadow-lg flex flex-col px-5 ease-in-out duration-150 ${
-                      isDropDown ? "opacity-100 visible" : "opacity-0 invisible"
-                    }`}
-                  >
-                    {item?.subCategory?.map((data, subIdx) => (
-                      <li key={subIdx}>
-                        <Link
-                          className={`block py-2 ${
-                            pathName === data.path
-                              ? "nav-link-active"
-                              : "nav-link"
-                          }`}
-                          href={data.path}
-                          onClick={() => setisDropDown(false)}
-                        >
-                          {data.label}
-                        </Link>
-                        {subIdx !== item.subCategory!.length - 1 && (
-                          <hr className="border-gray-400" />
-                        )}
-                      </li>
-                    ))}
-                  </ul>
                 )}
               </li>
             );
