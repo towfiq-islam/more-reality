@@ -25,7 +25,7 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
 }) => {
   return (
     <div
-      className="h-[780px] w-full relative"
+      className="h-[380px] lg:h-[450px] xl:h-[500px] 2xl:h-[600px] 3xl:h-[780px] w-full relative lg:px-5 3xl:px-0"
       style={{
         backgroundImage: `linear-gradient(#00000099, #00000099), url(${BgImgurl?.src})`,
         backgroundSize: "cover",
@@ -33,18 +33,18 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
         backgroundPosition: "center",
       }}
     >
-      <div className="container flex flex-col items-center pt-[200px] gap-y-5  ">
+      <div className="container flex flex-col items-center pt-32 lg:pt-40 xl:pt-[200px] gap-y-5  ">
         <h1
           data-aos="fade-up"
           data-aos-delay="100"
-          className="text-[64px] text-white font-[700] leading-[137.5%] text-center !max-w-[1280px]"
+          className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-[64px] text-white font-[700] leading-[137.5%] text-center !max-w-[1280px]"
         >
           {title}
         </h1>
         <p
           data-aos="fade-up"
           data-aos-delay="100"
-          className="text-2xl text-primary-gray font-normal leading-[124.5%] text-center !max-w-[903px]"
+          className="text-lg md:text-xl 2xl:text-2xl text-primary-gray font-normal leading-[124.5%] text-center !max-w-[903px]"
         >
           {subTitle}
         </p>
