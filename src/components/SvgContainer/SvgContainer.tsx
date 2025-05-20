@@ -125,6 +125,8 @@ export const ArrowSvg = () => {
 export const Star = () => {
   return (
     <svg
+      data-aos="fade-up"
+      data-aos-delay="100"
       xmlns="http://www.w3.org/2000/svg"
       width="29"
       height="28"

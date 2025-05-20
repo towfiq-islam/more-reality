@@ -6,11 +6,10 @@ import Footer from "@/shared/Footer";
 import { Providers } from "./Provider/Provider";
 import AosProvider from "@/Provider/AosProvider/AosProvider";
 
-
 const lato = Lato({
   variable: "--font-lato",
   subsets: ["latin"],
-  weight: ['400'],
+  weight: ["400"],
   display: "swap",
 });
 
@@ -29,10 +28,8 @@ export default function RootLayout({
       <body className={`${lato.variable} antialiased`}>
         <Navbar />
         <Providers>
-          <AosProvider>
-          {children}
-          </AosProvider>
-          </Providers>
+          <AosProvider>{children}</AosProvider>
+        </Providers>
         <Footer />
       </body>
     </html>

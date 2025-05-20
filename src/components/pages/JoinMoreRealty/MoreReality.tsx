@@ -33,10 +33,14 @@ const whyJoinData = [
 
 const MoreReality = () => {
     return (
-        <section className="bg-[#F3F9FE] py-12 px-4 sm:px-6 md:px-10">
+      <section className="bg-[#F3F9FE] py-12 px-4 sm:px-6 md:px-10">
         <div className="max-w-[1440px] mx-auto">
           {/* Section Title */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#161C24] font-lato font-bold leading-tight text-center mb-10 sm:mb-12">
+          <h2
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#161C24] font-lato font-bold leading-tight text-center mb-10 sm:mb-12"
+          >
             Why Join MORE Realty
           </h2>
 
@@ -44,10 +48,15 @@ const MoreReality = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
             {whyJoinData.map((item, index) => (
               <div key={index} className="space-y-3">
-                <h3 className="text-base sm:text-lg md:text-xl lg:text-[26px] font-semibold uppercase text-[#161C24]">
+                <h3
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className="text-base sm:text-lg md:text-xl lg:text-[26px] font-semibold uppercase text-[#161C24]"
+                >
                   {item.title}
                 </h3>
-                <p className="text-[#494949] font-lato text-base font-normal sm:text-[18px] md:text-[20px] lg:text-[22px] leading-relaxed">
+                <p data-aos="fade-up"
+          data-aos-delay="100" className="text-[#494949] font-lato text-base font-normal sm:text-[18px] md:text-[20px] lg:text-[22px] leading-relaxed">
                   {item.description}
                 </p>
               </div>

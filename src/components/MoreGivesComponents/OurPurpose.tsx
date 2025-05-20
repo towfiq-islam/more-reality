@@ -42,6 +42,8 @@ const OurPurpose = () => {
         {imgArr.map((item, idx) => {
           return (
             <Image
+              data-aos="fade-up"
+              data-aos-delay="100"
               key={idx}
               src={item.src}
               width={300}
@@ -64,13 +66,17 @@ const OurPurpose = () => {
             "MORE Gives was created with a single vision:👉 To be a force for good in every community we touch. We support causes that align with our values — compassion, integrity, inclusion, and empowerment."
           }
         />
-        <p className="mb-10 text-lg">Our areas of impact include:</p>
+        <p data-aos="fade-up" data-aos-delay="100" className="mb-10 text-lg">
+          Our areas of impact include:
+        </p>
         <ol className="list-disc list-outside space-y-3 marker:text-xl marker:font-bold">
           {data.map(item => (
             <li key={item.id}>
               <div className="pl-2">
-                <span className="font-medium text-lg">{item.title} - </span>
-                <span className="text-secondary-text text-lg">{item.desc}</span>
+                <span  data-aos="fade-up"
+            data-aos-delay="100" className="font-medium text-lg">{item.title} - </span>
+                <span  data-aos="fade-up"
+            data-aos-delay="100" className="text-secondary-text text-lg">{item.desc}</span>
               </div>
             </li>
           ))}

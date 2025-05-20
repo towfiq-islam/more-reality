@@ -67,13 +67,19 @@ const FaqSection = () => {
               onClick={() => toggleFaq(faq.id)}
             >
               <div className="flex justify-between items-center">
-                <p className="font-medium text-[24px] leading-10 text-primary-text-blue">
+                <p data-aos="fade-up"
+          data-aos-delay="100" className="font-medium text-[24px] leading-10 text-primary-text-blue">
                   {faq.id}. {faq.title}
                 </p>
                 {isActive ? (
-                  <ChevronUp className="w-10 h-10 text-gray-600" />
+                  <ChevronUp
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                    className="w-10 h-10 text-gray-600"
+                  />
                 ) : (
-                  <ChevronDown className="w-10 h-10 text-gray-600" />
+                  <ChevronDown data-aos="fade-up"
+                  data-aos-delay="100" className="w-10 h-10 text-gray-600" />
                 )}
               </div>
 
@@ -84,7 +90,13 @@ const FaqSection = () => {
                     : "max-h-0 opacity-0"
                 }`}
               >
-                <p className="text-gray-600 text-secondary-text">{faq.description}</p>
+                <p
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className=" text-secondary-text"
+                >
+                  {faq.description}
+                </p>
               </div>
             </div>
           );

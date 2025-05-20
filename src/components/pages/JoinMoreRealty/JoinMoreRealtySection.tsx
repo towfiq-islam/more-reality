@@ -74,11 +74,16 @@ const JoinMoreRealtySection = () => {
 
         {/* Right Text */}
         <div className="w-full">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-[#212B36] mb-4">
+          <h2
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-[#212B36] mb-4"
+          >
             Join<span className="text-[#63BE60]"> MORE Realty</span> — Where
             Your Success Becomes Our Mission
           </h2>
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+          <p data-aos="fade-up"
+          data-aos-delay="100" className="text-gray-600 text-base md:text-lg leading-relaxed">
             Unlock your potential with a brokerage that puts agents first. We
             provide the tools, training, and support you need to elevate your
             career and income.
@@ -92,10 +97,13 @@ const JoinMoreRealtySection = () => {
           <div key={index} className="flex items-start gap-6">
             <div className="min-w-[40px] h-[40px]">{item.icon}</div>
             <div>
-              <h3 className="text-lg font-semibold text-[#212B36]">
+              <h3
+              data-aos="fade-up"
+              data-aos-delay="100" className="text-lg font-semibold text-[#212B36]">
                 {item.title}
               </h3>
-              <p className="text-[#637381] text-base mt-1 leading-relaxed">
+              <p data-aos="fade-up"
+          data-aos-delay="100" className="text-[#637381] text-base mt-1 leading-relaxed">
                 {item.description}
               </p>
             </div>

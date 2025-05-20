@@ -21,6 +21,8 @@ const SecondaryBanner: React.FC<SecondaryBannerProps> = ({
       <Paragraph Txt={subtitle} className="mb-2 text-gray-800" />
       <Paragraph Txt={description} className="max-w-[1440px] mb-10" />
       <Image
+         data-aos="fade-up"
+            data-aos-delay="100"
         src={image}
         alt="banner_image"
         placeholder="blur"

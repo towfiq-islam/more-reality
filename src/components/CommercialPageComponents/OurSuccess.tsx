@@ -79,12 +79,16 @@ const OurSuccess = () => {
           {/* Navigation buttons */}
           <div className="flex flex-row gap-x-5">
             <div
+              data-aos="fade-up"
+              data-aos-delay="100"
               onClick={handlePrev}
               className="flex items-center justify-center w-12 h-12 border border-primary-blue rounded-full cursor-pointer"
             >
               <ArrowSvg />
             </div>
             <div
+              data-aos="fade-up"
+              data-aos-delay="100"
               onClick={handleNext}
               className="flex items-center justify-center w-12 h-12 border border-primary-blue rounded-full cursor-pointer rotate-180"
             >

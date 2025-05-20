@@ -34,10 +34,18 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
       }}
     >
       <div className="container flex flex-col items-center pt-[200px] gap-y-5  ">
-        <h1 className="text-[64px] text-white font-[700] leading-[137.5%] text-center !max-w-[1280px]">
+        <h1
+          data-aos="fade-up"
+          data-aos-delay="100"
+          className="text-[64px] text-white font-[700] leading-[137.5%] text-center !max-w-[1280px]"
+        >
           {title}
         </h1>
-        <p className="text-2xl text-primary-gray font-normal leading-[124.5%] text-center !max-w-[903px]">
+        <p
+          data-aos="fade-up"
+          data-aos-delay="100"
+          className="text-2xl text-primary-gray font-normal leading-[124.5%] text-center !max-w-[903px]"
+        >
           {subTitle}
         </p>
       </div>
@@ -53,11 +61,23 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
                   className="w-[417px] h-auto px-[32px] py-8 bg-primary-blue rounded-[10px] flex flex-col gap-y-[15px] "
                 >
                   <div className="flex flex-row gap-x-[15.35px] items-center ">
-                    <Icon />
-                    <p className="font-semibold text-white">{item?.title}</p>
+                    <Icon data-aos="fade-up" data-aos-delay="100" />
+                    <p
+                      data-aos="fade-up"
+                      data-aos-delay="100"
+                      className="font-semibold text-white"
+                    >
+                      {item?.title}
+                    </p>
                   </div>
                   <div className="flex flex-col gap-y-1.5 ">
-                    <p className="max-w-[294px] text-white">{item?.subTitle}</p>
+                    <p
+                      data-aos="fade-up"
+                      data-aos-delay="100"
+                      className="max-w-[294px] text-white"
+                    >
+                      {item?.subTitle}
+                    </p>
                   </div>
                 </div>
               );
