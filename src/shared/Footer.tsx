@@ -86,10 +86,9 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="flex flex-col items-center h-auto w-full gap-y-6 pb-6">
           <hr className="h-[1px] w-full bg-[#131313] opacity-[0.15]" />
-          <Paragraph
-            className="footer-para"
-            Txt="Copyright © construck all right reserved."
-          />
+          <p className="footer-para">
+            Copyright © construck all right reserved.
+          </p>
         </div>
       </div>
     </footer>
