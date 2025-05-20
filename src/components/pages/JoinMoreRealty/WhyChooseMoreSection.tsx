@@ -32,6 +32,8 @@ const WhyChooseMoreSection = ({
           {/* Left Side Image */}
           <div className="w-full md:w-1/2">
             <Image
+              data-aos="fade-up"
+              data-aos-delay="100"
               src={image}
               alt="Why Choose More"
               width={600}
@@ -50,24 +52,42 @@ const WhyChooseMoreSection = ({
               {title}
             </h2>
 
-            <p data-aos="fade-up"
-          data-aos-delay="100" className="text-md font-semibold text-gray-800 mb-2">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="text-md font-semibold text-gray-800 mb-2"
+            >
               {pricing}
             </p>
 
             <div className="flex flex-wrap gap-x-4 gap-y-2 mb-4 text-sm font-semibold text-gray-700">
               {perks.map((perk, idx) => (
-                <span data-aos="fade-up"
-                data-aos-delay="100" key={idx} className="before:content-['•'] before:mr-2">
+                <span
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  key={idx}
+                  className="before:content-['•'] before:mr-2"
+                >
                   {perk}
                 </span>
               ))}
             </div>
 
-            <p data-aos="fade-up"
-          data-aos-delay="100" className="text-gray-700 mb-4">{description}</p>
+            <p
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="text-gray-700 mb-4"
+            >
+              {description}
+            </p>
 
-            <p className="text-gray-800 font-semibold mb-6">{bonus}</p>
+            <p
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="text-gray-800 font-semibold mb-6"
+            >
+              {bonus}
+            </p>
 
             <a href={button.href} className="primary-btn">
               {button.text}

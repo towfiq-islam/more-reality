@@ -158,15 +158,11 @@ const SellingForm = () => {
                   </p>
                 )}
               </div>
-
-              <button
-                data-aos="fade-up"
-                data-aos-delay="100"
-                type="submit"
-                className="w-full bg-[#004172] text-white font-medium py-3 rounded-md hover:bg-[#00345a] transition"
-              >
-                Submit
-              </button>
+              <div className="w-full  relative ">
+                <button type="submit" className="primary-btn !w-full ">
+                  Submit
+                </button>
+              </div>
             </form>
           </div>
 
