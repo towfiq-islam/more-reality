@@ -45,10 +45,10 @@ const page = () => {
         isInfoBox={false}
         infoArr={InforArr}
       />
-      <WhyChooseUs />
-      <Testimonial />
-      <BlogSection />
-      <FaqSection />
+      {/* <WhyChooseUs />
+        <Testimonial />
+        <BlogSection />
+        <FaqSection /> */}
       <SubscribeNewsLetter />
     </>
   );

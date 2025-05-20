@@ -15,8 +15,8 @@
   --color-primary-gray: #f9f9f9;
   --color-off-gray: #f8f8f8;
   --color-secondary-text: #494949;
-  --color-propertyBg: #F3F9FE;
-  --shadow-office:0px 8px 32px 0px rgba(0, 0, 0, 0.08);
+  --color-propertyBg: #f3f9fe;
+  --shadow-office: 0px 8px 32px 0px rgba(0, 0, 0, 0.08);
 
   /* Container */
   --container-max-width: 1440px;
@@ -28,10 +28,20 @@
   --font-family-lato: "Lato", sans-serif;
   --font-family-jakarta: "Lato", sans-serif;
   --font-lato: var(--font-lato);
+
+  /* Breakpoints */
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 576px;
+  --breakpoint-lg: 768px;
+  --breakpoint-xl: 1024px;
+  --breakpoint-2xl: 1280px;
+  --breakpoint-3xl: 1520px;
+
 }
 
 body {
-  @apply font-lato
+  @apply font-lato;
 }
 
 .container {
@@ -51,7 +61,7 @@ body {
 }
 
 .primary-btn {
-  @apply w-auto h-auto px-5 py-3 bg-primary-blue text-white rounded-[8px] hover:bg-transparent hover:text-primary-blue border-[1px] border-transparent hover:border-primary-blue hover:border-solid ease-in-out duration-500 cursor-pointer;
+  @apply w-auto h-auto px-3 md:px-5 py-1.5 md:py-2 2xl:py-3 bg-primary-blue text-white rounded-[8px] hover:bg-transparent hover:text-primary-blue border-[1px] border-transparent hover:border-primary-blue hover:border-solid ease-in-out duration-500 cursor-pointer;
 }
 
 .primary-btn-reverse {
@@ -67,11 +77,11 @@ body {
 }
 
 .footer-link-title {
-  @apply text-[22px] text-white font-medium leading-[153%] font-family-jakarta;
+  @apply text-xl lg:text-[22px] text-white font-medium lg:leading-[153%] font-family-jakarta;
 }
 
 .footer-link {
-  @apply text-base text-white font-medium leading-[153%] cursor-pointer font-family-jakarta uppercase opacity-80 max-w-[278px] hover:underline ease-in-out duration-300;
+  @apply text-sm lg:text-base text-white font-medium leading-[153%] cursor-pointer font-family-jakarta uppercase opacity-80 max-w-[278px] hover:underline ease-in-out duration-300;
 }
 
 .blog-card-title {
