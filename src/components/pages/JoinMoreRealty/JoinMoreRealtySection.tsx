@@ -64,6 +64,8 @@ const JoinMoreRealtySection = () => {
         {/* Left Image */}
         <div className="w-full">
           <Image
+            data-aos="fade-up"
+            data-aos-delay="100"
             src={joinMoreData.image}
             alt="Growth Illustration"
             width={600}
@@ -82,8 +84,11 @@ const JoinMoreRealtySection = () => {
             Join<span className="text-[#63BE60]"> MORE Realty</span> — Where
             Your Success Becomes Our Mission
           </h2>
-          <p data-aos="fade-up"
-          data-aos-delay="100" className="text-gray-600 text-base md:text-lg leading-relaxed">
+          <p
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="text-gray-600 text-base md:text-lg leading-relaxed"
+          >
             Unlock your potential with a brokerage that puts agents first. We
             provide the tools, training, and support you need to elevate your
             career and income.
@@ -98,12 +103,17 @@ const JoinMoreRealtySection = () => {
             <div className="min-w-[40px] h-[40px]">{item.icon}</div>
             <div>
               <h3
-              data-aos="fade-up"
-              data-aos-delay="100" className="text-lg font-semibold text-[#212B36]">
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="text-lg font-semibold text-[#212B36]"
+              >
                 {item.title}
               </h3>
-              <p data-aos="fade-up"
-          data-aos-delay="100" className="text-[#637381] text-base mt-1 leading-relaxed">
+              <p
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="text-[#637381] text-base mt-1 leading-relaxed"
+              >
                 {item.description}
               </p>
             </div>
