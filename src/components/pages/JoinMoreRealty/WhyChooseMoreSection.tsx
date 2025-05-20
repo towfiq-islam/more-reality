@@ -42,23 +42,30 @@ const WhyChooseMoreSection = ({
 
           {/* Right Side Content */}
           <div className="w-full md:w-1/2 text-left">
-            <h2 className="text-2xl md:text-4xl mb-2 text-[#161C24] font-lato text-[36px] font-semibold leading-[56px] tracking-[-1.08px] capitalize">
+            <h2
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="text-2xl md:text-4xl mb-2 text-[#161C24] font-lato text-[36px] font-semibold leading-[56px] tracking-[-1.08px] capitalize"
+            >
               {title}
             </h2>
 
-            <p className="text-md font-semibold text-gray-800 mb-2">
+            <p data-aos="fade-up"
+          data-aos-delay="100" className="text-md font-semibold text-gray-800 mb-2">
               {pricing}
             </p>
 
             <div className="flex flex-wrap gap-x-4 gap-y-2 mb-4 text-sm font-semibold text-gray-700">
               {perks.map((perk, idx) => (
-                <span key={idx} className="before:content-['•'] before:mr-2">
+                <span data-aos="fade-up"
+                data-aos-delay="100" key={idx} className="before:content-['•'] before:mr-2">
                   {perk}
                 </span>
               ))}
             </div>
 
-            <p className="text-gray-700 mb-4">{description}</p>
+            <p data-aos="fade-up"
+          data-aos-delay="100" className="text-gray-700 mb-4">{description}</p>
 
             <p className="text-gray-800 font-semibold mb-6">{bonus}</p>
 

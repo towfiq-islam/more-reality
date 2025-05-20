@@ -49,6 +49,8 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
         className="flex flex-col max-w-[352px] relative h-auto  bg-white cursor-pointer shadow-office pb-5 rounded-[8px] "
       >
         <Image
+          data-aos="fade-up"
+          data-aos-delay="100"
           width={352}
           height={236}
           src={typeof bgImgurl === "string" ? bgImgurl : bgImgurl.src}
@@ -93,6 +95,8 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
             <div className="flex justify-between items-start py-10 pl-10  flex-col gap-y-10  pr-[60px] ">
               <div className="flex flex-row gap-x-10">
                 <Image
+                 data-aos="fade-up"
+            data-aos-delay="100"
                   width={209}
                   height={209}
                   src={typeof bgImgurl === "string" ? bgImgurl : bgImgurl.src}

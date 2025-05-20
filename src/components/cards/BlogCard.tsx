@@ -34,6 +34,8 @@ const BlogCard: React.FC<BlogCardProps> = ({
 
   return (
     <div
+       data-aos="fade-up"
+            data-aos-delay="100"
       onClick={handleRedirect}
       className={`relative overflow-hidden rounded-[16px] group ${
         Variant === "small" ? "h-[551px] w-[455px]" : "h-[427px] w-full"
@@ -60,6 +62,8 @@ const BlogCard: React.FC<BlogCardProps> = ({
         </div>
         <div className="flex flex-row gap-x-5">
           <Image
+            data-aos="fade-up"
+            data-aos-delay="100"
             src={ProfileImgUrl?.src || ProfileImgUrl}
             width={54}
             height={54}

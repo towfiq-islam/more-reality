@@ -115,7 +115,11 @@ const ExploreOurOffice = () => {
       <div className="max-w-[873px] mx-auto border border-gray-100 flex gap-5 items-center bg-white p-5 rounded-xl shadow-lg justify-center mb-10">
         {/* State Wise Filter */}
         <div className="w-[324px] relative">
-          <select className="w-full h-[50px] px-4 pr-10 bg-white border border-gray-300 text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none">
+          <select
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="w-full h-[50px] px-4 pr-10 bg-white border border-gray-300 text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none"
+          >
             <option value="">State Name</option>
             <option value="Barishal">Barishal</option>
             <option value="Chattagong">Chattagong</option>
@@ -129,7 +133,11 @@ const ExploreOurOffice = () => {
 
         {/* City Wise Filter */}
         <div className="w-[324px] relative">
-          <select className="w-full h-[50px] px-4 pr-10 bg-white border border-gray-300 text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none">
+          <select
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="w-full h-[50px] px-4 pr-10 bg-white border border-gray-300 text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none"
+          >
             <option value="">City Name</option>
             <option value="Barishal">Barishal</option>
             <option value="Chattagong">Chattagong</option>

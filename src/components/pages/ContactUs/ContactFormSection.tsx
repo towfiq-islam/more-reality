@@ -37,10 +37,18 @@ const ContactFormSection = () => {
       <div className="max-w-[1440px] mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-y-12 md:gap-12">
         {/* Left Side */}
         <div className="text-white w-full md:w-1/2">
-          <h2 className="text-3xl sm:text-4xl md:text-[48px] font-normal leading-[130%] mb-6">
+          <h2
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="text-3xl sm:text-4xl md:text-[48px] font-normal leading-[130%] mb-6"
+          >
             Stay Connected & Elevate Your Real Estate Journey with Confidence
           </h2>
-          <p className="text-base sm:text-lg md:text-[20px] font-normal leading-[30px] md:leading-[32px]">
+          <p
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="text-base sm:text-lg md:text-[20px] font-normal leading-[30px] md:leading-[32px]"
+          >
             Our Real Estate CRM system empowers you with deeper insights,
             seamless automation, and data-driven strategies—all in one place.
             Submit your details below, and let's elevate your real estate
@@ -54,6 +62,8 @@ const ContactFormSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="w-full sm:w-1/2">
                 <input
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                   type="text"
                   placeholder="First Name"
                   {...register("firstName", {

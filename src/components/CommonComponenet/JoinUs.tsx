@@ -50,11 +50,13 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
 
         {/* Right Side */}
         <div className="bg-white p-8 rounded-xl shadow-2xl flex-1">
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full relative">
             <div className="flex gap-5">
               {/* First Name */}
               <div className="flex-1">
-                <input
+                <input     
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                   type="text"
                   placeholder="First Name"
                   {...register("firstName", {
@@ -72,6 +74,8 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
               {/* Last Name */}
               <div className="flex-1">
                 <input
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                   type="text"
                   placeholder="Last Name"
                   {...register("lastName", {
@@ -90,6 +94,8 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
             {/* Email */}
             <div>
               <input
+                data-aos="fade-up"
+                data-aos-delay="100"
                 type="email"
                 placeholder="Email Address"
                 {...register("email", {
@@ -111,6 +117,8 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
             {/* Address */}
             <div>
               <input
+                data-aos="fade-up"
+                data-aos-delay="100"
                 type="text"
                 placeholder="Address"
                 {...register("address", { required: "Address is required" })}
@@ -126,15 +134,10 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
             {/* Message */}
             <div>
               <textarea
+                data-aos="fade-up"
+                data-aos-delay="100"
                 placeholder="Message"
                 rows={5}
-                {...register("message", {
-                  required: "Message is required",
-                  minLength: {
-                    value: 10,
-                    message: "Message should be at least 10 characters",
-                  },
-                })}
                 className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none resize-none"
               ></textarea>
               {errors.message && (
@@ -145,12 +148,11 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
             </div>
 
             {/* Submit btn */}
-            <button
-              type="submit"
-              className="w-full cursor bg-[#004172] text-white py-3 rounded-md hover:bg-[#00345a] transition"
-            >
+            <div className="w-full  relative " >
+            <button type="submit" className="primary-btn !w-full ">
               Submit
             </button>
+           </div>
           </form>
         </div>
       </div>

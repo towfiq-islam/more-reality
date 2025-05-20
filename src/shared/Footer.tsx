@@ -37,6 +37,8 @@ const Footer = () => {
           {/* Logo and Socials */}
           <div className="flex flex-col gap-y-8">
             <Image
+              data-aos="fade-up"
+              data-aos-delay="100"
               src={logo?.src || logo}
               width={362}
               height={50}
@@ -50,7 +52,7 @@ const Footer = () => {
                   key={idx}
                   className="w-10 h-10 cursor-pointer flex items-center justify-center border-[1px] border-solid border-white rounded-full"
                 >
-                  <Icon />
+                  <Icon data-aos="fade-up" data-aos-delay="100" />
                 </div>
               ))}
             </div>
@@ -64,6 +66,8 @@ const Footer = () => {
                 <ul className="flex flex-col gap-y-2.5">
                   {item?.navLinks?.map((link, linkIdx) => (
                     <li
+                      data-aos="fade-up"
+                      data-aos-delay="100"
                       className={`${
                         link == "Email: careers@morerealty.com" &&
                         "whitespace-nowrap"

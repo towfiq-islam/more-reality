@@ -37,6 +37,8 @@ const WhyChooseUs = () => {
         {imgArr.map((item, idx) => {
           return (
             <Image
+              data-aos="fade-up"
+              data-aos-delay="100"
               key={idx}
               src={item.src}
               width={342}
@@ -50,10 +52,7 @@ const WhyChooseUs = () => {
         })}
       </div>
       <div className="flex flex-col gap-y-4   ">
-        <Heading
-          Txt={"Why Choose Us"}
-          Variant="h2"
-        />
+        <Heading Txt={"Why Choose Us"} Variant="h2" />
         <div className="flex flex-col gap-y-5 max-w-[685px] ">
           <Paragraph
             Txt={`We’re not just another real estate agency — we’re your trusted partner in finding the perfect place to call home. Here's why clients choose us again and again:`}
