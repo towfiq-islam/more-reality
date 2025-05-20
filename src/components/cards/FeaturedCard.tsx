@@ -24,6 +24,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       {/* Left Side */}
       <div className="relative w-1/2 h-[392px]">
         <Image
+          data-aos="fade-up"
+          data-aos-delay="100"
           src={image}
           alt={heading}
           fill

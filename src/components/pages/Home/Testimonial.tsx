@@ -72,10 +72,7 @@ const Testimonial = () => {
       <div className="container py-20 flex flex-col gap-y-[36px] items-center">
         <div className="flex items-center justify-between w-full">
           <div className="flex-1 flex justify-center">
-            <Heading
-              Variant="h4"
-              Txt={"What our customer are saying"}
-            />
+            <Heading Variant="h4" Txt={"What our customer are saying"} />
           </div>
 
           {/* Navigation buttons */}
@@ -84,7 +81,7 @@ const Testimonial = () => {
               onClick={handlePrev}
               className="flex items-center justify-center w-12 h-12 border border-primary-blue rounded-full cursor-pointer"
             >
-              <ArrowSvg />
+              <ArrowSvg data-aos="fade-up" data-aos-delay="100" />
             </div>
             <div
               onClick={handleNext}
@@ -99,7 +96,7 @@ const Testimonial = () => {
         <div className="w-full">
           <Swiper
             modules={[Navigation]}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSwiper={swiper => (swiperRef.current = swiper)}
             spaceBetween={30}
             slidesPerView={3}
             className="overflow-hidden"

@@ -23,6 +23,8 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
       <div className="flex flex-col gap-y-[18px] ">
         <div className="flex flex-row gap-x-[25px] items-center ">
           <Image
+            data-aos="fade-up"
+            data-aos-delay="100"
             src={typeof imgUrl === "string" ? imgUrl : imgUrl?.src}
             width={60}
             height={60}
@@ -41,7 +43,11 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
       </div>
       {isDownPart && (
         <div className="flex flex-col gap-y-[20.88px]">
-          <hr className="border-t-[1px] border-[#E7E6E6] w-full" />
+          <hr
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="border-t-[1px] border-[#E7E6E6] w-full"
+          />
           <div className="flex flex-row gap-x-[23.9px] itemsc ">
             <Heading
               Variant="h4"
@@ -64,7 +70,7 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
             />
             <div className="flex flex-row gap-x-1 ">
               {Array.from({ length: rating }).map((_, i) => (
-                <Star key={i} />
+                <Star data-aos="fade-up" data-aos-delay="100" key={i} />
               ))}
             </div>
           </div>

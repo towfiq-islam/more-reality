@@ -15,18 +15,29 @@ const SubscribeNewsLetter = () => {
             className="text-white text-center"
           />
           <Paragraph
-            Txt={ "Stay updated with the latest blog, special offers, and exclusive content. Join our log today and never miss an update from us!"}
+            Txt={
+              "Stay updated with the latest blog, special offers, and exclusive content. Join our log today and never miss an update from us!"
+            }
             className="text-white max-w-[815px] text-center"
           />
         </div>
-        <div className="w-[851px] h-[66px] bg-white shadow-sm relative rounded-[8px] pr-2.5 py-[5px] ">
+        <div
+          data-aos="fade-up"
+          data-aos-delay="100"
+          className="w-[851px] h-[66px] bg-white shadow-sm relative rounded-[8px] pr-2.5 py-[5px] "
+        >
           <input
+            data-aos="fade-up"
+            data-aos-delay="100"
             type="email"
             placeholder="Enter your email address"
             className="h-full w-full pl-5 text-sm font-400 text-primary-text-blue font-normal outline-none pr-[160px] "
           />
 
-          <Button Txt={"Subscription"} className="primary-btn absolute top-1.3 right-0 mt-[2px] h-[90%] mr-[10px] !text-[17px] " />
+          <Button
+            Txt={"Subscription"}
+            className="primary-btn absolute top-1.3 right-0 mt-[2px] h-[90%] mr-[10px] !text-[17px] "
+          />
         </div>
       </div>
     </section>

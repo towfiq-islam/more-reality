@@ -42,8 +42,16 @@ const SellingForm = () => {
           <div className="  rounded-xl w-full h-auto md:w-1/2">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               <div className="w-full flex flex-col gap-[5px]">
-                <label className="text-xl ">Full Name</label>
+                <label
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className="text-xl "
+                >
+                  Full Name
+                </label>
                 <input
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                   type="text"
                   placeholder="Enter Full Name"
                   {...register("fullName", {
@@ -52,15 +60,27 @@ const SellingForm = () => {
                   className="w-full px-4 py-3 border border-[#E6E6E6] rounded-[8px] outline-none"
                 />
                 {errors.fullName && (
-                  <p className="text-sm text-red-600 mt-1">
+                  <p
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                    className="text-sm text-red-600 mt-1"
+                  >
                     {errors.fullName.message}
                   </p>
                 )}
               </div>
 
               <div className="w-full flex flex-col gap-[5px]">
-                <label className="text-xl ">Email</label>
+                <label
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className="text-xl "
+                >
+                  Email
+                </label>
                 <input
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                   type="email"
                   placeholder="Email Address"
                   {...register("email", {
@@ -73,30 +93,54 @@ const SellingForm = () => {
                   className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none"
                 />
                 {errors.email && (
-                  <p className="text-sm text-red-600 mt-1">
+                  <p
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                    className="text-sm text-red-600 mt-1"
+                  >
                     {errors.email.message}
                   </p>
                 )}
               </div>
 
               <div className="w-full flex flex-col gap-[5px]">
-                <label className="text-xl ">Phone</label>
+                <label
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className="text-xl "
+                >
+                  Phone
+                </label>
                 <input
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                   type="tel"
                   placeholder="Phone"
                   {...register("phone", { required: "Phone is required" })}
                   className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none"
                 />
                 {errors.phone && (
-                  <p className="text-sm text-red-600 mt-1">
+                  <p
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                    className="text-sm text-red-600 mt-1"
+                  >
                     {errors.phone.message}
                   </p>
                 )}
               </div>
 
               <div className="w-full flex flex-col gap-[5px]">
-                <label className="text-xl ">Message</label>
+                <label
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className="text-xl "
+                >
+                  Message
+                </label>
                 <textarea
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                   placeholder="Message"
                   rows={5}
                   {...register("message", {
@@ -105,13 +149,19 @@ const SellingForm = () => {
                   className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none resize-none"
                 ></textarea>
                 {errors.message && (
-                  <p className="text-sm text-red-600 mt-1">
+                  <p
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                    className="text-sm text-red-600 mt-1"
+                  >
                     {errors.message.message}
                   </p>
                 )}
               </div>
 
               <button
+                data-aos="fade-up"
+                data-aos-delay="100"
                 type="submit"
                 className="w-full bg-[#004172] text-white font-medium py-3 rounded-md hover:bg-[#00345a] transition"
               >
@@ -122,11 +172,13 @@ const SellingForm = () => {
 
           <div className="w-[450px] h-[560px]">
             <Image
+              data-aos="fade-up"
+              data-aos-delay="100"
               src={sellingformImage}
               width={560}
               height={761}
               alt="Selling form"
-              className="object-center w-full h-full rounded-xl"
+              className="object-cover w-full h-full rounded-xl"
               priority
             />
           </div>

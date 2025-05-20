@@ -25,7 +25,7 @@ const navLinks: navLink[] = [
     path: "/",
   },
   {
-    name: "Join More Realty",
+    name: "Join MORE Realty",
     path: "/join-more-realty",
   },
   {
@@ -99,7 +99,7 @@ const Navbar = () => {
                   <Link
                     className={`${
                       pathName === item.path ||
-                      item.subCategory?.some((sub) => pathName === sub.path)
+                      item.subCategory?.some(sub => pathName === sub.path)
                         ? "nav-link-active"
                         : "nav-link"
                     } flex flex-row gap-x-[6px] items-center relative`}
@@ -108,9 +108,9 @@ const Navbar = () => {
                     {item.name}
 
                     <div
-                      onClick={(e) => {
+                      onClick={e => {
                         e.stopPropagation();
-                        e.preventDefault(); // prevents navigation if wrapped inside <Link>
+                        e.preventDefault();
                         setisDropDown(!isDropDown);
                       }}
                       className="cursor-pointer"
@@ -125,8 +125,11 @@ const Navbar = () => {
                         } `}
                     >
                       {item?.subCategory?.map((data, idx) => (
-                        <li key={idx}>
+                        <li onClick={()=>{
+                          setisDropDown(!isDropDown)
+                        }} key={idx}>
                           <div
+                            
                             data-aos="fade-up"
                             data-aos-delay="100"
                             className={`block py-2 ${

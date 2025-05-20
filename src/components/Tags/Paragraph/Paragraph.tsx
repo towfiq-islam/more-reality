@@ -8,7 +8,11 @@ type ParagraphProps = {
 
 const Paragraph: React.FC<ParagraphProps> = ({ Txt, className }) => {
   return (
-    <p className={cn("text-xl text-secondary-text", className)}>
+    <p
+      data-aos="fade-up"
+      data-aos-delay="100"
+      className={cn("text-xl text-secondary-text", className)}
+    >
       {Txt}
     </p>
   );

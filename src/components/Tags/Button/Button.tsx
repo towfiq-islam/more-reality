@@ -10,8 +10,6 @@ type ButtonProps = {
 const Button: React.FC<ButtonProps> = ({ type, Txt, onClick, className }) => {
   return (
     <button
-      data-aos="fade-up"
-      data-aos-delay="100"
       className={className}
       onClick={onClick}
       type={type}

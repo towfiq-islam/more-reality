@@ -13,7 +13,7 @@ const page = () => {
         isInfoBox={false}
       />
       <Partnership />
-      <OurLeadership/>
+      <OurLeadership />
     </>
   );
 };

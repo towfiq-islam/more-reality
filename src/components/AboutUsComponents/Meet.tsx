@@ -69,6 +69,8 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
               className="text-center"
             >
               <Image
+                data-aos="fade-up"
+                data-aos-delay="100"
                 width={271}
                 height={271}
                 src={
@@ -80,6 +82,8 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
                 className="rounded-full w-[271px] h-[271px] cursor-pointer"
               />
               <Heading
+               data-aos="fade-up"
+            data-aos-delay="100"
                 Variant="h3"
                 Txt={item?.name}
                 className="text-primary-text-blue text-xl font-bold mt-5"
