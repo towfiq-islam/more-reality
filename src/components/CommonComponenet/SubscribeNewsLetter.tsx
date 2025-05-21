@@ -32,7 +32,7 @@ const SubscribeNewsLetter = () => {
             data-aos-delay="100"
             type="email"
             placeholder="Enter your email address"
-            className="h-full w-full pl-3 md:pl-5 text-sm font-400 text-primary-text-blue font-normal outline-none pr-28 md:pr-[160px] "
+            className="h-full w-full pl-3 md:pl-5 text-sm font-400 text-primary-text-blue font-normal outline-none pr-28 md:pr-[160px]"
           />
           <Button
             Txt={"Subscription"}
