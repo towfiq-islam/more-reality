@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import Heading from "../Tags/Heading/Heading";
 import Image from "next/image";
@@ -13,7 +13,7 @@ interface BlogCardProps {
   ProfileImgUrl: string | any;
   date: string;
   Variant: "small" | "full";
-  id:number
+  id: number;
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({
@@ -24,7 +24,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
   name,
   date,
   ProfileImgUrl,
-  id
+  id,
 }) => {
   const router = useRouter();
 
@@ -34,9 +34,10 @@ const BlogCard: React.FC<BlogCardProps> = ({
 
   return (
     <div
-       data-aos="fade-up"
-            data-aos-delay="100"
+      data-aos="fade-up"
+      data-aos-delay="100"
       onClick={handleRedirect}
+      // w-[455px]
       className={`relative overflow-hidden rounded-[16px] group ${
         Variant === "small" ? "h-[551px] w-[455px]" : "h-[427px] w-full"
       }`}

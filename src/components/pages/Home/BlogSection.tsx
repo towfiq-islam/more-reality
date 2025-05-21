@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Button from "@/components/Tags/Button/Button";
 import Heading from "@/components/Tags/Heading/Heading";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";
@@ -7,9 +7,6 @@ import cute_house from "../../../assests/blog/cute-house.jpg";
 import asthtetic from "../../../assests/blog/asthetic.jpg";
 import white_shirt_man from "../../../assests/blog/white-shirt-man.jpg";
 import BlogCard from "@/components/cards/BlogCard";
-
-
-
 
 interface BlogCardProps {
   BgImgUrl: string | any;
@@ -179,8 +176,6 @@ const BlogSection: React.FC<BlogSectionProps> = ({
   isFullArr = false,
   isBtn = true,
 }) => {
-
-
   return (
     <div className="container h-auto py-24 cursor-pointer flex flex-col gap-y-[60px]">
       <div className="flex flex-col items-center gap-y-2 ">

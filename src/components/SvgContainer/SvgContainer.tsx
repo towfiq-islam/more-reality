@@ -97,8 +97,7 @@ export const ArrowSvg = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className="w-5 lg:w-6 h-5 lg:h-6"
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -128,8 +127,7 @@ export const Star = () => {
       data-aos="fade-up"
       data-aos-delay="100"
       xmlns="http://www.w3.org/2000/svg"
-      width="29"
-      height="28"
+      className="w-[25px] lg:w-[29px] h-[24px] lg:h-[28px]"
       viewBox="0 0 29 28"
       fill="none"
     >

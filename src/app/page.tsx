@@ -46,9 +46,9 @@ const page = () => {
         infoArr={InforArr}
       />
       <WhyChooseUs />
-        <Testimonial />
-        <BlogSection />
-        <FaqSection />
+      <Testimonial />
+      <BlogSection />{/*
+      <FaqSection /> */}
       <SubscribeNewsLetter />
     </>
   );
