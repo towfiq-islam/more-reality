@@ -48,25 +48,33 @@ const data = [
 
 const Property = () => {
   return (
-    <section className="py-20 bg-propertyBg">
+    <section className="lg:px-5 3xl:px-0 py-10 lg:py-20 bg-propertyBg">
       <div className="container">
         <Heading
           Txt="Type of commercial properties we handle"
-          className="text-4xl text-center mb-10"
+          className="!text-xl md:!text-2xl lg:!text-3xl text-center"
           Variant="h3"
         />
-        <div className="grid grid-cols-3 gap-20">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-7 md:gap-10 2xl:gap-20 mt-10">
           {data?.map(item => (
             <div key={item?.id}>
               <span data-aos="fade-up" data-aos-delay="100">
                 {item?.icon}
               </span>
-              <h3 data-aos="fade-up"
-            data-aos-delay="100" className="text-primary-text-blue uppercase font-semibold text-xl mt-3 mb-2">
+              <h3
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="text-primary-text-blue uppercase font-semibold md:text-lg 2xl:text-xl mt-3 mb-2"
+              >
                 {item?.title}
               </h3>
-              <p data-aos="fade-up"
-            data-aos-delay="100" className="text-secondary-text text-lg">{item?.desc}</p>
+              <p
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="text-secondary-text lg:text-lg"
+              >
+                {item?.desc}
+              </p>
             </div>
           ))}
         </div>
