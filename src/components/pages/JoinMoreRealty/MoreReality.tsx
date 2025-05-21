@@ -33,7 +33,10 @@ const whyJoinData = [
 
 const MoreReality = () => {
   return (
-    <section className="lg:px-5 3xl:px-0 bg-[#F3F9FE] py-12">
+    <section
+      className="lg:px-5 3xl:px-0 bg-[#F3F9FE] pt-12
+"
+    >
       <div className="container mx-auto">
         {/* Section Title */}
         <h2
@@ -58,7 +61,7 @@ const MoreReality = () => {
               <p
                 data-aos="fade-up"
                 data-aos-delay="100"
-                className="text-[#494949] font-lato text-sm 2xl:text-lg leading-relaxed"
+                className="text-[#494949] font-lato text-base 2xl:text-lg leading-relaxed"
               >
                 {item.description}
               </p>

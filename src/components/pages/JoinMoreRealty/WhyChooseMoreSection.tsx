@@ -76,7 +76,7 @@ const WhyChooseMoreSection = ({
             <p
               data-aos="fade-up"
               data-aos-delay="100"
-              className="text-gray-700 text-sm lg:text-lg "
+              className="text-gray-700 text-base lg:text-lg "
             >
               {description}
             </p>

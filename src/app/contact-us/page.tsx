@@ -1,6 +1,12 @@
-import CommonHeroBanner, { InfoBox} from "@/components/CommonHeroBanner/CommonHeroBanner";
+import CommonHeroBanner, {
+  InfoBox,
+} from "@/components/CommonHeroBanner/CommonHeroBanner";
 import hero from "@/assests/hero.jpg";
-import { AddressSvg, EmailSvg, PhoneSvg} from "@/components/SvgContainer/SvgContainer";
+import {
+  AddressSvg,
+  EmailSvg,
+  PhoneSvg,
+} from "@/components/SvgContainer/SvgContainer";
 import JoinUs from "@/components/CommonComponenet/JoinUs";
 
 const data: InfoBox[] = [
@@ -33,7 +39,7 @@ const page = () => {
         isInfoBox={true}
         infoArr={data}
       />
-      <div className="mt-48">
+      <div className="mt-12 2xl:mt-48">
         <JoinUs
           title="Stay Connected & Elevate Your Real Estate Journey with Confidence"
           description="Our Real Estate CRM system empowers you with deeper insights, seamless automation, and data-driven strategies—all in one place. Submit your details below, and let's elevate your real estate journey together!"
