@@ -1,6 +1,5 @@
 import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
 import hero from "@/assests/hero.jpg";
-
 import BuyAHomeTestimonial from "@/components/BuyaHomeComponents/BuyAHomeTestimonial";
 import SubscribeNewsLetter from "@/components/CommonComponenet/SubscribeNewsLetter";
 import SecondaryBanner from "@/components/CommonComponenet/SecondaryBanner";
@@ -65,17 +64,19 @@ const page = () => {
         description="At MORE Realty, we understand that buying a home isn’t just a transaction — it’s a life-changing journey. Whether you’re a first-time homebuyer or an experienced investor, we’re here to guide you every step of the way, making sure your experience is smooth, informed, and rewarding."
         image={buyHomeMoreRealty}
       />
-      <div className="container py-10">
-        {features.map((feature, index) => (
-          <FeatureCard
-            key={index}
-            heading={feature.heading}
-            description={feature.description}
-            image={feature.image}
-            imagePosition={feature.imagePosition}
-          />
-        ))}
-      </div>
+      <section className="lg:px-5 3xl:px-0">
+        <div className="container 3xl:py-10">
+          {features.map((feature, index) => (
+            <FeatureCard
+              key={index}
+              heading={feature.heading}
+              description={feature.description}
+              image={feature.image}
+              imagePosition={feature.imagePosition}
+            />
+          ))}
+        </div>
+      </section>
       <BuyAHomeTestimonial />
       <SubscribeNewsLetter />
     </>
