@@ -19,7 +19,7 @@ const Heading: React.FC<HeadingProps> = ({
       data-aos="fade-up"
       data-aos-delay="100"
       className={cn(
-        "text-xl md:text-2xl lg:text-3xl 3xl:text-5xl xl:leading-[125%] font-bold text-primary-text-blue lg:mb-1",
+        "text-[22px] md:text-2xl lg:text-3xl 3xl:text-5xl xl:leading-[125%] font-bold text-primary-text-blue lg:mb-1",
         className
       )}
     >

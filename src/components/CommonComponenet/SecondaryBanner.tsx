@@ -16,18 +16,23 @@ const SecondaryBanner: React.FC<SecondaryBannerProps> = ({
   subtitle,
 }) => {
   return (
-    <section className="container text-center py-20">
-      <Heading Txt={title} Variant="h3" className="mb-3 text-[42px]" />
-      <Paragraph Txt={subtitle} className="mb-2 text-gray-800" />
-      <Paragraph Txt={description} className="max-w-[1440px] mb-10" />
-      <Image
-         data-aos="fade-up"
-            data-aos-delay="100"
-        src={image}
-        alt="banner_image"
-        placeholder="blur"
-        className="h-[580px] w-full object-cover"
-      />
+    <section className="text-center py-10 2xl:py-16 3xl:py-20 lg:px-5 3xl:px-0">
+      <div className="container">
+        <Heading Txt={title} Variant="h3" className="mb-3" />
+        <Paragraph
+          Txt={subtitle}
+          className="md:mb-2 !text-base md:text-lg text-gray-800"
+        />
+        <Paragraph Txt={description} className="max-w-[1440px] mb-7 lg:mb-10" />
+        <Image
+          data-aos="fade-up"
+          data-aos-delay="100"
+          src={image}
+          alt="banner_image"
+          placeholder="blur"
+          className="h-[270px] md:h-[300px] lg:h-[400px] xl:h-[500px] 3xl:h-[580px] w-full object-cover rounded"
+        />
+      </div>
     </section>
   );
 };

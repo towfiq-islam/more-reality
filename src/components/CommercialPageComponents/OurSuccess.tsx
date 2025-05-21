@@ -67,32 +67,28 @@ const OurSuccess = () => {
   };
 
   return (
-    <section className="py-20 mb-20 bg-propertyBg">
+    <section className="py-10 2xl:py-20 mb-20 lg:px-5 3xl:px-0 bg-propertyBg">
       <div className="container">
         {/* Upper Part */}
-        <div className="flex items-center justify-between w-full mb-10">
+        <div className="flex items-center flex-col lg:flex-row gap-5 lg:justify-between w-full mb-5 2xl:mb-10">
           {/* Heading */}
-          <div className="flex-1 flex justify-center">
-            <Heading Txt="Success Stories" className="text-4xl" Variant="h3" />
+          <div className="flex-1 flex text-center justify-center">
+            <Heading Txt="Success Stories" Variant="h3" />
           </div>
 
           {/* Navigation buttons */}
           <div className="flex flex-row gap-x-5">
             <div
-              data-aos="fade-up"
-              data-aos-delay="100"
               onClick={handlePrev}
-              className="flex items-center justify-center w-12 h-12 border border-primary-blue rounded-full cursor-pointer"
+              className="flex items-center justify-center w-10 2xl:w-12 h-10 2xl:h-12 border border-primary-blue rounded-full cursor-pointer"
             >
-              <ArrowSvg />
+              <ArrowSvg data-aos="fade-up" data-aos-delay="100" />
             </div>
             <div
-              data-aos="fade-up"
-              data-aos-delay="100"
               onClick={handleNext}
-              className="flex items-center justify-center w-12 h-12 border border-primary-blue rounded-full cursor-pointer rotate-180"
+              className="flex items-center justify-center w-10 2xl:w-12 h-10 2xl:h-12 border border-primary-blue rounded-full cursor-pointer rotate-180"
             >
-              <ArrowSvg />
+              <ArrowSvg data-aos="fade-up" data-aos-delay="100" />
             </div>
           </div>
         </div>
@@ -101,9 +97,19 @@ const OurSuccess = () => {
         <div className="w-full">
           <Swiper
             modules={[Navigation]}
-            onSwiper={swiper => (swiperRef.current = swiper)}
-            spaceBetween={30}
-            slidesPerView={3}
+            onSwiper={(swiper: SwiperType) => (swiperRef.current = swiper)}
+            spaceBetween={20}
+            slidesPerView={1}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1280: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+            }}
             className="overflow-hidden"
           >
             {agentSuccessStories.map((item, idx) => (
