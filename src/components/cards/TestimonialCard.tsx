@@ -19,7 +19,7 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
   isDownPart,
 }) => {
   return (
-    <div className="min-h-[280px] max-w-[457px] rounded-[30px] bg-white border-[1px] border-solid border-[#E2E2E2] py-[31px] px-[30px] flex flex-col gap-y-[60px]  ">
+    <div className="min-h-[280px] w-full lg:max-w-[457px] rounded-[30px] bg-white border-[1px] border-solid border-[#E2E2E2] py-5 3xl:py-[31px] px-5 3xl:px-[30px] flex flex-col gap-y-7 lg:gap-y-8 3xl:gap-y-[60px]  ">
       <div className="flex flex-col gap-y-[18px] ">
         <div className="flex flex-row gap-x-[25px] items-center ">
           <Image
@@ -38,7 +38,7 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
         </div>
         <Paragraph
           Txt={review}
-          className="text-lg leading-[144%] font-normal text-primary-text-blue   "
+          className="!text-[17px] 3xl:text-lg leading-[144%] font-normal text-primary-text-blue   "
         />
       </div>
       {isDownPart && (
@@ -48,21 +48,21 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
             data-aos-delay="100"
             className="border-t-[1px] border-[#E7E6E6] w-full"
           />
-          <div className="flex flex-row gap-x-[23.9px] itemsc ">
+          <div className="flex flex-row gap-x-5 lg:gap-x-[23px] items-center">
             <Heading
               Variant="h4"
               Txt={
                 <>
                   <Paragraph
                     Txt={`${rating}.0`}
-                    className="text-[31px] text-primary-blue leading-[125%]  "
+                    className="text-lg lg:text-[31px] text-primary-blue leading-[125%]  "
                   />
-                  <span className="text-[19px] text-[#B9C8F3] leading-[125%]  ">
+                  <span className="lg:text-[19px] text-[#B9C8F3] leading-[125%]  ">
                     /
                   </span>
                   <Paragraph
                     Txt={"5.0"}
-                    className="text-[19px] text-[#606060] leading-[125%]  "
+                    className="text-base lg:text-[19px] text-[#606060] leading-[125%]  "
                   />
                 </>
               }

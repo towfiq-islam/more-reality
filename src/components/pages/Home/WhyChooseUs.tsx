@@ -32,45 +32,50 @@ const highlights = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="h-auto w-full pt-[102px] pb-[167px] container flex flex-row gap-x-10 ">
-      <div className="flex flex-row flex-wrap gap-x-10 max-w-[744px] ">
-        {imgArr.map((item, idx) => {
-          return (
-            <Image
-              data-aos="fade-up"
-              data-aos-delay="100"
-              key={idx}
-              src={item.src}
-              width={342}
-              height={320}
-              alt="not found"
-              className={`h-[320px] w-[342px] object-cover rounded-[12px]  ${
-                idx === 0 && "mt-[-51px]"
-              }  ${idx === 3 && "mt-[47px]"} `}
-            />
-          );
-        })}
-      </div>
-      <div className="flex flex-col gap-y-4   ">
-        <Heading Txt={"Why Choose Us"} Variant="h2" />
-        <div className="flex flex-col gap-y-5 max-w-[685px] ">
-          <Paragraph
-            Txt={`We’re not just another real estate agency — we’re your trusted partner in finding the perfect place to call home. Here's why clients choose us again and again:`}
-          />
-          {highlights?.map((item, idx) => {
+    <section className="lg:px-5 3xl:px-0 pt-10 lg:pt-20 3xl:pt-[102px] pb-10 lg:pb-20 3xl:pb-[167px] h-auto w-full">
+      <div className="container flex flex-col gap-y-10 2xl:flex-row gap-x-10">
+        {/* Left */}
+        <div className="self-start mx-auto flex flex-row flex-wrap gap-5 lg:gap-x-5 2xl:gap-x-7 3xl:gap-x-10 w-full lg:max-w-[600px] 3xl:max-w-[744px]">
+          {imgArr.map((item, idx) => {
             return (
-              <div key={idx} className="flex flex-col gap-y-1 ">
-                <Paragraph
-                  Txt={item.title}
-                  className=" section-sub-heading-one font-[700] "
-                />
-                <Paragraph
-                  Txt={item.description}
-                  className=" section-sub-heading-one font-normal opacity-[80] "
-                />
-              </div>
+              <Image
+                data-aos="fade-up"
+                data-aos-delay="100"
+                key={idx}
+                src={item.src}
+                width={342}
+                height={320}
+                alt="not found"
+                className={`h-[220px] md:h-[240px] lg:h-[260px] 3xl:h-[320px] w-full md:w-[43%] lg:w-[280px] 3xl:w-[342px] object-cover rounded-[12px] border ${
+                  idx === 0 && "lg:-mt-5 2xl:mt-[-35px] 3xl:mt-[-51px]"
+                }  ${idx === 3 && "lg:mt-5 2xl:mt-[35px] 3xl:mt-[47px]"} `}
+              />
             );
           })}
+        </div>
+        {/* Right */}
+        <div className="flex flex-col gap-y-3 2xl:gap-y-4">
+          <Heading Txt={"Why Choose Us"} Variant="h2" />
+          <div className="flex flex-col gap-y-5 2xl:max-w-[685px] ">
+            <Paragraph
+              Txt={`We’re not just another real estate agency — we’re your trusted partner in finding the perfect place to call home. Here's why clients choose us again and again:`}
+              className="!text-lg 3xl:text-xl"
+            />
+            {highlights?.map((item, idx) => {
+              return (
+                <div key={idx} className="flex flex-col gap-y-1 ">
+                  <Paragraph
+                    Txt={item.title}
+                    className="!text-lg 3xl:text-xl font-[700] "
+                  />
+                  <Paragraph
+                    Txt={item.description}
+                    className="!text-base 2xl:!text-lg 3xl:!text-xl font-normal opacity-[80] "
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
