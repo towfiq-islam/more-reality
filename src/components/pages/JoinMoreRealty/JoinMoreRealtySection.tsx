@@ -60,7 +60,7 @@ const joinMoreData: JoinMoreData = {
 const JoinMoreRealtySection = () => {
   return (
     <section className="py-16 px-4 md:px-10 bg-white">
-      <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="container grid grid-cols-1 xl:grid-cols-2 gap-[20px] lg:gap-12 items-center">
         {/* Left Image */}
         <div className="w-full">
           <Image
@@ -97,9 +97,12 @@ const JoinMoreRealtySection = () => {
       </div>
 
       {/* Feature Grid */}
-      <div className="max-w-[1440px] mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-[128px] gap-y-[60px]">
+      <div className="container mt-5 xl:mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-[128px] gap-y-[20px]">
         {joinMoreData.features.map((item, index) => (
-          <div key={index} className="flex items-start gap-6">
+          <div
+            key={index}
+            className="flex flex-col xl:flex-row items-start gap-6"
+          >
             <div className="min-w-[40px] h-[40px]">{item.icon}</div>
             <div>
               <h3
