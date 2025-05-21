@@ -27,10 +27,10 @@ const WhyChooseMoreSection = ({
 }: WhyChooseMoreProps) => {
   return (
     <>
-      <section className="w-full bg-white py-20">
-        <div className="container flex flex-col md:flex-row items-center gap-8">
+      <section className="lg:px-5 3xl:px-0  w-full bg-white pb-[40px]">
+        <div className="container flex flex-col xl:flex-row items-center gap-7 xl:gap-12">
           {/* Left Side Image */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full xl:w-1/2">
             <Image
               data-aos="fade-up"
               data-aos-delay="100"
@@ -38,16 +38,16 @@ const WhyChooseMoreSection = ({
               alt="Why Choose More"
               width={600}
               height={500}
-              className="rounded-lg w-full h-auto object-cover"
+              className="rounded-lg w-full h-[300px] lg:h-[350px] xl:h-[450px] 2xl:h-auto object-cover"
             />
           </div>
 
           {/* Right Side Content */}
-          <div className="w-full md:w-1/2 text-left">
+          <div className="w-full xl:w-1/2 text-left flex flex-col gap-[15px] 2xl:gap-[20px]">
             <h2
               data-aos="fade-up"
               data-aos-delay="100"
-              className="text-2xl md:text-4xl mb-2 text-[#161C24] font-lato text-[36px] font-semibold leading-[56px] tracking-[-1.08px] capitalize"
+              className="text-[20px] lg:text-2xl 3xl:text-4xl  text-[#161C24] font-lato  font-semibold leading-[36px] 2xl:leading-[56px] tracking-[-1.08px] capitalize"
             >
               {title}
             </h2>
@@ -55,12 +55,12 @@ const WhyChooseMoreSection = ({
             <p
               data-aos="fade-up"
               data-aos-delay="100"
-              className="text-md font-semibold text-gray-800 mb-2"
+              className="text-sm lg:text-md font-semibold text-gray-800 "
             >
               {pricing}
             </p>
 
-            <div className="flex flex-wrap gap-x-4 gap-y-2 mb-4 text-sm font-semibold text-gray-700">
+            <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs lg:text-sm font-semibold text-gray-700">
               {perks.map((perk, idx) => (
                 <span
                   data-aos="fade-up"
@@ -76,7 +76,7 @@ const WhyChooseMoreSection = ({
             <p
               data-aos="fade-up"
               data-aos-delay="100"
-              className="text-gray-700 mb-4"
+              className="text-gray-700 text-sm lg:text-lg "
             >
               {description}
             </p>
@@ -84,14 +84,20 @@ const WhyChooseMoreSection = ({
             <p
               data-aos="fade-up"
               data-aos-delay="100"
-              className="text-gray-800 font-semibold mb-6"
+              className="text-gray-800 text-sm lg:text-md font-semibold "
             >
               {bonus}
             </p>
-
-            <a href={button.href} className="primary-btn">
-              {button.text}
-            </a>
+            <div className="flex items-start">
+              <a
+                data-aos="fade-up"
+                data-aos-delay="100"
+                href={button.href}
+                className="primary-btn text-sm lg:text-md "
+              >
+                {button.text}
+              </a>
+            </div>
           </div>
         </div>
       </section>

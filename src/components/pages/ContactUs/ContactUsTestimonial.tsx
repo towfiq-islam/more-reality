@@ -68,17 +68,12 @@ const ContactUsTestimonial = () => {
   };
 
   return (
-    <section className="h-auto w-full bg-off-white mt-20">
-      <div className="container py-20 flex flex-col gap-y-[36px] items-center">
-        <div className="flex items-center justify-between w-full">
+    <section className="h-auto lg:px-5 3xl:px-0 w-full bg-off-white">
+      <div className="container py-10 lg:py-20 flex flex-col gap-y-5 lg:gap-y-[36px] items-center">
+        <div className="flex items-center flex-col lg:flex-row gap-5 lg:justify-between w-full">
           <div className="flex-1 flex justify-center">
-            <Heading
-              Variant="h4"
-              Txt={"Agent Success Stories"}
-              className="testimonial-heading"
-            />
+            <Heading Variant="h4" Txt={"Agent Success Stories"} />
           </div>
-
           {/* Navigation buttons */}
           <div className="flex flex-row gap-x-5">
             <div
@@ -101,8 +96,18 @@ const ContactUsTestimonial = () => {
           <Swiper
             modules={[Navigation]}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
-            spaceBetween={30}
-            slidesPerView={3}
+            spaceBetween={20}
+            slidesPerView={1}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1280: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+            }}
             className="overflow-hidden"
           >
             {agentSuccessStories.map((item, idx) => (
