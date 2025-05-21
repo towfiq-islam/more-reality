@@ -262,8 +262,7 @@ export const EmailSvg = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="56"
-      height="56"
+      className="w-[36px] h-[36px] 3xl:w-[56px] 3xl:h-[56px]"
       viewBox="0 0 56 56"
       fill="none"
     >
@@ -1803,8 +1802,7 @@ export const AddressSvg = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="56"
-      height="56"
+      className="w-[36px] h-[36px] 3xl:w-[56px] 3xl:h-[56px]"
       viewBox="0 0 56 56"
       fill="none"
     >
@@ -1865,8 +1863,7 @@ export const PhoneSvg = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="56"
-      height="56"
+      className="w-[36px] h-[36px] 3xl:w-[56px] 3xl:h-[56px]"
       viewBox="0 0 56 56"
       fill="none"
     >
