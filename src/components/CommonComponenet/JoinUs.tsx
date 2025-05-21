@@ -32,29 +32,35 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
 
   return (
     <section
-      className="w-full bg-cover bg-center bg-no-repeat py-24 mb-20"
+      className="w-full bg-cover bg-center bg-no-repeat py-12 xl:py-24 mb-12 xl:mb-24 lg:px-5 3xl:px-0"
       style={{
         backgroundImage: `linear-gradient(#00000099, #00000099), url(${contactUs.src})`,
       }}
     >
-      <div className="container flex items-center gap-12">
+      <div className="container flex flex-col xl:flex-row items-center gap-12">
         {/* Left Side */}
-        <div className="text-white flex-1">
+        <div className="text-white flex-1 ">
           <Heading
             Txt={title}
             Variant="h3"
-            className="text-white font-normal mb-8"
+            className="text-white  !mb-3 text-center xl:text-start"
           />
-          <Paragraph Txt={description} className="text-white opacity-80" />
+          <Paragraph
+            Txt={description}
+            className="text-white text-center xl:text-start  opacity-80"
+          />
         </div>
 
         {/* Right Side */}
-        <div className="bg-white p-8 rounded-xl shadow-2xl flex-1">
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full relative">
-            <div className="flex gap-5">
+        <div className="bg-white p-4 lg:p-8 rounded-xl shadow-2xl w-full flex-1">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="space-y-2 lg:space-y-4 w-full relative"
+          >
+            <div className="flex flex-col xl:flex-row gap-2 xl:gap-5">
               {/* First Name */}
               <div className="flex-1">
-                <input     
+                <input
                   data-aos="fade-up"
                   data-aos-delay="100"
                   type="text"
@@ -62,7 +68,7 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
                   {...register("firstName", {
                     required: "First name is required",
                   })}
-                  className="w-full px-4 py-3 border border-[#E6E6E6] rounded-[8px] outline-none"
+                  className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-[8px] outline-none"
                 />
                 {errors.firstName && (
                   <p className="text-sm text-red-600 mt-1">
@@ -81,7 +87,7 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
                   {...register("lastName", {
                     required: "Last name is required",
                   })}
-                  className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none"
+                  className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none"
                 />
                 {errors.lastName && (
                   <p className="text-sm text-red-600 mt-1">
@@ -105,7 +111,7 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
                     message: "Invalid email format",
                   },
                 })}
-                className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none"
+                className="w-full px-4  py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none"
               />
               {errors.email && (
                 <p className="text-sm text-red-600 mt-1">
@@ -122,7 +128,7 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
                 type="text"
                 placeholder="Address"
                 {...register("address", { required: "Address is required" })}
-                className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none"
+                className="w-full px-4  py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none"
               />
               {errors.address && (
                 <p className="text-sm text-red-600 mt-1">
@@ -137,8 +143,8 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
                 data-aos="fade-up"
                 data-aos-delay="100"
                 placeholder="Message"
-                rows={5}
-                className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none resize-none"
+                rows={2}
+                className="w-full px-4  py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none resize-none"
               ></textarea>
               {errors.message && (
                 <p className="text-sm text-red-600 mt-1">
@@ -148,11 +154,11 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
             </div>
 
             {/* Submit btn */}
-            <div className="w-full  relative " >
-            <button type="submit" className="primary-btn !w-full ">
-              Submit
-            </button>
-           </div>
+            <div className="w-full  relative ">
+              <button type="submit" className="primary-btn !w-full ">
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       </div>

@@ -51,14 +51,14 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
       </div>
 
       {isInfoBox && (
-        <div className="absolute -bottom-20 flex left-1/2 -translate-x-1/2 gap-[30px]">
+        <div className="hidden 2xl:block  absolute -bottom-20 flex left-1/2 -translate-x-1/2 gap-[30px]">
           <div className="container flex flex-row gap-x-[30px]">
             {infoArr?.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div
                   key={idx}
-                  className="w-[417px] h-auto px-[32px] py-8 bg-primary-blue rounded-[10px] flex flex-col gap-y-[15px] "
+                  className=" 2xl:w-[350px] 3xl:w-[417px] h-auto px-[32px] py-8 bg-primary-blue rounded-[10px] flex flex-col gap-y-[15px] "
                 >
                   <div className="flex flex-row gap-x-[15.35px] items-center ">
                     <Icon data-aos="fade-up" data-aos-delay="100" />
