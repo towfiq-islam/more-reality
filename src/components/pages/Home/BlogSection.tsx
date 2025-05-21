@@ -177,38 +177,24 @@ const BlogSection: React.FC<BlogSectionProps> = ({
   isBtn = true,
 }) => {
   return (
-    <div className="container h-auto py-24 cursor-pointer flex flex-col gap-y-[60px]">
-      <div className="flex flex-col items-center gap-y-2 ">
-        {/* Title */}
-        <Heading Variant="h3" Txt={title} />
+    <section className="lg:px-5 3xl:px-0 py-10 lg:py-16 3xl:py-24">
+      <div className="container h-auto cursor-pointer flex flex-col gap-y-10 3xl:gap-y-[60px]">
+        <div className="flex flex-col items-center gap-y-2 ">
+          {/* Title */}
+          <Heading Variant="h3" Txt={title} />
 
-        {/* Subtitle */}
-        <Paragraph
-          Txt={subTitle}
-          className=" section-sub-heading-one font-normal opacity-[80] max-w-[889px] text-center !text-[#494949] "
-        />
-      </div>
+          {/* Subtitle */}
+          <Paragraph
+            Txt={subTitle}
+            className=" section-sub-heading-one font-normal opacity-[80] max-w-[889px] text-center !text-[#494949] "
+          />
+        </div>
 
-      {/* Map */}
-      <div className="flex flex-col gap-y-[60px] items-center">
-        <div className="flex flex-row flex-wrap  gap-x-[20px] gap-y-10 ">
-          {isFullArr
-            ? blogDataList?.map((blog, idx) => {
-                return (
-                  <BlogCard
-                    key={idx}
-                    BgImgUrl={blog.BgImgUrl}
-                    title={blog.title}
-                    details={blog.details}
-                    date={blog.date}
-                    name={blog.name}
-                    ProfileImgUrl={blog.ProfileImgUrl}
-                    Variant={blog.Variant}
-                    id={blog.id}
-                  />
-                );
-              })
-            : blogData?.map((blog, idx) => {
+        {/* Map */}
+        {isFullArr ? (
+          <div className="flex flex-col gap-y-[60px] items-center">
+            <div className="flex flex-row flex-wrap gap-x-[20px] gap-y-10 ">
+              {blogDataList?.map((blog, idx) => {
                 return (
                   <BlogCard
                     key={idx}
@@ -223,12 +209,42 @@ const BlogSection: React.FC<BlogSectionProps> = ({
                   />
                 );
               })}
-        </div>
-        {isBtn && (
-          <Button Txt={"Fine More Blog"} className="primary-btn-reverse" />
+            </div>
+            {isBtn && (
+              <Button Txt={"Fine More Blog"} className="primary-btn-reverse" />
+            )}
+          </div>
+        ) : (
+          <div>
+            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-5 mb-7 lg:mb-10">
+              {blogData?.map((blog, idx) => {
+                return (
+                  <BlogCard
+                    key={idx}
+                    BgImgUrl={blog.BgImgUrl}
+                    title={blog.title}
+                    details={blog.details}
+                    date={blog.date}
+                    name={blog.name}
+                    ProfileImgUrl={blog.ProfileImgUrl}
+                    Variant={blog.Variant}
+                    id={blog.id}
+                  />
+                );
+              })}
+            </div>
+            <div className="flex justify-center items-center">
+              {isBtn && (
+                <Button
+                  Txt={"Fine More Blog"}
+                  className="primary-btn-reverse"
+                />
+              )}
+            </div>
+          </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

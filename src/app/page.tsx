@@ -47,8 +47,8 @@ const page = () => {
       />
       <WhyChooseUs />
       <Testimonial />
-      <BlogSection />{/*
-      <FaqSection /> */}
+      <BlogSection />
+      <FaqSection />
       <SubscribeNewsLetter />
     </>
   );
