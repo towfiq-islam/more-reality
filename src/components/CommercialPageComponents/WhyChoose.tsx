@@ -31,40 +31,46 @@ const data = [
 
 const WhyChoose = () => {
   return (
-    <div className="container py-20 grid grid-cols-2 gap-5 items-center">
-      {/* Left */}
-      <div>
-        <Image
-          data-aos="fade-up"
-          data-aos-delay="100"
-          src={whyChooseImg}
-          alt="choose_image"
-          placeholder="blur"
-          className="max-h-[814px]"
-        />
-      </div>
+    <section className="lg:px-5 3xl:px-0 py-10 2xl:py-20">
+      <div className="container grid 2xl:grid-cols-2 gap-7 md:gap-10 3xl:gap-20 items-center">
+        {/* Left */}
+        <div>
+          <Image
+            data-aos="fade-up"
+            data-aos-delay="100"
+            src={whyChooseImg}
+            alt="choose_image"
+            placeholder="blur"
+            className="max-h-[350px] md:max-h-[500px] xl:max-h-[600px] 2xl:max-h-[814px] w-full"
+          />
+        </div>
 
-      {/* Right */}
-      <div>
-        <h3 data-aos="fade-up"
-            data-aos-delay="100" className="text-2xl font-bold mb-10 -ml-5">
-          Why Choose MORE Realty for Commercial Deals
-        </h3>
-        <ol className="list-decimal list-outside space-y-7 marker:text-xl marker:font-bold">
-          {data.map(item => (
-            <li data-aos="fade-up"
-            data-aos-delay="100" key={item.id}>
-              <div className="pl-2">
-                <span className="font-bold text-xl">{item.title}: </span>
-                <span className="text-secondary-text leading-[30px] text-[19px]">
-                  {item.desc}
-                </span>
-              </div>
-            </li>
-          ))}
-        </ol>
+        {/* Right */}
+        <div>
+          <h3
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="text-[19px] md:text-[22px] 2xl:text-2xl font-bold mb-3 2xl:mb-7 3xl:mb-10 2xl:-ml-5"
+          >
+            Why Choose MORE Realty for Commercial Deals
+          </h3>
+          <ol className="2xl:list-decimal 2xl:list-outside space-y-5 3xl:space-y-7 marker:text-lg 3xl:marker:text-xl marker:font-bold">
+            {data.map(item => (
+              <li data-aos="fade-up" data-aos-delay="100" key={item.id}>
+                <div className="2xl:pl-2">
+                  <span className="font-bold md:text-lg 3xl:text-xl">
+                    {item.title}:{" "}
+                  </span>
+                  <span className="text-secondary-text leading-[30px] md:text-[17px] 3xl:text-[19px]">
+                    {item.desc}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
