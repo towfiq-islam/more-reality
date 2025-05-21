@@ -17,12 +17,12 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
   return (
     <div
-      className={`flex flex-col md:flex-row ${
-        imagePosition === "right" ? "md:flex-row-reverse" : ""
-      } items-center gap-6 py-6`}
+      className={`flex flex-col lg:flex-row ${
+        imagePosition === "right" ? "lg:flex-row-reverse" : ""
+      } items-center gap-7 xl:gap-10 py-6`}
     >
       {/* Left Side */}
-      <div className="relative w-1/2 h-[392px]">
+      <div className="relative w-full lg:w-1/2 h-[300px] lg:h-[350px] 2xl:h-[392px]">
         <Image
           data-aos="fade-up"
           data-aos-delay="100"
@@ -35,16 +35,13 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       </div>
 
       {/* Right Side */}
-      <div className="w-full md:w-1/2">
+      <div className="w-full lg:w-1/2">
         <Heading
           Txt={heading}
-          className="text-primary-text-blue font-medium text-[32px] mb-4"
+          className="text-primary-text-blue font-semibold text-xl lg:!text-[24px] 2xl:!text-[35px] mb-2 lg:!mb-3"
           Variant="h3"
         />
-        <Paragraph
-          Txt={description}
-          className=" text-primary-text-blue text-[]"
-        />
+        <Paragraph Txt={description} className=" text-primary-text-blue" />
       </div>
     </div>
   );

@@ -62,9 +62,9 @@ const BuyAHomeTestimonial = () => {
   };
 
   return (
-    <section className="h-auto w-full bg-off-white mb-[120px]">
-      <div className="container py-20 flex flex-col gap-y-[36px] items-center">
-        <div className="flex items-center justify-between w-full">
+    <section className="h-auto lg:px-5 3xl:px-0 w-full bg-off-white mt-10 mb-10 2xl:mb-20 3xl:mb-[120px]">
+      <div className="container py-10 lg:py-20 flex flex-col gap-y-5 lg:gap-y-[36px] items-center">
+        <div className="flex items-center flex-col lg:flex-row gap-5 lg:justify-between w-full">
           <div className="flex-1 flex justify-center">
             <Heading
               Variant="h4"
@@ -77,15 +77,15 @@ const BuyAHomeTestimonial = () => {
           <div className="flex flex-row gap-x-5">
             <div
               onClick={handlePrev}
-              className="flex items-center justify-center w-12 h-12 border border-primary-blue rounded-full cursor-pointer"
+              className="flex items-center justify-center w-10 2xl:w-12 h-10 2xl:h-12 border border-primary-blue rounded-full cursor-pointer"
             >
-              <ArrowSvg />
+              <ArrowSvg data-aos="fade-up" data-aos-delay="100" />
             </div>
             <div
               onClick={handleNext}
-              className="flex items-center justify-center w-12 h-12 border border-primary-blue rounded-full cursor-pointer rotate-180"
+              className="flex items-center justify-center w-10 2xl:w-12 h-10 2xl:h-12 border border-primary-blue rounded-full cursor-pointer rotate-180"
             >
-              <ArrowSvg />
+              <ArrowSvg data-aos="fade-up" data-aos-delay="100" />
             </div>
           </div>
         </div>
@@ -94,9 +94,19 @@ const BuyAHomeTestimonial = () => {
         <div className="w-full">
           <Swiper
             modules={[Navigation]}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            spaceBetween={30}
-            slidesPerView={3}
+            onSwiper={(swiper: SwiperType) => (swiperRef.current = swiper)}
+            spaceBetween={20}
+            slidesPerView={1}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1280: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+            }}
             className="overflow-hidden"
           >
             {testimonials.map((item, idx) => (
