@@ -135,9 +135,9 @@ const Navbar = () => {
                         >
                           {sub.label}
                         </Link>
-                        {subIdx !== item.subCategory.length - 1 && (
-                          <hr className="border-gray-400" />
-                        )}
+                        {item.subCategory && subIdx !== item.subCategory.length - 1 && (
+  <hr className="border-gray-400" />
+)}
                       </li>
                     ))}
                   </ul>
