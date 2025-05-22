@@ -61,7 +61,10 @@ const Footer = () => {
           {/* Navigation Links */}
           <div className="flex flex-col lg:flex-row justify-between gap-y-6 md:gap-y-7 gap-x-8 2xl:gap-x-10 flex-1">
             {navLink.map((item, idx) => (
-              <div key={idx} className="flex flex-col gap-y-3 lg:gap-y-5 w-full">
+              <div
+                key={idx}
+                className="flex flex-col gap-y-3 lg:gap-y-5 w-full"
+              >
                 <Paragraph Txt={item.title} className="footer-link-title" />
                 <ul className="flex flex-col gap-y-2.5">
                   {item?.navLinks?.map((link, linkIdx) => (

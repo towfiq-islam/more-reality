@@ -6,7 +6,6 @@ import { Navigation } from "swiper/modules";
 import { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import Button from "@/components/Tags/Button/Button";
 import { ArrowSvg } from "@/components/SvgContainer/SvgContainer";
 import TestimonialCard from "@/components/cards/TestimonialCard";
 import beard from "../../../assests/home/beard.png";
@@ -95,7 +94,7 @@ const ContactUsTestimonial = () => {
         <div className="w-full">
           <Swiper
             modules={[Navigation]}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSwiper={swiper => (swiperRef.current = swiper)}
             spaceBetween={20}
             slidesPerView={1}
             breakpoints={{

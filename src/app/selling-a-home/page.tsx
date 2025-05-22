@@ -102,7 +102,6 @@ const page = () => {
           ))}
         </div>
       </section>
-
       <BuyAHomeTestimonial />
       <SubscribeNewsLetter />
       <SellingForm />
