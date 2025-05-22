@@ -75,7 +75,7 @@ const OurPurpose = () => {
             Our areas of impact include:
           </p>
           <ol className="lg:list-disc list-outside space-y-3 marker:text-xl marker:font-bold">
-            {data.map((item) => (
+            {data.map(item => (
               <li key={item.id}>
                 <div className="2xl:pl-2">
                   <span
