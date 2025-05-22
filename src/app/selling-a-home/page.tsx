@@ -90,7 +90,7 @@ const page = () => {
         />
       </div>
       <section className="lg:px-5 3xl:px-0">
-        <div className="container py-10">
+        <div className="container pt-10 xl:py-10">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}

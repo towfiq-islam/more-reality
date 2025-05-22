@@ -69,7 +69,7 @@ const BuyAHomeTestimonial = () => {
             <Heading
               Variant="h4"
               Txt={"Hear From Our Happy Buyers"}
-              className="testimonial-heading"
+              className="testimonial-heading text-center lg:text-start"
             />
           </div>
 
