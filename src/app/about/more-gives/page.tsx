@@ -19,7 +19,7 @@ const page = () => {
         description="At MORE Realty, we don’t just help people find homes — we believe in building hope, community, and connection. Through MORE Gives, our commitment extends far beyond real estate. We are here to uplift lives, stand by those in need, and invest in the neighborhoods we proudly serve. We know that even the smallest act of kindness can change someones world. That’s why giving back isn’t something we do — it’s who we are."
         image={introductionImg}
       />
-      <OurPurpose />
+      <OurPurpose /> 
       <JoinUs
         title="Join Us or Partner With Us"
         description="MORE Gives is powered by the hearts of our agents, clients, and

@@ -40,7 +40,7 @@ const page = () => {
                 "Navigating the 2025 Real Estate Market: What Buyers and Sellers Need to Know"
               }
               Variant="h4"
-              className="text-[38px] text-white font-bold leading-[120%] max-w-[894px] "
+              className="!text-[38px] text-white font-bold leading-[120%] max-w-[894px] "
             />
             <div className="flex flex-row gap-x-5 items-center ">
               <Image
@@ -77,7 +77,7 @@ const page = () => {
             <Heading
               Txt={"Market Trends to Watch in 2025:"}
               className={
-                "text-2xl font-bold  text-primary-text-blue leading-[120%] "
+                "!text-2xl font-bold  text-primary-text-blue leading-[120%] "
               }
             />
             <div className="flex flex-col gap-y-10 ">
@@ -95,7 +95,7 @@ const page = () => {
             <Heading
               Txt={" Advice for Buyers:"}
               className={
-                "text-2xl font-bold  text-primary-text-blue leading-[120%] "
+                "!text-2xl font-bold  text-primary-text-blue leading-[120%] "
               }
             />
             <ul className="flex flex-col gap-y-2 list-disc list-inside text-secondary-text text-xl">

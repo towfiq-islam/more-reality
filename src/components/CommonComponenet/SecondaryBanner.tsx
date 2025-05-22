@@ -16,7 +16,7 @@ const SecondaryBanner: React.FC<SecondaryBannerProps> = ({
   subtitle,
 }) => {
   return (
-    <section className="text-center py-10 2xl:py-16 3xl:py-20 lg:px-5 3xl:px-0">
+    <section className="text-center py-10 3xl:py-20 lg:px-5 3xl:px-0">
       <div className="container">
         <Heading Txt={title} Variant="h3" className="!mb-3" />
         <Paragraph

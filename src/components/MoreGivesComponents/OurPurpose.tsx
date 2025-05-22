@@ -36,53 +36,69 @@ const data = [
 
 const OurPurpose = () => {
   return (
-    <div className="container py-20 grid grid-cols-2 gap-5 items-center">
-      {/* Left */}
-      <div className="flex flex-row flex-wrap gap-x-7">
-        {imgArr.map((item, idx) => {
-          return (
-            <Image
-              data-aos="fade-up"
-              data-aos-delay="100"
-              key={idx}
-              src={item.src}
-              width={300}
-              height={300}
-              alt="not found"
-              className={`h-[300px] w-[300px] object-cover rounded-[12px] ${
-                idx === 0 && "mt-[-30px]"
-              }  ${idx === 3 && "mt-[30px]"} `}
-            />
-          );
-        })}
-      </div>
+    <section className=" lg:px-5 3xl:px-0">
+      <div className="container pb-10 xl:py-10 3xl:py-20 grid grid-cols-1 2xl:grid-cols-2 gap-5 items-center place-items-center">
+        {/* Left */}
+        <div className="flex flex-row  flex-wrap gap-y-5 gap-x-7 items-center justify-center lg:max-w-[700px] 2xl:max-w-full">
+          {imgArr.map((item, idx) => {
+            return (
+              <Image
+                data-aos="fade-up"
+                data-aos-delay="100"
+                key={idx}
+                src={item.src}
+                width={300}
+                height={300}
+                alt="not found"
+                className={`h-[220px] lg:h-[250px] w-full 3xl:h-[300px] lg:w-[250px] 3xl:w-[300px] object-cover rounded-[12px] ${
+                  idx === 0 && "lg:mt-[-30px]"
+                }  ${idx === 3 && "lg:mt-[30px]"} `}
+              />
+            );
+          })}
+        </div>
 
-      {/* Right */}
-      <div>
-        <Heading Txt="Our Purpose" Variant="h3" className="text-4xl mb-5" />
-        <Paragraph
-          className="text-lg mb-5"
-          Txt={
-            "MORE Gives was created with a single vision:👉 To be a force for good in every community we touch. We support causes that align with our values — compassion, integrity, inclusion, and empowerment."
-          }
-        />
-        <p data-aos="fade-up" data-aos-delay="100" className="mb-10 text-lg">
-          Our areas of impact include:
-        </p>
-        <ol className="list-disc list-outside space-y-3 marker:text-xl marker:font-bold">
-          {data.map(item => (
-            <li key={item.id}>
-              <div className="pl-2">
-                <span  data-aos="fade-up"
-            data-aos-delay="100" className="font-medium text-lg">{item.title} - </span>
-                <span  data-aos="fade-up"
-            data-aos-delay="100" className="text-secondary-text text-lg">{item.desc}</span>
-              </div>
-            </li>
-          ))}
-        </ol>
+        {/* Right */}
+        <div>
+          <Heading Txt="Our Purpose" Variant="h3" className="mb-5" />
+          <Paragraph
+            className="text-base lg:text-lg mb-5"
+            Txt={
+              "MORE Gives was created with a single vision:👉 To be a force for good in every community we touch. We support causes that align with our values — compassion, integrity, inclusion, and empowerment."
+            }
+          />
+          <p
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="mb-5 2xl:mb-10 text-lg"
+          >
+            Our areas of impact include:
+          </p>
+          <ol className="lg:list-disc list-outside space-y-3 marker:text-xl marker:font-bold">
+            {data.map((item) => (
+              <li key={item.id}>
+                <div className="2xl:pl-2">
+                  <span
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                    className="font-medium text-lg"
+                  >
+                    {item.title} -{" "}
+                  </span>
+                  <span
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                    className="text-secondary-text text-base lg:text-lg"
+                  >
+                    {item.desc}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
