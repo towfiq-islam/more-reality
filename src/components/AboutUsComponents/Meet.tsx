@@ -95,7 +95,7 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
         <Dialog.Root open={isOpen !== null && isOpen} onOpenChange={setIsOpen}>
           <Dialog.Portal>
             <Dialog.Overlay className="fixed backdrop-blur-[2px] inset-0 bg-black/50 z-50" />
-            <Dialog.Content className="fixed outline-none z-[99999] top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg w-11/12 mx-auto xl:max-w-[903px] ">
+            <Dialog.Content className="fixed outline-none z-[99999] top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg overflow-y-auto max-h-[550px] xl:max-h-[450px] w-11/12 xl:max-w-[903px] mx-auto">
               <div className="flex justify-between items-start p-5 md:p-7 xl:p-10 flex-col gap-y-5 md:gap-y-7 lg:gap-y-10">
                 <div className="flex flex-col gap-y-5 lg:flex-row gap-x-5 xl:gap-x-10">
                   <Image
@@ -107,7 +107,7 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
                         : activeMember.imgUrl.src
                     }
                     alt="Meet_img"
-                    className="rounded-full mx-auto w-[190px] md:w-[209px] h-[190px] md:h-[209px] cursor-pointer "
+                    className="rounded-full mx-auto w-[190px] md:w-[209px] h-[190px] md:h-[209px]"
                   />
                   <div className="flex flex-col gap-1 xl:gap-2.5">
                     <h3 className="text-xl md:!text-2xl 2xl:!text-[32px] font-semibold text-primary-text-blue">
