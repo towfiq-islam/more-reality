@@ -72,7 +72,6 @@ const WhyChooseMoreSection = ({
                 </span>
               ))}
             </div>
-
             <p
               data-aos="fade-up"
               data-aos-delay="100"
@@ -80,7 +79,6 @@ const WhyChooseMoreSection = ({
             >
               {description}
             </p>
-
             <p
               data-aos="fade-up"
               data-aos-delay="100"

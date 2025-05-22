@@ -12,7 +12,14 @@ const page = () => {
         subTitle="At MORE Realty, we’re committed to guiding you with knowledge, integrity, and a personal touch—whether you’re buying, selling, or investing."
         isInfoBox={false}
       />
-      <BlogSection title={'Latest News & Blog'} subTitle={'Catch up on the latest real estate news, expert insights, market trends, and inspiring stories from the MORE Realty community — all in one place.'} isBtn={false} isFullArr={true} />
+      <BlogSection
+        title={"Latest News & Blog"}
+        subTitle={
+          "Catch up on the latest real estate news, expert insights, market trends, and inspiring stories from the MORE Realty community — all in one place."
+        }
+        isBtn={false}
+        isFullArr={true}
+      />
       <SubscribeNewsLetter />
     </>
   );
