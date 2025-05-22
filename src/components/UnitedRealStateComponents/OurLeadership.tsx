@@ -5,11 +5,11 @@ import leadership_image from "@/assests/united-real-state/leadership.png";
 const OurLeadership = () => {
   return (
     <div className="container pb-10 xl:pb-40">
-      <div className="flex flex-col gap-5 xl:gap-15">
+      <div className="flex flex-col gap-5 lg:gap-10 3xl:gap-15">
         <Heading
           Txt="From Our Leadership"
           Variant="h3"
-          className="xl:mb-14 text-center"
+          className=" text-center"
         />
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-5 xl:gap-10 items-center relative px-0 xl:px-20">
           <div className="col-span-full xl:col-span-5">
