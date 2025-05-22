@@ -37,11 +37,10 @@ const BlogCard: React.FC<BlogCardProps> = ({
       data-aos="fade-up"
       data-aos-delay="100"
       onClick={handleRedirect}
-      // w-[455px]
-      className={`relative overflow-hidden rounded-[16px] group ${
+      className={`relative overflow-hidden rounded-[16px] ${
         Variant === "small"
-          ? "h-[380px] md:h-[420px] 2xl:h-[551px] w-full"
-          : "h-[427px] w-full"
+          ? "h-[380px] md:h-[450px] 3xl:h-[551px] w-full lg:w-[330px] xl:w-[420px] 2xl:w-[380px] 3xl:w-[455px]"
+          : "h-[400px] 3xl:h-[427px] w-full"
       }`}
     >
       {/* Scalable background layer */}

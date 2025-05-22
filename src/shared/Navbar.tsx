@@ -77,6 +77,11 @@ const Navbar = () => {
     router.push("/contact-us");
   };
 
+  const handleLogoClick = () => {
+    setOpen(false);
+    router.push("/");
+  };
+
   return (
     <nav className="h-auto lg:px-5 3xl:px-0 py-3 lg:py-5 2xl:py-6 shadow-nav-shadow bg-white w-full sticky top-0 z-50">
       <div className="container flex justify-between items-center">
@@ -135,9 +140,10 @@ const Navbar = () => {
                         >
                           {sub.label}
                         </Link>
-                        {item.subCategory && subIdx !== item.subCategory.length - 1 && (
-  <hr className="border-gray-400" />
-)}
+                        {item.subCategory &&
+                          subIdx !== item.subCategory.length - 1 && (
+                            <hr className="border-gray-400" />
+                          )}
                       </li>
                     ))}
                   </ul>
@@ -188,7 +194,7 @@ const Navbar = () => {
       >
         {/* Logo */}
         <Image
-          onClick={() => router.push("/")}
+          onClick={handleLogoClick}
           src={logo?.src}
           width={108}
           height={52}

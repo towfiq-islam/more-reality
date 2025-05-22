@@ -81,7 +81,7 @@ const page = () => {
         isInfoBox={true}
         infoArr={data}
       />
-      <div className="mt-10 2xl:mt-20">
+      <div className="lg:mt-10 2xl:mt-20">
         <SecondaryBanner
           title="Buying A Home with MORE Realty"
           subtitle="Sell Smarter, Faster, and for Top Dollar — With MORE Realty by Your Side"
@@ -90,7 +90,7 @@ const page = () => {
         />
       </div>
       <section className="lg:px-5 3xl:px-0">
-        <div className="container py-10">
+        <div className="container lg:pt-10 xl:py-10">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}

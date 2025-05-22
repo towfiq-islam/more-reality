@@ -1,9 +1,12 @@
+"use client";
 import BlogSection from "@/components/pages/Home/BlogSection";
 import Heading from "@/components/Tags/Heading/Heading";
 import Image from "next/image";
 import m1 from "../../../../assests/about/m1.png";
 import analaysis from "../../../../assests/blog/analaysis.png";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";
+import { useRouter } from "next/navigation";
+import { MdKeyboardBackspace } from "react-icons/md";
 
 const realEstateTrends = [
   {
@@ -30,79 +33,91 @@ const homeBuyingTips = [
 ];
 
 const page = () => {
+  const router = useRouter();
   return (
-    <section className="flex flex-col gap-y-[120px]  pb-[120px] w-full ">
-      <div className="flex flex-col gap-y-[340px]">
-        <div className="w-full h-[687px] bg-primary-blue pt-[60px]  ">
-          <div className="container flex flex-col  gap-y-10 ">
+    <section className="flex flex-col pb-[40px] w-full ">
+      <div className="flex flex-col gap-y-[150px] lg:gap-y-[130px] xl:gap-y-[250px] 2xl:gap-y-[340px]">
+        <div className="w-full h-[350px] lg:h-[450px] xl:h-[550px] 2xl:h-[687px] bg-primary-blue pt-[30px] lg:pt-[60px] lg:px-5 3xl:px-0">
+          <div className="container">
+            <div
+              className="mb-2 cursor-pointer text-white flex gap-1 items-center justify-self-start font-semibold"
+              onClick={() => router.back()}
+            >
+              <MdKeyboardBackspace className="text-xl" />
+              <span className="text-base">Back</span>
+            </div>
+          </div>
+          <div className="container flex flex-col  gap-4 xl:gap-10 ">
             <Heading
               Txt={
                 "Navigating the 2025 Real Estate Market: What Buyers and Sellers Need to Know"
               }
               Variant="h4"
-              className="text-[38px] text-white font-bold leading-[120%] max-w-[894px] "
+              className="!text-lg lg:!text-[22px] xl:!text-[38px] text-white font-semibold lg:font-bold !leading-[120%] max-w-[894px] "
             />
-            <div className="flex flex-row gap-x-5 items-center ">
+            <div className="flex flex-row gap-x-2.5 lg:gap-x-5 items-center  ">
               <Image
                 width={54}
                 height={54}
                 src={m1}
                 alt={"not found"}
-                className="w-[54px] h-[54px] rounded-full object-cover"
+                className="w-[40px] h-[40px] lg:w-[54px] lg:h-[54px] rounded-full object-cover"
               />
-              <div className="flex flex-col gap-y-1 ">
+              <div className="flex flex-col gap-y-0.5 xl:gap-y-1 ">
                 <Paragraph
                   Txt={"MORE Realty Editorial Team"}
-                  className="text-lg text-white font-medium leading-[150%]"
+                  className="!text-base xl:!text-lg text-white font-medium leading-[80%] lg:leading-[150%]"
                 />
                 <Paragraph
                   Txt={"05 May, 2025"}
-                  className="text-base text-white font-normal leading-[150%]"
+                  className="!text-sm xl:!text-base text-white font-normal leading-[150%]"
                 />
               </div>
             </div>
-            <div className="w-full h-[681px]  rounded-[8px] ">
+            <div className="w-full h-[300px] lg:h-[325px] xl:h-[450px] 2xl:h-[681px]  rounded-[8px] ">
               <Image
                 width={1440}
                 height={681}
                 src={analaysis}
                 alt={"not found"}
-                className="w-full rounded-[8px] h-[681px]  object-cover"
+                className="w-full rounded-[8px] h-full  object-cover"
               />
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-y-10 container ">
-          <div className="flex flex-col gap-y-5 ">
-            <Heading
-              Txt={"Market Trends to Watch in 2025:"}
-              className={
-                "text-2xl font-bold  text-primary-text-blue leading-[120%] "
-              }
-            />
-            <div className="flex flex-col gap-y-10 ">
-              {realEstateTrends.map((item, idx) => {
-                return (
-                  <div className="flex flex-col gap-y-1 ">
-                    <Paragraph Txt={`${idx + 1}.${item.title} `} />
-                    <Paragraph Txt={`${item.details} `} />
-                  </div>
-                );
-              })}
+        <div className="lg:px-5 3xl:px-0">
+          <div className="flex flex-col gap-y-5 lg:gap-y-10 container ">
+            <div className="flex flex-col gap-y-5 ">
+              <Heading
+                Txt={"Market Trends to Watch in 2025:"}
+                className={
+                  "!text-lg lg:!text-[22px] font-semibold lg:font-bold   text-primary-text-blue leading-[120%] "
+                }
+              />
+              <div className="flex flex-col gap-y-5 lg:gap-y-10 ">
+                {realEstateTrends.map((item, idx) => {
+                  return (
+                    <div className="flex flex-col gap-y-1 ">
+                      <Paragraph Txt={`${idx + 1}.${item.title} `} />
+                      <Paragraph Txt={`${item.details} `} />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col gap-y-5 ">
-            <Heading
-              Txt={" Advice for Buyers:"}
-              className={
-                "text-2xl font-bold  text-primary-text-blue leading-[120%] "
-              }
-            />
-            <ul className="flex flex-col gap-y-2 list-disc list-inside text-secondary-text text-xl">
-              {homeBuyingTips.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
+            <div className="flex flex-col  gap-y-5 ">
+              <Heading
+                Txt={" Advice for Buyers:"}
+                className={
+                  "!text-lg lg:!text-[22px] font-semibold lg:font-bold  text-primary-text-blue leading-[120%] "
+                }
+              />
+              <ul className="flex flex-col gap-y-2 list-disc list-inside text-secondary-text lg:text-xl">
+                {homeBuyingTips.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

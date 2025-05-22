@@ -2,7 +2,6 @@ import Meet from "@/components/AboutUsComponents/Meet";
 import hero from "@/assests/hero.jpg";
 import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
 
-
 const page = () => {
   return (
     <>

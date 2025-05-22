@@ -5,41 +5,43 @@ import Image from "next/image";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";
 import Button from "@/components/Tags/Button/Button";
 import { useRouter } from "next/navigation";
-import { clsx } from "clsx";
 
 const page = () => {
   const router = useRouter();
-
   return (
-    <section className="flex flex-col container items-center justify-center gap-y-8 h-auto py-[63px] ">
-      <Image
-        src={notFound}
-        width={582}
-        height={354}
-        alt="not found"
-        className="w-[582px] h-[354px] object-cover "
-      />
-      <div className="flex flex-col gap-y-6  items-center ">
-        <div className="flex flex-col gap-y-5 items-center ">
-          <Heading
-            Variant="h5"
-            Txt={"Oops! page not found"}
-            className="text-[40px] text-primary-text-blue font-[600] leading-[120%] "
+    <section className="py-[63px] lg:px-5 3xl:px-0">
+      <div className="flex flex-col container items-center justify-center gap-y-8">
+        <figure className="w-full md:w-[500px] xl:w-[582px] h-auto md:h-[300px] xl:h-[354px]">
+          <Image
+            src={notFound}
+            width={582}
+            height={354}
+            alt="not found"
+            className="!w-full !h-full !object-cover"
           />
-          <Paragraph
-            Txt={
-              "Oops! It seems like the page you’re trying to reach doesn’t exist anymore or maybe it never did."
-            }
-            className="text-base text-[#808080] text-center max-w-[612] font-[400] leading-[150%] "
+        </figure>
+        <div className="flex flex-col gap-y-6 items-center">
+          <div className="flex flex-col gap-y-5 items-center">
+            <Heading
+              Variant="h5"
+              Txt={"Oops! page not found"}
+              className="text-primary-text-blue font-[600] lg:leading-[120%] "
+            />
+            <Paragraph
+              Txt={
+                "Oops! It seems like the page you’re trying to reach doesn’t exist anymore or maybe it never did."
+              }
+              className="text-base text-[#808080] text-center max-w-[612] font-[400] leading-[150%] "
+            />
+          </div>
+          <Button
+            onClick={() => {
+              router.push("/");
+            }}
+            Txt={"Back to Home"}
+            className="secondary-btn"
           />
         </div>
-        <Button
-          onClick={() => {
-            router.push("/");
-          }}
-          Txt={"Back to Home"}
-          className="secondary-btn"
-        />
       </div>
     </section>
   );
