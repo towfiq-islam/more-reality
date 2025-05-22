@@ -1,4 +1,3 @@
-"use client";
 import Button from "@/components/Tags/Button/Button";
 import Heading from "@/components/Tags/Heading/Heading";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";

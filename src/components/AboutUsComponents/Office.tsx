@@ -62,28 +62,33 @@ const officeData: OfficeCardProps[] = [
 
 const Office = () => {
   return (
-    <section className="container flex flex-col gap-y-10 items-center ">
-      <Heading
-        Txt="Our Offices"
-        className="text-primary-text-blue font-semibold text-5xl mb-4 text-center"
-        Variant="h3"
-      />
-      <div className="grid grid-cols-4 gap-x-[11px] ">
-        {officeData.map((item, idx) => {
-          return (
-            <OfficeCard
-              key={idx}
-              bgImgurl={item.bgImgurl}
-              name={item.name}
-              location={item.location}
-              phone={item.phone}
-              email={item.email}
-              descreption={item.descreption}
-            />
-          );
-        })}
+    <section className="lg:px-5 3xl:px-0">
+      <div className="container flex flex-col gap-y-5 lg:gap-y-10 items-center">
+        <Heading
+          Txt="Our Offices"
+          className="text-primary-text-blue font-semibold text-center"
+          Variant="h3"
+        />
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
+          {officeData.map((item, idx) => {
+            return (
+              <OfficeCard
+                key={idx}
+                bgImgurl={item.bgImgurl}
+                name={item.name}
+                location={item.location}
+                phone={item.phone}
+                email={item.email}
+                descreption={item.descreption}
+              />
+            );
+          })}
+        </div>
+        <Button
+          Txt={"See More Office"}
+          className={"primary-btn max-w-[209px] "}
+        />
       </div>
-      <Button Txt={'See More Office'} className={'primary-btn max-w-[209px] '}  />
     </section>
   );
 };
