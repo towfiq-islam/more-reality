@@ -67,7 +67,7 @@ const OurSuccess = () => {
   };
 
   return (
-    <section className="py-10 2xl:py-20 mb-20 lg:px-5 3xl:px-0 bg-propertyBg">
+    <section className="py-10 2xl:py-20 mb-10 lg:mb-20 lg:px-5 3xl:px-0 bg-propertyBg">
       <div className="container">
         {/* Upper Part */}
         <div className="flex items-center flex-col lg:flex-row gap-5 lg:justify-between w-full mb-5 2xl:mb-10">
