@@ -99,77 +99,78 @@ const officeData: OfficeCardProps[] = [
 
 const ExploreOurOffice = () => {
   return (
-    <section className="container py-20">
-      <Heading
-        Txt="Explore Our Office Locations"
-        Variant="h3"
-        className="mb-5 text-center"
-      />
+    <section className="lg:px-5 3xl:px-0 py-10 2xl:py-20">
+      <div className="container">
+        <Heading
+          Txt="Explore Our Office Locations"
+          Variant="h3"
+          className="!mb-3 3xl:!mb-5 text-center"
+        />
+        <Paragraph
+          Txt="Find the office nearest to you and connect with local experts who understand your market, your neighborhood, and your goals."
+          className="!mb-5 3xl:!mb-10 text-center"
+        />
 
-      <Paragraph
-        Txt="Find the office nearest to you and connect with local experts who understand your market, your neighborhood, and your goals."
-        className="mb-10 text-center"
-      />
-
-      {/* Filter Section */}
-      <div className="max-w-[873px] mx-auto border border-gray-100 flex gap-5 items-center bg-white p-5 rounded-xl shadow-lg justify-center mb-10">
-        {/* State Wise Filter */}
-        <div className="w-[324px] relative">
-          <select
-            data-aos="fade-up"
-            data-aos-delay="100"
-            className="w-full h-[50px] px-4 pr-10 bg-white border border-gray-300 text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none"
-          >
-            <option value="">State Name</option>
-            <option value="Barishal">Barishal</option>
-            <option value="Chattagong">Chattagong</option>
-            <option value="Rajshai">Rajshai</option>
-            <option value="Cumilla">Cumilla</option>
-          </select>
-          <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
-            <DownArrow />
+        {/* Filter Section */}
+        <div className="max-w-[820px] mx-auto border border-gray-100 flex flex-col lg:flex-row gap-3 md:gap-5 items-center bg-white p-5 rounded-xl shadow-lg justify-center mb-10">
+          {/* State Wise Filter */}
+          <div className="w-full lg:w-[324px] relative">
+            <select
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="w-full h-[45px] md:h-[50px] px-4 pr-10 bg-white border border-gray-300 text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none"
+            >
+              <option value="">State Name</option>
+              <option value="Barishal">Barishal</option>
+              <option value="Chattagong">Chattagong</option>
+              <option value="Rajshai">Rajshai</option>
+              <option value="Cumilla">Cumilla</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
+              <DownArrow />
+            </div>
           </div>
+
+          {/* City Wise Filter */}
+          <div className="w-full lg:w-[324px] relative">
+            <select
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="w-full h-[45px] md:h-[50px] px-4 pr-10 bg-white border border-gray-300 text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none"
+            >
+              <option value="">City Name</option>
+              <option value="Barishal">Barishal</option>
+              <option value="Chattagong">Chattagong</option>
+              <option value="Rajshai">Rajshai</option>
+              <option value="Cumilla">Cumilla</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
+              <DownArrow />
+            </div>
+          </div>
+
+          {/* Apply btn */}
+          <button className="w-full lg:w-fit px-5 h-[45px] md:h-[50px] rounded-lg font-medium text-white bg-[#3F9DF3] cursor-pointer">
+            Apply
+          </button>
         </div>
 
-        {/* City Wise Filter */}
-        <div className="w-[324px] relative">
-          <select
-            data-aos="fade-up"
-            data-aos-delay="100"
-            className="w-full h-[50px] px-4 pr-10 bg-white border border-gray-300 text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none"
-          >
-            <option value="">City Name</option>
-            <option value="Barishal">Barishal</option>
-            <option value="Chattagong">Chattagong</option>
-            <option value="Rajshai">Rajshai</option>
-            <option value="Cumilla">Cumilla</option>
-          </select>
-          <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
-            <DownArrow />
-          </div>
+        {/* Map */}
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 ">
+          {officeData?.map((item, idx) => {
+            return (
+              <OfficeCard
+                key={idx}
+                bgImgurl={item.bgImgurl}
+                name={item.name}
+                location={item.location}
+                phone={item.phone}
+                email={item.email}
+                descreption={item.descreption}
+              />
+            );
+          })}
         </div>
-
-        {/* Apply btn */}
-        <button className="px-5 h-[50px] rounded-lg font-medium text-white bg-[#3F9DF3] cursor-pointer">
-          Apply
-        </button>
-      </div>
-
-      {/* Map */}
-      <div className="grid grid-cols-4 gap-5 ">
-        {officeData?.map((item, idx) => {
-          return (
-            <OfficeCard
-              key={idx}
-              bgImgurl={item.bgImgurl}
-              name={item.name}
-              location={item.location}
-              phone={item.phone}
-              email={item.email}
-              descreption={item.descreption}
-            />
-          );
-        })}
       </div>
     </section>
   );
