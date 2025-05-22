@@ -64,11 +64,7 @@ const SellingForm = () => {
                   className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-[8px] outline-none"
                 />
                 {errors.fullName && (
-                  <p
-                    data-aos="fade-up"
-                    data-aos-delay="100"
-                    className="text-sm text-red-600 mt-1"
-                  >
+                  <p className="text-sm text-red-600 mt-1">
                     {errors.fullName.message}
                   </p>
                 )}
@@ -97,11 +93,7 @@ const SellingForm = () => {
                   className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none"
                 />
                 {errors.email && (
-                  <p
-                    data-aos="fade-up"
-                    data-aos-delay="100"
-                    className="text-sm text-red-600 mt-1"
-                  >
+                  <p className="text-sm text-red-600 mt-1">
                     {errors.email.message}
                   </p>
                 )}
@@ -124,11 +116,7 @@ const SellingForm = () => {
                   className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none"
                 />
                 {errors.phone && (
-                  <p
-                    data-aos="fade-up"
-                    data-aos-delay="100"
-                    className="text-sm text-red-600 mt-1"
-                  >
+                  <p className="text-sm text-red-600 mt-1">
                     {errors.phone.message}
                   </p>
                 )}
@@ -153,11 +141,7 @@ const SellingForm = () => {
                   className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none resize-none"
                 ></textarea>
                 {errors.message && (
-                  <p
-                    data-aos="fade-up"
-                    data-aos-delay="100"
-                    className="text-sm text-red-600 mt-1"
-                  >
+                  <p className="text-sm text-red-600 mt-1">
                     {errors.message.message}
                   </p>
                 )}

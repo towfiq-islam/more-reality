@@ -35,12 +35,12 @@ const homeBuyingTips = [
 const page = () => {
   const router = useRouter();
   return (
-    <section className="flex flex-col  pb-[40px] w-full ">
-      <div className="flex flex-col gap-y-[150px] lg:gap-y-[200px] xl:gap-y-[270px] 2xl:gap-y-[340px]">
-        <div className="w-full h-[350px] xl:h-[490px] 2xl:h-[687px] bg-primary-blue pt-[30px] lg:pt-[60px] lg:px-5 3xl:px-0  ">
+    <section className="flex flex-col pb-[40px] w-full ">
+      <div className="flex flex-col gap-y-[150px] lg:gap-y-[130px] xl:gap-y-[250px] 2xl:gap-y-[340px]">
+        <div className="w-full h-[350px] lg:h-[450px] xl:h-[550px] 2xl:h-[687px] bg-primary-blue pt-[30px] lg:pt-[60px] lg:px-5 3xl:px-0">
           <div className="container">
             <div
-              className=" mb-2 cursor-pointer text-white flex gap-1 items-center justify-self-start font-semibold"
+              className="mb-2 cursor-pointer text-white flex gap-1 items-center justify-self-start font-semibold"
               onClick={() => router.back()}
             >
               <MdKeyboardBackspace className="text-xl" />
