@@ -55,34 +55,46 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
           height={236}
           src={typeof bgImgurl === "string" ? bgImgurl : bgImgurl.src}
           alt="Meet_img"
-          className=" rounded-[8px] w-full h-[236px]"
+          className="rounded-[8px] w-full h-[236px]"
         />
-        <div className="flex flex-col gap-y-2.5 pt-5 px-5">
+        <div className="flex flex-col gap-y-2.5 pt-3 3xl:pt-5 px-3 3xl:px-5">
           <Heading
             Variant={"h3"}
             Txt={name}
-            className="text-primary-text-blue text-2xl font-bold"
+            className="text-primary-text-blue !text-xl 3xl:!text-2xl font-bold"
           />
           <div className="flex flex-col gap-y-4 ">
             <div className="flex flex-row gap-x-2.5 ">
-              <BluePhone />
+              <div className="flex-shrink-0">
+                <BluePhone />
+              </div>
               <Paragraph
                 Txt={phone}
-                className={"text-base  text-primary-text-blue  font-normal  "}
+                className={
+                  "!text-base 3xl:!text-lg text-primary-text-blue font-normal"
+                }
               />
             </div>
             <div className="flex flex-row gap-x-2.5 ">
-              <BlueMail />
+              <div className="flex-shrink-0">
+                <BlueMail />
+              </div>
               <Paragraph
                 Txt={email}
-                className={"text-base  text-primary-text-blue  font-normal  "}
+                className={
+                  "!text-base 3xl:!text-lg text-primary-text-blue font-normal"
+                }
               />
             </div>
             <div className="flex flex-row gap-x-2.5 ">
-              <BlueLocation />
+              <div className="flex-shrink-0">
+                <BlueLocation />
+              </div>
               <Paragraph
                 Txt={location}
-                className={"text-base  text-primary-text-blue  font-normal  "}
+                className={
+                  "!text-base 3xl:!text-lg text-primary-text-blue font-normal"
+                }
               />
             </div>
           </div>
@@ -95,8 +107,8 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
             <div className="flex justify-between items-start py-10 pl-10  flex-col gap-y-10  pr-[60px] ">
               <div className="flex flex-row gap-x-10">
                 <Image
-                 data-aos="fade-up"
-            data-aos-delay="100"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                   width={209}
                   height={209}
                   src={typeof bgImgurl === "string" ? bgImgurl : bgImgurl.src}
