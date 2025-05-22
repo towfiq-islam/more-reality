@@ -9,7 +9,7 @@ const page = () => {
   return (
     <>
       <Meet isAllmember={false} />
-      <Office />
+      {/* <Office />
       <BlogSection />
       <SecondaryBanner
         image={fan}
@@ -18,7 +18,7 @@ const page = () => {
           "As part of the United Real Estate network, MORE Realty benefits from national reach, powerful resources, and a shared commitment to excellence. This partnership allows us to bring you the best of both worlds: local dedication and national strength."
         }
       />
-      <SubscribeNewsLetter />
+      <SubscribeNewsLetter /> */}
     </>
   );
 };

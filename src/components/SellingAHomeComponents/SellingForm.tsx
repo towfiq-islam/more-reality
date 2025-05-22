@@ -27,25 +27,29 @@ const SellingForm = () => {
   };
 
   return (
-    <section className="w-full pb-[40px]">
-      <div className=" flex flex-col justify-center items-center gap-[40px] ">
+    <section className="w-full pb-[40px] lg:px-5 3xl:px-0">
+      <div className="container  flex flex-col justify-center items-center gap-[40px] ">
         <div className="flex flex-col justify-center items-center">
           <Heading Txt={"I want to sell"} />
           <Paragraph
             Txt={
               "Start by telling us a little about yourself. We’ll follow up with details about your property next."
             }
+            className="text-center xl:text-start"
           />
         </div>
-        <div className="container mx-auto  flex flex-col md:flex-row justify-center items-center gap-[20px]">
+        <div className=" flex w-full flex-col xl:flex-row justify-center items-center gap-[20px]">
           {/* left Form */}
-          <div className="  rounded-xl w-full h-auto md:w-1/2">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          <div className=" rounded-xl w-full h-auto ">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-3 xl:space-y-5"
+            >
               <div className="w-full flex flex-col gap-[5px]">
                 <label
                   data-aos="fade-up"
                   data-aos-delay="100"
-                  className="text-xl "
+                  className="text-base lg:text-xl "
                 >
                   Full Name
                 </label>
@@ -57,7 +61,7 @@ const SellingForm = () => {
                   {...register("fullName", {
                     required: "Full name is required",
                   })}
-                  className="w-full px-4 py-3 border border-[#E6E6E6] rounded-[8px] outline-none"
+                  className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-[8px] outline-none"
                 />
                 {errors.fullName && (
                   <p
@@ -74,7 +78,7 @@ const SellingForm = () => {
                 <label
                   data-aos="fade-up"
                   data-aos-delay="100"
-                  className="text-xl "
+                  className="text-base lg:text-xl "
                 >
                   Email
                 </label>
@@ -90,7 +94,7 @@ const SellingForm = () => {
                       message: "Invalid email format",
                     },
                   })}
-                  className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none"
+                  className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none"
                 />
                 {errors.email && (
                   <p
@@ -107,7 +111,7 @@ const SellingForm = () => {
                 <label
                   data-aos="fade-up"
                   data-aos-delay="100"
-                  className="text-xl "
+                  className="text-base lg:text-xl "
                 >
                   Phone
                 </label>
@@ -117,7 +121,7 @@ const SellingForm = () => {
                   type="tel"
                   placeholder="Phone"
                   {...register("phone", { required: "Phone is required" })}
-                  className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none"
+                  className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none"
                 />
                 {errors.phone && (
                   <p
@@ -134,7 +138,7 @@ const SellingForm = () => {
                 <label
                   data-aos="fade-up"
                   data-aos-delay="100"
-                  className="text-xl "
+                  className="text-base lg:text-xl "
                 >
                   Message
                 </label>
@@ -146,7 +150,7 @@ const SellingForm = () => {
                   {...register("message", {
                     required: "Message is required",
                   })}
-                  className="w-full px-4 py-3 border border-[#E6E6E6] rounded-md outline-none resize-none"
+                  className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none resize-none"
                 ></textarea>
                 {errors.message && (
                   <p
@@ -166,7 +170,7 @@ const SellingForm = () => {
             </form>
           </div>
 
-          <div className="w-[450px] h-[560px]">
+          <div className="w-full hidden  xl:block  h-[560px]">
             <Image
               data-aos="fade-up"
               data-aos-delay="100"

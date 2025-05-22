@@ -30,7 +30,7 @@ const features = [
 
 const Partnership = () => {
   return (
-    <section className="container py-20">
+    <div className="container pb-4 pt-10 xl:py-20">
       <Heading
         Txt="Introduction: A Partnership That Elevates Us All"
         Variant="h3"
@@ -52,7 +52,7 @@ const Partnership = () => {
           />
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -81,7 +81,7 @@ const page = () => {
         isInfoBox={true}
         infoArr={data}
       />
-      <div className="mt-20">
+      <div className="mt-10 2xl:mt-20">
         <SecondaryBanner
           title="Buying A Home with MORE Realty"
           subtitle="Sell Smarter, Faster, and for Top Dollar — With MORE Realty by Your Side"
@@ -89,17 +89,20 @@ const page = () => {
           image={buyHomeMoreRealty}
         />
       </div>
-      <div className="container py-10">
-        {features.map((feature, index) => (
-          <FeatureCard
-            key={index}
-            heading={feature.heading}
-            description={feature.description}
-            image={feature.image}
-            imagePosition={feature.imagePosition}
-          />
-        ))}
-      </div>
+      <section className="lg:px-5 3xl:px-0">
+        <div className="container py-10">
+          {features.map((feature, index) => (
+            <FeatureCard
+              key={index}
+              heading={feature.heading}
+              description={feature.description}
+              image={feature.image}
+              imagePosition={feature.imagePosition}
+            />
+          ))}
+        </div>
+      </section>
+
       <BuyAHomeTestimonial />
       <SubscribeNewsLetter />
       <SellingForm />

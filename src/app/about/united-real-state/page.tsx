@@ -12,8 +12,12 @@ const page = () => {
         subTitle="Through our partnership with United Real Estate, we combine national strength with local focus — delivering smarter solutions, unmatched support, and innovative tools that drive success for both clients and agents."
         isInfoBox={false}
       />
-      <Partnership />
-      <OurLeadership />
+      <section className="lg:px-5 3xl:px-0">
+        <Partnership />
+      </section>
+      <section className="lg:px-5 3xl:px-0">
+        <OurLeadership />
+      </section>
     </>
   );
 };
