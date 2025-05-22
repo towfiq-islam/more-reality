@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Heading from "../Tags/Heading/Heading";
 import {
@@ -8,7 +7,6 @@ import {
   BluePhone,
 } from "../SvgContainer/SvgContainer";
 import Paragraph from "../Tags/Paragraph/Paragraph";
-import { RootState } from "../../redux/store";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from "react";
 
@@ -103,57 +101,53 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
       <Dialog.Root open={isOpen !== null && isOpen} onOpenChange={setIsOpen}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed backdrop-blur-[2px] inset-0 bg-black/50 z-[999]" />
-          <Dialog.Content className="fixed outline-none z-[999] top-1/2 left-1/2 w-full  -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg max-w-[903px] ">
-            <div className="flex justify-between items-start py-10 pl-10  flex-col gap-y-10  pr-[60px] ">
-              <div className="flex flex-row gap-x-10">
+          <Dialog.Content className="fixed outline-none z-[99999] top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg overflow-y-auto max-h-[550px] xl:max-h-[450px] w-11/12 xl:max-w-[903px] mx-auto">
+            <div className="flex justify-between items-start p-5 md:p-7 xl:p-10 flex-col gap-y-5 md:gap-y-7 lg:gap-y-10">
+              <div className="flex flex-col gap-y-5 lg:flex-row gap-x-5 xl:gap-x-10">
                 <Image
-                  data-aos="fade-up"
-                  data-aos-delay="100"
                   width={209}
                   height={209}
                   src={typeof bgImgurl === "string" ? bgImgurl : bgImgurl.src}
                   alt="team_img"
-                  className="rounded-[8px] w-[209px] h-[209px] cursor-pointer "
+                  className="rounded-[8px] mx-auto w-full md:w-[209px] h-[190px] md:h-[209px]"
                 />
-                <div className="flex flex-col gap-2.5">
-                  <Heading
-                    Variant="h4"
-                    Txt={name}
-                    className="text-[32px]  text-primary-text-blue  font-meidum "
-                  />
-                  <Paragraph
-                    Txt={descreption}
-                    className={"text-xl  text-primary-text-blue  font-normal  "}
-                  />
+                <div className="flex flex-col gap-1 xl:gap-2.5">
+                  <h3 className="text-xl md:!text-2xl 2xl:!text-[32px] font-semibold text-primary-text-blue">
+                    {name}
+                  </h3>
+                  <p
+                    className={
+                      "!text-base md:!text-lg 2xl:!text-xl text-primary-text-blue font-normal"
+                    }
+                  >
+                    {descreption}
+                  </p>
                 </div>
               </div>
-              <div className="flex flex-col gap-y-4 ">
+              <div className="flex flex-col gap-y-3 lg:gap-y-4 ">
                 <div className="flex flex-row gap-x-2.5 ">
                   <BluePhone />
-                  <Paragraph
-                    Txt={phone}
-                    className={
-                      "text-base  text-primary-text-blue  font-normal  "
-                    }
-                  />
+                  <p
+                    className={"md:text-lg text-primary-text-blue font-medium"}
+                  >
+                    {phone}
+                  </p>
                 </div>
                 <div className="flex flex-row gap-x-2.5 ">
                   <BlueMail />
-                  <Paragraph
-                    Txt={email}
-                    className={
-                      "text-base  text-primary-text-blue  font-normal  "
-                    }
-                  />
+                  <p
+                    className={"md:text-lg text-primary-text-blue font-medium"}
+                  >
+                    {email}
+                  </p>
                 </div>
                 <div className="flex flex-row gap-x-2.5 ">
                   <BlueLocation />
-                  <Paragraph
-                    Txt={location}
-                    className={
-                      "text-base  text-primary-text-blue  font-normal  "
-                    }
-                  />
+                  <p
+                    className={"md:text-lg text-primary-text-blue font-medium"}
+                  >
+                    {location}
+                  </p>
                 </div>
               </div>
             </div>

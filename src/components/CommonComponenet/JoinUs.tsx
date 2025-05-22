@@ -143,7 +143,7 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
                 data-aos="fade-up"
                 data-aos-delay="100"
                 placeholder="Message"
-                rows={2}
+                rows={3}
                 className="w-full px-4  py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none resize-none"
               ></textarea>
               {errors.message && (
