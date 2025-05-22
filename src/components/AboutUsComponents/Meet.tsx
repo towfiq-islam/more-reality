@@ -4,7 +4,6 @@ import Heading from "@/components/Tags/Heading/Heading";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from "react";
 import {
@@ -40,25 +39,25 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
   const teamData = useSelector((state: RootState) => state.team.teamData);
   const [isOpen, setIsOpen] = useState<boolean | null>(false);
   const [activeMember, setactiveMember] = useState<teamDataSchema | null>(null);
-  console.log(activeMember?.descreption);
+  console.log(activeMember);
 
   return (
-    <>
-      <section className="py-20 container">
+    <section className="py-10 xl:py-20 lg:px-5 3xl:px-0">
+      <div className=" container">
         {/* Title */}
         <Heading
           Txt="Meet the Team"
-          className="text-primary-text-blue font-semibold text-5xl mb-4 text-center"
+          className="text-primary-text-blue font-semibold mb-2 xl:mb-4 text-center"
           Variant="h3"
         />
         {/* Sub Title */}
         <Paragraph
           Txt={"Our success starts with the people behind the name."}
-          className="max-w-[1440px] text-primary-text-blue text-xl text-center mb-12"
+          className="max-w-[1440px] text-primary-text-blue text-lg md:text-xl text-center mb-7 md:mb-12"
         />
 
         {/* Map */}
-        <div className="grid grid-cols-5 grid-col gap-x-6 gap-y-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 grid-col gap-x-6 3xl:gap-x-6 gap-y-7 md:gap-y-10">
           {(isAllmember ? teamData : teamData.slice(0, 5)).map(item => (
             <div
               key={item?.id}
@@ -79,26 +78,26 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
                     : item.imgUrl.src
                 }
                 alt="Meet_img"
-                className="rounded-full w-[271px] h-[271px] cursor-pointer"
+                className="rounded-full mx-auto w-[180px] 2xl:w-[200px] 3xl:w-[271px] h-[180px] 2xl:h-[200px] 3xl:h-[271px] cursor-pointer"
               />
               <Heading
-               data-aos="fade-up"
-            data-aos-delay="100"
+                data-aos="fade-up"
+                data-aos-delay="100"
                 Variant="h3"
                 Txt={item?.name}
-                className="text-primary-text-blue text-xl font-bold mt-5"
+                className="text-primary-text-blue text-lg md:!text-xl font-bold !mt-3 xl:!mt-5"
               />
             </div>
           ))}
         </div>
-      </section>
+      </div>
       {activeMember !== null && (
         <Dialog.Root open={isOpen !== null && isOpen} onOpenChange={setIsOpen}>
           <Dialog.Portal>
-            <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40" />
-            <Dialog.Content className="fixed outline-none z-50 top-1/2 left-1/2 w-full  -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg max-w-[903px] ">
-              <div className="flex justify-between items-start py-10 pl-10  flex-col gap-y-10  pr-[60px] ">
-                <div className="flex flex-row gap-x-10">
+            <Dialog.Overlay className="fixed backdrop-blur-[2px] inset-0 bg-black/50 z-50" />
+            <Dialog.Content className="fixed outline-none z-[99999] top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg w-11/12 mx-auto xl:max-w-[903px] ">
+              <div className="flex justify-between items-start p-5 md:p-7 xl:p-10 flex-col gap-y-5 md:gap-y-7 lg:gap-y-10">
+                <div className="flex flex-col gap-y-5 lg:flex-row gap-x-5 xl:gap-x-10">
                   <Image
                     width={209}
                     height={209}
@@ -108,49 +107,51 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
                         : activeMember.imgUrl.src
                     }
                     alt="Meet_img"
-                    className="rounded-full w-[209px] h-[209px] cursor-pointer "
+                    className="rounded-full mx-auto w-[190px] md:w-[209px] h-[190px] md:h-[209px] cursor-pointer "
                   />
-                  <div className="flex flex-col gap-2.5">
-                    <Heading
-                      Variant="h4"
-                      Txt={activeMember.name}
-                      className="text-[32px]  text-primary-text-blue  font-meidum "
-                    />
-                    <Paragraph
-                      Txt={activeMember.descreption}
+                  <div className="flex flex-col gap-1 xl:gap-2.5">
+                    <h3 className="text-xl md:!text-2xl 2xl:!text-[32px] font-semibold text-primary-text-blue">
+                      {activeMember.name}
+                    </h3>
+                    <p
                       className={
-                        "text-xl  text-primary-text-blue  font-normal  "
+                        "!text-base md:!text-lg 2xl:!text-xl text-primary-text-blue font-normal"
                       }
-                    />
+                    >
+                      {activeMember.descreption}
+                    </p>
                   </div>
                 </div>
-                <div className="flex flex-col gap-y-4 ">
+                <div className="flex flex-col gap-y-3 lg:gap-y-4 ">
                   <div className="flex flex-row gap-x-2.5 ">
                     <BluePhone />
-                    <Paragraph
-                      Txt={activeMember.phone}
+                    <p
                       className={
-                        "text-base  text-primary-text-blue  font-normal  "
+                        "md:text-lg text-primary-text-blue font-medium"
                       }
-                    />
+                    >
+                      {activeMember?.phone}
+                    </p>
                   </div>
                   <div className="flex flex-row gap-x-2.5 ">
                     <BlueMail />
-                    <Paragraph
-                      Txt={activeMember.mailAddres}
+                    <p
                       className={
-                        "text-base  text-primary-text-blue  font-normal  "
+                        "md:text-lg text-primary-text-blue font-medium"
                       }
-                    />
+                    >
+                      {activeMember?.mailAddres}
+                    </p>
                   </div>
                   <div className="flex flex-row gap-x-2.5 ">
                     <BlueLocation />
-                    <Paragraph
-                      Txt={activeMember.address}
+                    <p
                       className={
-                        "text-base  text-primary-text-blue  font-normal  "
+                        "md:text-lg text-primary-text-blue font-medium"
                       }
-                    />
+                    >
+                      {activeMember?.address}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -158,7 +159,7 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
           </Dialog.Portal>
         </Dialog.Root>
       )}
-    </>
+    </section>
   );
 };
 
