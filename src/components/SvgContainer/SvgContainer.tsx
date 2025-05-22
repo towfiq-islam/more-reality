@@ -1886,8 +1886,7 @@ export const BluePhone = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className="w-[20px] md:w-[24px] h-[20px] md:h-[24px]"
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -1910,8 +1909,7 @@ export const BlueMail = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className="w-[20px] md:w-[24px] h-[20px] md:h-[24px]"
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -1927,8 +1925,7 @@ export const BlueLocation = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className="w-[20px] md:w-[24px] h-[20px] md:h-[24px]"
       viewBox="0 0 24 24"
       fill="none"
     >
