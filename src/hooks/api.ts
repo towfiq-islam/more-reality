@@ -16,6 +16,18 @@ export const BlogData = async (per_page?: React.ReactNode) => {
   return data?.data;
 };
 
+// Site Settings
+export const SiteSettings = async () => {
+  const { data } = await axiosPublic("/api/site-settings");
+  return data?.data;
+};
+
+// Social Links
+export const SocialLinks = async () => {
+  const { data } = await axiosPublic("/api/social-links");
+  return data?.data;
+};
+
 // Newsletter Section (POST API)
 export const AddNewsletter = async (payload: React.ReactNode) => {
   const { data } = await axiosPublic.post("/api/newsletter", payload);

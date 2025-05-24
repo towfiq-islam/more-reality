@@ -1,35 +1,90 @@
+"use client";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";
 import React from "react";
-import logo from "../assests/footer-logo.png";
 import Image from "next/image";
+import parse from "html-react-parser";
 import {
   FacebookLogo,
   InstaSvg,
   LinkdeinSvg,
 } from "@/components/SvgContainer/SvgContainer";
-
-const SvgArr = [FacebookLogo, InstaSvg, LinkdeinSvg];
-const navLink = [
-  {
-    title: "Quick Links",
-    navLinks: ["ABOUT US", "jOIN MORE REALTY", "NEWS & bLOG", "cONTACT US"],
-  },
-  {
-    title: "Our Service",
-    navLinks: ["Buying a Home", "Selling A HOME", "COMMERCIAL", "MORE GIVES"],
-  },
-  {
-    title: "Contact",
-    navLinks: [
-      "16037 SW Upper Boones Ferry Rd, Portland, OR 97224",
-      "Phone: +1(877) 344-6673",
-      "Email: careers@morerealty.com",
-      "Hours of Operation: 9am-5pm",
-    ],
-  },
-];
+import { useSiteSettings, useSocialLinks } from "@/hooks/queries";
+import Link from "next/link";
 
 const Footer = () => {
+  const { data: siteSettingsData } = useSiteSettings();
+  const { data: socialLinks } = useSocialLinks();
+
+  const navLink = [
+    {
+      title: "Quick Links",
+      navLinks: [
+        {
+          label: "ABOUT US",
+          path: "/about",
+        },
+        {
+          label: "JOIN MORE REALTY",
+          path: "/join-more-realty",
+        },
+        {
+          label: "NEWS & bLOG",
+          path: "/news-and-blogs",
+        },
+        {
+          label: "CONTACT US",
+          path: "/contact-us",
+        },
+      ],
+    },
+    {
+      title: "Our Service",
+      navLinks: [
+        {
+          label: "Buying a Home",
+          path: "/buying-a-home",
+        },
+        {
+          label: "Selling A HOME",
+          path: "/selling-a-home",
+        },
+        {
+          label: "COMMERCIAL",
+          path: "/commercial",
+        },
+        {
+          label: "MORE GIVES",
+          path: "/more-gives",
+        },
+      ],
+    },
+    {
+      title: "Contact",
+      navLinks: [
+        {
+          label: siteSettingsData?.address
+            ? typeof siteSettingsData.address === "string"
+              ? parse(siteSettingsData.address)
+              : siteSettingsData.address
+            : "Address not available",
+          path: "",
+        },
+        {
+          label: `Phone: ${siteSettingsData?.phone}`,
+          path: "",
+        },
+        {
+          label: `Email: ${siteSettingsData?.email}`,
+          path: "",
+        },
+        {
+          label: "Hours of Operation: 9am-5pm",
+          path: "",
+        },
+      ],
+    },
+  ];
+
   return (
     <footer className="h-auto lg:px-5 3xl:px-0 w-full pt-7 lg:pt-10 xl:pt-20 3xl:pt-[110px] bg-primary-blue">
       <div className="flex flex-col">
@@ -39,20 +94,24 @@ const Footer = () => {
             <Image
               data-aos="fade-up"
               data-aos-delay="100"
-              src={logo?.src || logo}
+              src={`${process.env.NEXT_PUBLIC_SITE_URL}/${siteSettingsData?.footer_logo}`}
               width={362}
               height={50}
               alt="not found"
               className="w-[150px] lg:w-[200px] 2xl:w-[250px] 3xl:w-[362px] h-[20px] lg:h-[30px] 2xl:h-[35px] 3xl:h-[50px]"
             />
-
+            {/* data-aos="fade-up" data-aos-delay="100" */}
             <div className="flex flex-row gap-x-[9.23px]">
-              {SvgArr.map((Icon, idx) => (
+              {socialLinks?.map((item: any, idx: number) => (
                 <div
                   key={idx}
                   className="w-9 lg:w-10 h-9 lg:h-10 cursor-pointer flex items-center justify-center border-[1px] border-solid border-white rounded-full"
                 >
-                  <Icon data-aos="fade-up" data-aos-delay="100" />
+                  <a target="_blank" href={item?.profile_link}>
+                    {item?.social_media === "facebook" && <FacebookLogo />}
+                    {item?.social_media === "instagram" && <InstaSvg />}
+                    {item?.social_media === "linkedin" && <LinkdeinSvg />}
+                  </a>
                 </div>
               ))}
             </div>
@@ -71,13 +130,10 @@ const Footer = () => {
                     <li
                       data-aos="fade-up"
                       data-aos-delay="100"
-                      className={`${
-                        link == "Email: careers@morerealty.com" &&
-                        "whitespace-nowrap"
-                      } footer-link `}
+                      className={`footer-link `}
                       key={linkIdx}
                     >
-                      {link}
+                      <Link href={link?.path}>{link?.label}</Link>
                     </li>
                   ))}
                 </ul>
@@ -89,9 +145,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="flex flex-col items-center h-auto w-full gap-y-6 pb-6">
           <hr className="h-[1px] w-full bg-[#131313] opacity-[0.15]" />
-          <p className="footer-para">
-            Copyright © construck all right reserved.
-          </p>
+          <p className="footer-para">{siteSettingsData?.copyright_text}</p>
         </div>
       </div>
     </footer>

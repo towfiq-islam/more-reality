@@ -7,6 +7,7 @@ import { Providers } from "./Provider/Provider";
 import AosProvider from "@/Provider/AosProvider/AosProvider";
 import ReactQueryProvider from "@/app/Provider/ReactQueryProvider";
 import { Toaster } from "react-hot-toast";
+import SiteSettingsClient from "@/components/SiteSettings/SiteSettingsClient";
 
 const lato = Lato({
   variable: "--font-lato",
@@ -31,7 +32,10 @@ export default function RootLayout({
         <ReactQueryProvider>
           <Providers>
             <Navbar />
-            <AosProvider>{children}</AosProvider>
+            <AosProvider>
+              <SiteSettingsClient />
+              {children}
+            </AosProvider>
             <Footer />
             <Toaster />
           </Providers>

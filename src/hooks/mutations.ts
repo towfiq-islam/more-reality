@@ -8,7 +8,6 @@ export const useNewsletter = () => {
     mutationKey: ["newsletter"],
     mutationFn: (payload: React.ReactNode) => AddNewsletter(payload),
     onSuccess: data => {
-      console.log(data);
       if (data?.success === true) {
         return toast.success(data?.message);
       }
