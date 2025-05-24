@@ -20,6 +20,7 @@ const WhyChooseUs = ({ data }: { data: DataProps }) => {
     data?.section_image3,
     data?.section_image4,
   ];
+  console.log(data?.description);
 
   return (
     <section className="lg:px-5 3xl:px-0 pt-10 lg:pt-20 3xl:pt-[102px] pb-10 lg:pb-20 3xl:pb-[167px] h-auto w-full">
@@ -53,9 +54,14 @@ const WhyChooseUs = ({ data }: { data: DataProps }) => {
               className="!text-lg 3xl:!text-xl"
             />
             {/* Description */}
-            {typeof data?.description === "string"
+            <div className="[&>h2]:text-lg 3xl:[&>h2]:text-xl [&>h3]:text-lg 3xl:[&>h3]:text-xl [&>h4]:text-lg 3xl:[&>h4]:text-xl 2xl:[&>p]:text-lg space-y-5">
+              {typeof data?.description === "string"
+                ? parse(data?.description)
+                : data?.description}
+            </div>
+            {/* {typeof data?.description === "string"
               ? parse(data?.description)
-              : data?.description}
+              : data?.description} */}
           </div>
         </div>
       </div>
