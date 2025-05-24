@@ -2,9 +2,10 @@ import { Star } from "../SvgContainer/SvgContainer";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";
 import Image, { StaticImageData } from "next/image";
+import parse from "html-react-parser";
 
 interface TestimonialProps {
-  imgUrl: StaticImageData;
+  imgUrl: StaticImageData | string;
   name: string;
   review: string;
   rating: number;
@@ -37,7 +38,7 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
           />
         </div>
         <Paragraph
-          Txt={review}
+          Txt={typeof review === "string" ? parse(review) : review}
           className="!text-[17px] 3xl:text-lg leading-[144%] font-normal text-primary-text-blue   "
         />
       </div>

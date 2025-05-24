@@ -1,7 +1,23 @@
 import { axiosPublic } from "./useAxiosPublic";
 
-// Homepage - Banner
-export const HomepageBanner = async () => {
-  const { data } = await axiosPublic("/api/cms/home-banner");
+// Homepage data
+export const HomepageData = async () => {
+  const { data } = await axiosPublic("/api/get_home");
   return data?.data;
+};
+
+// Blog data
+export const BlogData = async (per_page?: React.ReactNode) => {
+  let url = "/api/blogs?";
+  if (per_page) url += `per_page=${per_page}&`;
+  url = url.endsWith("&") ? url.slice(0, -1) : url;
+  url = url.endsWith("?") ? url.slice(0, -1) : url;
+  const { data } = await axiosPublic(url);
+  return data?.data;
+};
+
+// Newsletter Section (POST API)
+export const AddNewsletter = async (payload: React.ReactNode) => {
+  const { data } = await axiosPublic.post("/api/newsletter", payload);
+  return data;
 };

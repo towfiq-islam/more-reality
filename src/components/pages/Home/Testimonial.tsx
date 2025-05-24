@@ -48,13 +48,24 @@ const testimonials = [
   },
 ];
 
-const Testimonial = () => {
-  const swiperRef = useRef<SwiperType | null>(null);
+type TestimonialData = {
+  name: string;
+  speech: string;
+  image: string;
+  rating: number;
+};
 
+type TestimonialProps = {
+  data: TestimonialData[];
+};
+
+const Testimonial: React.FC<TestimonialProps> = ({ data }) => {
+
+  // For Swiper
+  const swiperRef = useRef<SwiperType | null>(null);
   const handlePrev = () => {
     swiperRef.current?.slidePrev();
   };
-
   const handleNext = () => {
     swiperRef.current?.slideNext();
   };
@@ -103,14 +114,14 @@ const Testimonial = () => {
             }}
             className="overflow-hidden"
           >
-            {testimonials.map((item, idx) => (
+            {data?.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <TestimonialCard
-                  imgUrl={item.imgUrl}
-                  name={item.name}
-                  review={item.review}
+                  imgUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/${item?.image}`}
+                  name={item?.name}
+                  review={item?.speech}
                   isDownPart={true}
-                  rating={item.rating}
+                  rating={item?.rating}
                 />
               </SwiperSlide>
             ))}

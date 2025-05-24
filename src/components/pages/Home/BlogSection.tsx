@@ -18,39 +18,6 @@ interface BlogCardProps {
   id: number;
 }
 
-const blogData: BlogCardProps[] = [
-  {
-    BgImgUrl: sky,
-    title: "Title: Blog Title",
-    details: "Blog short details about the blog nothing more",
-    name: "Charli Curs",
-    ProfileImgUrl: white_shirt_man,
-    date: "May 10, 2025",
-    Variant: "small",
-    id: 1,
-  },
-  {
-    BgImgUrl: cute_house,
-    title: "Title: Blog Title",
-    details: "Blog short details about the blog nothing more",
-    name: "Sadia Nawar",
-    ProfileImgUrl: asthtetic,
-    date: "May 12, 2025",
-    Variant: "small",
-    id: 2,
-  },
-  {
-    BgImgUrl: asthtetic,
-    title: "Title: Blog Title",
-    details: "Blog short details about the blog nothing more",
-    name: "Rafiul Islam",
-    ProfileImgUrl: white_shirt_man,
-    date: "May 14, 2025",
-    Variant: "small",
-    id: 3,
-  },
-];
-
 const blogDataList: BlogCardProps[] = [
   {
     id: 1,
@@ -162,11 +129,23 @@ const blogDataList: BlogCardProps[] = [
   },
 ];
 
+type BlogCard = {
+  title: string;
+  author: string;
+  author_image: string | any;
+  created_date: string;
+  image: string;
+  short_description: string;
+  slug: string;
+  id: number;
+};
+
 interface BlogSectionProps {
   title?: string;
   subTitle?: string;
   isFullArr?: boolean;
   isBtn?: boolean;
+  data?: BlogCard[];
 }
 
 const BlogSection: React.FC<BlogSectionProps> = ({
@@ -174,7 +153,9 @@ const BlogSection: React.FC<BlogSectionProps> = ({
   subTitle = "Stay informed with expert tips, market insights, and home buying guides — everything you need to make smart real estate decisions.",
   isFullArr = false,
   isBtn = true,
+  data,
 }) => {
+  console.log(data);
   return (
     <section className="lg:px-5 3xl:px-0 py-10 lg:py-16 3xl:py-24">
       <div className="container h-auto cursor-pointer flex flex-col gap-y-10 3xl:gap-y-[60px]">
@@ -192,37 +173,21 @@ const BlogSection: React.FC<BlogSectionProps> = ({
         {/* Map */}
         <div className="flex flex-col gap-y-[60px] items-center">
           <div className="flex justify-center flex-row flex-wrap gap-x-[20px] gap-y-5 2xl:gap-y-10">
-            {isFullArr
-              ? blogDataList?.map((blog, idx) => {
-                  return (
-                    <BlogCard
-                      key={idx}
-                      BgImgUrl={blog.BgImgUrl}
-                      title={blog.title}
-                      details={blog.details}
-                      date={blog.date}
-                      name={blog.name}
-                      ProfileImgUrl={blog.ProfileImgUrl}
-                      Variant={blog.Variant}
-                      id={blog.id}
-                    />
-                  );
-                })
-              : blogData?.map((blog, idx) => {
-                  return (
-                    <BlogCard
-                      key={idx}
-                      BgImgUrl={blog.BgImgUrl}
-                      title={blog.title}
-                      details={blog.details}
-                      date={blog.date}
-                      name={blog.name}
-                      ProfileImgUrl={blog.ProfileImgUrl}
-                      Variant={blog.Variant}
-                      id={blog.id}
-                    />
-                  );
-                })}
+            {data?.map((blog, idx) => {
+              return (
+                <BlogCard
+                  BgImgUrl={blog?.image}
+                  key={idx}
+                  title={blog?.title}
+                  details={blog?.short_description}
+                  date={blog?.created_date}
+                  name={blog?.author}
+                  Variant={"small"}
+                  ProfileImgUrl={blog?.author_image}
+                  id={blog.id}
+                />
+              );
+            })}
           </div>
           {isBtn && (
             <Button Txt={"Fine More Blog"} className="primary-btn-reverse" />
