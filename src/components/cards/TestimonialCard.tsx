@@ -37,10 +37,9 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
             className="text-[#05073C] text-[22px] leading-[144%] font-medium  "
           />
         </div>
-        <Paragraph
-          Txt={typeof review === "string" ? parse(review) : review}
-          className="!text-[17px] 3xl:text-lg leading-[144%] font-normal text-primary-text-blue   "
-        />
+        <div className="!text-[17px] 3xl:text-lg leading-[144%] font-normal text-primary-text-blue   ">
+          {typeof review === "string" ? parse(review) : review}
+        </div>
       </div>
       {isDownPart && (
         <div className="flex flex-col gap-y-[20.88px]">
