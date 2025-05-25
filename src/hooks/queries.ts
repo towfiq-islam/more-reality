@@ -4,8 +4,10 @@ import {
   BlogBanner,
   BlogData,
   BLogDetails,
+  Commercial,
   HomepageData,
   JoinMoreRealty,
+  OurServices,
   SiteSettings,
   SocialLinks,
 } from "./api";
@@ -64,5 +66,21 @@ export const useJoinMoreRealty = () => {
   return useQuery({
     queryKey: ["join-more-realty"],
     queryFn: JoinMoreRealty,
+  });
+};
+
+// Commercial
+export const useCommercial = () => {
+  return useQuery({
+    queryKey: ["commercial"],
+    queryFn: Commercial,
+  });
+};
+
+// Commercial
+export const useOurServices = () => {
+  return useQuery({
+    queryKey: ["our-services"],
+    queryFn: OurServices,
   });
 };

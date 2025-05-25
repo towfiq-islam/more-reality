@@ -1,30 +1,32 @@
+"use client";
 import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
-import hero from "@/assests/hero.jpg";
 import Property from "@/components/CommercialPageComponents/Property";
 import WhyChoose from "@/components/CommercialPageComponents/WhyChoose";
 import OurService from "@/components/CommercialPageComponents/OurService";
 import OurSuccess from "@/components/CommercialPageComponents/OurSuccess";
-import overviewImg from "@/assests/commertial/overview.png";
 import SecondaryBanner from "@/components/CommonComponenet/SecondaryBanner";
+import { useCommercial, useOurServices } from "@/hooks/queries";
 
 const page = () => {
+  const { data: commercialData } = useCommercial();
+  const { data: ourServicesData } = useOurServices();
   return (
     <>
       <CommonHeroBanner
-        BgImgurl={hero}
-        title="Commercial Real Estate Solutions for Buyers, Sellers & Investors"
-        subTitle="Explore opportunities in office, retail, industrial, and investment properties—backed by expert guidance every step of the way."
+        BgImgurl={commercialData?.commercial_banner?.background_image}
+        title={commercialData?.commercial_banner?.title}
+        subTitle={commercialData?.commercial_banner?.description}
         isInfoBox={false}
       />
       <SecondaryBanner
-        title="Overview"
-        description="At MORE Realty, we offer tailored solutions for clients navigating the commercial real estate market. Whether you're looking to buy, sell, lease, or invest, our team of professionals brings deep market insight, strategic guidance, and unmatched service to every transaction."
-        image={overviewImg}
+        title={commercialData?.commercial_overview?.title}
+        description={commercialData?.commercial_overview?.description}
+        image={commercialData?.commercial_overview?.background_image}
       />
-      <Property />
-      <WhyChoose />
-      <OurService />
-      <OurSuccess />
+      <Property data={commercialData?.commercial_properties} />
+      <WhyChoose data={commercialData?.commercial_chooose} />
+      <OurService data={ourServicesData} />
+      <OurSuccess data={commercialData?.success_stories} />
     </>
   );
 };

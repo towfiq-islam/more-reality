@@ -57,3 +57,15 @@ export const JoinMoreRealty = async () => {
   const { data } = await axiosPublic("/api/get_join");
   return data?.data;
 };
+
+// Commercial
+export const Commercial = async () => {
+  const { data } = await axiosPublic("/api/get_commercial");
+  return data?.data;
+};
+
+// Our Services Section
+export const OurServices = async () => {
+  const { data } = await axiosPublic("/api/our-services");
+  return data?.data;
+};
