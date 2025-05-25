@@ -1,14 +1,14 @@
 import { Star } from "../SvgContainer/SvgContainer";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import parse from "html-react-parser";
 
 interface TestimonialProps {
-  imgUrl: StaticImageData | string;
+  imgUrl: string;
   name: string;
   review: string;
-  rating: number;
+  rating?: number;
   isDownPart: boolean;
 }
 
@@ -26,11 +26,11 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
           <Image
             data-aos="fade-up"
             data-aos-delay="100"
-            src={typeof imgUrl === "string" ? imgUrl : imgUrl?.src}
+            src={`${process.env.NEXT_PUBLIC_SITE_URL}/${imgUrl}`}
             width={60}
             height={60}
             alt="not foudnd"
-            className="h-[60px] w-[60px] object-cover "
+            className="h-[60px] w-[60px] object-cover rounded-full"
           />
           <Paragraph
             Txt={name}
@@ -69,9 +69,10 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
               className="flex flex-row items-center gap-x-1"
             />
             <div className="flex flex-row gap-x-1 ">
-              {Array.from({ length: rating }).map((_, i) => (
-                <Star data-aos="fade-up" data-aos-delay="100" key={i} />
-              ))}
+              {rating &&
+                Array.from({ length: rating }).map((_, i) => (
+                  <Star data-aos="fade-up" data-aos-delay="100" key={i} />
+                ))}
             </div>
           </div>
         </div>

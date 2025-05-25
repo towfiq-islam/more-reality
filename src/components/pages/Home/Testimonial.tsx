@@ -8,45 +8,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { ArrowSvg } from "@/components/SvgContainer/SvgContainer";
 import TestimonialCard from "@/components/cards/TestimonialCard";
-import beard from "../../../assests/home/beard.png";
-
-const testimonials = [
-  {
-    imgUrl: beard,
-    name: "John Doe",
-    review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-    rating: 3,
-  },
-  {
-    imgUrl: beard,
-    name: "Jane Smith",
-    review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-    rating: 4,
-  },
-  {
-    imgUrl: beard,
-    name: "Alex Johnson",
-    review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-    rating: 5,
-  },
-  {
-    imgUrl: beard,
-    name: "Emily Clark",
-    review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-    rating: 4,
-  },
-  {
-    imgUrl: beard,
-    name: "Michael Lee",
-    review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-    rating: 5,
-  },
-];
 
 type TestimonialData = {
   name: string;
@@ -60,7 +21,6 @@ type TestimonialProps = {
 };
 
 const Testimonial: React.FC<TestimonialProps> = ({ data }) => {
-
   // For Swiper
   const swiperRef = useRef<SwiperType | null>(null);
   const handlePrev = () => {
@@ -117,7 +77,7 @@ const Testimonial: React.FC<TestimonialProps> = ({ data }) => {
             {data?.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <TestimonialCard
-                  imgUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/${item?.image}`}
+                  imgUrl={item?.image}
                   name={item?.name}
                   review={item?.speech}
                   isDownPart={true}

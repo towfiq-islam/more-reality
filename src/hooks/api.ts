@@ -17,7 +17,7 @@ export const BlogData = async (
 
   url = url.endsWith("&") ? url.slice(0, -1) : url;
   url = url.endsWith("?") ? url.slice(0, -1) : url;
-  
+
   const { data } = await axiosPublic(url);
   return data?.data;
 };
@@ -50,4 +50,10 @@ export const SocialLinks = async () => {
 export const AddNewsletter = async (payload: React.ReactNode) => {
   const { data } = await axiosPublic.post("/api/newsletter", payload);
   return data;
+};
+
+// Join More Realty
+export const JoinMoreRealty = async () => {
+  const { data } = await axiosPublic("/api/get_join");
+  return data?.data;
 };

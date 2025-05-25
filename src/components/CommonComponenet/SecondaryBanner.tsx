@@ -27,9 +27,10 @@ const SecondaryBanner: React.FC<SecondaryBannerProps> = ({
         <Image
           data-aos="fade-up"
           data-aos-delay="100"
-          src={image}
+          width={500}
+          height={580}
+          src={`${process.env.NEXT_PUBLIC_SITE_URL}/${image}`}
           alt="banner_image"
-          placeholder="blur"
           className="h-[270px] md:h-[300px] lg:h-[400px] xl:h-[500px] 3xl:h-[580px] w-full object-cover rounded"
         />
       </div>

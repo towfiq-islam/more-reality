@@ -5,6 +5,7 @@ import {
   BlogData,
   BLogDetails,
   HomepageData,
+  JoinMoreRealty,
   SiteSettings,
   SocialLinks,
 } from "./api";
@@ -55,5 +56,13 @@ export const useBlogBanner = () => {
   return useQuery({
     queryKey: ["blog-banner"],
     queryFn: BlogBanner,
+  });
+};
+
+// Join More Realty
+export const useJoinMoreRealty = () => {
+  return useQuery({
+    queryKey: ["join-more-realty"],
+    queryFn: JoinMoreRealty,
   });
 };
