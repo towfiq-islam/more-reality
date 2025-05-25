@@ -6,6 +6,7 @@ import cute_house from "../../../assests/blog/cute-house.jpg";
 import asthtetic from "../../../assests/blog/asthetic.jpg";
 import white_shirt_man from "../../../assests/blog/white-shirt-man.jpg";
 import BlogCard from "@/components/cards/BlogCard";
+import Link from "next/link";
 
 interface BlogCardProps {
   BgImgUrl: string | any;
@@ -143,7 +144,6 @@ type BlogCard = {
 interface BlogSectionProps {
   title?: string;
   subTitle?: string;
-  isFullArr?: boolean;
   isBtn?: boolean;
   data?: BlogCard[];
 }
@@ -151,11 +151,9 @@ interface BlogSectionProps {
 const BlogSection: React.FC<BlogSectionProps> = ({
   title = "Latest Blog Post",
   subTitle = "Stay informed with expert tips, market insights, and home buying guides — everything you need to make smart real estate decisions.",
-  isFullArr = false,
   isBtn = true,
   data,
 }) => {
-  console.log(data);
   return (
     <section className="lg:px-5 3xl:px-0 py-10 lg:py-16 3xl:py-24">
       <div className="container h-auto cursor-pointer flex flex-col gap-y-10 3xl:gap-y-[60px]">
@@ -184,13 +182,16 @@ const BlogSection: React.FC<BlogSectionProps> = ({
                   name={blog?.author}
                   Variant={"small"}
                   ProfileImgUrl={blog?.author_image}
-                  id={blog.id}
+                  id={blog?.id}
+                  slug={blog?.slug}
                 />
               );
             })}
           </div>
           {isBtn && (
-            <Button Txt={"Fine More Blog"} className="primary-btn-reverse" />
+            <Link href="/about/news-and-blogs">
+              <Button Txt={"Fine More Blog"} className="primary-btn-reverse" />
+            </Link>
           )}
         </div>
       </div>

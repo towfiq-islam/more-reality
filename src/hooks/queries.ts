@@ -1,6 +1,12 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { BlogData, HomepageData, SiteSettings, SocialLinks } from "./api";
+import {
+  BlogData,
+  BLogDetails,
+  HomepageData,
+  SiteSettings,
+  SocialLinks,
+} from "./api";
 
 // Homepage data
 export const useHomepageData = () => {
@@ -31,5 +37,14 @@ export const useBlogData = (per_page?: React.ReactNode) => {
   return useQuery({
     queryKey: ["blog-data", per_page],
     queryFn: () => BlogData(per_page),
+  });
+};
+
+// Blog Details
+export const useBlogDetails = (slug: string) => {
+  return useQuery({
+    queryKey: ["blog-details", slug],
+    queryFn: () => BLogDetails(slug),
+    enabled: !!slug,
   });
 };

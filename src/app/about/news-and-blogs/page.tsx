@@ -18,7 +18,6 @@ const page = () => {
           "Catch up on the latest real estate news, expert insights, market trends, and inspiring stories from the MORE Realty community — all in one place."
         }
         isBtn={false}
-        isFullArr={true}
       />
       <SubscribeNewsLetter />
     </>

@@ -14,6 +14,7 @@ interface BlogCardProps {
   date: string;
   Variant?: "small" | "full";
   id: number;
+  slug: string;
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({
@@ -25,10 +26,11 @@ const BlogCard: React.FC<BlogCardProps> = ({
   date,
   ProfileImgUrl,
   id,
+  slug,
 }) => {
   const router = useRouter();
   const handleRedirect = () => {
-    router.push(`/about/news-and-blogs/${id}`);
+    router.push(`/about/news-and-blogs/${slug}`);
   };
 
   const baseUrl = encodeURI(`${process.env.NEXT_PUBLIC_SITE_URL}/${BgImgUrl}`);

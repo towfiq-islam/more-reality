@@ -16,6 +16,12 @@ export const BlogData = async (per_page?: React.ReactNode) => {
   return data?.data;
 };
 
+// Blog Details
+export const BLogDetails = async (slug: string) => {
+  const { data } = await axiosPublic(`/api/blog/${slug}`);
+  return data?.data;
+};
+
 // Site Settings
 export const SiteSettings = async () => {
   const { data } = await axiosPublic("/api/site-settings");

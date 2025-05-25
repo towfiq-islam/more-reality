@@ -1,3 +1,4 @@
+"use client";
 import { useMutation } from "@tanstack/react-query";
 import { AddNewsletter } from "./api";
 import toast from "react-hot-toast";
