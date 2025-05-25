@@ -7,11 +7,17 @@ export const HomepageData = async () => {
 };
 
 // Blog data
-export const BlogData = async (per_page?: React.ReactNode) => {
+export const BlogData = async (
+  per_page?: React.ReactNode,
+  page_id?: number
+) => {
   let url = "/api/blogs?";
   if (per_page) url += `per_page=${per_page}&`;
+  if (page_id) url += `page=${page_id}&`;
+
   url = url.endsWith("&") ? url.slice(0, -1) : url;
   url = url.endsWith("?") ? url.slice(0, -1) : url;
+  
   const { data } = await axiosPublic(url);
   return data?.data;
 };
@@ -19,6 +25,12 @@ export const BlogData = async (per_page?: React.ReactNode) => {
 // Blog Details
 export const BLogDetails = async (slug: string) => {
   const { data } = await axiosPublic(`/api/blog/${slug}`);
+  return data?.data;
+};
+
+// Blog Banner
+export const BlogBanner = async () => {
+  const { data } = await axiosPublic("/api/get_blog");
   return data?.data;
 };
 

@@ -13,26 +13,26 @@ interface BlogCardProps {
   ProfileImgUrl: string | any;
   date: string;
   Variant?: "small" | "full";
-  id: number;
   slug: string;
+  isBlogPage: boolean;
+  isFirst?: boolean;
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({
-  Variant,
   BgImgUrl,
   title,
   details,
   name,
   date,
   ProfileImgUrl,
-  id,
   slug,
+  isBlogPage,
+  isFirst,
 }) => {
   const router = useRouter();
   const handleRedirect = () => {
     router.push(`/about/news-and-blogs/${slug}`);
   };
-
   const baseUrl = encodeURI(`${process.env.NEXT_PUBLIC_SITE_URL}/${BgImgUrl}`);
 
   return (
@@ -41,9 +41,9 @@ const BlogCard: React.FC<BlogCardProps> = ({
       data-aos-delay="100"
       onClick={handleRedirect}
       className={`relative overflow-hidden rounded-[16px] ${
-        Variant === "small"
-          ? "h-[380px] md:h-[450px] 3xl:h-[551px] w-full lg:w-[330px] xl:w-[420px] 2xl:w-[380px] 3xl:w-[455px]"
-          : "h-[400px] 3xl:h-[427px] w-full"
+        isBlogPage && isFirst
+          ? "h-[400px] 3xl:h-[427px] w-full"
+          : "h-[380px] md:h-[450px] 3xl:h-[551px] w-full lg:w-[330px] xl:w-[420px] 2xl:w-[380px] 3xl:w-[455px]"
       }`}
     >
       {/* Scalable background layer */}

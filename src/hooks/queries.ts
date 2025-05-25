@@ -1,6 +1,7 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import {
+  BlogBanner,
   BlogData,
   BLogDetails,
   HomepageData,
@@ -33,10 +34,10 @@ export const useSocialLinks = () => {
 };
 
 // Blog Data
-export const useBlogData = (per_page?: React.ReactNode) => {
+export const useBlogData = (per_page?: React.ReactNode, page_id?: number) => {
   return useQuery({
-    queryKey: ["blog-data", per_page],
-    queryFn: () => BlogData(per_page),
+    queryKey: ["blog-data", per_page, page_id],
+    queryFn: () => BlogData(per_page, page_id),
   });
 };
 
@@ -46,5 +47,13 @@ export const useBlogDetails = (slug: string) => {
     queryKey: ["blog-details", slug],
     queryFn: () => BLogDetails(slug),
     enabled: !!slug,
+  });
+};
+
+// Blog Banner
+export const useBlogBanner = () => {
+  return useQuery({
+    queryKey: ["blog-banner"],
+    queryFn: BlogBanner,
   });
 };
