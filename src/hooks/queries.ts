@@ -1,12 +1,14 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import {
+  AboutUs,
   BlogBanner,
   BlogData,
   BLogDetails,
   Commercial,
   HomepageData,
   JoinMoreRealty,
+  OurOffices,
   OurServices,
   SiteSettings,
   SocialLinks,
@@ -94,5 +96,21 @@ export const useTeamMembers = (
   return useQuery({
     queryKey: ["team-members", per_page, page_id],
     queryFn: () => TeamMembers(per_page, page_id),
+  });
+};
+
+// Our Offices
+export const useOurOffices = (per_page?: React.ReactNode, page_id?: number) => {
+  return useQuery({
+    queryKey: ["our-offices", per_page, page_id],
+    queryFn: () => OurOffices(per_page, page_id),
+  });
+};
+
+// About Us
+export const useAboutUs = () => {
+  return useQuery({
+    queryKey: ["about-us-secondaryBanner"],
+    queryFn: AboutUs,
   });
 };

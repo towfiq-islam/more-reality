@@ -85,3 +85,25 @@ export const TeamMembers = async (
   const { data } = await axiosPublic(url);
   return data?.data;
 };
+
+// Our Offices
+export const OurOffices = async (
+  per_page?: React.ReactNode,
+  page_id?: number
+) => {
+  let url = "/api/our-offices?";
+  if (per_page) url += `item=${per_page}&`;
+  if (page_id) url += `page=${page_id}&`;
+
+  url = url.endsWith("&") ? url.slice(0, -1) : url;
+  url = url.endsWith("?") ? url.slice(0, -1) : url;
+
+  const { data } = await axiosPublic(url);
+  return data?.data;
+};
+
+// About Us
+export const AboutUs = async () => {
+  const { data } = await axiosPublic("/api/get_about");
+  return data?.data;
+};
