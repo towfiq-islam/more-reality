@@ -107,3 +107,15 @@ export const AboutUs = async () => {
   const { data } = await axiosPublic("/api/get_about");
   return data?.data;
 };
+
+// Meet the team Banner
+export const MeetTheTeamBanner = async () => {
+  const { data } = await axiosPublic("/api/get_team");
+  return data?.data;
+};
+
+// Our Offices Banner
+export const OurOfficesBanner = async () => {
+  const { data } = await axiosPublic("/api/get_our_office");
+  return data?.data;
+};

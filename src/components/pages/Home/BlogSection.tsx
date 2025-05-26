@@ -102,8 +102,8 @@ const BlogSection: React.FC<BlogSectionProps> = ({
               />
             ))}
           </div>
-          
         )}
+        
       </div>
     </section>
   );

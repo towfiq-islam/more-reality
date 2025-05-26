@@ -8,7 +8,9 @@ import {
   Commercial,
   HomepageData,
   JoinMoreRealty,
+  MeetTheTeamBanner,
   OurOffices,
+  OurOfficesBanner,
   OurServices,
   SiteSettings,
   SocialLinks,
@@ -112,5 +114,21 @@ export const useAboutUs = () => {
   return useQuery({
     queryKey: ["about-us-secondaryBanner"],
     queryFn: AboutUs,
+  });
+};
+
+// Meet the team banner
+export const useMeetTheTeamBanner = () => {
+  return useQuery({
+    queryKey: ["meet-the-team-banner"],
+    queryFn: MeetTheTeamBanner,
+  });
+};
+
+// Our Offices Banner
+export const useOurOfficesBanner = () => {
+  return useQuery({
+    queryKey: ["our-offices-banner"],
+    queryFn: OurOfficesBanner,
   });
 };

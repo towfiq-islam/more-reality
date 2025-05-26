@@ -10,6 +10,12 @@ import {
   BlueLocation,
 } from "../SvgContainer/SvgContainer";
 
+type Links = {
+  url: string;
+  label: string;
+  active: boolean;
+};
+
 type MeetCard = {
   name: string;
   designation: string;
@@ -22,9 +28,17 @@ type MeetCard = {
 
 interface MeetProps {
   data: MeetCard[];
+  links?: Links[];
+  isAllMembers?: boolean;
+  setActivePage?: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Meet: React.FC<MeetProps> = ({ data }) => {
+const Meet: React.FC<MeetProps> = ({
+  data,
+  links,
+  isAllMembers = false,
+  setActivePage,
+}) => {
   const [isOpen, setIsOpen] = useState<boolean | null>(false);
   const [activeMember, setactiveMember] = useState<MeetCard | null>(null);
 
@@ -73,6 +87,29 @@ const Meet: React.FC<MeetProps> = ({ data }) => {
             </div>
           ))}
         </div>
+
+        {/* Pagination */}
+        {isAllMembers && (
+          <div className="mt-10 flex justify-center items-center gap-2 flex-wrap">
+            {links?.map((item, idx) => (
+              <button
+                key={idx}
+                onClick={() =>
+                  item.url && setActivePage?.(Number(item?.url.split("=")[1]))
+                }
+                className={`px-3 py-1 rounded border transition-all duration-150 
+               ${
+                 item?.active
+                   ? "bg-primary-blue text-white cursor-pointer"
+                   : "bg-white text-gray-700"
+               } 
+                ${!item.url ? "opacity-50 cursor-not-allowed" : ""}`}
+                disabled={!item.url}
+                dangerouslySetInnerHTML={{ __html: item.label }}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Modal */}

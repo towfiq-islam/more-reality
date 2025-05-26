@@ -2,102 +2,36 @@ import Heading from "@/components/Tags/Heading/Heading";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";
 import { DownArrow } from "../SvgContainer/SvgContainer";
 import OfficeCard from "../cards/OfficeCard";
-import house from "../../assests/house.jpg";
 
-type ImageObject = {
-  src: string;
-  height: number;
-  width: number;
-  blurDataURL?: string;
-  blurWidth?: number;
-  blurHeight?: number;
+type Links = {
+  url: string;
+  label: string;
+  active: boolean;
 };
 
-interface OfficeCardProps {
-  bgImgurl: string | ImageObject;
+type OfficeCard = {
   name: string;
-  location: string;
-  phone: string;
   email: string;
-  descreption: string;
+  phone: string;
+  address: string;
+  description: string;
+  image: string;
+};
+
+interface OfficeProps {
+  data: OfficeCard[];
+  links?: Links[];
+  isAllOffices?: boolean;
+  setActivePage?: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const officeData: OfficeCardProps[] = [
-  {
-    bgImgurl: house,
-    name: "Head Office",
-    location: "123 Main Street, Dhaka, Bangladesh",
-    phone: "+880123456789",
-    email: "headoffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Branch Office",
-    location: "456 Elm Street, Chittagong, Bangladesh",
-    phone: "+880987654321",
-    email: "branchoffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Regional Office",
-    location: "789 Oak Street, Sylhet, Bangladesh",
-    phone: "+880192837465",
-    email: "regionaloffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Regional Office",
-    location: "789 Oak Street, Sylhet, Bangladesh",
-    phone: "+880192837465",
-    email: "regionaloffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Head Office",
-    location: "123 Main Street, Dhaka, Bangladesh",
-    phone: "+880123456789",
-    email: "headoffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Branch Office",
-    location: "456 Elm Street, Chittagong, Bangladesh",
-    phone: "+880987654321",
-    email: "branchoffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Regional Office",
-    location: "789 Oak Street, Sylhet, Bangladesh",
-    phone: "+880192837465",
-    email: "regionaloffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Regional Office",
-    location: "789 Oak Street, Sylhet, Bangladesh",
-    phone: "+880192837465",
-    email: "regionaloffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-];
-
-const ExploreOurOffice = () => {
+const ExploreOurOffice: React.FC<OfficeProps> = ({
+  data,
+  links,
+  isAllOffices = false,
+  setActivePage,
+}) => {
+  console.log(data);
   return (
     <section className="lg:px-5 3xl:px-0 py-10 2xl:py-20">
       <div className="container">
@@ -157,20 +91,43 @@ const ExploreOurOffice = () => {
 
         {/* Map */}
         <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 ">
-          {officeData?.map((item, idx) => {
+          {data?.map((item, idx) => {
             return (
               <OfficeCard
                 key={idx}
-                bgImgurl={item.bgImgurl}
-                name={item.name}
-                location={item.location}
-                phone={item.phone}
-                email={item.email}
-                descreption={item.descreption}
+                bgImgurl={item?.image}
+                name={item?.name}
+                location={item?.address}
+                phone={item?.phone}
+                email={item?.email}
+                descreption={item?.description}
               />
             );
           })}
         </div>
+
+        {/* Pagination */}
+        {isAllOffices && (
+          <div className="mt-10 flex justify-center items-center gap-2 flex-wrap">
+            {links?.map((item, idx) => (
+              <button
+                key={idx}
+                onClick={() =>
+                  item.url && setActivePage?.(Number(item?.url.split("=")[1]))
+                }
+                className={`px-3 py-1 rounded border transition-all duration-150 
+               ${
+                 item?.active
+                   ? "bg-primary-blue text-white cursor-pointer"
+                   : "bg-white text-gray-700"
+               } 
+                ${!item.url ? "opacity-50 cursor-not-allowed" : ""}`}
+                disabled={!item.url}
+                dangerouslySetInnerHTML={{ __html: item.label }}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
