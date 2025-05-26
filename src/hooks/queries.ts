@@ -10,6 +10,7 @@ import {
   OurServices,
   SiteSettings,
   SocialLinks,
+  TeamMembers,
 } from "./api";
 
 // Homepage data
@@ -77,10 +78,21 @@ export const useCommercial = () => {
   });
 };
 
-// Commercial
+// Our Services Section
 export const useOurServices = () => {
   return useQuery({
     queryKey: ["our-services"],
     queryFn: OurServices,
+  });
+};
+
+// All Team Members
+export const useTeamMembers = (
+  per_page?: React.ReactNode,
+  page_id?: number
+) => {
+  return useQuery({
+    queryKey: ["team-members", per_page, page_id],
+    queryFn: () => TeamMembers(per_page, page_id),
   });
 };

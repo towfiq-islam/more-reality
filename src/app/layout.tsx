@@ -3,7 +3,6 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/shared/Navbar";
 import Footer from "@/shared/Footer";
-import { Providers } from "./Provider/Provider";
 import AosProvider from "@/Provider/AosProvider/AosProvider";
 import ReactQueryProvider from "@/app/Provider/ReactQueryProvider";
 import { Toaster } from "react-hot-toast";
@@ -30,15 +29,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${lato.variable} antialiased`}>
         <ReactQueryProvider>
-          <Providers>
-            <Navbar />
-            <AosProvider>
-              <SiteSettingsClient />
-              {children}
-            </AosProvider>
-            <Footer />
-            <Toaster />
-          </Providers>
+          <Navbar />
+          <AosProvider>
+            <SiteSettingsClient />
+            {children}
+          </AosProvider>
+          <Footer />
+          <Toaster />
         </ReactQueryProvider>
       </body>
     </html>

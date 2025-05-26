@@ -2,8 +2,6 @@
 import Image from "next/image";
 import Heading from "@/components/Tags/Heading/Heading";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from "react";
 import {
@@ -12,34 +10,23 @@ import {
   BlueLocation,
 } from "../SvgContainer/SvgContainer";
 
-type ImageObject = {
-  src: string;
-  height: number;
-  width: number;
-  blurDataURL?: string;
-  blurWidth?: number;
-  blurHeight?: number;
-};
-
-type teamDataSchema = {
-  imgUrl: string | ImageObject;
+type MeetCard = {
   name: string;
-  descreption: string;
+  designation: string;
+  email: string;
   phone: string;
-  mailAddres: string;
   address: string;
-  id: number;
+  bio: string;
+  image: string;
 };
 
 interface MeetProps {
-  isAllmember: boolean;
+  data: MeetCard[];
 }
 
-const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
-  const teamData = useSelector((state: RootState) => state.team.teamData);
+const Meet: React.FC<MeetProps> = ({ data }) => {
   const [isOpen, setIsOpen] = useState<boolean | null>(false);
-  const [activeMember, setactiveMember] = useState<teamDataSchema | null>(null);
-  console.log(activeMember);
+  const [activeMember, setactiveMember] = useState<MeetCard | null>(null);
 
   return (
     <section className="py-10 xl:py-20 lg:px-5 3xl:px-0">
@@ -58,9 +45,9 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
 
         {/* Map */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 grid-col gap-x-6 3xl:gap-x-6 gap-y-7 md:gap-y-10">
-          {(isAllmember ? teamData : teamData.slice(0, 5)).map(item => (
+          {data?.map((item, idx) => (
             <div
-              key={item?.id}
+              key={idx}
               onClick={() => {
                 setIsOpen(true);
                 setactiveMember(item);
@@ -72,11 +59,7 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
                 data-aos-delay="100"
                 width={271}
                 height={271}
-                src={
-                  typeof item.imgUrl === "string"
-                    ? item.imgUrl
-                    : item.imgUrl.src
-                }
+                src={`${process.env.NEXT_PUBLIC_SITE_URL}/${item?.image}`}
                 alt="Meet_img"
                 className="rounded-full mx-auto w-[180px] 2xl:w-[200px] 3xl:w-[271px] h-[180px] 2xl:h-[200px] 3xl:h-[271px] cursor-pointer"
               />
@@ -91,6 +74,8 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
           ))}
         </div>
       </div>
+
+      {/* Modal */}
       {activeMember !== null && (
         <Dialog.Root open={isOpen !== null && isOpen} onOpenChange={setIsOpen}>
           <Dialog.Portal>
@@ -101,24 +86,20 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
                   <Image
                     width={209}
                     height={209}
-                    src={
-                      typeof activeMember.imgUrl === "string"
-                        ? activeMember.imgUrl
-                        : activeMember.imgUrl.src
-                    }
+                    src={`${process.env.NEXT_PUBLIC_SITE_URL}/${activeMember?.image}`}
                     alt="Meet_img"
                     className="rounded-full mx-auto w-[190px] md:w-[209px] h-[190px] md:h-[209px]"
                   />
                   <div className="flex flex-col gap-1 xl:gap-2.5">
                     <h3 className="text-xl md:!text-2xl 2xl:!text-[32px] font-semibold text-primary-text-blue">
-                      {activeMember.name}
+                      {activeMember?.name}
                     </h3>
                     <p
                       className={
                         "!text-base md:!text-lg 2xl:!text-xl text-primary-text-blue font-normal"
                       }
                     >
-                      {activeMember.descreption}
+                      {activeMember?.bio}
                     </p>
                   </div>
                 </div>
@@ -140,7 +121,7 @@ const Meet: React.FC<MeetProps> = ({ isAllmember }) => {
                         "md:text-lg text-primary-text-blue font-medium"
                       }
                     >
-                      {activeMember?.mailAddres}
+                      {activeMember?.email}
                     </p>
                   </div>
                   <div className="flex flex-row gap-x-2.5 ">

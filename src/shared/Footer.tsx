@@ -78,7 +78,7 @@ const Footer = () => {
           path: "",
         },
         {
-          label: "Hours of Operation: 9am-5pm",
+          label: `Hours of Operation: ${siteSettingsData?.opening_hour}`,
           path: "",
         },
       ],

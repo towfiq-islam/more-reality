@@ -1,15 +1,18 @@
+"use client";
 import Meet from "@/components/AboutUsComponents/Meet";
 import Office from "@/components/AboutUsComponents/Office";
 import SecondaryBanner from "@/components/CommonComponenet/SecondaryBanner";
 import BlogSection from "@/components/pages/Home/BlogSection";
 import fan from "@/assests/about/fan.jpg";
 import SubscribeNewsLetter from "@/components/CommonComponenet/SubscribeNewsLetter";
+import { useTeamMembers } from "@/hooks/queries";
 
 const page = () => {
+  const { data: allTeamMembers } = useTeamMembers(5);
   return (
     <>
-      <Meet isAllmember={false} />
-      <Office />
+      <Meet data={allTeamMembers?.data} />
+      {/* <Office />
       <BlogSection />
       <div className="-mt-10 3xl:-mt-20">
         <SecondaryBanner
@@ -20,7 +23,7 @@ const page = () => {
           }
         />
       </div>
-      <SubscribeNewsLetter />
+      <SubscribeNewsLetter /> */}
     </>
   );
 };

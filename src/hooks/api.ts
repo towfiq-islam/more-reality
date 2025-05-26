@@ -69,3 +69,19 @@ export const OurServices = async () => {
   const { data } = await axiosPublic("/api/our-services");
   return data?.data;
 };
+
+// All Team Members
+export const TeamMembers = async (
+  per_page?: React.ReactNode,
+  page_id?: number
+) => {
+  let url = "/api/our-teams?";
+  if (per_page) url += `item=${per_page}&`;
+  if (page_id) url += `page=${page_id}&`;
+
+  url = url.endsWith("&") ? url.slice(0, -1) : url;
+  url = url.endsWith("?") ? url.slice(0, -1) : url;
+
+  const { data } = await axiosPublic(url);
+  return data?.data;
+};
