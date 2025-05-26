@@ -1,28 +1,20 @@
 "use client";
 import Image from "next/image";
-
-type Button = {
-  text: string;
-  href: string;
-};
+import parse from "html-react-parser";
 
 type WhyChooseMoreProps = {
   title: string;
-  pricing: string;
-  perks: string[];
   description: string;
-  bonus: string;
-  button: Button;
   image: string | any;
+  button_link: string;
+  button_text: string;
 };
 
 const WhyChooseMoreSection = ({
   title,
-  pricing,
-  perks,
   description,
-  bonus,
-  button,
+  button_link,
+  button_text,
   image,
 }: WhyChooseMoreProps) => {
   return (
@@ -34,7 +26,7 @@ const WhyChooseMoreSection = ({
             <Image
               data-aos="fade-up"
               data-aos-delay="100"
-              src={image}
+              src={`${process.env.NEXT_PUBLIC_SITE_URL}/${image}`}
               alt="Why Choose More"
               width={600}
               height={500}
@@ -52,48 +44,18 @@ const WhyChooseMoreSection = ({
               {title}
             </h2>
 
-            <p
-              data-aos="fade-up"
-              data-aos-delay="100"
-              className="text-sm lg:text-md font-semibold text-gray-800 "
-            >
-              {pricing}
-            </p>
+            {/* Description */}
+            {typeof description === "string" ? parse(description) : description}
 
-            <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs lg:text-sm font-semibold text-gray-700">
-              {perks.map((perk, idx) => (
-                <span
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                  key={idx}
-                  className="before:content-['•'] before:mr-2"
-                >
-                  {perk}
-                </span>
-              ))}
-            </div>
-            <p
-              data-aos="fade-up"
-              data-aos-delay="100"
-              className="text-gray-700 text-base lg:text-lg "
-            >
-              {description}
-            </p>
-            <p
-              data-aos="fade-up"
-              data-aos-delay="100"
-              className="text-gray-800 text-sm lg:text-md font-semibold "
-            >
-              {bonus}
-            </p>
             <div className="flex items-start">
               <a
+                target="_blank"
                 data-aos="fade-up"
                 data-aos-delay="100"
-                href={button.href}
+                href={button_link}
                 className="primary-btn text-sm lg:text-md "
               >
-                {button.text}
+                {button_text}
               </a>
             </div>
           </div>

@@ -10,17 +10,8 @@ import Paragraph from "../Tags/Paragraph/Paragraph";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from "react";
 
-type ImageObject = {
-  src: string;
-  height: number;
-  width: number;
-  blurDataURL?: string;
-  blurWidth?: number;
-  blurHeight?: number;
-};
-
 interface OfficeCardProps {
-  bgImgurl: string | ImageObject;
+  bgImgurl: string;
   name: string;
   location: string;
   phone: string;
@@ -51,7 +42,7 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
           data-aos-delay="100"
           width={352}
           height={236}
-          src={typeof bgImgurl === "string" ? bgImgurl : bgImgurl.src}
+          src={`${process.env.NEXT_PUBLIC_SITE_URL}/${bgImgurl}`}
           alt="Meet_img"
           className="rounded-[8px] w-full h-[236px]"
         />
@@ -59,7 +50,7 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
           <Heading
             Variant={"h3"}
             Txt={name}
-            className="text-primary-text-blue !text-xl 3xl:!text-2xl font-bold"
+            className="text-primary-text-blue !text-xl truncate font-bold"
           />
           <div className="flex flex-col gap-y-4 ">
             <div className="flex flex-row gap-x-2.5 ">
@@ -107,7 +98,7 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
                 <Image
                   width={209}
                   height={209}
-                  src={typeof bgImgurl === "string" ? bgImgurl : bgImgurl.src}
+                  src={`${process.env.NEXT_PUBLIC_SITE_URL}/${bgImgurl}`}
                   alt="team_img"
                   className="rounded-[8px] mx-auto w-full md:w-[209px] h-[190px] md:h-[209px]"
                 />

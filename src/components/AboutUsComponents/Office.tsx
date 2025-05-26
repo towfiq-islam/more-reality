@@ -1,66 +1,22 @@
 import OfficeCard from "../cards/OfficeCard";
 import Heading from "../Tags/Heading/Heading";
-import house from "../../assests/house.jpg";
 import Button from "../Tags/Button/Button";
+import Link from "next/link";
 
-type ImageObject = {
-  src: string;
-  height: number;
-  width: number;
-  blurDataURL?: string;
-  blurWidth?: number;
-  blurHeight?: number;
+type OfficeCard = {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  description: string;
+  image: string;
 };
 
 interface OfficeCardProps {
-  bgImgurl: string | ImageObject;
-  name: string;
-  location: string;
-  phone: string;
-  email: string;
-  descreption: string;
+  data: OfficeCard[];
 }
 
-const officeData: OfficeCardProps[] = [
-  {
-    bgImgurl: house,
-    name: "Head Office",
-    location: "123 Main Street, Dhaka, Bangladesh",
-    phone: "+880123456789",
-    email: "headoffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Branch Office",
-    location: "456 Elm Street, Chittagong, Bangladesh",
-    phone: "+880987654321",
-    email: "branchoffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Regional Office",
-    location: "789 Oak Street, Sylhet, Bangladesh",
-    phone: "+880192837465",
-    email: "regionaloffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Regional Office",
-    location: "789 Oak Street, Sylhet, Bangladesh",
-    phone: "+880192837465",
-    email: "regionaloffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-];
-
-const Office = () => {
+const Office: React.FC<OfficeCardProps> = ({ data }) => {
   return (
     <section className="lg:px-5 3xl:px-0">
       <div className="container flex flex-col gap-y-5 lg:gap-y-10 items-center">
@@ -70,24 +26,26 @@ const Office = () => {
           Variant="h3"
         />
         <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
-          {officeData.map((item, idx) => {
+          {data?.map((item, idx) => {
             return (
               <OfficeCard
                 key={idx}
-                bgImgurl={item.bgImgurl}
-                name={item.name}
-                location={item.location}
-                phone={item.phone}
-                email={item.email}
-                descreption={item.descreption}
+                bgImgurl={item?.image}
+                name={item?.name}
+                location={item?.address}
+                phone={item?.phone}
+                email={item?.email}
+                descreption={item?.description}
               />
             );
           })}
         </div>
-        <Button
-          Txt={"See More Office"}
-          className={"primary-btn max-w-[209px] "}
-        />
+        <Link href='/about/our-offices'>
+          <Button
+            Txt={"See More Office"}
+            className={"primary-btn max-w-[209px] "}
+          />
+        </Link>
       </div>
     </section>
   );

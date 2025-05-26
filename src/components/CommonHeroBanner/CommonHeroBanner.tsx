@@ -27,7 +27,7 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
     <div
       className="h-[380px] lg:h-[450px] xl:h-[500px] 2xl:h-[600px] 3xl:h-[780px] w-full relative lg:px-5 3xl:px-0"
       style={{
-        backgroundImage: `linear-gradient(#00000099, #00000099), url(${BgImgurl?.src})`,
+        backgroundImage: `linear-gradient(#00000099, #00000099), url(${process.env.NEXT_PUBLIC_SITE_URL}/${BgImgurl})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",

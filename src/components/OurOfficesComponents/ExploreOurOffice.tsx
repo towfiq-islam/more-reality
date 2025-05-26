@@ -2,102 +2,62 @@ import Heading from "@/components/Tags/Heading/Heading";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";
 import { DownArrow } from "../SvgContainer/SvgContainer";
 import OfficeCard from "../cards/OfficeCard";
-import house from "../../assests/house.jpg";
 
-type ImageObject = {
-  src: string;
-  height: number;
-  width: number;
-  blurDataURL?: string;
-  blurWidth?: number;
-  blurHeight?: number;
+type Links = {
+  url: string;
+  label: string;
+  active: boolean;
 };
 
-interface OfficeCardProps {
-  bgImgurl: string | ImageObject;
+type State = {
+  id: number;
+  country_name: string;
+};
+
+type City = {
+  id: number;
+  country_id: number;
+  city_name: string;
+};
+
+type OfficeCard = {
   name: string;
-  location: string;
-  phone: string;
   email: string;
-  descreption: string;
+  phone: string;
+  address: string;
+  description: string;
+  image: string;
+};
+
+interface OfficeProps {
+  data: OfficeCard[];
+  links?: Links[];
+  states?: State[];
+  cities?: City[];
+  isAllOffices?: boolean;
+  selectedState?: number | null;
+  selectedCity?: number | null;
+  setActivePage?: React.Dispatch<React.SetStateAction<number>>;
+  setSelectedState?: React.Dispatch<React.SetStateAction<number | null>>;
+  setSelectedCity?: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
-const officeData: OfficeCardProps[] = [
-  {
-    bgImgurl: house,
-    name: "Head Office",
-    location: "123 Main Street, Dhaka, Bangladesh",
-    phone: "+880123456789",
-    email: "headoffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Branch Office",
-    location: "456 Elm Street, Chittagong, Bangladesh",
-    phone: "+880987654321",
-    email: "branchoffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Regional Office",
-    location: "789 Oak Street, Sylhet, Bangladesh",
-    phone: "+880192837465",
-    email: "regionaloffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Regional Office",
-    location: "789 Oak Street, Sylhet, Bangladesh",
-    phone: "+880192837465",
-    email: "regionaloffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Head Office",
-    location: "123 Main Street, Dhaka, Bangladesh",
-    phone: "+880123456789",
-    email: "headoffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Branch Office",
-    location: "456 Elm Street, Chittagong, Bangladesh",
-    phone: "+880987654321",
-    email: "branchoffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Regional Office",
-    location: "789 Oak Street, Sylhet, Bangladesh",
-    phone: "+880192837465",
-    email: "regionaloffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-  {
-    bgImgurl: house,
-    name: "Regional Office",
-    location: "789 Oak Street, Sylhet, Bangladesh",
-    phone: "+880192837465",
-    email: "regionaloffice@example.com",
-    descreption:
-      "I’m here to help you with your next property sale or purchase! You can rest assured that with my expertise I will guide you every step of the way to ensure you have the best buying or selling process possible. Contact me today to see how I can help!",
-  },
-];
-
-const ExploreOurOffice = () => {
+const ExploreOurOffice: React.FC<OfficeProps> = ({
+  data,
+  links,
+  isAllOffices = false,
+  setActivePage,
+  setSelectedState,
+  setSelectedCity,
+  selectedState,
+  selectedCity,
+  states,
+  cities,
+}) => {
+  const handleApply = () => {
+    setSelectedState("");
+    setSelectedCity("");
+  };
   return (
     <section className="lg:px-5 3xl:px-0 py-10 2xl:py-20">
       <div className="container">
@@ -113,64 +73,103 @@ const ExploreOurOffice = () => {
 
         {/* Filter Section */}
         <div className="max-w-[820px] mx-auto border border-gray-100 flex flex-col lg:flex-row gap-3 md:gap-5 items-center bg-white p-5 rounded-xl shadow-lg justify-center mb-10">
-          {/* State Wise Filter */}
+          {/* State Select */}
           <div className="w-full lg:w-[324px] relative">
             <select
-              data-aos="fade-up"
-              data-aos-delay="100"
+              value={selectedState}
+              onChange={e => {
+                setSelectedState(e.target.value);
+                setSelectedCity("");
+              }}
               className="w-full h-[45px] md:h-[50px] px-4 pr-10 bg-white border border-gray-300 text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none"
             >
               <option value="">State Name</option>
-              <option value="Barishal">Barishal</option>
-              <option value="Chattagong">Chattagong</option>
-              <option value="Rajshai">Rajshai</option>
-              <option value="Cumilla">Cumilla</option>
+              {states?.map((item, idx) => (
+                <option key={idx} value={item?.id}>
+                  {item?.country_name}
+                </option>
+              ))}
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
               <DownArrow />
             </div>
           </div>
 
-          {/* City Wise Filter */}
+          {/* City Select */}
           <div className="w-full lg:w-[324px] relative">
             <select
-              data-aos="fade-up"
-              data-aos-delay="100"
-              className="w-full h-[45px] md:h-[50px] px-4 pr-10 bg-white border border-gray-300 text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none"
+              value={selectedCity}
+              onChange={e => setSelectedCity(e.target.value)}
+              className={`w-full h-[45px] md:h-[50px] px-4 pr-10 bg-white border ${
+                selectedState ? "border-gray-300" : "border-gray-200"
+              } text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none`}
             >
               <option value="">City Name</option>
-              <option value="Barishal">Barishal</option>
-              <option value="Chattagong">Chattagong</option>
-              <option value="Rajshai">Rajshai</option>
-              <option value="Cumilla">Cumilla</option>
+              {selectedState
+                ? data?.map((item, idx) => (
+                    <option key={idx} value={item?.city?.id}>
+                      {item?.city?.city_name}
+                    </option>
+                  ))
+                : cities?.map((item, idx) => (
+                    <option key={idx} value={item?.id}>
+                      {item?.city_name}
+                    </option>
+                  ))}
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
               <DownArrow />
             </div>
           </div>
 
-          {/* Apply btn */}
-          <button className="w-full lg:w-fit px-5 h-[45px] md:h-[50px] rounded-lg font-medium text-white bg-[#3F9DF3] cursor-pointer">
-            Apply
+          {/* Apply Button */}
+          <button
+            onClick={handleApply}
+            className="w-full lg:w-fit px-5 h-[45px] md:h-[50px] rounded-lg font-medium text-white bg-[#3F9DF3] cursor-pointer"
+          >
+            Reset
           </button>
         </div>
 
         {/* Map */}
         <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 ">
-          {officeData?.map((item, idx) => {
+          {data?.map((item, idx) => {
             return (
               <OfficeCard
                 key={idx}
-                bgImgurl={item.bgImgurl}
-                name={item.name}
-                location={item.location}
-                phone={item.phone}
-                email={item.email}
-                descreption={item.descreption}
+                bgImgurl={item?.image}
+                name={item?.name}
+                location={item?.address}
+                phone={item?.phone}
+                email={item?.email}
+                descreption={item?.description}
               />
             );
           })}
         </div>
+
+        {/* Pagination */}
+        {isAllOffices && (
+          <div className="mt-10 flex justify-center items-center gap-2 flex-wrap">
+            {links?.map((item, idx) => (
+              <button
+                key={idx}
+                onClick={() =>
+                  item.url && setActivePage?.(Number(item?.url.split("=")[1]))
+                }
+                className={`px-3 py-1 rounded border transition-all duration-150 
+               ${
+                 item?.active
+                   ? "bg-primary-blue text-white cursor-pointer"
+                   : "bg-white text-gray-700"
+               } 
+                ${!item.url ? "opacity-50 cursor-not-allowed" : ""}`}
+                disabled={!item.url}
+                dangerouslySetInnerHTML={{ __html: item.label }}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
