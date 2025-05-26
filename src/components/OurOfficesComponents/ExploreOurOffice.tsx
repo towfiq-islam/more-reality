@@ -9,6 +9,17 @@ type Links = {
   active: boolean;
 };
 
+type State = {
+  id: number;
+  country_name: string;
+};
+
+type City = {
+  id: number;
+  country_id: number;
+  city_name: string;
+};
+
 type OfficeCard = {
   name: string;
   email: string;
@@ -21,8 +32,14 @@ type OfficeCard = {
 interface OfficeProps {
   data: OfficeCard[];
   links?: Links[];
+  states?: State[];
+  cities?: City[];
   isAllOffices?: boolean;
+  selectedState?: number | null;
+  selectedCity?: number | null;
   setActivePage?: React.Dispatch<React.SetStateAction<number>>;
+  setSelectedState?: React.Dispatch<React.SetStateAction<number | null>>;
+  setSelectedCity?: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 const ExploreOurOffice: React.FC<OfficeProps> = ({
@@ -30,8 +47,17 @@ const ExploreOurOffice: React.FC<OfficeProps> = ({
   links,
   isAllOffices = false,
   setActivePage,
+  setSelectedState,
+  setSelectedCity,
+  selectedState,
+  selectedCity,
+  states,
+  cities,
 }) => {
-  console.log(data);
+  const handleApply = () => {
+    setSelectedState("");
+    setSelectedCity("");
+  };
   return (
     <section className="lg:px-5 3xl:px-0 py-10 2xl:py-20">
       <div className="container">
@@ -47,45 +73,61 @@ const ExploreOurOffice: React.FC<OfficeProps> = ({
 
         {/* Filter Section */}
         <div className="max-w-[820px] mx-auto border border-gray-100 flex flex-col lg:flex-row gap-3 md:gap-5 items-center bg-white p-5 rounded-xl shadow-lg justify-center mb-10">
-          {/* State Wise Filter */}
+          {/* State Select */}
           <div className="w-full lg:w-[324px] relative">
             <select
-              data-aos="fade-up"
-              data-aos-delay="100"
+              value={selectedState}
+              onChange={e => {
+                setSelectedState(e.target.value);
+                setSelectedCity("");
+              }}
               className="w-full h-[45px] md:h-[50px] px-4 pr-10 bg-white border border-gray-300 text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none"
             >
               <option value="">State Name</option>
-              <option value="Barishal">Barishal</option>
-              <option value="Chattagong">Chattagong</option>
-              <option value="Rajshai">Rajshai</option>
-              <option value="Cumilla">Cumilla</option>
+              {states?.map((item, idx) => (
+                <option key={idx} value={item?.id}>
+                  {item?.country_name}
+                </option>
+              ))}
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
               <DownArrow />
             </div>
           </div>
 
-          {/* City Wise Filter */}
+          {/* City Select */}
           <div className="w-full lg:w-[324px] relative">
             <select
-              data-aos="fade-up"
-              data-aos-delay="100"
-              className="w-full h-[45px] md:h-[50px] px-4 pr-10 bg-white border border-gray-300 text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none"
+              value={selectedCity}
+              onChange={e => setSelectedCity(e.target.value)}
+              className={`w-full h-[45px] md:h-[50px] px-4 pr-10 bg-white border ${
+                selectedState ? "border-gray-300" : "border-gray-200"
+              } text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none`}
             >
               <option value="">City Name</option>
-              <option value="Barishal">Barishal</option>
-              <option value="Chattagong">Chattagong</option>
-              <option value="Rajshai">Rajshai</option>
-              <option value="Cumilla">Cumilla</option>
+              {selectedState
+                ? data?.map((item, idx) => (
+                    <option key={idx} value={item?.city?.id}>
+                      {item?.city?.city_name}
+                    </option>
+                  ))
+                : cities?.map((item, idx) => (
+                    <option key={idx} value={item?.id}>
+                      {item?.city_name}
+                    </option>
+                  ))}
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
               <DownArrow />
             </div>
           </div>
 
-          {/* Apply btn */}
-          <button className="w-full lg:w-fit px-5 h-[45px] md:h-[50px] rounded-lg font-medium text-white bg-[#3F9DF3] cursor-pointer">
-            Apply
+          {/* Apply Button */}
+          <button
+            onClick={handleApply}
+            className="w-full lg:w-fit px-5 h-[45px] md:h-[50px] rounded-lg font-medium text-white bg-[#3F9DF3] cursor-pointer"
+          >
+            Reset
           </button>
         </div>
 

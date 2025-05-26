@@ -6,6 +6,8 @@ import {
   BlogData,
   BLogDetails,
   Commercial,
+  GetCities,
+  GetStates,
   HomepageData,
   JoinMoreRealty,
   MeetTheTeamBanner,
@@ -102,10 +104,15 @@ export const useTeamMembers = (
 };
 
 // Our Offices
-export const useOurOffices = (per_page?: React.ReactNode, page_id?: number) => {
+export const useOurOffices = (
+  per_page?: React.ReactNode,
+  page_id?: number,
+  country_id?: number | null,
+  city_id?: number | null
+) => {
   return useQuery({
-    queryKey: ["our-offices", per_page, page_id],
-    queryFn: () => OurOffices(per_page, page_id),
+    queryKey: ["our-offices", per_page, page_id, country_id, city_id],
+    queryFn: () => OurOffices(per_page, page_id, country_id, city_id),
   });
 };
 
@@ -130,5 +137,21 @@ export const useOurOfficesBanner = () => {
   return useQuery({
     queryKey: ["our-offices-banner"],
     queryFn: OurOfficesBanner,
+  });
+};
+
+// Get states
+export const useGetStates = () => {
+  return useQuery({
+    queryKey: ["get-states"],
+    queryFn: GetStates,
+  });
+};
+
+// Get Cities
+export const useGetCities = () => {
+  return useQuery({
+    queryKey: ["get-cities"],
+    queryFn: GetCities,
   });
 };

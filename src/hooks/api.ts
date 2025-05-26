@@ -89,11 +89,15 @@ export const TeamMembers = async (
 // Our Offices
 export const OurOffices = async (
   per_page?: React.ReactNode,
-  page_id?: number
+  page_id?: number,
+  country_id?: number | null,
+  city_id?: number | null
 ) => {
   let url = "/api/our-offices?";
   if (per_page) url += `item=${per_page}&`;
   if (page_id) url += `page=${page_id}&`;
+  if (country_id) url += `country_id=${country_id}&`;
+  if (city_id) url += `city_id=${city_id}&`;
 
   url = url.endsWith("&") ? url.slice(0, -1) : url;
   url = url.endsWith("?") ? url.slice(0, -1) : url;
@@ -117,5 +121,17 @@ export const MeetTheTeamBanner = async () => {
 // Our Offices Banner
 export const OurOfficesBanner = async () => {
   const { data } = await axiosPublic("/api/get_our_office");
+  return data?.data;
+};
+
+// Get states
+export const GetStates = async () => {
+  const { data } = await axiosPublic("/api/states");
+  return data?.data;
+};
+
+// Get Cities
+export const GetCities = async () => {
+  const { data } = await axiosPublic("/api/cities");
   return data?.data;
 };
