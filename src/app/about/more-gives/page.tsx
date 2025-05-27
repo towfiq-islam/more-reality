@@ -22,11 +22,8 @@ const page = () => {
       />
       <OurPurpose data={moreGivesData?.moreGivesPurpose} />
       <JoinUs
-        title="Join Us or Partner With Us"
-        description="MORE Gives is powered by the hearts of our agents, clients, and
-            partners. Whether you’re a nonprofit leader, a school coordinator,
-            or just someone who wants to make a difference — we’d love to hear
-            from you."
+        title={moreGivesData?.moreGivesContact?.title}
+        description={moreGivesData?.moreGivesContact?.description}
       />
     </>
   );

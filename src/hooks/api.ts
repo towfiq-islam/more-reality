@@ -52,9 +52,15 @@ export const AddNewsletter = async (payload: React.ReactNode) => {
   return data;
 };
 
-// Join Us (POST API)
+// Join Us | Contact Us (POST API)
 export const JoinUs = async (payload: any) => {
   const { data } = await axiosPublic.post("/api/contact_store", payload);
+  return data?.data;
+};
+
+// Seller Contact (POST API)
+export const SellerContact = async (payload: any) => {
+  const { data } = await axiosPublic.post("/api/seller_store", payload);
   return data?.data;
 };
 

@@ -17,9 +17,13 @@ type TestimonialCard = {
 
 interface TestimonialProps {
   data: TestimonialCard[];
+  isSellingHome?: boolean;
 }
 
-const BuyAHomeTestimonial: React.FC<TestimonialProps> = ({ data }) => {
+const BuyAHomeTestimonial: React.FC<TestimonialProps> = ({
+  data,
+  isSellingHome = false,
+}) => {
   // For Swiper
   const swiperRef = useRef<SwiperType | null>(null);
   const handlePrev = () => {
@@ -36,7 +40,11 @@ const BuyAHomeTestimonial: React.FC<TestimonialProps> = ({ data }) => {
           <div className="flex-1 flex justify-center">
             <Heading
               Variant="h4"
-              Txt={"Hear From Our Happy Buyers"}
+              Txt={`${
+                isSellingHome
+                  ? " What Our Clients Say"
+                  : "Hear From Our Happy Buyers"
+              }`}
               className="testimonial-heading text-center lg:text-start"
             />
           </div>
