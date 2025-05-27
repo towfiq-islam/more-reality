@@ -4,8 +4,6 @@ export type InfoBox = {
   icon: React.FC<SVGProps<SVGSVGElement>>;
   title: string;
   subTitle: string;
-  mailAddress?: string;
-  phoneNumber?: string;
 };
 
 interface CommonHeroBannerProps {
@@ -76,6 +74,12 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
                       data-aos-delay="100"
                       className="max-w-[294px] text-white"
                     >
+                      {item?.title === "Email Address" && (
+                        <p>Send us your request or questions to</p>
+                      )}
+                      {item?.title === "Call Us" && (
+                        <p>Got questions? Let’s talk it out</p>
+                      )}
                       {item?.subTitle}
                     </p>
                   </div>

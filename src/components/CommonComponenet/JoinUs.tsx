@@ -1,8 +1,9 @@
 "use client";
-import contactUs from "@/assests/contact-us/contact-img.png";
+import contactUs from "@/assests/contact-img.png";
 import { useForm } from "react-hook-form";
 import Heading from "@/components/Tags/Heading/Heading";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";
+import { useJoinUs } from "@/hooks/mutations";
 
 interface ContactUsProps {
   title: string;
@@ -10,14 +11,16 @@ interface ContactUsProps {
 }
 
 type FormData = {
-  firstName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
   email: string;
   address: string;
   message: string;
 };
 
 const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
+  const { mutateAsync: joinUsMutation, isPending } = useJoinUs();
+
   const {
     register,
     handleSubmit,
@@ -25,8 +28,8 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
     reset,
   } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log("Form Submitted:", data);
+  const onSubmit = async (data: FormData) => {
+    await joinUsMutation(data);
     reset();
   };
 
@@ -65,14 +68,14 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
                   data-aos-delay="100"
                   type="text"
                   placeholder="First Name"
-                  {...register("firstName", {
+                  {...register("first_name", {
                     required: "First name is required",
                   })}
                   className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-[8px] outline-none"
                 />
-                {errors.firstName && (
+                {errors.first_name && (
                   <p className="text-sm text-red-600 mt-1">
-                    {errors.firstName.message}
+                    {errors.first_name.message}
                   </p>
                 )}
               </div>
@@ -84,14 +87,14 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
                   data-aos-delay="100"
                   type="text"
                   placeholder="Last Name"
-                  {...register("lastName", {
+                  {...register("last_name", {
                     required: "Last name is required",
                   })}
                   className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none"
                 />
-                {errors.lastName && (
+                {errors.last_name && (
                   <p className="text-sm text-red-600 mt-1">
-                    {errors.lastName.message}
+                    {errors.last_name.message}
                   </p>
                 )}
               </div>
@@ -143,7 +146,8 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
                 data-aos="fade-up"
                 data-aos-delay="100"
                 placeholder="Message"
-                rows={3}
+                rows={4}
+                {...register("message", { required: "Message is required" })}
                 className="w-full px-4  py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none resize-none"
               ></textarea>
               {errors.message && (
@@ -155,8 +159,12 @@ const JoinUs: React.FC<ContactUsProps> = ({ title, description }) => {
 
             {/* Submit btn */}
             <div className="w-full  relative ">
-              <button type="submit" className="primary-btn !w-full ">
-                Submit
+              <button
+                disabled={isPending}
+                type="submit"
+                className="primary-btn !w-full disabled:!cursor-not-allowed"
+              >
+                {isPending ? "Submitting...." : "Submit"}
               </button>
             </div>
           </form>

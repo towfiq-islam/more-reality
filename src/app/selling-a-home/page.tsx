@@ -1,109 +1,85 @@
+"use client";
 import BuyAHomeTestimonial from "@/components/BuyaHomeComponents/BuyAHomeTestimonial";
 import SecondaryBanner from "@/components/CommonComponenet/SecondaryBanner";
-import SubscribeNewsLetter from "@/components/CommonComponenet/SubscribeNewsLetter";
-import CommonHeroBanner, {
-  InfoBox,
-} from "@/components/CommonHeroBanner/CommonHeroBanner";
-import hero from "@/assests/hero.jpg";
-import buyHomeMoreRealty from "@/assests/buy-a-home/buyhomemorerealty.jpg";
+import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
 import {
   AddressSvg,
   EmailSvg,
   PhoneSvg,
 } from "@/components/SvgContainer/SvgContainer";
-
-import featureone from "@/assests/buy-a-home/featured1.jpg";
-import featuretwo from "@/assests/buy-a-home/featured2.jpg";
-import featurethree from "@/assests/buy-a-home/featured3.jpg";
-import featurefour from "@/assests/buy-a-home/featured4.jpg";
-import { Feature } from "../buy-a-home/page";
 import FeatureCard from "@/components/cards/FeaturedCard";
 import SellingForm from "@/components/SellingAHomeComponents/SellingForm";
-
-const data: InfoBox[] = [
-  {
-    icon: AddressSvg,
-    title: "Address",
-    subTitle: "16037 SW Upper Boones Ferry RD Suite 150, Tigard, OR, 97224",
-  },
-  {
-    icon: EmailSvg,
-    title: "Email Address",
-    subTitle: "Send us your request or questions to info@morerealty.com",
-    mailAddress: "info@morerealty.com",
-  },
-  {
-    icon: PhoneSvg,
-    title: "Call Us",
-    subTitle: "Got questions? Let’s talk it out. +1(877) 344-6673",
-    phoneNumber: "+18773446673",
-  },
-];
-
-const features: Feature[] = [
-  {
-    heading: "Local Market Experts",
-    description:
-      "Our team has in-depth knowledge of the neighborhoods, school districts, amenities, and market trends in your area. We know where the best value can be found, which areas are up-and-coming, and how to match your lifestyle with the perfect community. Whether you want a quiet suburban home, a trendy downtown condo, or a family-friendly neighborhood, we help you make confident, informed decisions.",
-    image: featureone,
-    imagePosition: "right",
-  },
-  {
-    heading: "Personalized Guidance",
-    description:
-      "We understand that every buyer’s journey is unique. That’s why we take time to listen carefully to your needs, preferences, and budget. We craft a home search plan that’s tailored just for you—focusing on the features you care about most, whether it’s a great kitchen, a home office, a big backyard, or walkable access to shops and restaurants.",
-    image: featuretwo,
-    imagePosition: "left",
-  },
-  {
-    heading: "Skilled Negotiators",
-    description:
-      "Our experienced agents are your strongest advocates at the negotiation table. We know how to craft competitive offers, negotiate repairs or credits after inspections, and secure the best possible price and terms. Our goal is to protect your interests and help you win the home you love, without overpaying or missing key details",
-    image: featurethree,
-    imagePosition: "right",
-  },
-  {
-    heading: "Streamlined Process",
-    description:
-      "We handle the details so you don’t have to stress. From helping you get pre-approved with trusted lenders, to arranging home inspections, appraisals, and paperwork, we ensure that every step is coordinated smoothly. Our team keeps you informed throughout the process, so you always know what’s happening and what’s next.",
-    image: featurefour,
-    imagePosition: "left",
-  },
-];
+import { useSellingHome } from "@/hooks/queries";
+import Heading from "@/components/Tags/Heading/Heading";
 
 const page = () => {
+  const { data: sellingHomeData } = useSellingHome();
+  const InfoBox = [
+    {
+      title: "Address",
+      icon: AddressSvg,
+      subTitle: sellingHomeData?.contact?.address,
+    },
+    {
+      title: "Email Address",
+      icon: EmailSvg,
+      subTitle: sellingHomeData?.contact?.email,
+    },
+    {
+      title: "Call Us",
+      icon: PhoneSvg,
+      subTitle: sellingHomeData?.contact?.phone,
+    },
+  ];
+
   return (
     <>
       <CommonHeroBanner
-        BgImgurl={hero}
-        title="Partner with MORE Realty to Sell Your Home Quickly, Smoothly, and at the Right Price"
-        subTitle="Our experienced agents provide strategic pricing, expert marketing, and full-service support to ensure your home stands out and sells with success."
+        BgImgurl={sellingHomeData?.selling_banner?.background_image}
+        title={sellingHomeData?.selling_banner?.title}
+        subTitle={sellingHomeData?.selling_banner?.description}
         isInfoBox={true}
-        infoArr={data}
+        infoArr={InfoBox}
       />
       <div className="lg:mt-10 2xl:mt-20">
         <SecondaryBanner
-          title="Buying A Home with MORE Realty"
-          subtitle="Sell Smarter, Faster, and for Top Dollar — With MORE Realty by Your Side"
-          description="At MORE Realty, we understand that buying a home isn’t just a transaction — it’s a life-changing journey. Whether you’re a first-time homebuyer or an experienced investor, we’re here to guide you every step of the way, making sure your experience is smooth, informed, and rewarding."
-          image={buyHomeMoreRealty}
+          title={sellingHomeData?.selling_overview?.title}
+          description={sellingHomeData?.selling_overview?.description}
+          image={sellingHomeData?.selling_overview?.image_url}
         />
       </div>
+
       <section className="lg:px-5 3xl:px-0">
         <div className="container lg:pt-10 xl:py-10">
-          {features.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              heading={feature.heading}
-              description={feature.description}
-              image={feature.image}
-              imagePosition={feature.imagePosition}
-            />
-          ))}
+          <Heading
+            Txt="Why Selling Your Home With Us"
+            className="!text-center text-[22px] md:text-2xl lg:text-3xl 3xl:!text-4xl"
+          />
+
+          {sellingHomeData?.why_sellinging?.map(
+            (
+              feature: {
+                title: string;
+                description: string;
+                image_url: string;
+              },
+              index: number
+            ) => (
+              <FeatureCard
+                key={index}
+                heading={feature?.title}
+                description={feature?.description}
+                image={feature?.image_url}
+                index={index}
+              />
+            )
+          )}
         </div>
       </section>
-      <BuyAHomeTestimonial />
-      <SubscribeNewsLetter />
+      <BuyAHomeTestimonial
+        data={sellingHomeData?.selling_clients}
+        isSellingHome={true}
+      />
       <SellingForm />
     </>
   );

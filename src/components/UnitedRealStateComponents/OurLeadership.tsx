@@ -1,8 +1,16 @@
 import Heading from "@/components/Tags/Heading/Heading";
 import Image from "next/image";
-import leadership_image from "@/assests/united-real-state/leadership.png";
 
-const OurLeadership = () => {
+interface LeadershipProps {
+  data: {
+    title: string;
+    sub_title: string;
+    description: string;
+    image_url: string;
+  };
+}
+
+const OurLeadership: React.FC<LeadershipProps> = ({ data }) => {
   return (
     <div className="container pb-10 xl:pb-40">
       <div className="flex flex-col gap-5 lg:gap-10 3xl:gap-15">
@@ -16,9 +24,10 @@ const OurLeadership = () => {
             <Image
               data-aos="fade-up"
               data-aos-delay="100"
-              src={leadership_image}
+              src={`${process.env.NEXT_PUBLIC_SITE_URL}/${data?.image_url}`}
               alt="leadership_image"
-              placeholder="blur"
+              width={500}
+              height={350}
               className="h-[350px] xl:h-[442px] w-full object-cover rounded-[20px]"
             />
           </div>
@@ -28,23 +37,21 @@ const OurLeadership = () => {
               data-aos-delay="100"
               className="text-xl xl:text-3xl font-semibold text-primary-text-blue mb-3"
             >
-              John Wick
+              {data?.title}
             </h3>
             <p
               data-aos="fade-up"
               data-aos-delay="100"
               className="text-secondary-text text-[18px] xl:text-xl mb-3 xl:mb-10"
             >
-              Managing Broker, MORE Realty
+              {data?.sub_title}
             </p>
             <p
               data-aos="fade-up"
               data-aos-delay="100"
               className="text-base xl:text-2xl text-primary-text-blue leading-[150%]"
             >
-              We’re proud to align with a company that shares our values of
-              innovation, independence, and integrity. United gives us the scale
-              to compete nationally, while letting us lead with our local heart.
+              {data?.description}
             </p>
           </div>
 
