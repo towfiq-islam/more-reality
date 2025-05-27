@@ -1,15 +1,24 @@
-import hero from "@/assests/hero.jpg";
+"use client";
 import SubscribeNewsLetter from "@/components/CommonComponenet/SubscribeNewsLetter";
 import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
 import BlogSection from "@/components/pages/Home/BlogSection";
+import { useBlogBanner, useBlogData } from "@/hooks/queries";
+import { useState } from "react";
 
 const page = () => {
+  const [activePage, setActivePage] = useState<number>(1);
+  const { data: blogBanner, isLoading: isBlogBannerLoading } = useBlogBanner();
+  const { data: blogData, isLoading: isBlogDataLoading } = useBlogData(
+    10,
+    activePage
+  );
+
   return (
     <>
       <CommonHeroBanner
-        BgImgurl={hero}
-        title="Empowering Real Estate Dreams with Local Expertise and Trusted Relationships"
-        subTitle="At MORE Realty, we’re committed to guiding you with knowledge, integrity, and a personal touch—whether you’re buying, selling, or investing."
+        BgImgurl={blogBanner?.BlogBanner?.background_image}
+        title={blogBanner?.BlogBanner?.title}
+        subTitle={blogBanner?.BlogBanner?.description}
         isInfoBox={false}
       />
       <BlogSection
@@ -18,7 +27,10 @@ const page = () => {
           "Catch up on the latest real estate news, expert insights, market trends, and inspiring stories from the MORE Realty community — all in one place."
         }
         isBtn={false}
-        isFullArr={true}
+        data={blogData?.data}
+        isBlogPage={true}
+        links={blogData?.links}
+        setActivePage={setActivePage}
       />
       <SubscribeNewsLetter />
     </>

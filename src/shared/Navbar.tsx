@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import logo from "../assests/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { DropdownSvg } from "@/components/SvgContainer/SvgContainer";
@@ -8,6 +7,7 @@ import { usePathname } from "next/navigation";
 import Button from "@/components/Tags/Button/Button";
 import { useRouter } from "next/navigation";
 import { FaBars } from "react-icons/fa6";
+import { useSiteSettings } from "@/hooks/queries";
 
 interface navLink {
   name: string;
@@ -40,12 +40,13 @@ const navLinks: navLink[] = [
 ];
 
 const Navbar = () => {
+  const router = useRouter();
   const pathName = usePathname();
   const [isDropDown, setisDropDown] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLUListElement>(null);
-  const router = useRouter();
+  const { data: siteSettingsData } = useSiteSettings();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -88,7 +89,7 @@ const Navbar = () => {
         {/* Left - Logo */}
         <Image
           onClick={() => router.push("/")}
-          src={logo?.src}
+          src={`${process.env.NEXT_PUBLIC_SITE_URL}/${siteSettingsData?.logo}`}
           width={108}
           height={52}
           alt="Logo"
@@ -195,7 +196,7 @@ const Navbar = () => {
         {/* Logo */}
         <Image
           onClick={handleLogoClick}
-          src={logo?.src}
+          src={`${process.env.NEXT_PUBLIC_SITE_URL}/${siteSettingsData?.logo}`}
           width={108}
           height={52}
           alt="Logo"

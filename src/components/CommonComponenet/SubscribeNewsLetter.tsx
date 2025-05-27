@@ -1,9 +1,25 @@
+"use client";
 import { WaveSvg } from "../SvgContainer/SvgContainer";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";
 import Button from "../Tags/Button/Button";
+import { useNewsletter } from "@/hooks/mutations";
+import toast from "react-hot-toast";
 
 const SubscribeNewsLetter = () => {
+  const { mutateAsync: newsletterMutation } = useNewsletter();
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    const email = e?.target?.email?.value;
+    if (!email) {
+      toast.error("Email is required.");
+      return;
+    }
+    const data = { email } as any;
+    await newsletterMutation(data);
+  };
+
   return (
     <section className="flex flex-col overflow-x-hidden pb-10 xl:pb-16 2xl:pb-20 3xl:pb-24 h-auto w-full">
       <WaveSvg />
@@ -22,12 +38,14 @@ const SubscribeNewsLetter = () => {
               className="text-white max-w-[815px] text-center"
             />
           </div>
-          <div
+          <form
+            onSubmit={handleSubmit}
             data-aos="fade-up"
             data-aos-delay="100"
             className="w-full md:w-[500px] xl:w-[700px] 2xl:w-[851px] h-[45px] md:h-[50px] 2xl:h-[66px] bg-white shadow-sm relative rounded-[8px] pr-2.5 py-[3.5px] md:py-[5px]"
           >
             <input
+              name="email"
               data-aos="fade-up"
               data-aos-delay="100"
               type="email"
@@ -38,7 +56,7 @@ const SubscribeNewsLetter = () => {
               Txt={"Subscription"}
               className="primary-btn absolute 2xl:top-1.3 right-0 2xl:mt-[2px] h-full md:h-[90%] mr-1.5 2xl:mr-[10px] !text-base 2xl:!text-[17px] "
             />
-          </div>
+          </form>
         </div>
       </div>
     </section>

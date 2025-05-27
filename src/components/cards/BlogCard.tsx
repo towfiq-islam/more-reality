@@ -12,25 +12,28 @@ interface BlogCardProps {
   name: string;
   ProfileImgUrl: string | any;
   date: string;
-  Variant: "small" | "full";
-  id: number;
+  Variant?: "small" | "full";
+  slug: string;
+  isBlogPage: boolean;
+  isFirst?: boolean;
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({
-  Variant,
   BgImgUrl,
   title,
   details,
   name,
   date,
   ProfileImgUrl,
-  id,
+  slug,
+  isBlogPage,
+  isFirst,
 }) => {
   const router = useRouter();
-
   const handleRedirect = () => {
-    router.push(`/about/news-and-blogs/${id}`);
+    router.push(`/about/news-and-blogs/${slug}`);
   };
+  const baseUrl = encodeURI(`${process.env.NEXT_PUBLIC_SITE_URL}/${BgImgUrl}`);
 
   return (
     <div
@@ -38,18 +41,16 @@ const BlogCard: React.FC<BlogCardProps> = ({
       data-aos-delay="100"
       onClick={handleRedirect}
       className={`relative overflow-hidden rounded-[16px] ${
-        Variant === "small"
-          ? "h-[380px] md:h-[450px] 3xl:h-[551px] w-full lg:w-[330px] xl:w-[420px] 2xl:w-[380px] 3xl:w-[455px]"
-          : "h-[400px] 3xl:h-[427px] w-full"
+        isBlogPage && isFirst
+          ? "h-[400px] 3xl:h-[427px] w-full"
+          : "h-[380px] md:h-[450px] 3xl:h-[551px] w-full lg:w-[330px] xl:w-[420px] 2xl:w-[380px] 3xl:w-[455px]"
       }`}
     >
       {/* Scalable background layer */}
       <div
         className="absolute inset-0 transition-transform duration-500 ease-in-out group-hover:scale-105 will-change-transform z-0"
         style={{
-          backgroundImage: `linear-gradient(180deg, rgba(24, 59, 86, 0.00) 0%, rgba(0, 0, 0, 0.80) 100%), url(${
-            BgImgUrl?.src || BgImgUrl
-          })`,
+          backgroundImage: `linear-gradient(180deg, rgba(24, 59, 86, 0.00) 0%, rgba(0, 0, 0, 0.80) 100%), url(${baseUrl})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -66,11 +67,11 @@ const BlogCard: React.FC<BlogCardProps> = ({
           <Image
             data-aos="fade-up"
             data-aos-delay="100"
-            src={ProfileImgUrl?.src || ProfileImgUrl}
+            src={`${process.env.NEXT_PUBLIC_SITE_URL}/${ProfileImgUrl}`}
             width={54}
             height={54}
             alt="Profile"
-            className="w-12 md:w-[54px] !h-12 md:h-[54px] object-cover rounded-full"
+            className="!w-12 md:!w-[54px] !h-12 md:!h-[54px] object-cover rounded-full flex-shrink-0"
           />
           <div className="flex flex-col md:gap-y-1 max-w-[347px]">
             <Paragraph Txt={name} className="blog-card-name" />

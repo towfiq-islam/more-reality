@@ -1,17 +1,28 @@
+"use client";
 import Meet from "@/components/AboutUsComponents/Meet";
-import hero from "@/assests/hero.jpg";
 import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
+import { useMeetTheTeamBanner, useTeamMembers } from "@/hooks/queries";
+import { useState } from "react";
 
 const page = () => {
+  const [activePage, setActivePage] = useState<number>(1);
+  const { data: meetTheTeamBanner } = useMeetTheTeamBanner();
+  const { data: allTeamMembers } = useTeamMembers(20, activePage);
+
   return (
     <>
       <CommonHeroBanner
-        BgImgurl={hero}
-        title="Empowering Real Estate Dreams with Local Expertise and Trusted Relationships"
-        subTitle="At MORE Realty, we’re committed to guiding you with knowledge, integrity, and a personal touch—whether you’re buying, selling, or investing."
+        BgImgurl={meetTheTeamBanner?.teamBanner?.background_image}
+        title={meetTheTeamBanner?.teamBanner?.title}
+        subTitle={meetTheTeamBanner?.teamBanner?.description}
         isInfoBox={false}
       />
-      <Meet isAllmember={true} />
+      <Meet
+        links={allTeamMembers?.links}
+        data={allTeamMembers?.data}
+        isAllMembers={true}
+        setActivePage={setActivePage}
+      />
     </>
   );
 };

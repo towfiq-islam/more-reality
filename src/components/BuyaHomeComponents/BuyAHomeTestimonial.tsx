@@ -6,57 +6,25 @@ import { Navigation } from "swiper/modules";
 import { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import { StaticImageData } from "next/image";
 import { ArrowSvg } from "@/components/SvgContainer/SvgContainer";
 import TestimonialCard from "@/components/cards/TestimonialCard";
-import beard from "@/assests/home/beard.png";
+
+type TestimonialCard = {
+  image: string;
+  name: string;
+  speech: string;
+};
 
 interface TestimonialProps {
-  imgUrl: StaticImageData;
-  name: string;
-  review: string;
+  data: TestimonialCard[];
 }
 
-const testimonials: TestimonialProps[] = [
-  {
-    imgUrl: beard,
-    name: "John Doe",
-    review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-  },
-  {
-    imgUrl: beard,
-    name: "Jane Smith",
-    review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-  },
-  {
-    imgUrl: beard,
-    name: "Alex Johnson",
-    review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-  },
-  {
-    imgUrl: beard,
-    name: "Emily Clark",
-    review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-  },
-  {
-    imgUrl: beard,
-    name: "Michael Lee",
-    review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-  },
-];
-
-const BuyAHomeTestimonial = () => {
+const BuyAHomeTestimonial: React.FC<TestimonialProps> = ({ data }) => {
+  // For Swiper
   const swiperRef = useRef<SwiperType | null>(null);
-
   const handlePrev = () => {
     swiperRef.current?.slidePrev();
   };
-
   const handleNext = () => {
     swiperRef.current?.slideNext();
   };
@@ -109,7 +77,7 @@ const BuyAHomeTestimonial = () => {
             }}
             className="overflow-hidden"
           >
-            {testimonials.map((item, idx) => (
+            {data?.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <TestimonialCard
                   key={idx}

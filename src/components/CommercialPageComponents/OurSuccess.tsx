@@ -8,60 +8,23 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { ArrowSvg } from "@/components/SvgContainer/SvgContainer";
 import TestimonialCard from "@/components/cards/TestimonialCard";
-import beard from "@/assests/home/beard.png";
+
+type TestimonialCard = {
+  image: string;
+  name: string;
+  speech: string;
+};
 
 interface TestimonialProps {
-  imgUrl: string | any;
-  name: string;
-  review: string;
-  rating: number;
+  data: TestimonialCard[];
 }
 
-const agentSuccessStories: TestimonialProps[] = [
-  {
-    imgUrl: beard,
-    name: "Courtney Henry",
-    review:
-      "“Joining MORE Realty was the best career move I ever made. The mentorship, tools, and support helped me triple my business in just two years.”",
-    rating: 3,
-  },
-  {
-    imgUrl: beard,
-    name: "Courtney Henry",
-    review:
-      "“As a busy dad, flexibility was key. MORE Realty gave me the freedom to manage my schedule, and the backend support allowed me to focus on what I do best — serving clients.”",
-    rating: 4,
-  },
-  {
-    imgUrl: beard,
-    name: "Courtney Henry",
-    review:
-      "“The marketing support at MORE Realty is incredible! I have professional-looking materials and social media content that make me stand out — without spending hours designing it myself.”",
-    rating: 5,
-  },
-  {
-    imgUrl: beard,
-    name: "Courtney Henry",
-    review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-    rating: 4,
-  },
-  {
-    imgUrl: beard,
-    name: "Courtney Henry",
-    review:
-      "“Our clients’ success stories speak for themselves. See how we’ve helped businesses and individuals achieve their real estate and consulting goals with expert guidance and tailored solutions.”",
-    rating: 5,
-  },
-];
-
-const OurSuccess = () => {
+const OurSuccess: React.FC<TestimonialProps> = ({ data }) => {
+  // For Swiper
   const swiperRef = useRef<SwiperType | null>(null);
-
   const handlePrev = () => {
     swiperRef.current?.slidePrev();
   };
-
   const handleNext = () => {
     swiperRef.current?.slideNext();
   };
@@ -112,15 +75,14 @@ const OurSuccess = () => {
             }}
             className="overflow-hidden"
           >
-            {agentSuccessStories.map((item, idx) => (
+            {data?.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <TestimonialCard
                   key={idx}
-                  imgUrl={item.imgUrl}
-                  name={item.name}
-                  review={item.review}
+                  imgUrl={item?.image}
+                  name={item?.name}
+                  review={item?.speech}
                   isDownPart={false}
-                  rating={item.rating}
                 />
               </SwiperSlide>
             ))}

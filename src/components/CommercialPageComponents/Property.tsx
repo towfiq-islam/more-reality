@@ -1,52 +1,17 @@
-import {
-  FamilySvg,
-  IndustrySvg,
-  LandSvg,
-  OfferSvg,
-  PropertySvg,
-  SpecialSvg,
-} from "../SvgContainer/SvgContainer";
 import Heading from "../Tags/Heading/Heading";
-const data = [
-  {
-    id: 1,
-    icon: <OfferSvg />,
-    title: "Office Spaces",
-    desc: "Corporate offices, medical suites, executive buildings",
-  },
-  {
-    id: 2,
-    icon: <PropertySvg />,
-    title: "Retail Properties",
-    desc: "Storefronts, shopping centers, high-traffic retail corridors",
-  },
-  {
-    id: 3,
-    icon: <IndustrySvg />,
-    title: "Industrial Facilities",
-    desc: "Warehouses, flex spaces, and distribution centers",
-  },
-  {
-    id: 4,
-    icon: <FamilySvg />,
-    title: "Multi-Family Units",
-    desc: " Duplexes, triplexes, and large apartment complexes",
-  },
-  {
-    id: 5,
-    icon: <LandSvg />,
-    title: "Land",
-    desc: "Raw, zoned, or development-ready land for commercial use",
-  },
-  {
-    id: 6,
-    icon: <SpecialSvg />,
-    title: "Special Use Properties",
-    desc: "Hospitality, healthcare, and mixed-use buildings",
-  },
-];
+import parse from "html-react-parser";
 
-const Property = () => {
+type PropertyCard = {
+  title: string;
+  description: string;
+  image_url: string;
+};
+
+type PropertiesProps = {
+  data: PropertyCard[];
+};
+
+const Property: React.FC<PropertiesProps> = ({ data }) => {
   return (
     <section className="lg:px-5 3xl:px-0 py-10 lg:py-20 bg-propertyBg">
       <div className="container">
@@ -56,10 +21,16 @@ const Property = () => {
           Variant="h3"
         />
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-7 md:gap-10 2xl:gap-20 mt-10">
-          {data?.map(item => (
-            <div key={item?.id}>
+          {data?.map((item, idx) => (
+            <div key={idx}>
               <span data-aos="fade-up" data-aos-delay="100">
-                {item?.icon}
+                <img
+                  src={encodeURI(
+                    `${process.env.NEXT_PUBLIC_SITE_URL}/${item?.image_url}`
+                  )}
+                  alt="img"
+                  className="w-14 h-14"
+                />
               </span>
               <h3
                 data-aos="fade-up"
@@ -73,7 +44,9 @@ const Property = () => {
                 data-aos-delay="100"
                 className="text-secondary-text lg:text-lg"
               >
-                {item?.desc}
+                {typeof item?.description === "string"
+                  ? parse(item?.description)
+                  : item?.description}
               </p>
             </div>
           ))}
