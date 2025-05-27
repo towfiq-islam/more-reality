@@ -2,18 +2,21 @@
 import Image from "next/image";
 import React from "react";
 import { useForm } from "react-hook-form";
-import sellingformImage from "../../assests/selling-a-home/selling-form-image.jpg";
+import sellingImg from "@/assests/selling_img.jpg";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";
+import { useSellerContact } from "@/hooks/mutations";
 
 type FormData = {
-  fullName: string;
+  full_name: string;
   email: string;
-  phone: string;
+  phone: number;
   message: string;
 };
 
 const SellingForm = () => {
+  const { mutateAsync: sellerContactMutation, isPending } = useSellerContact();
+
   const {
     register,
     handleSubmit,
@@ -21,8 +24,8 @@ const SellingForm = () => {
     reset,
   } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log("Form Submitted:", data);
+  const onSubmit = async (data: FormData) => {
+    await sellerContactMutation(data);
     reset();
   };
 
@@ -45,6 +48,7 @@ const SellingForm = () => {
               onSubmit={handleSubmit(onSubmit)}
               className="space-y-3 xl:space-y-5"
             >
+              {/* Full Name */}
               <div className="w-full flex flex-col gap-[5px]">
                 <label
                   data-aos="fade-up"
@@ -58,18 +62,19 @@ const SellingForm = () => {
                   data-aos-delay="100"
                   type="text"
                   placeholder="Enter Full Name"
-                  {...register("fullName", {
+                  {...register("full_name", {
                     required: "Full name is required",
                   })}
                   className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-[8px] outline-none"
                 />
-                {errors.fullName && (
+                {errors.full_name && (
                   <p className="text-sm text-red-600 mt-1">
-                    {errors.fullName.message}
+                    {errors.full_name.message}
                   </p>
                 )}
               </div>
 
+              {/* Email */}
               <div className="w-full flex flex-col gap-[5px]">
                 <label
                   data-aos="fade-up"
@@ -99,6 +104,7 @@ const SellingForm = () => {
                 )}
               </div>
 
+              {/* Phone */}
               <div className="w-full flex flex-col gap-[5px]">
                 <label
                   data-aos="fade-up"
@@ -110,7 +116,7 @@ const SellingForm = () => {
                 <input
                   data-aos="fade-up"
                   data-aos-delay="100"
-                  type="tel"
+                  type="number"
                   placeholder="Phone"
                   {...register("phone", { required: "Phone is required" })}
                   className="w-full px-4 py-1.5 lg:py-3 border border-[#E6E6E6] rounded-md outline-none"
@@ -122,6 +128,7 @@ const SellingForm = () => {
                 )}
               </div>
 
+              {/* Message */}
               <div className="w-full flex flex-col gap-[5px]">
                 <label
                   data-aos="fade-up"
@@ -146,9 +153,15 @@ const SellingForm = () => {
                   </p>
                 )}
               </div>
+
+              {/* Submit btn */}
               <div className="w-full  relative ">
-                <button type="submit" className="primary-btn !w-full ">
-                  Submit
+                <button
+                  type="submit"
+                  disabled={isPending}
+                  className="primary-btn !w-full disabled:!cursor-not-allowed"
+                >
+                  {isPending ? "Submitting...." : "Submit"}
                 </button>
               </div>
             </form>
@@ -158,7 +171,7 @@ const SellingForm = () => {
             <Image
               data-aos="fade-up"
               data-aos-delay="100"
-              src={sellingformImage}
+              src={sellingImg}
               width={560}
               height={761}
               alt="Selling form"

@@ -37,7 +37,7 @@ const WhyChooseUs = ({ data }: { data: DataProps }) => {
                 width={342}
                 height={320}
                 alt="not found"
-                className={`h-[220px] md:h-[240px] lg:h-[260px] 3xl:h-[320px] w-full md:w-[43%] lg:w-[280px] 3xl:w-[342px] object-cover rounded-[12px] border ${
+                className={`h-[220px] md:h-[240px] lg:h-[260px] 3xl:h-[320px] !w-full md:!w-[43%] lg:!w-[280px] 3xl:!w-[342px] object-cover rounded-[12px] border ${
                   idx === 0 && "lg:-mt-5 2xl:mt-[-35px] 3xl:mt-[-51px]"
                 }  ${idx === 3 && "lg:mt-5 2xl:mt-[35px] 3xl:mt-[47px]"} `}
               />
@@ -53,15 +53,17 @@ const WhyChooseUs = ({ data }: { data: DataProps }) => {
               Txt={data?.sub_description}
               className="!text-lg 3xl:!text-xl"
             />
-            {/* Description */}
-            <div className="[&>h2]:text-lg 3xl:[&>h2]:text-xl [&>h3]:text-lg 3xl:[&>h3]:text-xl [&>h4]:text-lg 3xl:[&>h4]:text-xl 2xl:[&>p]:text-lg space-y-5">
+
+            {/* <div className="[&>h2]:text-lg 3xl:[&>h2]:text-xl [&>h3]:text-lg 3xl:[&>h3]:text-xl [&>h4]:text-lg 3xl:[&>h4]:text-xl 2xl:[&>p]:text-lg space-y-5">
               {typeof data?.description === "string"
                 ? parse(data?.description)
                 : data?.description}
-            </div>
-            {/* {typeof data?.description === "string"
+            </div> */}
+
+            {/* Description */}
+            {typeof data?.description === "string"
               ? parse(data?.description)
-              : data?.description} */}
+              : data?.description}
           </div>
         </div>
       </div>

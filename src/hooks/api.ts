@@ -46,12 +46,6 @@ export const SocialLinks = async () => {
   return data?.data;
 };
 
-// Newsletter Section (POST API)
-export const AddNewsletter = async (payload: React.ReactNode) => {
-  const { data } = await axiosPublic.post("/api/newsletter", payload);
-  return data;
-};
-
 // Join More Realty
 export const JoinMoreRealty = async () => {
   const { data } = await axiosPublic("/api/get_join");
@@ -133,5 +127,56 @@ export const GetStates = async () => {
 // Get Cities
 export const GetCities = async () => {
   const { data } = await axiosPublic("/api/cities");
+  return data?.data;
+};
+
+// More Gives Page
+export const MoreGives = async () => {
+  const { data } = await axiosPublic("/api/get_more_gives");
+  return data?.data;
+};
+
+// United Real State
+export const UnitedRealStateData = async () => {
+  const { data } = await axiosPublic("/api/get_united_real_state");
+  return data?.data;
+};
+
+// Buying Home
+export const BuyingHome = async () => {
+  const { data } = await axiosPublic("/api/get_buying");
+  return data?.data;
+};
+
+// Selling Home
+export const SellingHome = async () => {
+  const { data } = await axiosPublic("/api/get_selling");
+  return data?.data;
+};
+
+// ContactInfo
+export const ContactInfo = async () => {
+  const { data } = await axiosPublic("/api/get_contact");
+  return data?.data;
+};
+
+
+// ######################## POST API ##########################
+
+// Newsletter Section
+export const AddNewsletter = async (payload: React.ReactNode) => {
+  const { data } = await axiosPublic.post("/api/newsletter", payload);
+  return data;
+};
+
+// Join Us | Contact Us
+export const JoinUs = async (payload: any) => {
+  const { data } = await axiosPublic.post("/api/contact_store", payload);
+  return data?.data;
+};
+
+// Seller Contact
+export const SellerContact = async (payload: any) => {
+  const { data } = await axiosPublic.post("/api/seller_store", payload);
   return data?.data;
 };

@@ -29,7 +29,7 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
             src={`${process.env.NEXT_PUBLIC_SITE_URL}/${imgUrl}`}
             width={60}
             height={60}
-            alt="not foudnd"
+            alt="not found"
             className="h-[60px] w-[60px] object-cover rounded-full"
           />
           <Paragraph
