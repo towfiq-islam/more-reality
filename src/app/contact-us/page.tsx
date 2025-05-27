@@ -1,48 +1,46 @@
-import CommonHeroBanner, {
-  InfoBox,
-} from "@/components/CommonHeroBanner/CommonHeroBanner";
-import hero from "@/assests/hero.jpg";
+"use client";
+import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
 import {
   AddressSvg,
   EmailSvg,
   PhoneSvg,
 } from "@/components/SvgContainer/SvgContainer";
 import JoinUs from "@/components/CommonComponenet/JoinUs";
-
-const data: InfoBox[] = [
-  {
-    icon: AddressSvg,
-    title: "Address",
-    subTitle: "16037 SW Upper Boones Ferry RD Suite 150, Tigard, OR, 97224",
-  },
-  {
-    icon: EmailSvg,
-    title: "Email Address",
-    subTitle: "Send us your request or questions to info@morerealty.com",
-    mailAddress: "info@morerealty.com",
-  },
-  {
-    icon: PhoneSvg,
-    title: "Call Us",
-    subTitle: "Got questions? Let’s talk it out. +1(877) 344-6673",
-    phoneNumber: "+18773446673",
-  },
-];
+import { useContactInfo } from "@/hooks/queries";
 
 const page = () => {
+  const { data: contactInfo } = useContactInfo();
+  const InfoBox = [
+    {
+      title: "Address",
+      icon: AddressSvg,
+      subTitle: contactInfo?.contact?.address,
+    },
+    {
+      title: "Email Address",
+      icon: EmailSvg,
+      subTitle: contactInfo?.contact?.email,
+    },
+    {
+      title: "Call Us",
+      icon: PhoneSvg,
+      subTitle: contactInfo?.contact?.phone,
+    },
+  ];
+
   return (
     <>
       <CommonHeroBanner
-        BgImgurl={hero}
-        title="Empowering Real Estate Dreams with Local Expertise and Trusted Relationships"
-        subTitle="At MORE Realty, we’re committed to guiding you with knowledge, integrity, and a personal touch—whether you’re buying, selling, or investing."
+        BgImgurl={contactInfo?.contactBanner?.background_image}
+        title={contactInfo?.contactBanner?.title}
+        subTitle={contactInfo?.contactBanner?.description}
         isInfoBox={true}
-        infoArr={data}
+        infoArr={InfoBox}
       />
       <div className="mt-12 2xl:mt-48">
         <JoinUs
-          title="Stay Connected & Elevate Your Real Estate Journey with Confidence"
-          description="Our Real Estate CRM system empowers you with deeper insights, seamless automation, and data-driven strategies—all in one place. Submit your details below, and let's elevate your real estate journey together!"
+          title={contactInfo?.contactContent?.title}
+          description={contactInfo?.contactContent?.description}
         />
       </div>
     </>

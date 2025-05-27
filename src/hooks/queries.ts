@@ -7,6 +7,7 @@ import {
   BLogDetails,
   BuyingHome,
   Commercial,
+  ContactInfo,
   GetCities,
   GetStates,
   HomepageData,
@@ -189,5 +190,13 @@ export const useSellingHome = () => {
   return useQuery({
     queryKey: ["selling-home"],
     queryFn: SellingHome,
+  });
+};
+
+// ContactInfo
+export const useContactInfo = () => {
+  return useQuery({
+    queryKey: ["contact-info"],
+    queryFn: ContactInfo,
   });
 };

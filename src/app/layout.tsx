@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/shared/Navbar";
 import Footer from "@/shared/Footer";
 import AosProvider from "@/Provider/AosProvider/AosProvider";
-import ReactQueryProvider from "@/app/Provider/ReactQueryProvider";
+import ReactQueryProvider from "@/Provider/ReactQueryProvider/ReactQueryProvider";
 import { Toaster } from "react-hot-toast";
 import SiteSettingsClient from "@/components/SiteSettings/SiteSettingsClient";
 

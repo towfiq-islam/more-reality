@@ -1,5 +1,5 @@
 "use client";
-import contactUs from "@/assests/contact-us/contact-img.png";
+import contactUs from "@/assests/contact-img.png";
 import { useForm } from "react-hook-form";
 import Heading from "@/components/Tags/Heading/Heading";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";
