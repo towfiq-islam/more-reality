@@ -81,11 +81,10 @@ const BuyAHomeTestimonial: React.FC<TestimonialProps> = ({ data }) => {
               <SwiperSlide key={idx}>
                 <TestimonialCard
                   key={idx}
-                  imgUrl={item.imgUrl}
-                  name={item.name}
-                  review={item.review}
+                  imgUrl={item?.image}
+                  name={item?.name}
+                  review={item?.speech}
                   isDownPart={false}
-                  rating={0}
                 />
               </SwiperSlide>
             ))}

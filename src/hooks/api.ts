@@ -153,3 +153,15 @@ export const UnitedRealStateData = async () => {
   const { data } = await axiosPublic("/api/get_united_real_state");
   return data?.data;
 };
+
+// Buying Home
+export const BuyingHome = async () => {
+  const { data } = await axiosPublic("/api/get_buying");
+  return data?.data;
+};
+
+// Selling Home
+export const SellingHome = async () => {
+  const { data } = await axiosPublic("/api/get_selling");
+  return data?.data;
+};

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Heading from "../Tags/Heading/Heading";
-import Paragraph from "../Tags/Paragraph/Paragraph";
 import parse from "html-react-parser";
 
 interface FeatureCardProps {
@@ -43,7 +42,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         />
 
         {/* Description */}
-        {typeof description === "string" ? parse(description) : description}
+        <div data-aos="fade-up" data-aos-delay="100">
+          {typeof description === "string" ? parse(description) : description}
+        </div>
       </div>
     </div>
   );

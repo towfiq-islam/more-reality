@@ -5,6 +5,7 @@ import {
   BlogBanner,
   BlogData,
   BLogDetails,
+  BuyingHome,
   Commercial,
   GetCities,
   GetStates,
@@ -15,6 +16,7 @@ import {
   OurOffices,
   OurOfficesBanner,
   OurServices,
+  SellingHome,
   SiteSettings,
   SocialLinks,
   TeamMembers,
@@ -171,5 +173,21 @@ export const useUnitedRealState = () => {
   return useQuery({
     queryKey: ["united-real-state"],
     queryFn: UnitedRealStateData,
+  });
+};
+
+// Buying Home
+export const useBuyingHome = () => {
+  return useQuery({
+    queryKey: ["buying-home"],
+    queryFn: BuyingHome,
+  });
+};
+
+// Selling Home
+export const useSellingHome = () => {
+  return useQuery({
+    queryKey: ["selling-home"],
+    queryFn: SellingHome,
   });
 };
