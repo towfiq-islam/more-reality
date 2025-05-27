@@ -11,12 +11,14 @@ import {
   HomepageData,
   JoinMoreRealty,
   MeetTheTeamBanner,
+  MoreGives,
   OurOffices,
   OurOfficesBanner,
   OurServices,
   SiteSettings,
   SocialLinks,
   TeamMembers,
+  UnitedRealStateData,
 } from "./api";
 
 // Homepage data
@@ -153,5 +155,21 @@ export const useGetCities = () => {
   return useQuery({
     queryKey: ["get-cities"],
     queryFn: GetCities,
+  });
+};
+
+// Get Cities
+export const useMoreGives = () => {
+  return useQuery({
+    queryKey: ["more-gives"],
+    queryFn: MoreGives,
+  });
+};
+
+// United Real State
+export const useUnitedRealState = () => {
+  return useQuery({
+    queryKey: ["united-real-state"],
+    queryFn: UnitedRealStateData,
   });
 };

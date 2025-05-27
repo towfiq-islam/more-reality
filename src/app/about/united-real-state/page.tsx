@@ -1,22 +1,24 @@
+"use client";
 import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
-import hero from "@/assests/hero.jpg";
 import Partnership from "@/components/UnitedRealStateComponents/Partnership";
 import OurLeadership from "@/components/UnitedRealStateComponents/OurLeadership";
+import { useUnitedRealState } from "@/hooks/queries";
 
 const page = () => {
+  const { data: realStateData } = useUnitedRealState();
   return (
     <>
       <CommonHeroBanner
-        BgImgurl={hero}
-        title="United Real Estate — National Reach. Local Expertise."
-        subTitle="Through our partnership with United Real Estate, we combine national strength with local focus — delivering smarter solutions, unmatched support, and innovative tools that drive success for both clients and agents."
+        BgImgurl={realStateData?.unitedRealStateBanner?.background_image}
+        title={realStateData?.unitedRealStateBanner?.title}
+        subTitle={realStateData?.unitedRealStateBanner?.description}
         isInfoBox={false}
       />
       <section className="lg:px-5 3xl:px-0">
-        <Partnership />
+        <Partnership data={realStateData?.united_real_state_introduces} />
       </section>
       <section className="lg:px-5 3xl:px-0">
-        <OurLeadership />
+        <OurLeadership data={realStateData?.leader} />
       </section>
     </>
   );

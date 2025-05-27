@@ -20,6 +20,11 @@ type City = {
   city_name: string;
 };
 
+interface CitySchema {
+  id: number;
+  city_name: string;
+}
+
 type OfficeCard = {
   name: string;
   email: string;
@@ -27,6 +32,8 @@ type OfficeCard = {
   address: string;
   description: string;
   image: string;
+  city: CitySchema;
+  id: number;
 };
 
 interface OfficeProps {
@@ -38,8 +45,8 @@ interface OfficeProps {
   selectedState?: number | null;
   selectedCity?: number | null;
   setActivePage?: React.Dispatch<React.SetStateAction<number>>;
-  setSelectedState?: React.Dispatch<React.SetStateAction<number | null>>;
-  setSelectedCity?: React.Dispatch<React.SetStateAction<number | null>>;
+  setSelectedState: React.Dispatch<React.SetStateAction<number | null>>;
+  setSelectedCity: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 const ExploreOurOffice: React.FC<OfficeProps> = ({
@@ -55,8 +62,8 @@ const ExploreOurOffice: React.FC<OfficeProps> = ({
   cities,
 }) => {
   const handleApply = () => {
-    setSelectedState("");
-    setSelectedCity("");
+    setSelectedState(null);
+    setSelectedCity(null);
   };
   return (
     <section className="lg:px-5 3xl:px-0 py-10 2xl:py-20">
@@ -76,10 +83,14 @@ const ExploreOurOffice: React.FC<OfficeProps> = ({
           {/* State Select */}
           <div className="w-full lg:w-[324px] relative">
             <select
-              value={selectedState}
+              value={selectedState ? selectedState : ""}
               onChange={e => {
-                setSelectedState(e.target.value);
-                setSelectedCity("");
+                if (e.target.value === undefined || e.target.value === null)
+                  return;
+                setSelectedState(
+                  e.target.value ? Number(e.target.value) : null
+                );
+                setSelectedCity(null);
               }}
               className="w-full h-[45px] md:h-[50px] px-4 pr-10 bg-white border border-gray-300 text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none"
             >
@@ -98,8 +109,13 @@ const ExploreOurOffice: React.FC<OfficeProps> = ({
           {/* City Select */}
           <div className="w-full lg:w-[324px] relative">
             <select
-              value={selectedCity}
-              onChange={e => setSelectedCity(e.target.value)}
+              value={selectedCity ? selectedCity : ""}
+              onChange={e => {
+                e.target.value;
+                if (e.target.value === undefined || e.target.value === null)
+                  return;
+                setSelectedCity(e.target.value ? Number(e.target.value) : null);
+              }}
               className={`w-full h-[45px] md:h-[50px] px-4 pr-10 bg-white border ${
                 selectedState ? "border-gray-300" : "border-gray-200"
               } text-gray-800 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 appearance-none`}

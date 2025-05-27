@@ -52,6 +52,12 @@ export const AddNewsletter = async (payload: React.ReactNode) => {
   return data;
 };
 
+// Join Us (POST API)
+export const JoinUs = async (payload: any) => {
+  const { data } = await axiosPublic.post("/api/contact_store", payload);
+  return data?.data;
+};
+
 // Join More Realty
 export const JoinMoreRealty = async () => {
   const { data } = await axiosPublic("/api/get_join");
@@ -133,5 +139,17 @@ export const GetStates = async () => {
 // Get Cities
 export const GetCities = async () => {
   const { data } = await axiosPublic("/api/cities");
+  return data?.data;
+};
+
+// More Gives Page
+export const MoreGives = async () => {
+  const { data } = await axiosPublic("/api/get_more_gives");
+  return data?.data;
+};
+
+// United Real State
+export const UnitedRealStateData = async () => {
+  const { data } = await axiosPublic("/api/get_united_real_state");
   return data?.data;
 };

@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.13",
-    "@reduxjs/toolkit": "^2.8.2",
     "@tanstack/react-query": "^5.76.2",
     "aos": "^2.3.4",
     "axios": "^1.9.0",
@@ -23,7 +22,6 @@
     "react-hook-form": "^7.56.3",
     "react-hot-toast": "^2.5.2",
     "react-icons": "^5.5.0",
-    "react-redux": "^9.2.0",
     "swiper": "^11.2.6",
     "tailwind-merge": "^3.3.0"
   },

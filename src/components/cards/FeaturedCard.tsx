@@ -1,36 +1,36 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";
+import parse from "html-react-parser";
 
 interface FeatureCardProps {
-  image: StaticImageData;
+  image: string;
   heading: string;
   description: string;
-  imagePosition?: "left" | "right";
+  index: number;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
   image,
   heading,
   description,
-  imagePosition = "right",
+  index,
 }) => {
   return (
     <div
-      className={`flex flex-col lg:flex-row ${
-        imagePosition === "right" ? "lg:flex-row-reverse" : ""
-      } items-center gap-7 xl:gap-10 py-6`}
+      className={`flex flex-col items-center gap-7 xl:gap-10 py-6 2xl:py-14 ${
+        index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+      }`}
     >
       {/* Left Side */}
       <div className="relative w-full lg:w-1/2 h-[300px] lg:h-[350px] 2xl:h-[392px]">
         <Image
           data-aos="fade-up"
           data-aos-delay="100"
-          src={image}
+          src={`${process.env.NEXT_PUBLIC_SITE_URL}/${image}`}
           alt={heading}
           fill
-          className="object-cover rounded-lg"
-          placeholder="blur"
+          className="object-cover !rounded-lg h-full"
         />
       </div>
 
@@ -41,7 +41,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           className="text-primary-text-blue font-semibold text-xl lg:!text-[24px] 2xl:!text-[35px] mb-2 lg:!mb-3"
           Variant="h3"
         />
-        <Paragraph Txt={description} className=" text-primary-text-blue" />
+
+        {/* Description */}
+        {typeof description === "string" ? parse(description) : description}
       </div>
     </div>
   );
