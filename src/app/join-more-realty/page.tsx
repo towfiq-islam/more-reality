@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
 import ContactUsTestimonial from "@/components/pages/ContactUs/ContactUsTestimonial";
 import WhyChooseMoreSection from "@/components/pages/JoinMoreRealty/WhyChooseMoreSection";
@@ -6,9 +7,32 @@ import JoinMoreRealtySection from "@/components/pages/JoinMoreRealty/JoinMoreRea
 import MoreReality from "@/components/pages/JoinMoreRealty/MoreReality";
 import SecondaryBanner from "@/components/CommonComponenet/SecondaryBanner";
 import { useJoinMoreRealty } from "@/hooks/queries";
+import { Loader } from "@/components/Loader/Loader";
 
 const page = () => {
-  const { data: joinMoreRealty } = useJoinMoreRealty();
+  const { data: joinMoreRealty, isLoading } = useJoinMoreRealty();
+
+  // Loader
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
+
+  if (isLoading) {
+    return (
+      <div className="h-[90vh] flex justify-center items-center">
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <>

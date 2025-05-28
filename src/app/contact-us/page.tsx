@@ -7,9 +7,34 @@ import {
 } from "@/components/SvgContainer/SvgContainer";
 import JoinUs from "@/components/CommonComponenet/JoinUs";
 import { useContactInfo } from "@/hooks/queries";
+import { Loader } from "@/components/Loader/Loader";
+import { useEffect } from "react";
 
 const page = () => {
-  const { data: contactInfo } = useContactInfo();
+  const { data: contactInfo, isLoading } = useContactInfo();
+
+  // Loader
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
+
+  if (isLoading) {
+    return (
+      <div className="h-[90vh] flex justify-center items-center">
+        <Loader />
+      </div>
+    );
+  }
+
   const InfoBox = [
     {
       title: "Address",

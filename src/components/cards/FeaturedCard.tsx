@@ -17,7 +17,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
   return (
     <div
-      className={`flex flex-col items-center gap-7 xl:gap-10 py-6 2xl:py-14 ${
+      className={`flex flex-col items-center gap-7 xl:gap-10 py-6 3xl:py-10 ${
         index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
       }`}
     >
@@ -37,7 +37,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       <div className="w-full lg:w-1/2">
         <Heading
           Txt={heading}
-          className="text-primary-text-blue font-semibold text-xl lg:!text-[24px] 2xl:!text-[35px] mb-2 lg:!mb-3"
+          className="text-primary-text-blue font-semibold text-xl lg:!text-[24px] 3xl:!text-[35px] mb-2 lg:!mb-3"
           Variant="h3"
         />
 

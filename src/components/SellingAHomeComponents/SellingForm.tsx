@@ -30,7 +30,7 @@ const SellingForm = () => {
   };
 
   return (
-    <section className="w-full pb-[40px] lg:px-5 3xl:px-0">
+    <section className="w-full pb-10 lg:pb-20 lg:px-5 3xl:px-0">
       <div className="container  flex flex-col justify-center items-center gap-[40px] ">
         <div className="flex flex-col justify-center items-center">
           <Heading Txt={"I want to sell"} />

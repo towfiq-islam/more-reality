@@ -11,9 +11,34 @@ import FeatureCard from "@/components/cards/FeaturedCard";
 import SellingForm from "@/components/SellingAHomeComponents/SellingForm";
 import { useSellingHome } from "@/hooks/queries";
 import Heading from "@/components/Tags/Heading/Heading";
+import { Loader } from "@/components/Loader/Loader";
+import { useEffect } from "react";
 
 const page = () => {
-  const { data: sellingHomeData } = useSellingHome();
+  const { data: sellingHomeData, isLoading } = useSellingHome();
+  
+  // Loader
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
+
+  if (isLoading) {
+    return (
+      <div className="h-[90vh] flex justify-center items-center">
+        <Loader />
+      </div>
+    );
+  }
+
   const InfoBox = [
     {
       title: "Address",
@@ -50,7 +75,7 @@ const page = () => {
       </div>
 
       <section className="lg:px-5 3xl:px-0">
-        <div className="container lg:pt-10 xl:py-10">
+        <div className="container">
           <Heading
             Txt="Why Selling Your Home With Us"
             className="!text-center text-[22px] md:text-2xl lg:text-3xl 3xl:!text-4xl"

@@ -5,9 +5,34 @@ import SubscribeNewsLetter from "@/components/CommonComponenet/SubscribeNewsLett
 import SecondaryBanner from "@/components/CommonComponenet/SecondaryBanner";
 import FeatureCard from "@/components/cards/FeaturedCard";
 import { useBuyingHome } from "@/hooks/queries";
+import { Loader } from "@/components/Loader/Loader";
+import { useEffect } from "react";
 
 const page = () => {
-  const { data: buyingHomeData } = useBuyingHome();
+  const { data: buyingHomeData, isLoading } = useBuyingHome();
+
+  // Loader
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
+
+  if (isLoading) {
+    return (
+      <div className="h-[90vh] flex justify-center items-center">
+        <Loader />
+      </div>
+    );
+  }
+
   return (
     <>
       <CommonHeroBanner

@@ -1,9 +1,10 @@
 "use client";
 import SubscribeNewsLetter from "@/components/CommonComponenet/SubscribeNewsLetter";
 import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
+import { Loader } from "@/components/Loader/Loader";
 import BlogSection from "@/components/pages/Home/BlogSection";
 import { useBlogBanner, useBlogData } from "@/hooks/queries";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const page = () => {
   const [activePage, setActivePage] = useState<number>(1);
@@ -12,6 +13,30 @@ const page = () => {
     10,
     activePage
   );
+
+  const isLoading = isBlogDataLoading || isBlogBannerLoading;
+
+  // Loader
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
+
+  if (isLoading) {
+    return (
+      <div className="h-[90vh] flex justify-center items-center">
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <>
