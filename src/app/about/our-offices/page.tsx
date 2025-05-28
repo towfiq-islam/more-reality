@@ -25,26 +25,25 @@ const page = () => {
     selectedCity
   );
 
-  const isLoading =
-    isStateLoading || isCitiesLoading || isBannerLoading || isOfficeDataLoading;
+  // const isLoading = isStateLoading || isCitiesLoading || isOfficeDataLoading;
 
   // Loader
-  // useEffect(() => {
-  //   if (isLoading) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "";
-  //   }
+  useEffect(() => {
+    if (isBannerLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
 
-  //   // Cleanup on unmount
-  //   return () => {
-  //     document.body.style.overflow = "";
-  //   };
-  // }, [isLoading]);
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isBannerLoading]);
 
-  if (isLoading) {
+  if (isBannerLoading) {
     return (
-      <div className="h-[50vh] flex justify-center items-center">
+      <div className="h-[90vh] flex justify-center items-center">
         <Loader />
       </div>
     );
@@ -69,6 +68,7 @@ const page = () => {
         setSelectedCity={setSelectedCity}
         states={allStates}
         cities={allCities}
+        isOfficeDataLoading={isOfficeDataLoading}
       />
     </>
   );

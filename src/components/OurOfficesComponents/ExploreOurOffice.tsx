@@ -2,6 +2,7 @@ import Heading from "@/components/Tags/Heading/Heading";
 import Paragraph from "@/components/Tags/Paragraph/Paragraph";
 import { DownArrow } from "../SvgContainer/SvgContainer";
 import OfficeCard from "../cards/OfficeCard";
+import { Loader } from "../Loader/Loader";
 
 type Links = {
   url: string;
@@ -47,6 +48,7 @@ interface OfficeProps {
   setActivePage?: React.Dispatch<React.SetStateAction<number>>;
   setSelectedState: React.Dispatch<React.SetStateAction<number | null>>;
   setSelectedCity: React.Dispatch<React.SetStateAction<number | null>>;
+  isOfficeDataLoading?: boolean;
 }
 
 const ExploreOurOffice: React.FC<OfficeProps> = ({
@@ -60,11 +62,13 @@ const ExploreOurOffice: React.FC<OfficeProps> = ({
   selectedCity,
   states,
   cities,
+  isOfficeDataLoading,
 }) => {
   const handleApply = () => {
     setSelectedState(null);
     setSelectedCity(null);
   };
+
   return (
     <section className="lg:px-5 3xl:px-0 py-10 2xl:py-20">
       <div className="container">
@@ -148,21 +152,27 @@ const ExploreOurOffice: React.FC<OfficeProps> = ({
         </div>
 
         {/* Map */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 ">
-          {data?.map((item, idx) => {
-            return (
-              <OfficeCard
-                key={idx}
-                bgImgurl={item?.image}
-                name={item?.name}
-                location={item?.address}
-                phone={item?.phone}
-                email={item?.email}
-                descreption={item?.description}
-              />
-            );
-          })}
-        </div>
+        {isOfficeDataLoading ? (
+          <div className="pt-20 flex justify-center items-center">
+            <Loader />
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
+            {data?.map((item, idx) => {
+              return (
+                <OfficeCard
+                  key={idx}
+                  bgImgurl={item?.image}
+                  name={item?.name}
+                  location={item?.address}
+                  phone={item?.phone}
+                  email={item?.email}
+                  descreption={item?.description}
+                />
+              );
+            })}
+          </div>
+        )}
 
         {/* Pagination */}
         {isAllOffices && (
