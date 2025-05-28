@@ -13,7 +13,7 @@ type PropertiesProps = {
 
 const Property: React.FC<PropertiesProps> = ({ data }) => {
   return (
-    <section className="lg:px-5 3xl:px-0 py-10 lg:py-20 bg-propertyBg">
+    <section className="lg:px-5 3xl:px-0 py-10 2xl:py-20 bg-propertyBg">
       <div className="container">
         <Heading
           Txt="Type of commercial properties we handle"
@@ -42,7 +42,7 @@ const Property: React.FC<PropertiesProps> = ({ data }) => {
               <p
                 data-aos="fade-up"
                 data-aos-delay="100"
-                className="text-secondary-text lg:text-lg"
+                className="text-secondary-text lg:text-lg custom-style "
               >
                 {typeof item?.description === "string"
                   ? parse(item?.description)

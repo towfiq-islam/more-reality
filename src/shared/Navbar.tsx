@@ -8,6 +8,7 @@ import Button from "@/components/Tags/Button/Button";
 import { useRouter } from "next/navigation";
 import { FaBars } from "react-icons/fa6";
 import { useSiteSettings } from "@/hooks/queries";
+import { Loader } from "@/components/Loader/Loader";
 
 interface navLink {
   name: string;
@@ -46,7 +47,7 @@ const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLUListElement>(null);
-  const { data: siteSettingsData } = useSiteSettings();
+  const { data: siteSettingsData, isLoading } = useSiteSettings();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -82,6 +83,28 @@ const Navbar = () => {
     setOpen(false);
     router.push("/");
   };
+
+  // Loader
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
+
+  if (isLoading) {
+    return (
+      <div className="h-screen flex justify-center items-center">
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <nav className="h-auto lg:px-5 3xl:px-0 py-3 lg:py-5 2xl:py-6 shadow-nav-shadow bg-white w-full sticky top-0 z-50">

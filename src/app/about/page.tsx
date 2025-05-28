@@ -10,12 +10,43 @@ import {
   useOurOffices,
   useTeamMembers,
 } from "@/hooks/queries";
+import { useEffect } from "react";
+import { Loader } from "@/components/Loader/Loader";
 
 const page = () => {
-  const { data: allTeamMembers } = useTeamMembers(5);
-  const { data: ourOffices } = useOurOffices(4);
-  const { data: aboutUs } = useAboutUs();
+  const { data: allTeamMembers, isLoading: isMembersLoading } =
+    useTeamMembers(5);
+  const { data: ourOffices, isLoading: isOurOfficeLoading } = useOurOffices(4);
+  const { data: aboutUs, isLoading: isAboutUsLoading } = useAboutUs();
   const { data: blogData, isLoading: isBlogDataLoading } = useBlogData(3);
+
+  const isLoading =
+    isMembersLoading ||
+    isOurOfficeLoading ||
+    isAboutUsLoading ||
+    isBlogDataLoading;
+
+  // Loader
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
+
+  if (isLoading) {
+    return (
+      <div className="h-[90vh] flex justify-center items-center">
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <>

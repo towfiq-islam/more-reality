@@ -20,13 +20,12 @@ const WhyChooseUs = ({ data }: { data: DataProps }) => {
     data?.section_image3,
     data?.section_image4,
   ];
-  console.log(data?.description);
 
   return (
     <section className="lg:px-5 3xl:px-0 pt-10 lg:pt-20 3xl:pt-[102px] pb-10 lg:pb-20 3xl:pb-[167px] h-auto w-full">
       <div className="container flex flex-col gap-y-10 2xl:flex-row gap-x-10">
         {/* Left */}
-        <div className="self-start mx-auto flex flex-row flex-wrap gap-5 lg:gap-x-5 2xl:gap-x-7 3xl:gap-x-10 w-full lg:max-w-[600px] 3xl:max-w-[744px]">
+        <div className="self-start mx-auto flex flex-row flex-wrap gap-5 lg:gap-x-5 2xl:gap-x-7 3xl:gap-x-12 w-full lg:max-w-[600px] 3xl:max-w-[744px]">
           {imgArr?.map((item, idx) => {
             return (
               <Image
@@ -46,12 +45,12 @@ const WhyChooseUs = ({ data }: { data: DataProps }) => {
         </div>
 
         {/* Right */}
-        <div className="flex flex-col gap-y-3 2xl:gap-y-4">
+        <div className="flex flex-col">
           <Heading Txt={data?.title} Variant="h2" />
           <div className="flex flex-col gap-y-5 2xl:max-w-[685px] ">
             <Paragraph
               Txt={data?.sub_description}
-              className="!text-lg 3xl:!text-xl"
+              className="!text-lg 3xl:!text-xl !mt-5"
             />
 
             {/* <div className="[&>h2]:text-lg 3xl:[&>h2]:text-xl [&>h3]:text-lg 3xl:[&>h3]:text-xl [&>h4]:text-lg 3xl:[&>h4]:text-xl 2xl:[&>p]:text-lg space-y-5">
