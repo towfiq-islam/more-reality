@@ -11,9 +11,34 @@ import FeatureCard from "@/components/cards/FeaturedCard";
 import SellingForm from "@/components/SellingAHomeComponents/SellingForm";
 import { useSellingHome } from "@/hooks/queries";
 import Heading from "@/components/Tags/Heading/Heading";
+import { Loader } from "@/components/Loader/Loader";
+import { useEffect } from "react";
 
 const page = () => {
-  const { data: sellingHomeData } = useSellingHome();
+  const { data: sellingHomeData, isLoading } = useSellingHome();
+  
+  // Loader
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
+
+  if (isLoading) {
+    return (
+      <div className="h-[90vh] flex justify-center items-center">
+        <Loader />
+      </div>
+    );
+  }
+
   const InfoBox = [
     {
       title: "Address",

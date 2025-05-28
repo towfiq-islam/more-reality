@@ -1,23 +1,39 @@
 "use client";
+import { useEffect } from "react";
 import SubscribeNewsLetter from "@/components/CommonComponenet/SubscribeNewsLetter";
 import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
+import { Loader } from "@/components/Loader/Loader";
 import BlogSection from "@/components/pages/Home/BlogSection";
 import FaqSection from "@/components/pages/Home/FaqSection";
 import Testimonial from "@/components/pages/Home/Testimonial";
 import WhyChooseUs from "@/components/pages/Home/WhyChooseUs";
-import { ImSpinner9 } from "react-icons/im";
 import { useBlogData, useHomepageData } from "@/hooks/queries";
 
-const page = () => {
+const Page = () => {
   const { data: homepageData, isLoading: isHomepageDataLoading } =
     useHomepageData();
   const { data: blogData, isLoading: isBlogDataLoading } = useBlogData(3);
 
-  if (isHomepageDataLoading || isBlogDataLoading) {
+  const isLoading = isHomepageDataLoading || isBlogDataLoading;
+
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
+
+  if (isLoading) {
     return (
-      <p className="h-[70vh] flex justify-center items-center">
-        <ImSpinner9 className="animate-spin text-5xl text-primary-blue" />
-      </p>
+      <div className="h-screen flex justify-center items-center">
+        <Loader />
+      </div>
     );
   }
 
@@ -38,4 +54,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

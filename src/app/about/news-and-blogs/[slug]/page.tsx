@@ -8,34 +8,50 @@ import { MdKeyboardBackspace } from "react-icons/md";
 import { useBlogData, useBlogDetails } from "@/hooks/queries";
 import parse from "html-react-parser";
 import { useEffect } from "react";
-import { use } from "react"; 
+import { use } from "react";
+import { Loader } from "@/components/Loader/Loader";
 
 const FALLBACK_IMAGE = "/images/fallback.jpg"; // Ensure this exists in /public
 const FALLBACK_AUTHOR_IMAGE = "/images/fallback-author.jpg"; // Ensure this exists in /public
 
 interface Props {
-  params: Promise<{ slug: string }>; 
+  params: Promise<{ slug: string }>;
 }
 
 const Page = ({ params }: Props) => {
-  const { slug } = use(params); 
+  const { slug } = use(params);
   const router = useRouter();
 
   const { data: blogDetails, isLoading: isBlogDetailsLoading } =
     useBlogDetails(slug);
-  const { data: blogData } = useBlogData(3);
+  const { data: blogData, isLoading: isBlogDataLoading } = useBlogData(3);
 
   useEffect(() => {
     document.body.removeAttribute("data-new-gr-c-s-check-loaded");
     document.body.removeAttribute("data-gr-ext-installed");
   }, []);
 
-  // Show loading state if data is not yet available
-  if (isBlogDetailsLoading || !blogDetails) {
+  const isLoading = isBlogDetailsLoading || isBlogDataLoading;
+
+  // Loader
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
+
+  if (isLoading) {
     return (
-      <section className="flex flex-col pb-[40px] w-full">
-        <div className="container">Loading...</div>
-      </section>
+      <div className="h-[70vh] flex justify-center items-center">
+        <Loader />
+      </div>
     );
   }
 
