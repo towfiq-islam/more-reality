@@ -75,7 +75,7 @@ const page = () => {
       </div>
 
       <section className="lg:px-5 3xl:px-0">
-        <div className="container lg:pt-10 xl:py-10">
+        <div className="container">
           <Heading
             Txt="Why Selling Your Home With Us"
             className="!text-center text-[22px] md:text-2xl lg:text-3xl 3xl:!text-4xl"

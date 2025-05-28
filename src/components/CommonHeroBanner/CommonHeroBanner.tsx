@@ -69,7 +69,7 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
                     </p>
                   </div>
                   <div className="flex flex-col gap-y-1.5 ">
-                    <p
+                    <div
                       data-aos="fade-up"
                       data-aos-delay="100"
                       className="max-w-[294px] text-white"
@@ -81,7 +81,7 @@ const CommonHeroBanner: React.FC<CommonHeroBannerProps> = ({
                         <p>Got questions? Let’s talk it out</p>
                       )}
                       {item?.subTitle}
-                    </p>
+                    </div>
                   </div>
                 </div>
               );

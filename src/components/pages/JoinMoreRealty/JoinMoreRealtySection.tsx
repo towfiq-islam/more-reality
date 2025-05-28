@@ -44,7 +44,7 @@ const JoinMoreRealtySection: React.FC<JoinMoreProps> = ({
 
           {/* Right Text */}
           <div className="w-full">
-            <h2
+            <div
               data-aos="fade-up"
               data-aos-delay="100"
               className="text-[20px] lg:text-2xl 3xl:text-4xl  font-bold leading-tight text-[#212B36] mb-4"
@@ -52,7 +52,7 @@ const JoinMoreRealtySection: React.FC<JoinMoreProps> = ({
               {typeof visionData?.title === "string"
                 ? parse(visionData?.title)
                 : visionData?.title}
-            </h2>
+            </div>
             <p
               data-aos="fade-up"
               data-aos-delay="100"
