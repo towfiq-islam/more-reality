@@ -87,8 +87,8 @@ const Footer = () => {
 
   return (
     <footer className="h-auto lg:px-5 3xl:px-0 w-full pt-7 lg:pt-10 xl:pt-20 3xl:pt-[110px] bg-primary-blue">
-      <div className="flex flex-col">
-        <div className="container flex flex-col gap-y-7 lg:gap-y-10 xl:flex-row gap-x-6 2xl:gap-x-20 3xl:gap-x-[151px] pb-7 lg:pb-10 xl:pb-16 3xl:pb-[121px]">
+      <div className="flex flex-col container">
+        <div className="flex flex-col gap-y-7 lg:gap-y-10 xl:flex-row gap-x-6 2xl:gap-x-20 3xl:gap-x-[151px] pb-7 lg:pb-10 xl:pb-16 3xl:pb-[121px]">
           {/* Logo and Socials */}
           <div className="flex flex-col gap-y-5 2xl:gap-y-8">
             <Image

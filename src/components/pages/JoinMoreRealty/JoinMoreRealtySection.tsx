@@ -26,7 +26,7 @@ const JoinMoreRealtySection: React.FC<JoinMoreProps> = ({
   );
 
   return (
-    <section className="py-12 lg:px-5 3xl:px-0 bg-white">
+    <section className="py-10 lg:py-20 lg:px-5 3xl:px-0 bg-white">
       <div className="container">
         <div className=" grid grid-cols-1 xl:grid-cols-2 gap-[20px] lg:gap-12 items-center">
           {/* Left Image */}
@@ -66,7 +66,7 @@ const JoinMoreRealtySection: React.FC<JoinMoreProps> = ({
         </div>
 
         {/* Feature Grid */}
-        <div className=" mt-5 xl:mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-[128px] gap-y-[20px]">
+        <div className="mt-5 xl:mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-[128px] gap-y-[20px]">
           {missionData?.map((item, index) => (
             <div
               key={index}

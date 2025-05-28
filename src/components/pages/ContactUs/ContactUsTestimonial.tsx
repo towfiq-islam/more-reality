@@ -31,7 +31,7 @@ const ContactUsTestimonial: React.FC<TestimonialProps> = ({ data }) => {
 
   return (
     <section className="h-auto lg:px-5 3xl:px-0 w-full bg-off-white">
-      <div className="container py-10 lg:py-20 flex flex-col gap-y-5 lg:gap-y-[36px] items-center">
+      <div className="container py-10 2xl:py-16 3xl:py-20 flex flex-col gap-y-5 lg:gap-y-[36px] items-center">
         <div className="flex items-center flex-col lg:flex-row gap-5 lg:justify-between w-full">
           <div className="flex-1 flex justify-center">
             <Heading Variant="h4" Txt={"Agent Success Stories"} />

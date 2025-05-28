@@ -9,13 +9,13 @@ type realtyProps = {
 
 const MoreReality: React.FC<realtyProps> = ({ data }) => {
   return (
-    <section className="lg:px-5 3xl:px-0 bg-[#F3F9FE] pt-12">
+    <section className="lg:px-5 3xl:px-0 bg-[#F3F9FE] py-10 lg:py-16 3xl:py-20 mb-10 lg:mb-20 3xl:mb-[100px]">
       <div className="container mx-auto">
         {/* Section Title */}
         <h2
           data-aos="fade-up"
           data-aos-delay="100"
-          className="text-[20px] lg:text-2xl 3xl:text-4xl  text-[#161C24] font-lato font-bold leading-tight text-center mb-[24px] xl:mb-12"
+          className="text-[20px] lg:text-2xl 3xl:text-4xl  text-[#161C24] font-lato font-bold leading-tight text-center mb-[24px] 2xl:mb-8 3xl:mb-12"
         >
           Why Join MORE Realty
         </h2>
@@ -27,7 +27,7 @@ const MoreReality: React.FC<realtyProps> = ({ data }) => {
               <h3
                 data-aos="fade-up"
                 data-aos-delay="100"
-                className="text-base  lg:text-md 2xl:text-xl font-semibold uppercase text-[#161C24]"
+                className="text-sm md:text-base 2xl:text-lg 3xl:text-xl font-semibold uppercase text-[#161C24]"
               >
                 {item?.title}
               </h3>

@@ -81,7 +81,7 @@ const Page = ({ params }: Props) => {
             <Heading
               Txt={blogDetails?.title || "Untitled"}
               Variant="h4"
-              className="!text-lg lg:!text-[22px] xl:!text-[38px] text-white font-semibold lg:font-bold !leading-[120%] max-w-[894px]"
+              className="!text-lg lg:!text-[22px] xl:!text-[32px] text-white font-semibold lg:font-bold !leading-[120%] max-w-[894px]"
             />
             <div className="flex flex-row gap-x-2.5 lg:gap-x-5 items-center">
               {/* Author img */}
