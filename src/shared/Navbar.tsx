@@ -26,7 +26,7 @@ const navLinks: navLink[] = [
   {
     name: "Join MORE Realty",
     path: "/join-more-realty",
-    subCategory: [{ label: "Click to apply", path: "/join-more-realty/apply" }],
+    subCategory: [{ label: "Join the firm", path: "/join-more-realty/apply" }],
   },
   {
     name: "About Us",

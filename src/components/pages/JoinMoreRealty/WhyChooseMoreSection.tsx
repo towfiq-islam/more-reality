@@ -19,41 +19,46 @@ const WhyChooseMoreSection = ({
 }: WhyChooseMoreProps) => {
   return (
     <>
-      <section className="lg:px-5 3xl:px-0  w-full bg-white py-10 2xl:py-20 3xl:py-[100px]">
-        <div className="container flex flex-col xl:flex-row items-center gap-7 xl:gap-12">
+      <section className="lg:px-5 3xl:px-0  w-full bg-white py-10 2xl:py-20">
+        <div className="container flex flex-col gap-7">
           {/* Left Side Image */}
-          <div className="w-full xl:w-1/2">
+          <div className="w-full">
             <Image
               data-aos="fade-up"
               data-aos-delay="100"
               src={`${process.env.NEXT_PUBLIC_SITE_URL}/${image}`}
               alt="Why Choose More"
               width={600}
-              height={500}
-              className="rounded-lg w-full h-[300px] lg:h-[350px] xl:h-[450px] 2xl:h-auto object-cover"
+              height={548}
+              className="rounded-lg w-full h-[300px] lg:h-[500px] 2xl:h-[548px] object-cover"
             />
           </div>
 
           {/* Right Side Content */}
-          <div className="w-full xl:w-1/2 text-left flex flex-col gap-[15px] 2xl:gap-[20px]">
+          <div className="w-full text-center">
             <h2
               data-aos="fade-up"
               data-aos-delay="100"
-              className="text-[20px] lg:text-2xl 3xl:text-4xl  text-[#161C24] font-lato  font-semibold leading-[36px] 2xl:leading-[56px] tracking-[-1.08px] capitalize"
+              className="text-[20px] lg:text-2xl 3xl:text-4xl  text-[#161C24] font-lato  font-semibold leading-[36px] 2xl:leading-[56px] tracking-[-1.08px] capitalize mb-2"
             >
               {title}
             </h2>
 
             {/* Description */}
-            {typeof description === "string" ? parse(description) : description}
+            <div className="[&>p]:!text-lg">
+              {typeof description === "string"
+                ? parse(description)
+                : description}
+            </div>
 
-            <div className="flex items-start">
+            {/* Btn */}
+            <div className="flex items-center justify-center mt-5 lg:mt-10">
               <a
-                target="_blank"
                 data-aos="fade-up"
                 data-aos-delay="100"
-                href={button_link}
-                className="primary-btn text-sm lg:text-md "
+                // href={button_link}
+                href={"/join-more-realty/apply"}
+                className="px-7 lg:px-12 py-3 lg:py-4 bg-primary-blue text-white rounded-[8px] hover:bg-transparent hover:text-primary-blue border-[1px] border-transparent hover:border-primary-blue hover:border-solid ease-in-out duration-500 cursor-pointer text-[17px]"
               >
                 {button_text}
               </a>

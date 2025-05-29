@@ -54,7 +54,10 @@ const page = () => {
         button_text={joinMoreRealty?.joinWhyChoose?.button_text}
         image={joinMoreRealty?.joinWhyChoose?.image_url}
       />
-      <MoreReality data={joinMoreRealty?.whyJoins} />
+      <MoreReality
+        visionData={joinMoreRealty?.join_missions?.joinMission}
+        missionData={joinMoreRealty?.join_missions?.joinMissions}
+      />
       <ContactUsTestimonial data={joinMoreRealty?.successStories} />
       <JoinMoreRealtySection
         visionData={joinMoreRealty?.join_missions?.joinMission}

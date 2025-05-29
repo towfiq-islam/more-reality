@@ -26,9 +26,9 @@ const JoinMoreRealtySection: React.FC<JoinMoreProps> = ({
   );
 
   return (
-    <section className="py-10 lg:py-20 lg:px-5 3xl:px-0 bg-white">
+    <section className="py-10 2xl:py-20 lg:px-5 3xl:px-0 bg-white">
       <div className="container">
-        <div className=" grid grid-cols-1 xl:grid-cols-2 gap-[20px] lg:gap-12 items-center">
+        <div className=" grid grid-cols-1 xl:grid-cols-2 gap-[20px] xl:gap-8 2xl:gap-12 items-center">
           {/* Left Image */}
           <div className="w-full">
             <Image
@@ -38,7 +38,7 @@ const JoinMoreRealtySection: React.FC<JoinMoreProps> = ({
               alt="Growth Illustration"
               width={600}
               height={400}
-              className="w-full h-auto object-cover rounded-md"
+              className="w-full h-[300px] lg:h-[350px] object-cover rounded-md"
             />
           </div>
 
@@ -66,7 +66,7 @@ const JoinMoreRealtySection: React.FC<JoinMoreProps> = ({
         </div>
 
         {/* Feature Grid */}
-        <div className="mt-5 xl:mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-[128px] gap-y-[20px]">
+        <div className="mt-5 xl:mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-12 2xl:gap-x-[128px] gap-y-[20px]">
           {missionData?.map((item, index) => (
             <div
               key={index}
@@ -100,14 +100,15 @@ const JoinMoreRealtySection: React.FC<JoinMoreProps> = ({
             </div>
           ))}
         </div>
-        <div className="flex justify-center mt-10">
+        {/* Btn */}
+        <div className="flex items-center justify-center mt-5 lg:mt-10">
           <a
             data-aos="fade-up"
             data-aos-delay="100"
-            href={"/"}
-            className="primary-btn text-sm lg:text-md "
+            href={"/join-more-realty/apply"}
+            className="px-7 lg:px-12 py-3 lg:py-4 bg-primary-blue text-white rounded-[8px] hover:bg-transparent hover:text-primary-blue border-[1px] border-transparent hover:border-primary-blue hover:border-solid ease-in-out duration-500 cursor-pointer text-[17px]"
           >
-            join MORE Realty
+            Join MORE Realty
           </a>
         </div>
       </div>
