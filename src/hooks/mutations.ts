@@ -36,7 +36,7 @@ export const useSellerContact = () => {
     onSuccess: data => {
       console.log(data);
       toast.success(
-        `Thank You Mr. ${data?.full_name}. We have received your message`
+        `Thank You ${data?.full_name}. We have received your message`
       );
     },
   });
