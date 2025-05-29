@@ -11,6 +11,7 @@ import { Loader } from "@/components/Loader/Loader";
 
 const page = () => {
   const { data: joinMoreRealty, isLoading } = useJoinMoreRealty();
+  console.log(joinMoreRealty?.why_Joins);
 
   // Loader
   useEffect(() => {
@@ -55,8 +56,8 @@ const page = () => {
         image={joinMoreRealty?.joinWhyChoose?.image_url}
       />
       <MoreReality
-        visionData={joinMoreRealty?.join_missions?.joinMission}
-        missionData={joinMoreRealty?.join_missions?.joinMissions}
+        visionData={joinMoreRealty?.why_Joins?.whyJoin}
+        missionData={joinMoreRealty?.why_Joins?.whyJoinItems}
       />
       <ContactUsTestimonial data={joinMoreRealty?.successStories} />
       <JoinMoreRealtySection

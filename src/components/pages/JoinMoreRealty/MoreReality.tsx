@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import parse from "html-react-parser";
 
 type JoinMission = {
   title: string;
@@ -13,6 +12,7 @@ interface JoinMoreProps {
     title: string;
     description: string;
     image_url: string;
+    sub_title: string;
   };
   missionData: JoinMission[];
 }
@@ -49,9 +49,7 @@ const JoinMoreRealtySection: React.FC<JoinMoreProps> = ({
               data-aos-delay="100"
               className="text-[20px] lg:text-2xl 3xl:text-4xl  font-bold leading-tight text-[#212B36] mb-3"
             >
-              {typeof visionData?.title === "string"
-                ? parse(visionData?.title)
-                : visionData?.title}
+              {visionData?.title}
             </div>
 
             <h3
@@ -59,7 +57,7 @@ const JoinMoreRealtySection: React.FC<JoinMoreProps> = ({
               data-aos-delay="100"
               className="text-xl mb-2 font-semibold text-[#212B36]"
             >
-              Empowering Agents. Elevating Careers.
+              {visionData?.sub_title}
             </h3>
 
             <p
@@ -67,9 +65,7 @@ const JoinMoreRealtySection: React.FC<JoinMoreProps> = ({
               data-aos-delay="100"
               className="text-gray-600 text-base md:text-lg leading-relaxed"
             >
-              {typeof visionData?.description === "string"
-                ? parse(visionData?.description)
-                : visionData?.description}
+              {visionData?.description}
             </p>
           </div>
         </div>
