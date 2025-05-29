@@ -60,7 +60,6 @@ const page = () => {
         visionData={joinMoreRealty?.join_missions?.joinMission}
         missionData={joinMoreRealty?.join_missions?.joinMissions}
       />
-      
     </>
   );
 };
