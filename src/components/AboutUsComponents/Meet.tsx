@@ -114,9 +114,14 @@ const Meet: React.FC<MeetProps> = ({
         )}
 
         {/* Btn */}
-        <Link href="/contact-us" className="mt-5 lg:mt-10 flex justify-center">
-          <Button Txt={"Contact Us"} className="primary-btn" />
-        </Link>
+        {isAllMembers && (
+          <Link
+            href="/contact-us"
+            className="mt-5 lg:mt-10 flex justify-center"
+          >
+            <Button Txt={"Contact Us"} className="primary-btn" />
+          </Link>
+        )}
       </div>
 
       {/* Modal */}
