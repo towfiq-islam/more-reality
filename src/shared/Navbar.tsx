@@ -23,7 +23,11 @@ type subCategory = {
 
 const navLinks: navLink[] = [
   { name: "Home", path: "/" },
-  { name: "Join MORE Realty", path: "/join-more-realty" },
+  {
+    name: "Join MORE Realty",
+    path: "/join-more-realty",
+    subCategory: [{ label: "Join the firm", path: "/join-more-realty/apply" }],
+  },
   {
     name: "About Us",
     path: "/about",
@@ -44,9 +48,15 @@ const Navbar = () => {
   const router = useRouter();
   const pathName = usePathname();
   const [isDropDown, setisDropDown] = useState(false);
+  const [isJoinDropdown, setIsJoinDropdown] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
+  const [isJoinMobileDropdownOpen, setIsJoinMobileDropdownOpen] =
+    useState(false);
+
   const dropdownRef = useRef<HTMLUListElement>(null);
+  const joinDropdownRef = useRef<HTMLUListElement>(null);
+
   const { data: siteSettingsData, isLoading } = useSiteSettings();
 
   useEffect(() => {
@@ -56,6 +66,12 @@ const Navbar = () => {
         !dropdownRef.current.contains(event.target as Node)
       ) {
         setisDropDown(false);
+      }
+      if (
+        joinDropdownRef.current &&
+        !joinDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsJoinDropdown(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -67,12 +83,24 @@ const Navbar = () => {
       document.body.classList.add("overflow-hidden");
     } else {
       document.body.classList.remove("overflow-hidden");
-      setIsMobileDropdownOpen(false); // close dropdown on sidebar close
+      setIsMobileDropdownOpen(false);
+      setIsJoinMobileDropdownOpen(false);
     }
     return () => {
       document.body.classList.remove("overflow-hidden");
     };
   }, [isOpen]);
+
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
 
   const handleNavigate = () => {
     setOpen(false);
@@ -83,20 +111,6 @@ const Navbar = () => {
     setOpen(false);
     router.push("/");
   };
-
-  // Loader
-  useEffect(() => {
-    if (isLoading) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    // Cleanup on unmount
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isLoading]);
 
   if (isLoading) {
     return (
@@ -109,9 +123,9 @@ const Navbar = () => {
   return (
     <nav className="h-auto lg:px-5 3xl:px-0 py-3 lg:py-5 2xl:py-6 shadow-nav-shadow bg-white w-full sticky top-0 z-50">
       <div className="container flex justify-between items-center">
-        {/* Left - Logo */}
+        {/* Logo */}
         <Image
-          onClick={() => router.push("/")}
+          onClick={handleLogoClick}
           src={`${process.env.NEXT_PUBLIC_SITE_URL}/${siteSettingsData?.logo}`}
           width={108}
           height={52}
@@ -119,11 +133,11 @@ const Navbar = () => {
           className="w-[90px] xl:w-[108px] h-[45px] xl:h-[52px] object-cover cursor-pointer"
         />
 
-        {/* Center - Desktop Menu */}
+        {/* Desktop Nav */}
         <ul className="hidden 2xl:flex flex-row justify-between gap-x-8 3xl:gap-x-10">
           {navLinks.map((item, idx) => (
             <li key={idx} className="relative">
-              {item.name === "About Us" ? (
+              {item.name === "About Us" || item.name === "Join MORE Realty" ? (
                 <div className="flex items-center gap-x-[6px] relative">
                   <Link
                     className={`${
@@ -140,20 +154,33 @@ const Navbar = () => {
                     onClick={e => {
                       e.preventDefault();
                       e.stopPropagation();
-                      setisDropDown(!isDropDown);
+                      item.name === "About Us"
+                        ? setisDropDown(prev => !prev)
+                        : setIsJoinDropdown(prev => !prev);
                     }}
                     className="cursor-pointer"
                   >
                     <DropdownSvg />
                   </div>
                   <ul
-                    ref={dropdownRef}
+                    ref={
+                      item.name === "About Us" ? dropdownRef : joinDropdownRef
+                    }
                     className={`w-[244px] h-auto py-5 bg-white border-[0.5px] absolute top-full left-0 mt-2 rounded-[8px] border-border-color shadow-lg flex flex-col px-5 ease-in-out duration-150 z-50 ${
-                      isDropDown ? "opacity-100 visible" : "opacity-0 invisible"
+                      (item.name === "About Us" && isDropDown) ||
+                      (item.name === "Join MORE Realty" && isJoinDropdown)
+                        ? "opacity-100 visible"
+                        : "opacity-0 invisible"
                     }`}
                   >
                     {item.subCategory?.map((sub, subIdx) => (
-                      <li key={subIdx} onClick={() => setisDropDown(false)}>
+                      <li
+                        key={subIdx}
+                        onClick={() => {
+                          setisDropDown(false);
+                          setIsJoinDropdown(false);
+                        }}
+                      >
                         <Link
                           className={`block py-2 ${
                             pathName === sub.path
@@ -164,10 +191,9 @@ const Navbar = () => {
                         >
                           {sub.label}
                         </Link>
-                        {item.subCategory &&
-                          subIdx !== item.subCategory.length - 1 && (
-                            <hr className="border-gray-400" />
-                          )}
+                        {subIdx !== (item.subCategory?.length ?? 0) - 1 && (
+                          <hr className="border-gray-400" />
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -186,14 +212,14 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Right - Contact Us */}
+        {/* Desktop Contact Button */}
         <Button
           onClick={handleNavigate}
           Txt="Contact Us"
           className="primary-btn hidden 2xl:block"
         />
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle */}
         <button
           onClick={() => setOpen(!isOpen)}
           className="2xl:hidden w-9 lg:w-10 h-9 lg:h-10 rounded bg-primary-blue text-white grid place-items-center cursor-pointer"
@@ -216,7 +242,7 @@ const Navbar = () => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         } duration-500 transition-transform fixed top-0 left-0 bg-white p-6 lg:p-7 shadow-lg overflow-y-auto border-r border-gray-200 max-h-screen min-h-screen w-[250px] lg:w-[270px] z-[9999] 2xl:hidden`}
       >
-        {/* Logo */}
+        {/* Mobile Logo */}
         <Image
           onClick={handleLogoClick}
           src={`${process.env.NEXT_PUBLIC_SITE_URL}/${siteSettingsData?.logo}`}
@@ -226,11 +252,11 @@ const Navbar = () => {
           className="w-[108px] h-[52px] object-cover cursor-pointer mb-10"
         />
 
-        {/* Links */}
+        {/* Mobile Links */}
         <ul className="flex flex-col gap-6">
           {navLinks.map((item, idx) => (
             <li key={idx}>
-              {item.name === "About Us" ? (
+              {item.name === "About Us" || item.name === "Join MORE Realty" ? (
                 <div className="flex flex-col gap-2 relative">
                   <div className="flex items-center justify-between">
                     <Link
@@ -249,16 +275,20 @@ const Navbar = () => {
                       onClick={e => {
                         e.preventDefault();
                         e.stopPropagation();
-                        setIsMobileDropdownOpen(prev => !prev);
+                        item.name === "About Us"
+                          ? setIsMobileDropdownOpen(prev => !prev)
+                          : setIsJoinMobileDropdownOpen(prev => !prev);
                       }}
                       className="cursor-pointer"
                     >
                       <DropdownSvg />
                     </div>
                   </div>
-                  {isMobileDropdownOpen && (
+                  {(item.name === "About Us" && isMobileDropdownOpen) ||
+                  (item.name === "Join MORE Realty" &&
+                    isJoinMobileDropdownOpen) ? (
                     <ul className="pl-4 flex flex-col gap-2 mt-2">
-                      {item?.subCategory?.map((sub, subIdx) => (
+                      {item.subCategory?.map((sub, subIdx) => (
                         <li key={subIdx} onClick={() => setOpen(false)}>
                           <Link
                             className={`block py-1 ${
@@ -276,7 +306,7 @@ const Navbar = () => {
                         </li>
                       ))}
                     </ul>
-                  )}
+                  ) : null}
                 </div>
               ) : (
                 <Link
@@ -293,7 +323,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Contact Us Button */}
+        {/* Mobile Contact Button */}
         <Button
           onClick={handleNavigate}
           Txt="Contact Us"

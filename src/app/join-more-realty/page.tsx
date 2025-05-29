@@ -5,12 +5,13 @@ import ContactUsTestimonial from "@/components/pages/ContactUs/ContactUsTestimon
 import WhyChooseMoreSection from "@/components/pages/JoinMoreRealty/WhyChooseMoreSection";
 import JoinMoreRealtySection from "@/components/pages/JoinMoreRealty/JoinMoreRealtySection";
 import MoreReality from "@/components/pages/JoinMoreRealty/MoreReality";
-import SecondaryBanner from "@/components/CommonComponenet/SecondaryBanner";
+// import SecondaryBanner from "@/components/CommonComponenet/SecondaryBanner";
 import { useJoinMoreRealty } from "@/hooks/queries";
 import { Loader } from "@/components/Loader/Loader";
 
 const page = () => {
   const { data: joinMoreRealty, isLoading } = useJoinMoreRealty();
+  console.log(joinMoreRealty?.why_Joins);
 
   // Loader
   useEffect(() => {
@@ -42,12 +43,11 @@ const page = () => {
         subTitle={joinMoreRealty?.joinBanner?.description}
         isInfoBox={false}
       />
-      <SecondaryBanner
+      {/* <SecondaryBanner
         title={joinMoreRealty?.joinOverview?.title}
-        // subtitle="A Brokerage That Invests in YOU"
         description={joinMoreRealty?.joinOverview?.description}
         image={joinMoreRealty?.joinOverview?.image_url}
-      />
+      /> */}
       <WhyChooseMoreSection
         description={joinMoreRealty?.joinWhyChoose?.description}
         title={joinMoreRealty?.joinWhyChoose?.title}
@@ -55,7 +55,10 @@ const page = () => {
         button_text={joinMoreRealty?.joinWhyChoose?.button_text}
         image={joinMoreRealty?.joinWhyChoose?.image_url}
       />
-      <MoreReality data={joinMoreRealty?.whyJoins} />
+      <MoreReality
+        visionData={joinMoreRealty?.why_Joins?.whyJoin}
+        missionData={joinMoreRealty?.why_Joins?.whyJoinItems}
+      />
       <ContactUsTestimonial data={joinMoreRealty?.successStories} />
       <JoinMoreRealtySection
         visionData={joinMoreRealty?.join_missions?.joinMission}

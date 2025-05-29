@@ -1,6 +1,6 @@
 "use client";
 import SubscribeNewsLetter from "@/components/CommonComponenet/SubscribeNewsLetter";
-import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
+// import CommonHeroBanner from "@/components/CommonHeroBanner/CommonHeroBanner";
 import { Loader } from "@/components/Loader/Loader";
 import BlogSection from "@/components/pages/Home/BlogSection";
 import { useBlogBanner, useBlogData } from "@/hooks/queries";
@@ -8,13 +8,10 @@ import { useEffect, useState } from "react";
 
 const page = () => {
   const [activePage, setActivePage] = useState<number>(1);
-  const { data: blogBanner, isLoading: isBlogBannerLoading } = useBlogBanner();
-  const { data: blogData, isLoading: isBlogDataLoading } = useBlogData(
-    10,
-    activePage
-  );
+  // const { data: blogBanner, isLoading: isBlogBannerLoading } = useBlogBanner();
+  const { data: blogData, isLoading } = useBlogData(10, activePage);
 
-  const isLoading = isBlogDataLoading || isBlogBannerLoading;
+  // const isLoading = isBlogDataLoading || isBlogBannerLoading;
 
   // Loader
   useEffect(() => {
@@ -40,12 +37,12 @@ const page = () => {
 
   return (
     <>
-      <CommonHeroBanner
+      {/* <CommonHeroBanner
         BgImgurl={blogBanner?.BlogBanner?.background_image}
         title={blogBanner?.BlogBanner?.title}
         subTitle={blogBanner?.BlogBanner?.description}
         isInfoBox={false}
-      />
+      /> */}
       <BlogSection
         title={"Latest News & Blog"}
         subTitle={
