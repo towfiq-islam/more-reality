@@ -5,7 +5,7 @@ import ContactUsTestimonial from "@/components/pages/ContactUs/ContactUsTestimon
 import WhyChooseMoreSection from "@/components/pages/JoinMoreRealty/WhyChooseMoreSection";
 import JoinMoreRealtySection from "@/components/pages/JoinMoreRealty/JoinMoreRealtySection";
 import MoreReality from "@/components/pages/JoinMoreRealty/MoreReality";
-import SecondaryBanner from "@/components/CommonComponenet/SecondaryBanner";
+// import SecondaryBanner from "@/components/CommonComponenet/SecondaryBanner";
 import { useJoinMoreRealty } from "@/hooks/queries";
 import { Loader } from "@/components/Loader/Loader";
 
@@ -42,12 +42,11 @@ const page = () => {
         subTitle={joinMoreRealty?.joinBanner?.description}
         isInfoBox={false}
       />
-      <SecondaryBanner
+      {/* <SecondaryBanner
         title={joinMoreRealty?.joinOverview?.title}
-        // subtitle="A Brokerage That Invests in YOU"
         description={joinMoreRealty?.joinOverview?.description}
         image={joinMoreRealty?.joinOverview?.image_url}
-      />
+      /> */}
       <WhyChooseMoreSection
         description={joinMoreRealty?.joinWhyChoose?.description}
         title={joinMoreRealty?.joinWhyChoose?.title}
@@ -61,6 +60,7 @@ const page = () => {
         visionData={joinMoreRealty?.join_missions?.joinMission}
         missionData={joinMoreRealty?.join_missions?.joinMissions}
       />
+      
     </>
   );
 };

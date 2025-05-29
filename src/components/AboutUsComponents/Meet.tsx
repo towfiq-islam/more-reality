@@ -9,6 +9,8 @@ import {
   BlueMail,
   BlueLocation,
 } from "../SvgContainer/SvgContainer";
+import Link from "next/link";
+import Button from "../Tags/Button/Button";
 
 type Links = {
   url: string;
@@ -90,7 +92,7 @@ const Meet: React.FC<MeetProps> = ({
 
         {/* Pagination */}
         {isAllMembers && (
-          <div className="mt-10 flex justify-center items-center gap-2 flex-wrap">
+          <div className="mt-5 lg:mt-10 flex justify-center items-center gap-2 flex-wrap">
             {links?.map((item, idx) => (
               <button
                 key={idx}
@@ -110,6 +112,11 @@ const Meet: React.FC<MeetProps> = ({
             ))}
           </div>
         )}
+
+        {/* Btn */}
+        <Link href="/contact-us" className="mt-5 lg:mt-10 flex justify-center">
+          <Button Txt={"Contact Us"} className="primary-btn" />
+        </Link>
       </div>
 
       {/* Modal */}

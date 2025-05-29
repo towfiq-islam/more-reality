@@ -19,7 +19,7 @@ const WhyChooseMoreSection = ({
 }: WhyChooseMoreProps) => {
   return (
     <>
-      <section className="lg:px-5 3xl:px-0  w-full bg-white pb-10 2xl:pb-20 3xl:pb-[100px]">
+      <section className="lg:px-5 3xl:px-0  w-full bg-white py-10 2xl:py-20 3xl:py-[100px]">
         <div className="container flex flex-col xl:flex-row items-center gap-7 xl:gap-12">
           {/* Left Side Image */}
           <div className="w-full xl:w-1/2">
