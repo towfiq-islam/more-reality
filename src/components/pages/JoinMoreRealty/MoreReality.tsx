@@ -1,43 +1,107 @@
-type realtyCard = {
+import Image from "next/image";
+import React from "react";
+
+type JoinMission = {
   title: string;
   description: string;
+  image_url: string;
 };
 
-type realtyProps = {
-  data: realtyCard[];
-};
+interface JoinMoreProps {
+  visionData: {
+    title: string;
+    description: string;
+    image_url: string;
+    sub_title: string;
+  };
+  missionData: JoinMission[];
+}
 
-const MoreReality: React.FC<realtyProps> = ({ data }) => {
+const JoinMoreRealtySection: React.FC<JoinMoreProps> = ({
+  visionData,
+  missionData,
+}) => {
+  const bgImgURL = encodeURI(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/${visionData?.image_url}`
+  );
+
   return (
-    <section className="lg:px-5 3xl:px-0 bg-[#F3F9FE] py-10 lg:py-16 3xl:py-20 mb-10 lg:mb-20 3xl:mb-[100px]">
-      <div className="container mx-auto">
-        {/* Section Title */}
-        <h2
-          data-aos="fade-up"
-          data-aos-delay="100"
-          className="text-[20px] lg:text-2xl 3xl:text-4xl  text-[#161C24] font-lato font-bold leading-tight text-center mb-[24px] 2xl:mb-8 3xl:mb-12"
-        >
-          Why Join MORE Realty
-        </h2>
+    <section className="pb-10 lg:pb-20 2xl:pb-24 2xl:pt-5 lg:px-5 3xl:px-0 bg-white">
+      <div className="container">
+        <div className=" grid grid-cols-1 xl:grid-cols-2 gap-[20px] xl:gap-8 2xl:gap-12 items-center">
+          {/* Left Image */}
+          <div className="w-full">
+            <Image
+              data-aos="fade-up"
+              data-aos-delay="100"
+              src={bgImgURL}
+              alt="Growth Illustration"
+              width={600}
+              height={268}
+              className="w-full h-[300px] lg:h-[350px] object-cover rounded-md"
+            />
+          </div>
 
-        {/* Map */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-7 xl:gap-12">
-          {data?.map((item, index) => (
-            <div key={index} className="space-y-3">
-              <h3
-                data-aos="fade-up"
-                data-aos-delay="100"
-                className="text-sm md:text-base 2xl:text-lg 3xl:text-xl font-semibold uppercase text-[#161C24]"
-              >
-                {item?.title}
-              </h3>
-              <p
-                data-aos="fade-up"
-                data-aos-delay="100"
-                className="text-[#494949] font-lato text-base 2xl:text-lg leading-relaxed"
-              >
-                {item?.description}
-              </p>
+          {/* Right Text */}
+          <div className="w-full">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="text-[20px] lg:text-2xl 3xl:text-4xl  font-bold leading-tight text-[#212B36] mb-3"
+            >
+              {visionData?.title}
+            </div>
+
+            <h3
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="text-xl mb-2 font-semibold text-[#212B36]"
+            >
+              {visionData?.sub_title}
+            </h3>
+
+            <p
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="text-gray-600 text-base md:text-lg leading-relaxed"
+            >
+              {visionData?.description}
+            </p>
+          </div>
+        </div>
+
+        {/* Feature Grid */}
+        <div className="mt-5 xl:mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-12 2xl:gap-x-[128px] gap-y-[20px]">
+          {missionData?.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col xl:flex-row items-start gap-6"
+            >
+              <div className="min-w-[40px] h-[40px]">
+                <img
+                  src={encodeURI(
+                    `${process.env.NEXT_PUBLIC_SITE_URL}/${item?.image_url}`
+                  )}
+                  alt="img"
+                  className="w-full h-full"
+                />
+              </div>
+              <div>
+                <h3
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className="text-lg font-semibold text-[#212B36]"
+                >
+                  {item?.title}
+                </h3>
+                <p
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className="text-[#637381] text-base mt-1 leading-relaxed"
+                >
+                  {item?.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -46,4 +110,4 @@ const MoreReality: React.FC<realtyProps> = ({ data }) => {
   );
 };
 
-export default MoreReality;
+export default JoinMoreRealtySection;
