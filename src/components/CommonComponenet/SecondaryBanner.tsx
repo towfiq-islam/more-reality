@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";
+import parse from "html-react-parser";
 
 interface SecondaryBannerProps {
   title: string;
@@ -23,7 +24,12 @@ const SecondaryBanner: React.FC<SecondaryBannerProps> = ({
           Txt={subtitle}
           className="md:mb-2 !text-base md:text-lg text-gray-800"
         />
-        <Paragraph Txt={description} className="max-w-[1440px] mb-7 lg:mb-10" />
+        <Paragraph
+          Txt={
+            typeof description === "string" ? parse(description) : description
+          }
+          className="max-w-[1440px] mb-7 lg:mb-10"
+        />
         <Image
           data-aos="fade-up"
           data-aos-delay="100"
