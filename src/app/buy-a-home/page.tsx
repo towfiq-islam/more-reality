@@ -10,6 +10,7 @@ import { useEffect } from "react";
 
 const page = () => {
   const { data: buyingHomeData, isLoading } = useBuyingHome();
+  console.log(buyingHomeData);
 
   // Loader
   useEffect(() => {
