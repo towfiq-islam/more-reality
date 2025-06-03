@@ -33,7 +33,7 @@ const FaqSection: React.FC<FaqCardProps> = ({ data }) => {
           />
         </div>
         <div className="xl:mt-5 flex flex-col gap-5 lg:gap-7 3xl:gap-8 h-auto">
-          {data?.map(faq => {
+          {data?.map((faq, idx) => {
             const isActive = activeId === faq.id;
 
             return (
@@ -48,7 +48,7 @@ const FaqSection: React.FC<FaqCardProps> = ({ data }) => {
                     data-aos-delay="100"
                     className="font-medium text-lg lg:text-xl xl:text-[22px] 2xl:text-[24px] lg:leading-10 text-primary-text-blue"
                   >
-                    {faq.id}. {faq.question}
+                    {idx + 1}. {faq.question}
                   </p>
                   {isActive ? (
                     <div className="flex-shrink-0">
