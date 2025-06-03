@@ -1,6 +1,5 @@
-import type { NextConfig } from "next";
-
-let domain = "example.com"; // fallback domain
+/** @type {import('next').NextConfig} */
+let domain = "example.com"; // Fallback domain
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 if (siteUrl) {
@@ -13,10 +12,18 @@ if (siteUrl) {
   console.warn("NEXT_PUBLIC_SITE_URL not set, using fallback domain.");
 }
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   images: {
-    domains: [domain],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: domain,
+        port: "",
+        pathname: "/**", // Allow all paths under the domain
+      },
+    ],
   },
 };
 
 export default nextConfig;
+
