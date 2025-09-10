@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { use } from "react";
 import { Loader } from "@/components/Loader/Loader";
 
+
 const FALLBACK_IMAGE = "/images/fallback.jpg"; // Ensure this exists in /public
 const FALLBACK_AUTHOR_IMAGE = "/images/fallback-author.jpg"; // Ensure this exists in /public
 
