@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Name: More Realty
 
-## Getting Started
+## 1. Description:
 
-First, run the development server:
+**More Realty** is a modern, dynamic, and fully responsive property management platform designed for buying, selling, and managing real estate properties with ease.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+It offers an elegant UI/UX, eye-catching design, fast performance, and a complete admin dashboard for seamless content management.
+
+Users can buy homes, sell homes, explore commercial properties, view detailed property information, and directly contact property owners — making it a full-featured real estate solution.
+
+---
+
+## 2. Used Technologies:
+
+- Next.js (v15)
+- TypeScript
+- Tailwind CSS as Framework
+- PHP (Backend)
+- AOS (Animations)
+- Axios for API Integration
+- TanStack Query (Real-time Data Fetching)
+- Radix UI Components
+
+---
+
+## 3. Main Features:
+
+- **Modern Landing Page** – Clean, fast, and visually appealing.
+- **Powerful Admin Dashboard** – Upload content, manage website data, and update listings dynamically.
+- **Dynamic Property Listings** – Add, update, or remove properties anytime.
+- **Buy Home** – Users can browse homes with full details.
+- **Sell Home** – Users can upload their property details for sale.
+- **Commercial Listings** – Explore commercial real estate.
+- **View Property Details** – High-quality images, features, pricing, location & more.
+- **Contact Property Owner** – Direct contact form to connect with sellers.
+- **High Performance** – Optimized build, clean reusable code structure.
+- **Fully Responsive Design** – Works seamlessly across desktops, tablets, and
+  mobiles.
+- **Dynamic CMS** – Entire website content controlled by admin.
+
+---
+
+## 4. Dependencies:
+
+```json
+"dependencies": {
+  "@radix-ui/react-dialog": "^1.1.13",
+  "@tanstack/react-query": "^5.76.2",
+  "aos": "^2.3.4",
+  "axios": "^1.9.0",
+  "clsx": "^2.1.1",
+  "html-react-parser": "^5.2.5",
+  "lucide-react": "^0.510.0",
+  "next": "15.3.2",
+  "react": "^19.0.0",
+  "react-dom": "^19.0.0",
+  "react-hook-form": "^7.56.3",
+  "react-hot-toast": "^2.5.2",
+  "react-icons": "^5.5.0",
+  "react-spinners": "^0.17.0",
+  "swiper": "^11.2.6",
+  "tailwind-merge": "^3.3.0"
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 5. devDependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```json
+"devDependencies": {
+  "@tailwindcss/postcss": "^4",
+  "@types/aos": "^3.0.7",
+  "@types/node": "^20",
+  "@types/react": "^19",
+  "@types/react-dom": "^19",
+  "@types/react-redux": "^7.1.34",
+  "tailwindcss": "^4",
+  "typescript": "^5"
+}
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 6. Installation:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Clone the repository
+git clone https://github.com/towfiqislambd/more-reality.git
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Navigate into the project
+cd more-reality
 
-## Deploy on Vercel
+# Add an env.local file in the root
+.env.local = Add secret credentials
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Install dependencies
+npm install
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Run the development server
+npm run dev
+```
+
+---
+
+## 7. Usage:
+
+Run `npm run dev` to start the project locally. The app will run on
+**http://localhost:3000**
+
+---
