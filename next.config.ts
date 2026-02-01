@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 let domain = "example.com"; // Fallback domain
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
